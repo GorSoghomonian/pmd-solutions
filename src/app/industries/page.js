@@ -62,7 +62,7 @@ export default function IndustriesPage() {
           {/* Контент секции */}
           <div className="flex-1">
             <div className='flex items-center mb-6'>
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-20 h-20 rounded-2xl flex items-center justify-center bg-white/20">
                 <i className="ri-building-line text-2xl text-white" />
               </div>
             </div>

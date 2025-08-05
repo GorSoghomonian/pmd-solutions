@@ -1,5 +1,29 @@
 import Link from 'next/link';
 import { Pacifico } from "next/font/google";
+import FeatureCardsSection from "../components/ui/FeatureCardsSection";
+
+const featureItems = [
+  {
+    icon: "⚙️",
+    title: "Custom Setup",
+    description: "Tailored configuration for your unique business needs",
+  },
+  {
+    icon: "👥",
+    title: "Team Training",
+    description: "Training to maximize your team’s productivity",
+  },
+  {
+    icon: "📈",
+    title: "Performance Optimization",
+    description: "Ongoing support to ensure peak performance",
+  },
+  {
+    icon: "💾",
+    title: "Data Migration",
+    description: "Seamless data transfer and processes",
+  },
+];
 
 const pacifico = Pacifico({
   weight: "400",
@@ -18,7 +42,9 @@ export default function Home() {
           Leading consulting firm providing comprehensive business solutions,<br className="hidden md:inline" /> 
           automation services, and strategic guidance to help your business thrive.
         </p>
-
+          <FeatureCardsSection items={featureItems} />
+          <FeatureCardsSection items={featureItems} />
+          <FeatureCardsSection items={featureItems} />
         <div className="mt-5 flex flex-wrap justify-center gap-4">
           <Link
             href="/services"
