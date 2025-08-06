@@ -108,7 +108,7 @@ const automationItems = [
     iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "m"
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-mail-send-line text-white text-lg" />,
