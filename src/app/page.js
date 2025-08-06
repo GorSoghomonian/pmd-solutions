@@ -108,7 +108,7 @@ const automationItems = [
     iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "md"
+    titleFont: "m"
   },
   {
     icon: <i className="ri-mail-send-line text-white text-lg" />,
@@ -120,7 +120,7 @@ const automationItems = [
     iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "md"
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-customer-service-2-line text-white text-lg" />,
@@ -132,7 +132,7 @@ const automationItems = [
     iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "md"
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-bar-chart-box-line text-white text-lg" />,
@@ -144,7 +144,7 @@ const automationItems = [
     iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "md"
+    titleFont: "sm"
   },
 ];
 
@@ -158,7 +158,8 @@ const hubspotItems = [
     iconBg: "bg-[#2A73DD]",
     iconColor: "text-white",
     cardSize: "md",
-    descFont: "sm"
+    descFont: "md",
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-team-line text-white text-lg" />,
@@ -168,7 +169,8 @@ const hubspotItems = [
     iconBg: "bg-[#2A73DD]",
     iconColor: "text-white",
     cardSize: "md",
-    descFont: "sm"
+    descFont: "md",
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-line-chart-line text-white text-lg" />,
@@ -178,7 +180,8 @@ const hubspotItems = [
     iconBg: "bg-[#2A73DD]",
     iconColor: "text-white",
     cardSize: "sm",
-    descFont: "sm"
+    descFont: "md",
+    titleFont: "sm"
   },
   {
     icon: <i className="ri-database-2-line text-white text-lg" />,
@@ -188,7 +191,8 @@ const hubspotItems = [
     iconBg: "bg-[#2A73DD]",
     iconColor: "text-white",
     cardSize: "sm",
-    descFont: "sm"
+    descFont: "md",
+    titleFont: "sm"
   },
 ];
 
@@ -286,6 +290,7 @@ export default function Home() {
                     badgeColor={item.badgeColor}
                     cardSize={item.cardSize}
                     descFont={item.descFont}
+                    titleFont={item.titleFont}
                   />
                 ))}
               </div>
