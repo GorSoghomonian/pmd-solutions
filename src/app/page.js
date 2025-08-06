@@ -1,27 +1,174 @@
 import Link from 'next/link';
 import { Pacifico } from "next/font/google";
+import FeatureCard from "../components/ui/FeatureCard";
 import FeatureCardsSection from "../components/ui/FeatureCardsSection";
 
-const featureItems = [
+// 1. Секции из первого скриншота (маленькие карточки)
+const devItems = [
+  {
+    icon: "💻",
+    title: "Frontend Development",
+    description: "React, Next.js, Vue.js, Angular",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+  {
+    icon: "🖥️",
+    title: "Backend Development",
+    description: "Node.js, Python, .NET, PHP",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+  {
+    icon: "🗄️",
+    title: "Database Solutions",
+    description: "PostgreSQL, MongoDB, MySQL",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+  {
+    icon: "☁️",
+    title: "Cloud Integration",
+    description: "AWS, Azure, Google Cloud",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+  {
+    icon: "📱",
+    title: "Mobile Development",
+    description: "React Native, Flutter, iOS, Android",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+  {
+    icon: "🔗",
+    title: "API Development",
+    description: "RESTful APIs, GraphQL, Microservices",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
+  },
+];
+
+// 2. Секции из второго скриншота (средние карточки)
+const auditItems = [
+  {
+    icon: "🔍",
+    title: "Process Analysis",
+    description: "Deep dive into your current workflows and identify bottlenecks",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-green-600",
+    cardSize: "md"
+  },
+  {
+    icon: "🛡️",
+    title: "Compliance Review",
+    description: "Ensure your processes meet industry standards and regulations",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-green-600",
+    cardSize: "md"
+  },
+  {
+    icon: "⚡",
+    title: "Efficiency Assessment",
+    description: "Measure performance and identify optimization opportunities",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-green-600",
+    cardSize: "md"
+  },
+  {
+    icon: "💡",
+    title: "Recommendations",
+    description: "Strategic recommendations for process improvements",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-green-600",
+    cardSize: "md"
+  },
+];
+
+// 3. Секции из третьего скриншота (большие карточки)
+const automationItems = [
+  {
+    icon: "🔄",
+    title: "Workflow Automation",
+    description: "Streamline repetitive tasks and business processes",
+    badge: "70% Time Saved",
+    badgeColor: "bg-blue-100 text-blue-700",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "lg"
+  },
+  {
+    icon: "✉️",
+    title: "Email Marketing",
+    description: "Automated email campaigns and nurture sequences",
+    badge: "3x Higher ROI",
+    badgeColor: "bg-blue-100 text-blue-700",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "lg"
+  },
+  {
+    icon: "🎧",
+    title: "Customer Support",
+    description: "Automated ticketing and response systems",
+    badge: "50% Faster Response",
+    badgeColor: "bg-blue-100 text-blue-700",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "lg"
+  },
+  {
+    icon: "📊",
+    title: "Reporting & Analytics",
+    description: "Automated data collection and insights generation",
+    badge: "Real-time Insights",
+    badgeColor: "bg-blue-100 text-blue-700",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "lg"
+  },
+];
+
+// 4. Секции из четвертого скриншота (большие карточки)
+const hubspotItems = [
   {
     icon: "⚙️",
     title: "Custom Setup",
-    description: "Tailored configuration for your unique business needs",
+    description: "Tailored HubSpot configuration for your unique business needs",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "md"
   },
   {
     icon: "👥",
     title: "Team Training",
-    description: "Training to maximize your team’s productivity",
+    description: "Comprehensive training to maximize your team's productivity",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "md"
   },
   {
     icon: "📈",
     title: "Performance Optimization",
-    description: "Ongoing support to ensure peak performance",
+    description: "Ongoing support to ensure peak system performance",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm",
+    descFont: "md"
   },
   {
     icon: "💾",
     title: "Data Migration",
-    description: "Seamless data transfer and processes",
+    description: "Seamless transfer of your existing data and processes",
+    bgColor: "#f7f9fa",
+    iconBg: "bg-blue-600",
+    cardSize: "sm"
   },
 ];
 
@@ -30,37 +177,118 @@ const pacifico = Pacifico({
   subsets: ["latin"],
 });
 
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <section className="flex flex-col items-center justify-center px-4 py-24 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 mt-18">
-          Welcome to <span className="text-blue-600">PMD Solutions</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8 ">
-          Leading consulting firm providing comprehensive business solutions,<br className="hidden md:inline" /> 
-          automation services, and strategic guidance to help your business thrive.
-        </p>
-          <FeatureCardsSection items={featureItems} />
-          <FeatureCardsSection items={featureItems} />
-          <FeatureCardsSection items={featureItems} />
-        <div className="mt-5 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/services"
-            className="px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer"
-          >
-            Explore Our Services →
-          </Link>
+    <main>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-blue-600">
+        {/* Контент */}
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight text-white">Our Services</h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-6">
+            <button className="group relative px-8 py-4 bg-white text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer">
+              Get Started Today →
+            </button>
+            <button className="group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer">
+              <span>Learn More About Us</span>
+              <span className="text-lg">⭑</span>
+            </button>
+          </div>
+          <div className="mt-8 flex flex-col items-center">
+            <div className="flex flex-col items-center">
+              <div className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-2">
+                <span className="text-white text-2xl">⌄</span>
+              </div>
+              <span className="animate-bounce text-white">Scroll to explore</span>
+            </div>
+          </div>
+        </div>
+        {/* Кнопка чата справа внизу */}
+        <div className="absolute bottom-6 right-6 z-10 flex flex-col items-end gap-2">
+          <button className="bg-blue-500 rounded-full p-3 shadow-lg">
+            <svg width="24" height="24" fill="none"><circle cx="12" cy="12" r="10" fill="#fff"/><path d="M8 12h8M8 16h5" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg>
+          </button>
+          <span className="bg-red-500 text-white text-xs rounded-full px-2 py-0.5">1</span>
+        </div>
+      </section>
 
-          <Link
-            href="/about"
-            className="px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer"
-          >
-            Learn About Us
-          </Link>
+      {/* HubSpot Implementation & Support Section */}
+      <section className="max-w-7xl mx-auto px-6 mt-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Левая часть */}
+          <div>
+            <div className="mb-8">
+              <div className="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-full mb-6">
+                <span className="text-2xl text-orange-600">⚙️</span>
+              </div>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                HubSpot Implementation &amp; Support
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                Transform your sales and marketing operations with expert HubSpot implementation. We help businesses maximize their CRM potential through strategic setup, customization, and ongoing optimization.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              {hubspotItems.map((item, idx) => (
+                <FeatureCard
+                  key={idx}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                  bgColor={item.bgColor}
+                  iconBg={item.iconBg}
+                  iconColor={item.iconColor}
+                  badge={item.badge}
+                  badgeColor={item.badgeColor}
+                  cardSize={item.cardSize}
+                  descFont={item.descFont}
+                />
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                className="px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer flex items-center justify-center"
+                href="#"
+              >
+                Learn More
+                <span className="ml-2">→</span>
+              </a>
+              <a
+                className="px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer flex items-center justify-center"
+                href="#"
+              >
+                Get Quote
+                <span className="ml-2">🏷️</span>
+              </a>
+            </div>
+          </div>
+          {/* Правая часть */}
+          <div className="relative">
+            <img
+              alt="HubSpot Implementation Service"
+              className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#2A73DD]/20 to-transparent rounded-2xl"></div>
+            <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-[#2A73DD]">98%</div>
+                <div className="text-sm text-gray-600">Success Rate</div>
+              </div>
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-orange-600">150+</div>
+                <div className="text-sm text-gray-600">Projects Completed</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
