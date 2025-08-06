@@ -56,129 +56,137 @@ const devItems = [
   },
 ];
 
-// 2. Секции из второго скриншота (средние карточки)
+// 2. Секции из второго скриншота (с иконками Remix)
 const auditItems = [
   {
-    icon: "🔍",
+    icon: <i className="ri-search-eye-line text-white text-lg" />,
     title: "Process Analysis",
     description: "Deep dive into your current workflows and identify bottlenecks",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-green-600",
-    cardSize: "sm"
+    bgColor: "#fff",
+    iconBg: "bg-green-500 rounded-full",
+    cardSize: "sm",
+    titleFont: "sm"
   },
   {
-    icon: "🛡️",
+    icon: <i className="ri-shield-check-line text-white text-lg" />,
     title: "Compliance Review",
     description: "Ensure your processes meet industry standards and regulations",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-green-600",
-    cardSize: "sm"
+    bgColor: "#fff",
+    iconBg: "bg-green-500 rounded-full",
+    cardSize: "sm",
+    titleFont: "sm"
   },
   {
-    icon: "⚡",
+    icon: <i className="ri-speed-up-line text-white text-lg" />,
     title: "Efficiency Assessment",
     description: "Measure performance and identify optimization opportunities",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-green-600",
-    cardSize: "sm"
+    bgColor: "#fff",
+    iconBg: "bg-green-500 rounded-full",
+    cardSize: "sm",
+    titleFont: "sm"
   },
   {
-    icon: "💡",
+    icon: <i className="ri-lightbulb-line text-white text-lg" />,
     title: "Recommendations",
     description: "Strategic recommendations for process improvements",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-green-600",
-    cardSize: "sm"
+    bgColor: "#fff",
+    iconBg: "bg-green-500 rounded-full",
+    cardSize: "sm",
+    titleFont: "sm"
   },
 ];
 
-// 3. Секции из третьего скриншота (большие карточки)
+// 3. Секции Business Automation & Support (иконки Remix вместо эмодзи)
 const automationItems = [
   {
-    icon: "🔄",
+    icon: <i className="ri-flow-chart text-white text-lg" />,
     title: "Workflow Automation",
     description: "Streamline repetitive tasks and business processes",
     badge: "70% Time Saved",
-    badgeColor: "bg-blue-100 text-blue-700",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    badgeColor: "bg-blue-50 text-blue-600",
+    bgColor: "#fff",
+    iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "sm"
+    titleFont: "md"
   },
   {
-    icon: "✉️",
+    icon: <i className="ri-mail-send-line text-white text-lg" />,
     title: "Email Marketing",
     description: "Automated email campaigns and nurture sequences",
     badge: "3x Higher ROI",
-    badgeColor: "bg-blue-100 text-blue-700",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    badgeColor: "bg-blue-50 text-blue-600",
+    bgColor: "#fff",
+    iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
     descFont: "sm",
-    titleFont: "sm"
-    
+    titleFont: "md"
   },
   {
-    icon: "🎧",
+    icon: <i className="ri-customer-service-2-line text-white text-lg" />,
     title: "Customer Support",
     description: "Automated ticketing and response systems",
     badge: "50% Faster Response",
-    badgeColor: "bg-blue-100 text-blue-700",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    badgeColor: "bg-blue-50 text-blue-600",
+    bgColor: "#fff",
+    iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
-    descFont: "sm",    
-    titleFont: "sm"
+    descFont: "sm",
+    titleFont: "md"
   },
   {
-    icon: "📊",
+    icon: <i className="ri-bar-chart-box-line text-white text-lg" />,
     title: "Reporting & Analytics",
     description: "Automated data collection and insights generation",
     badge: "Real-time Insights",
-    badgeColor: "bg-blue-100 text-blue-700",
-    bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    badgeColor: "bg-blue-50 text-blue-600",
+    bgColor: "#fff",
+    iconBg: "bg-blue-500 rounded-lg",
     cardSize: "md",
-    descFont: "sm"
+    descFont: "sm",
+    titleFont: "md"
   },
 ];
 
 // 4. Секции из четвертого скриншота (большие карточки)
 const hubspotItems = [
   {
-    icon: "⚙️",
+    icon: <i className="ri-settings-3-line text-white text-lg" />,
     title: "Custom Setup",
     description: "Tailored HubSpot configuration for your unique business needs",
     bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    iconBg: "bg-[#2A73DD]",
+    iconColor: "text-white",
     cardSize: "md",
     descFont: "sm"
   },
   {
-    icon: "👥",
+    icon: <i className="ri-team-line text-white text-lg" />,
     title: "Team Training",
     description: "Comprehensive training to maximize your team's productivity",
     bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    iconBg: "bg-[#2A73DD]",
+    iconColor: "text-white",
     cardSize: "md",
     descFont: "sm"
   },
   {
-    icon: "📈",
+    icon: <i className="ri-line-chart-line text-white text-lg" />,
     title: "Performance Optimization",
     description: "Ongoing support to ensure peak system performance",
     bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    iconBg: "bg-[#2A73DD]",
+    iconColor: "text-white",
     cardSize: "sm",
-    descFont: "sm"  
+    descFont: "sm"
   },
   {
-    icon: "💾",
+    icon: <i className="ri-database-2-line text-white text-lg" />,
     title: "Data Migration",
     description: "Seamless transfer of your existing data and processes",
     bgColor: "#f7f9fa",
-    iconBg: "bg-blue-600",
+    iconBg: "bg-[#2A73DD]",
+    iconColor: "text-white",
     cardSize: "sm",
     descFont: "sm"
   },
@@ -368,7 +376,7 @@ export default function Home() {
                   bgColor={item.bgColor}
                   iconBg={item.iconBg}
                   cardSize={item.cardSize}
-                  titleFont='sm'
+                  titleFont={item.titleFont}
                 />
               ))}
             </div>
@@ -404,11 +412,11 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
               Business Process Audit
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            <p className="text-xl text-gray-600 leading-relaxed ">
               Uncover hidden opportunities for improvement with our comprehensive business process audit. We analyze your operations from top to bottom, identifying inefficiencies and providing actionable recommendations.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 mb-8 ">
+          <div className="grid md:grid-cols-2 gap-6 mb-6 ">
             {auditItems.map((item, idx) => (
               <FeatureCard
                 key={idx}
@@ -418,6 +426,7 @@ export default function Home() {
                 bgColor={item.bgColor}
                 iconBg={item.iconBg}
                 cardSize={item.cardSize}
+                titleFont={item.titleFont}
               />
             ))}
           </div>
