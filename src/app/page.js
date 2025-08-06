@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Pacifico } from "next/font/google";
 import FeatureCard from "../components/ui/FeatureCard";
 import FeatureCardsSection from "../components/ui/FeatureCardsSection";
+import ActionButtons from "../components/ui/ActionButtons";
 
 // 1. Секции из первого скриншота (маленькие карточки)
 const devItems = [
@@ -189,13 +190,23 @@ export default function Home() {
             Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.
           </p>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-6">
-            <button className="group relative px-8 py-4 bg-white text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer">
-              Get Started Today →
-            </button>
-            <button className="group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer">
-              <span>Learn More About Us</span>
-              <span className="text-lg">⭑</span>
-            </button>
+            <ActionButtons
+              buttons={[
+                {
+                  text: "Get Started Today →",
+                  href: "#",
+                  className:
+                    "group relative px-8 py-4 bg-white text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer",
+                },
+                {
+                  text: "Learn More About Us",
+                  href: "#",
+                  icon: "⭑",
+                  className:
+                    "group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer flex items-center gap-2",
+                },
+              ]}
+            />
           </div>
           <div className="mt-8 flex flex-col items-center">
             <div className="flex flex-col items-center">
@@ -249,20 +260,22 @@ export default function Home() {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                className="px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer flex items-center justify-center"
-                href="#"
-              >
-                Learn More
-                <span className="ml-2">→</span>
-              </a>
-              <a
-                className="px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer flex items-center justify-center"
-                href="#"
-              >
-                Get Quote
-                <span className="ml-2">🏷️</span>
-              </a>
+              <ActionButtons
+                buttons={[
+                  {
+                    text: "Learn More →",
+                    href: "#",
+                    className:
+                      "px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer",
+                  },
+                  {
+                    text: "Get Quote",
+                    href: "#",
+                    icon: "⭑",
+                    className:
+                      "px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer",
+                  },
+                ]} />
             </div>
           </div>
           {/* Правая часть */}
