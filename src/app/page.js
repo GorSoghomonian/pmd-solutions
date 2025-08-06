@@ -102,7 +102,9 @@ const automationItems = [
     badgeColor: "bg-blue-100 text-blue-700",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "lg"
+    cardSize: "md",
+    descFont: "sm",
+    titleFont: "sm"
   },
   {
     icon: "✉️",
@@ -112,7 +114,10 @@ const automationItems = [
     badgeColor: "bg-blue-100 text-blue-700",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "lg"
+    cardSize: "md",
+    descFont: "sm",
+    titleFont: "sm"
+    
   },
   {
     icon: "🎧",
@@ -122,7 +127,9 @@ const automationItems = [
     badgeColor: "bg-blue-100 text-blue-700",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "lg"
+    cardSize: "md",
+    descFont: "sm",    
+    titleFont: "sm"
   },
   {
     icon: "📊",
@@ -132,7 +139,8 @@ const automationItems = [
     badgeColor: "bg-blue-100 text-blue-700",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "lg"
+    cardSize: "md",
+    descFont: "sm"
   },
 ];
 
@@ -144,7 +152,8 @@ const hubspotItems = [
     description: "Tailored HubSpot configuration for your unique business needs",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "md"
+    cardSize: "md",
+    descFont: "sm"
   },
   {
     icon: "👥",
@@ -152,7 +161,8 @@ const hubspotItems = [
     description: "Comprehensive training to maximize your team's productivity",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "md"
+    cardSize: "md",
+    descFont: "sm"
   },
   {
     icon: "📈",
@@ -161,7 +171,7 @@ const hubspotItems = [
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
     cardSize: "sm",
-    descFont: "md"
+    descFont: "sm"  
   },
   {
     icon: "💾",
@@ -169,7 +179,8 @@ const hubspotItems = [
     description: "Seamless transfer of your existing data and processes",
     bgColor: "#f7f9fa",
     iconBg: "bg-blue-600",
-    cardSize: "sm"
+    cardSize: "sm",
+    descFont: "sm"
   },
 ];
 
@@ -183,6 +194,14 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-blue-600">
+        {/* Фоновое изображение */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <img
+            src="https://readdy.ai/api/search-image?query=Modern%20business%20consulting%20office%20with%20professional%20team%20working%20on%20digital%20transformation%20projects%2C%20sleek%20workspace%20with%20multiple%20screens%20showing%20business%20analytics%20and%20automation%20tools%2C%20contemporary%20office%20environment%20with%20glass%20walls%20and%20modern%20technology%2C%20professional%20consulting%20atmosphere%20with%20clean%20minimal%20design%20and%20blue%20accent%20lighting&width=1920&height=1080&seq=services-hero-bg&orientation=landscape"
+            alt="Modern business consulting office"
+            className="w-full h-full object-cover opacity-40"
+          />
+        </div>
         {/* Контент */}
         <div className="relative z-10 flex flex-col items-center justify-center">
           <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight text-white">Our Services</h1>
@@ -227,78 +246,149 @@ export default function Home() {
       </section>
 
       {/* HubSpot Implementation & Support Section */}
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Левая часть */}
-          <div>
-            <div className="mb-8">
-              <div className="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-full mb-6">
-                <span className="text-2xl text-orange-600">⚙️</span>
+      <section className="relative mt-20 pb-20">
+        {/* Темная тень по всей ширине */}
+        <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-0" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Левая часть */}
+            <div>
+              <div className="mb-8">
+                <div className="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-full mb-6">
+                  <span className="text-2xl text-orange-600">⚙️</span>
+                </div>
+                <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                  HubSpot Implementation &amp; Support
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                  Transform your sales and marketing operations with expert HubSpot implementation. We help businesses maximize their CRM potential through strategic setup, customization, and ongoing optimization.
+                </p>
               </div>
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                HubSpot Implementation &amp; Support
-              </h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Transform your sales and marketing operations with expert HubSpot implementation. We help businesses maximize their CRM potential through strategic setup, customization, and ongoing optimization.
-              </p>
+              <div className="grid md:grid-cols-2 gap-6 mb-10">
+                {hubspotItems.map((item, idx) => (
+                  <FeatureCard
+                    key={idx}
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                    bgColor={item.bgColor}
+                    iconBg={item.iconBg}
+                    iconColor={item.iconColor}
+                    badge={item.badge}
+                    badgeColor={item.badgeColor}
+                    cardSize={item.cardSize}
+                    descFont={item.descFont}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <ActionButtons
+                  buttons={[
+                    {
+                      text: "Learn More →",
+                      href: "#",
+                      className:
+                        "px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer",
+                    },
+                    {
+                      text: "Get Quote",
+                      href: "#",
+                      icon: "⭑",
+                      className:
+                        "px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer",
+                    },
+                  ]} />
+              </div>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {hubspotItems.map((item, idx) => (
-                <FeatureCard
-                  key={idx}
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  bgColor={item.bgColor}
-                  iconBg={item.iconBg}
-                  iconColor={item.iconColor}
-                  badge={item.badge}
-                  badgeColor={item.badgeColor}
-                  cardSize={item.cardSize}
-                  descFont={item.descFont}
-                />
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <ActionButtons
-                buttons={[
-                  {
-                    text: "Learn More →",
-                    href: "#",
-                    className:
-                      "px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer",
-                  },
-                  {
-                    text: "Get Quote",
-                    href: "#",
-                    icon: "⭑",
-                    className:
-                      "px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer",
-                  },
-                ]} />
+            {/* Правая часть */}
+            <div className="relative">
+              <img
+                alt="HubSpot Implementation Service"
+                className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#2A73DD]/20 to-transparent rounded-2xl"></div>
+              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#2A73DD]">98%</div>
+                  <div className="text-sm text-gray-600">Success Rate</div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-orange-600">150+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+              </div>
             </div>
           </div>
-          {/* Правая часть */}
-          <div className="relative">
-            <img
-              alt="HubSpot Implementation Service"
-              className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#2A73DD]/20 to-transparent rounded-2xl"></div>
-            <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#2A73DD]">98%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
-              </div>
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">150+</div>
-                <div className="text-sm text-gray-600">Projects Completed</div>
-              </div>
+        </div>
+      </section>
+
+      {/* Business Automation & Support Section */}
+      <section className="max-w-7xl mx-auto px-6 mt-20 flex flex-col lg:flex-row items-center gap-16">
+        {/* Левая часть с фото */}
+        <div className="relative w-full lg:w-1/2 flex justify-center">
+          <img
+                alt="HubSpot Implementation Service"
+                className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+              />
+          {/* Пример круглых иконок поверх фото */}
+          <div className="absolute top-6 left-6">
+            <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white text-2xl">🖥️</span>
             </div>
           </div>
+          <div className="absolute bottom-6 right-6">
+            <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-blue-600 text-2xl">🔔</span>
+            </div>
+          </div>
+        </div>
+        {/* Правая часть с текстом и карточками */}
+        <div className="w-full lg:w-1/2 flex flex-col gap-8">
+          <h2 className="text-5xl font-bold text-gray-900 ">
+            Business Automation &amp; Support
+          </h2>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Revolutionize your operations with intelligent automation solutions. We design and implement systems that reduce manual work, eliminate errors, and boost productivity across your organization.
+          </p>
+          {/* Карточки automationItems */}
+          <div className="grid md:grid-cols-2 gap-6 mb-4">
+            {automationItems.map((item, idx) => (
+              <FeatureCard
+                key={idx}
+                icon={item.icon}
+                title={item.title}
+                description={item.description}
+                badge={item.badge}
+                badgeColor={item.badgeColor}
+                bgColor={item.bgColor}
+                iconBg={item.iconBg}
+                cardSize={item.cardSize}
+                titleFont='sm'
+              />
+            ))}
+          </div>
+          {/* Кнопки */}
+          <ActionButtons
+            buttons={[
+              {
+                text: "Learn More",
+                href: "#",
+                className:
+                  "px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer",
+              },
+              {
+                text: "Start Automation",
+                href: "#",
+                icon: "⭑",
+                className:
+                  "px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer flex items-center gap-2",
+              },
+            ]}
+          />
         </div>
       </section>
     </main>

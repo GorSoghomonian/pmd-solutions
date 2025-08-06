@@ -22,6 +22,7 @@ export default function FeatureCardsSection({
             badgeColor={item.badgeColor}
             cardSize={item.cardSize || cardSize}
             descFont={item.descFont || descFont}
+            titleFont={item.titleFont || "md"} // добавлено значение по умолчанию
           />
         ))}
       </div>

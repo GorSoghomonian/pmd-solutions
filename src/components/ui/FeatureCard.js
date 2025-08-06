@@ -8,17 +8,17 @@ export default function FeatureCard({
   badge,
   badgeColor = "bg-blue-100 text-blue-700",
   cardSize = "md",
-  descFont = "md" // добавлено значение по умолчанию
+  descFont = "md",
+  titleFont = "md", // добавь сюда
 }) {
-  // Размеры карточки и шрифтов
   const sizeStyles = {
     sm: "w-[260px] min-h-[90px] p-2",
     md: "w-[260px] min-h-[110px] p-6",
     lg: "w-[380px] min-h-[140px] p-8",
     xl: "w-[440px] min-h-[170px] p-10"
   };
-  const titleFont = {
-    sm: "text-sm",
+  const titleFontStyles = {
+    sm: "text-[14px]",
     md: "text-lg",
     lg: "text-xl",
     xl: "text-2xl"
@@ -39,18 +39,18 @@ export default function FeatureCard({
         {icon}
       </div>
       <div className="flex flex-col items-start w-full">
-        <h4 className={`${titleFont[cardSize]} font-semibold text-gray-900 text-left mb-1 flex items-center gap-2`}>
+        <h4 className={`${titleFontStyles[titleFont]} font-semibold text-gray-900 text-left mb-1 flex items-center gap-2`}>
           {title}
-          {badge && (
-            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${badgeColor}`}>
-              {badge}
-            </span>
-          )}
         </h4>
         <p className={`${descFontStyles[descFont]} text-gray-700 text-left leading-snug break-words w-full`}>
           {description}
         </p>
-      </div>
+        {badge && (
+            <span className={`px-2 mt-3 rounded-full text-xs font-medium ${badgeColor}`}>
+              {badge}
+            </span>
+          )}
+      </div>   
     </div>
   );
 }
