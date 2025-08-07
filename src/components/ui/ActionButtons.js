@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 /**
  * ActionButtons Component
@@ -19,18 +20,31 @@ export default function ActionButtons({
   
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
-      {buttons.map((btn, idx) => (
-        // NOTE: Using <a> tag for all buttons - consider Link component for internal navigation
-        <a
-          key={idx}
-          href={btn.href}
-          className={btn.className}
-        >
-          <span>{btn.text}</span>
-          {/* Optional icon support */}
-          {btn.icon && <span className="text-lg ml-2">{btn.icon}</span>}
-        </a>
-      ))}
+      {buttons.map((btn, idx) => {
+        const isInternal = btn.href && btn.href.startsWith("/");
+        if (isInternal) {
+          return (
+            <Link key={idx} href={btn.href} className={btn.className}>
+              <span>{btn.text}</span>
+              {/* Optional icon support */}
+              {btn.icon && <span className="text-lg ml-2">{btn.icon}</span>}
+            </Link>
+          );
+        }
+        return (
+          <a
+            key={idx}
+            href={btn.href}
+            className={btn.className}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{btn.text}</span>
+            {/* Optional icon support */}
+            {btn.icon && <span className="text-lg ml-2">{btn.icon}</span>}
+          </a>
+        );
+      })}
     </div>
   );
 }

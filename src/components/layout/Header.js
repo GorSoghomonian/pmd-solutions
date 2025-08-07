@@ -32,7 +32,7 @@ export default function Header() {
           <ul className="flex items-center gap-8 font-medium text-gray-700">
             <li>
               <Link href="/">
-                <span className={pathname === '/' ? "text-blue-600" : "hover:text-blue-600 transition"}>
+                <span className={pathname === '/home' ? "text-blue-600" : "hover:text-blue-600 transition"}>
                   Home
                 </span>
               </Link>
