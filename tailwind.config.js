@@ -4,18 +4,20 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}', // For App Router
     './pages/**/*.{js,ts,jsx,tsx,mdx}', // For Pages Router
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    // Add other paths if you have components or files in other directories
+    // TODO: Update paths to match actual src structure
+    './src/**/*.{js,ts,jsx,tsx,mdx}', // Add src directory
   ],
   theme: {
     extend: {
-      // Customize or extend Tailwind's default theme here
-      // Example:
-      // colors: {
-      //   primary: '#ff0000',
-      // },
+      // TODO: Define custom color palette for brand consistency
+      // TODO: Add custom typography scale
+      // TODO: Define consistent spacing scale
     },
   },
   plugins: [
-    // Add Tailwind plugins here (e.g., @tailwindcss/typography)
+    // TODO: Consider adding useful plugins:
+    // @tailwindcss/typography for better text styling
+    // @tailwindcss/forms for form styling
+    // @tailwindcss/aspect-ratio for responsive images
   ],
 };

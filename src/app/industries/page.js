@@ -2,7 +2,20 @@
 import React from 'react';
 import Image from 'next/image';
 
+// TODO: Remove 'use client' if no client-side interactivity is needed
+// TODO: Extract industry data to external data source
+// TODO: Implement i18n for all text content
+
 export default function IndustriesPage() {
+  // TODO: Extract industries data to separate file
+  const industries = [
+    { label: 'Real Estate', icon: 'ri-building-line' },
+    { label: 'Logistics', icon: 'ri-truck-line' },
+    { label: 'Retail', icon: 'ri-store-line' },
+    { label: 'Services', icon: 'ri-customer-service-line' },
+    { label: 'Healthcare', icon: 'ri-hospital-line' },
+  ];
+
   return (
     <main>
       {/* Hero Section */}
@@ -31,15 +44,10 @@ export default function IndustriesPage() {
             your business operations and drive sustainable growth.
           </p>
 
-          {/* Кнопки-индустрии */}
+          {/* Industry Navigation Buttons */}
+          {/* TODO: Make these functional navigation buttons instead of static display */}
           <div className="flex flex-wrap justify-center gap-6 text-lg mb-6">
-            {[
-              { label: 'Real Estate', icon: 'ri-building-line' },
-              { label: 'Logistics', icon: 'ri-truck-line' },
-              { label: 'Retail', icon: 'ri-store-line' },
-              { label: 'Services', icon: 'ri-customer-service-line' },
-              { label: 'Healthcare', icon: 'ri-hospital-line' },
-            ].map(({ label, icon }) => (
+            {industries.map(({ label, icon }) => (
               <div key={label} className="flex items-center space-x-2">
                 <div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
                   <i className={`${icon} text-white text-xl`} />

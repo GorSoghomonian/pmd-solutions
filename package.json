@@ -1,5 +1,6 @@
 {
-  "name": "my-next-app",
+  // TODO: Update package name to reflect actual project (pmd-landing-page or pmd-solutions)
+  "name": "my-next-app", 
   "version": "0.1.0",
   "private": true,
   "scripts": {

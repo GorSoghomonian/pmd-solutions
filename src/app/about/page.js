@@ -1,17 +1,26 @@
 import Image from "next/image";
 
+// TODO: Extract all text content for i18n support
+// TODO: Move team member data to external data source or CMS
+// TODO: Implement proper image optimization for team photos
+// TODO: Add error boundaries and loading states
+// TODO: Consider lazy loading for images below the fold
+// TODO: Use a consistent button component across the site
+
+
 export default function AboutPage() {
   return (
     <main>
       {/* Hero Section */}
+      {/* TODO: Extract hero component for reuse across pages */}
       <section className="relative h-screen text-white flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#2A73DD] via-[#1d4ed8] to-[#1746A2]">
-        {/* Декоративные элементы */}
         <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-white/10 rounded rotate-12" />
         <div className="absolute bottom-10 right-10 w-6 h-6 bg-white/20 rounded-full" />
         <div className="absolute bottom-16 right-32 w-4 h-4 bg-white/10 rounded rotate-45" />
 
-        {/* Контент */}
+        {/* Hero Content */}
         <div className="text-center mx-auto z-10">
+          {/* TODO: Make text content i18n-ready */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">About Our Business</h1>
           <h2 className="text-2xl md:text-3xl font-light mb-6 text-blue-200">Solutions for Success</h2>
           <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed max-w-4xl mx-auto">
@@ -19,16 +28,18 @@ export default function AboutPage() {
             of services that will help them thrive and grow. Whether it's project planning,
             business analyses, or crisis management — we're here for our clients, wherever, whenever.
           </p>
+          {/* TODO: Replace button with ActionButtons component for consistency */}
           <button className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-full text-white font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-500 cursor-pointer whitespace-nowrap overflow-hidden">
             Discover More
           </button>
         </div>
       </section>
 
-      {/* Who We Are Section (аналог Real Estate) */}
+      {/* TODO: Extract to reusable two-column layout component */}
+      {/* TODO: Make statistics data configurable */}
       <section className="bg-white text-gray-900 min-h-[500px] flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-20 py-25 relative">
         <div className="w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-          {/* Контент секции */}
+          {/* Content Section */}
           <div className="flex-1">
             <div className="max-w-2xl">
               <h2 className="text-5xl md:text-6xl font-bold leading-tight">Who We Are</h2>
@@ -36,6 +47,8 @@ export default function AboutPage() {
                 We've been helping brands develop and define their voice since 2000. The times may have changed, but our creativity certainly hasn't.<br className="hidden md:inline" />
                 We're driven by technology and innovation to ensure we fulfill our key mission of helping our clients find their successful future.
               </p>
+              
+              {/* Statistics - TODO: Make data-driven and easily updatable */}
               <ul className="mb-8 space-x-8 mt-5 flex ml-5">
                 <li className="flex flex-col items-center">
                   <div className="flex items-center mb-2">
@@ -59,15 +72,16 @@ export default function AboutPage() {
                   <span className="text-sm text-gray-700">Client Satisfaction</span>
                 </li>
               </ul>
+              {/* TODO: Replace with ActionButtons component */}
               <button className="px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer bg-[#2A73DD] text-white hover:bg-blue-700">
                 See Our Story →
               </button>
             </div>
           </div>
 
-          {/* Картинка через next/image */}
           <div className="flex-1 flex items-center justify-center">
             <div style={{ position: 'relative', width: '100%', maxWidth: 600, height: 384 }} className="overflow-hidden rounded-2xl shadow-lg bg-white">
+              {/* Using Next.js Image component for optimization */}
               <Image
                 src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80"
                 alt="Team in office"
@@ -77,7 +91,7 @@ export default function AboutPage() {
                 priority
                 unoptimized={false}
               />
-              {/* Бейдж Founded */}
+            
               <div className="absolute bottom-[-40px] right-[-40px] bg-white shadow-xl rounded-full w-36 h-36 flex flex-col items-center justify-center text-center">
                 <span className="text-2xl font-bold text-blue-600">2000</span>
                 <span className="text-sm text-gray-500">Founded</span>
@@ -85,7 +99,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        {/* Тень у нижней границы */}
+
         <div className="absolute left-0 bottom-0 w-full h-8 pointer-events-none shadow-[0_8px_24px_0_rgba(34,34,34,0.10)] rounded-b-2xl"></div>
       </section>
 

@@ -1,3 +1,21 @@
+/**
+ * FeatureCard Component
+ * 
+ * A reusable card component for displaying features with icon, title, description, and optional badge.
+ * Supports multiple size variants and customizable styling.
+ * 
+ * @param {string|ReactElement} icon - Icon to display (emoji string or React element)
+ * @param {string} title - Card title
+ * @param {string} description - Card description text
+ * @param {string} bgColor - Background color (hex value)
+ * @param {string} iconBg - Icon background classes
+ * @param {string} iconColor - Icon text color classes
+ * @param {string} badge - Optional badge text
+ * @param {string} badgeColor - Badge styling classes
+ * @param {string} cardSize - Size variant (sm, md, lg, xl)
+ * @param {string} descFont - Description font size variant
+ * @param {string} titleFont - Title font size variant
+ */
 export default function FeatureCard({
   icon,
   title,
@@ -9,20 +27,24 @@ export default function FeatureCard({
   badgeColor = "bg-blue-100 text-blue-700",
   cardSize = "md",
   descFont = "md",
-  titleFont = "md", // добавь сюда
+  titleFont = "md",
 }) {
+  // Size configuration object - could be moved to a theme config file
   const sizeStyles = {
     sm: "w-[260px] min-h-[90px] p-2",
     md: "w-[260px] min-h-[110px] p-6",
     lg: "w-[380px] min-h-[140px] p-8",
     xl: "w-[440px] min-h-[170px] p-10"
   };
+  
+  // Typography configuration - consider using Tailwind's built-in text sizing
   const titleFontStyles = {
     sm: "text-[14px]",
     md: "text-lg",
     lg: "text-xl",
     xl: "text-2xl"
   };
+  
   const descFontStyles = {
     sm: "text-[12px]",
     md: "text-[15px]",
@@ -35,11 +57,14 @@ export default function FeatureCard({
       className={`flex gap-4 rounded-xl shadow-md ${sizeStyles[cardSize]} items-start`}
       style={{ background: bgColor }}
     >
+      {/* Icon container */}
       <div className="flex flex-col items-center justify-center">
         <div className={`w-10 h-10 ${iconBg} ${iconColor} rounded-full flex items-center justify-center`}>
           {icon}
         </div>
       </div>
+      
+      {/* Content container */}
       <div className="flex flex-col items-start w-full">
         <h4 className={`${titleFontStyles[titleFont]} font-semibold text-gray-900 text-left mb-1 flex items-center gap-2`}>
           {title}
@@ -47,6 +72,7 @@ export default function FeatureCard({
         <p className={`${descFontStyles[descFont]} text-gray-700 text-left leading-snug break-words w-full`}>
           {description}
         </p>
+        {/* Optional badge */}
         {badge && (
           <span className={`px-2 mt-3 rounded-full text-xs font-medium ${badgeColor}`}>
             {badge}
