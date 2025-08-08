@@ -12,9 +12,11 @@
   },
   "home": {
     "hero": {
-      "title": "Grow faster with our platform",
-      "subtitle": "Automation, analytics and integrations in one place",
-      "cta": "Get started"
+      "title": "Our Service",
+      "description": "Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.",
+      "ctaPrimary": "Get Started Today →",
+      "ctaSecondary": "Learn More About Us",
+      "scroll": "Scroll to explore"
     },
     "hubspot": {
       "title": "HubSpot Implementation & Support",
@@ -109,15 +111,6 @@
       "headline": "Ready to boost productivity?",
       "text": "Create an account and start now",
       "button": "Create account"
-    }
-  },
-  "services": {
-    "hero": {
-      "title": "Our Service",
-      "description": "Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.",
-      "ctaPrimary": "Get Started Today →",
-      "ctaSecondary": "Learn More About Us",
-      "scroll": "Scroll to explore"
     }
   }
 }

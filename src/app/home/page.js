@@ -17,12 +17,29 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const t = await getTranslations('home');
 
+  // Используем реальные ключи из messages: description / ctaPrimary / ctaSecondary
+  const title = t('hero.title', { defaultMessage: '' });
+  const description = t('hero.description', { defaultMessage: '' });
+  const primaryCta = t('hero.ctaPrimary', { defaultMessage: '' });
+  const secondaryCta = t('hero.ctaSecondary', { defaultMessage: '' });
+  const scrollLbl = t('hero.scroll', { defaultMessage: '' });
+
   return (
     <>
       <HeroSection
-        title={t('hero.title')}
-        subtitle={t('hero.subtitle')}
-        ctaLabel={t('hero.cta')}
+        title={title || undefined}
+        description={description || undefined}
+        // Используй ОДИН источник фона. Если нет файла public/images/home-hero.jpg — или создай его, или замени на remote URL ниже.
+        backgroundImage="https://readdy.ai/api/search-image?query=Modern%20business%20consulting%20office%20with%20professional%20team%20working%20on%20digital%20transformation%20projects%2C%20sleek%20workspace%20with%20multiple%20screens%20showing%20business%20analytics%20and%20automation%20tools%2C%20contemporary%20office%20environment%20with%20glass%20walls%20and%20modern%20technology%2C%20professional%20consulting%20atmosphere%20with%20clean%20minimal%20design%20and%20blue%20accent%20lighting&width=1920&height=1080&seq=services-hero-bg&orientation=landscape"
+        imageLink="https://readdy.ai/api/search-image?query=Modern%20business%20consulting%20office%20with%20professional%20team%20working%20on%20digital%20transformation%20projects%2C%20sleek%20workspace%20with%20multiple%20screens%20showing%20business%20analytics%20and%20automation%20tools%2C%20contemporary%20office%20environment%20with%20glass%20walls%20and%20modern%20technology%2C%20professional%20consulting%20atmosphere%20with%20clean%20minimal%20design%20and%20blue%20accent%20lighting&width=1920&height=1080&seq=services-hero-bg&orientation=landscape"
+        backgroundColor="bg-blue-700"
+        overlayOpacity={40}
+        primaryButton={primaryCta ? { text: primaryCta, href: '/contact' } : undefined}
+        secondaryButton={secondaryCta ? { text: secondaryCta, href: '/services' } : undefined}
+        scrollLabel={scrollLbl || undefined}
+        showScrollIndicator={Boolean(scrollLbl)}
+        minHeight="min-h-screen"
+        className="pt-20"
       />
 
       <ErrorBoundary>
@@ -50,13 +67,13 @@ export default async function HomePage() {
         gainHeading={t('audit.gainHeading')}
         gainsColumn1={[
           t('audit.gains.identify'),
-            t('audit.gains.compliance'),
-            t('audit.gains.decisions')
+          t('audit.gains.compliance'),
+          t('audit.gains.decisions')
         ]}
         gainsColumn2={[
           t('audit.gains.costs'),
-            t('audit.gains.productivity'),
-            t('audit.gains.resources')
+          t('audit.gains.productivity'),
+          t('audit.gains.resources')
         ]}
         btnLearnMore={t('audit.btnLearnMore')}
         btnSchedule={t('audit.btnSchedule')}
@@ -64,7 +81,7 @@ export default async function HomePage() {
         statAuditsCompletedLabel={t('audit.statAuditsCompleted')}
       />
 
-      <section style={{padding: '60px 0', textAlign: 'center'}}>
+      <section style={{ padding: '60px 0', textAlign: 'center' }}>
         <h2>{t('cta.headline')}</h2>
         <p>{t('cta.text')}</p>
         <button>{t('cta.button')}</button>

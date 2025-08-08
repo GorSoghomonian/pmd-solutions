@@ -40,9 +40,16 @@ export default function HubSpotSection({title, subtitle, items = []}) {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {localized.map((item, idx) => (
-                <FeatureCard key={idx} {...item} />
-              ))}
+              {localized.map((item, idx) => {
+                // Strip out key before spreading
+                const { key: itemKey, ...rest } = item;
+                return (
+                  <FeatureCard
+                    key={itemKey ?? rest.id ?? idx}
+                    {...rest}
+                  />
+                );
+              })}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
