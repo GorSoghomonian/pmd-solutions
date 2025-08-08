@@ -1,5 +1,14 @@
 {
   "title": "Главная страница",
   "description": "Добро пожаловать на наш сайт",
-  "keywords": "nextjs, главная"
+  "keywords": "nextjs, главная",
+  "nav": {
+    "logo": "Лого",
+    "home": "Главная",
+    "about": "О нас",
+    "industries": "Отрасли",
+    "services": "Услуги",
+    "langEn": "Английский",
+    "langRu": "Русский"
+  }
 }

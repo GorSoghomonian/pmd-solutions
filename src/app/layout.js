@@ -1,36 +1,26 @@
 // app/layout.js
 import {NextIntlClientProvider} from 'next-intl';
-import {getLocale} from 'next-intl/server';
-import Header from '../components/layout/Header';
+import {getLocale, getMessages} from 'next-intl/server';
 import './globals.css';
-
-import { Geist, Geist_Mono, Pacifico } from 'next/font/google';
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
-const pacifico = Pacifico({ weight: '400', subsets: ['latin'], variable: '--font-pacifico' });
+import Header from '../components/layout/Header';
 
 export const metadata = {
-  title: 'PMD Solutions',
-  description: 'Leading consulting firm',
+  title: 'App',
+  description: 'App with next-intl (no routing mode)'
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({children}) {
   const locale = await getLocale();
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
-      <head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}>
+      <body style={{margin: 0}}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          {children}
+          <main>
+            {children}
+          </main>
         </NextIntlClientProvider>
       </body>
     </html>

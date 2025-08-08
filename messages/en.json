@@ -1,6 +1,14 @@
 {
-  "home": {
-    "title": "Welcome to PMD Solutions"
-  },
-  "title" : "rfqwertyuaswedrftgyhuidfghj"
+  "title": "Home page",
+  "description": "Welcome to our site",
+  "keywords": "nextjs, home",
+  "nav": {
+    "logo": "Logo",
+    "home": "Home",
+    "about": "About",
+    "industries": "Industries",
+    "services": "Services",
+    "langEn": "English",
+    "langRu": "Russian"
+  }
 }
