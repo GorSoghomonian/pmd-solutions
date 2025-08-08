@@ -15,12 +15,16 @@ export default async function RootLayout({children}) {
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+        />
+      </head>
       <body style={{margin: 0}}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

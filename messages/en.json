@@ -1,14 +1,123 @@
 {
-  "title": "Home page",
-  "description": "Welcome to our site",
-  "keywords": "nextjs, home",
+  "title": "Home",
+  "description": "Home description",
   "nav": {
     "logo": "Logo",
     "home": "Home",
     "about": "About",
     "industries": "Industries",
     "services": "Services",
-    "langEn": "English",
-    "langRu": "Russian"
+    "langEn": "EN",
+    "langRu": "RU"
+  },
+  "home": {
+    "hero": {
+      "title": "Grow faster with our platform",
+      "subtitle": "Automation, analytics and integrations in one place",
+      "cta": "Get started"
+    },
+    "hubspot": {
+      "title": "HubSpot Implementation & Support",
+      "description": "Transform your sales and marketing operations with expert HubSpot implementation. We help businesses maximize their CRM potential through strategic setup, customization, and ongoing optimization.",
+      "learnMore": "Learn More →",
+      "getQuote": "Get Quote",
+      "statSuccess": "Success Rate",
+      "statProjects": "Projects Completed",
+      "cards": {
+        "customSetup": {
+          "title": "Custom Setup",
+          "desc": "Tailored HubSpot configuration for your unique business needs"
+        },
+        "teamTraining": {
+          "title": "Team Training",
+          "desc": "Comprehensive training to maximize your team's productivity"
+        },
+        "performanceOptimization": {
+          "title": "Performance Optimization",
+          "desc": "Ongoing support to ensure peak system performance"
+        },
+        "dataMigration": {
+          "title": "Data Migration",
+          "desc": "Seamless transfer of your existing data and processes"
+        }
+      }
+    },
+    "automation": {
+      "title": "Automation",
+      "description": "Remove routine with scenarios and integrations",
+      "cards": {
+        "workflow": {
+          "title": "Workflow Automation",
+          "desc": "Streamline repetitive tasks and business processes",
+          "badge": "70% Time Saved"
+        },
+        "email": {
+          "title": "Email Marketing",
+          "desc": "Automated email campaigns and nurture sequences",
+          "badge": "3x Higher ROI"
+        },
+        "support": {
+          "title": "Customer Support",
+          "desc": "Automated ticketing and response systems",
+          "badge": "50% Faster Response"
+        },
+        "reporting": {
+          "title": "Reporting & Analytics",
+          "desc": "Automated data collection and insights generation",
+          "badge": "Real-time Insights"
+        }
+      },
+      "btnLearnMore": "Learn More",
+      "btnStart": "Start Automation"
+    },
+    "audit": {
+      "title": "Business Process Audit",
+      "description": "We uncover hidden opportunities and provide actionable recommendations.",
+      "gainHeading": "What You'll Gain:",
+      "gains": {
+        "identify": "Identify inefficiencies",
+        "compliance": "Improve compliance",
+        "decisions": "Better decisions",
+        "costs": "Reduce costs",
+        "productivity": "Boost productivity",
+        "resources": "Optimize resources"
+      },
+      "btnLearnMore": "Learn More →",
+      "btnSchedule": "Schedule Audit",
+      "statCostReduction": "Avg. Cost Reduction",
+      "statAuditsCompleted": "Audits Completed",
+      "cards": {
+        "processAnalysis": {
+          "title": "Process Analysis",
+          "desc": "Deep dive into your current workflows and identify bottlenecks"
+        },
+        "complianceReview": {
+          "title": "Compliance Review",
+          "desc": "Ensure your processes meet industry standards and regulations"
+        },
+        "efficiencyAssessment": {
+          "title": "Efficiency Assessment",
+          "desc": "Measure performance and identify optimization opportunities"
+        },
+        "recommendations": {
+          "title": "Recommendations",
+          "desc": "Strategic recommendations for process improvements"
+        }
+      }
+    },
+    "cta": {
+      "headline": "Ready to boost productivity?",
+      "text": "Create an account and start now",
+      "button": "Create account"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Our Service",
+      "description": "Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.",
+      "ctaPrimary": "Get Started Today →",
+      "ctaSecondary": "Learn More About Us",
+      "scroll": "Scroll to explore"
+    }
   }
 }
