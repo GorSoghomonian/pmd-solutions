@@ -135,6 +135,36 @@
         "title": "Service Companies",
         "description": "Client management, service delivery automation, and business process optimization."
       }
+    },
+    "whyChoose": {
+      "titlePrefix": "Why Choose",
+      "titleAccent": "PMD Solutions",
+      "subtitle": "Experience the difference that expertise, dedication, and cutting‑edge solutions can make for your business",
+      "button": "Learn more →",
+      "certifiedExperts": {
+        "title": "Certified Experts",
+        "description": "Our team holds industry-leading certifications in HubSpot, automation platforms, and business consulting."
+      },
+      "provenTrackRecord": {
+        "title": "Proven Track Record",
+        "description": "500+ successful projects delivered with measurable ROI improvements for businesses of all sizes."
+      },
+      "customSolutions": {
+        "title": "Custom Solutions",
+        "description": "Tailored approaches that fit your unique business needs rather than one-size-fits-all solutions."
+      },
+      "technologyPartners": {
+        "title": "Technology Partners",
+        "description": "Official partnerships with leading platforms ensure access to the latest tools and features."
+      },
+      "ongoingSupport": {
+        "title": "Ongoing Support",
+        "description": "Continuous monitoring and optimization to keep your systems performing at peak efficiency."
+      },
+      "dataDrivenResults": {
+        "title": "Data‑Driven Results",
+        "description": "Every recommendation backed by comprehensive analysis and measurable performance metrics."
+      }
     }
   },
   "about": {

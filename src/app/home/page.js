@@ -67,8 +67,11 @@ export default async function HomePage() {
       {/* Core Services */}
       <CoreServices />
 
-      {/* Industries We Serve */}
+      {/* Industries We Serve (по умолчанию из переводов) */}
       <IndustriesSection />
+
+      {/* Why Choose PMD Solutions (весь текст из messages, данные карточек из homeItems) */}
+      <IndustriesSection i18nSection="whyChoose" />
     </main>
   );
 }

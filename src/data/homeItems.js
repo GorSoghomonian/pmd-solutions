@@ -127,3 +127,12 @@ export const industriesItems = [
     iconColor: 'text-indigo-600'
   }
 ];
+
+export const whyChooseItems = [
+  { key: 'certifiedExperts', icon: '🏅', iconBg: 'bg-amber-100/60', iconColor: 'text-amber-600' },
+  { key: 'provenTrackRecord', icon: '📈', iconBg: 'bg-emerald-100/60', iconColor: 'text-emerald-600' },
+  { key: 'customSolutions',   icon: '⚙️', iconBg: 'bg-blue-100/60',   iconColor: 'text-blue-600' },
+  { key: 'technologyPartners',icon: '🔌', iconBg: 'bg-indigo-100/60', iconColor: 'text-indigo-600' },
+  { key: 'ongoingSupport',    icon: '🎧', iconBg: 'bg-purple-100/60', iconColor: 'text-purple-600' },
+  { key: 'dataDrivenResults', icon: '📊', iconBg: 'bg-orange-100/60', iconColor: 'text-orange-600' },
+];
