@@ -1,92 +1,70 @@
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '../../components/ui/HeroSection';
-import HubSpotSection from './HubSpotSection';
-import AutomationSection from './AutomationSection';
-import AuditSection from './AuditSection';
-import ErrorBoundary from '../../components/common/ErrorBoundary';
-import { auditItems, automationItems, hubspotItems } from '../../data/homeItems';
+import CoreServices from './CoreServices';
 
 export async function generateMetadata() {
-  const t = await getTranslations();
+  const t = await getTranslations('home');
   return {
-    title: t('title'),
-    description: t('description')
+    title: t('meta.title', { defaultMessage: 'Home' }),
+    description: t('meta.description', { defaultMessage: '' }),
   };
 }
 
 export default async function HomePage() {
   const t = await getTranslations('home');
 
-  // Используем реальные ключи из messages: description / ctaPrimary / ctaSecondary
-  const title = t('hero.title', { defaultMessage: '' });
-  const description = t('hero.description', { defaultMessage: '' });
-  const primaryCta = t('hero.ctaPrimary', { defaultMessage: '' });
-  const secondaryCta = t('hero.ctaSecondary', { defaultMessage: '' });
-  const scrollLbl = t('hero.scroll', { defaultMessage: '' });
-
   return (
-    <>
+    <main className="min-h-screen">
       <HeroSection
-        title={title || undefined}
-        description={description || undefined}
-        // Используй ОДИН источник фона. Если нет файла public/images/home-hero.jpg — или создай его, или замени на remote URL ниже.
-        backgroundImage="https://readdy.ai/api/search-image?query=Modern%20business%20consulting%20office%20with%20professional%20team%20working%20on%20digital%20transformation%20projects%2C%20sleek%20workspace%20with%20multiple%20screens%20showing%20business%20analytics%20and%20automation%20tools%2C%20contemporary%20office%20environment%20with%20glass%20walls%20and%20modern%20technology%2C%20professional%20consulting%20atmosphere%20with%20clean%20minimal%20design%20and%20blue%20accent%20lighting&width=1920&height=1080&seq=services-hero-bg&orientation=landscape"
-        imageLink="https://readdy.ai/api/search-image?query=Modern%20business%20consulting%20office%20with%20professional%20team%20working%20on%20digital%20transformation%20projects%2C%20sleek%20workspace%20with%20multiple%20screens%20showing%20business%20analytics%20and%20automation%20tools%2C%20contemporary%20office%20environment%20with%20glass%20walls%20and%20modern%20technology%2C%20professional%20consulting%20atmosphere%20with%20clean%20minimal%20design%20and%20blue%20accent%20lighting&width=1920&height=1080&seq=services-hero-bg&orientation=landscape"
-        backgroundColor="bg-blue-700"
-        overlayOpacity={40}
-        primaryButton={primaryCta ? { text: primaryCta, href: '/contact' } : undefined}
-        secondaryButton={secondaryCta ? { text: secondaryCta, href: '/services' } : undefined}
-        scrollLabel={scrollLbl || undefined}
-        showScrollIndicator={Boolean(scrollLbl)}
-        minHeight="min-h-screen"
-        className="pt-20"
-      />
+        title={
+          <>
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold">
+              {t('hero.titleLine1')}
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold">
+              {t('hero.titleLine2')}
+            </span>
+          </>
+        }
+        description={
+          <span className="block text-xl md:text-2xl text-blue-100">
+            {t('hero.description')}
+          </span>
+        }
+        backgroundImage="https://readdy.ai/api/search-image?query=Modern%20professional%20business%20consulting%20office%20environment%20with%20technology%20integration%2C%20sleek%20workspace%20with%20business%20professionals%20collaborating%20on%20digital%20solutions%2C%20clean%20contemporary%20office%20space%20with%20consulting%20team%20working%20on%20business%20automation%20and%20process%20optimization%2C%20high-tech%20business%20environment%20with%20data%20visualization%20screens%20and%20modern%20furniture%2C%20professional%20consulting%20atmosphere%20with%20blue%20and%20white%20color%20scheme&width=1920&height=1080&seq=hero-bg&orientation=landscape"
+        backgroundColor="bg-blue-800"
+        overlayOpacity={15}
+        decorations={
+          <>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse delay-500" />
+          </>
+        }
+        primaryButton={{ text: t('hero.ctaPrimary'), href: '/services' }}
+        secondaryButton={{ text: t('hero.ctaSecondary'), href: '/about' }}
+        showScrollIndicator={true}
+        minHeight="h-screen"
+        className="flex items-center justify-center pb-10"
+      >
+        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-center text-white">
+          <div>
+            <div className="text-4xl md:text-5xl font-extrabold">500+</div>
+            <div className="text-blue-200 text-lg">{t('stats.projects')}</div>
+          </div>
+          <div>
+            <div className="text-4xl md:text-5xl font-extrabold">50+</div>
+            <div className="text-blue-200 text-lg">{t('stats.clients')}</div>
+          </div>
+          <div>
+            <div className="text-4xl md:text-5xl font-extrabold">5+</div>
+            <div className="text-blue-200 text-lg">{t('stats.years')}</div>
+          </div>
+        </div>
+      </HeroSection>
 
-      <ErrorBoundary>
-        <HubSpotSection
-          title={t('hubspot.title')}
-          subtitle={t('hubspot.description')}
-          items={hubspotItems}
-          learnMoreLabel={t('hubspot.learnMore')}
-          getQuoteLabel={t('hubspot.getQuote')}
-          statSuccessLabel={t('hubspot.statSuccess')}
-          statProjectsLabel={t('hubspot.statProjects')}
-        />
-      </ErrorBoundary>
-
-      <AutomationSection
-        title={t('automation.title')}
-        subtitle={t('automation.description')}
-        items={automationItems}
-      />
-
-      <AuditSection
-        title={t('audit.title')}
-        subtitle={t('audit.description')}
-        items={auditItems}
-        gainHeading={t('audit.gainHeading')}
-        gainsColumn1={[
-          t('audit.gains.identify'),
-          t('audit.gains.compliance'),
-          t('audit.gains.decisions')
-        ]}
-        gainsColumn2={[
-          t('audit.gains.costs'),
-          t('audit.gains.productivity'),
-          t('audit.gains.resources')
-        ]}
-        btnLearnMore={t('audit.btnLearnMore')}
-        btnSchedule={t('audit.btnSchedule')}
-        statCostReductionLabel={t('audit.statCostReduction')}
-        statAuditsCompletedLabel={t('audit.statAuditsCompleted')}
-      />
-
-      <section style={{ padding: '60px 0', textAlign: 'center' }}>
-        <h2>{t('cta.headline')}</h2>
-        <p>{t('cta.text')}</p>
-        <button>{t('cta.button')}</button>
-      </section>
-    </>
+      {/* Core Services */}
+      <CoreServices />
+    </main>
   );
 }
-

@@ -11,95 +11,94 @@
     "langRu": "RU"
   },
   "home": {
+    "meta": {
+      "title": "Home",
+      "description": "Welcome to PMD Solutions"
+    },
     "hero": {
-      "title": "Our Service",
-      "description": "Transform your business with our comprehensive suite of consulting and automation services. From strategic planning to digital transformation, we deliver results that drive growth.",
-      "ctaPrimary": "Get Started Today →",
-      "ctaSecondary": "Learn More About Us",
-      "scroll": "Scroll to explore"
+      "title": "Our Services",
+      "description": "Leading consulting firm providing comprehensive business automation, CRM implementation, and custom development solutions to help your business thrive in the digital age.",
+      "ctaPrimary": "Explore Our Services",
+      "ctaSecondary": "Learn About Us",
+      "scroll": "Scroll down",
+      "titleLine1": "Transform Your Business with Smart",
+      "titleLine2": "Solutions"
+    },
+    "stats": {
+      "projects": "Projects Completed",
+      "clients": "Happy Clients",
+      "years": "Years Experience"
     },
     "hubspot": {
       "title": "HubSpot Implementation & Support",
-      "description": "Transform your sales and marketing operations with expert HubSpot implementation. We help businesses maximize their CRM potential through strategic setup, customization, and ongoing optimization.",
-      "learnMore": "Learn More →",
-      "getQuote": "Get Quote",
-      "statSuccess": "Success Rate",
-      "statProjects": "Projects Completed",
+      "description": "Transform sales and marketing with strategic setup, customization, and optimization of HubSpot.",
+      "learnMore": "Learn more →",
+      "getQuote": "Get a quote",
+      "statSuccess": "Success rate",
+      "statProjects": "Projects completed",
       "cards": {
-        "customSetup": {
-          "title": "Custom Setup",
-          "desc": "Tailored HubSpot configuration for your unique business needs"
-        },
-        "teamTraining": {
-          "title": "Team Training",
-          "desc": "Comprehensive training to maximize your team's productivity"
-        },
-        "performanceOptimization": {
-          "title": "Performance Optimization",
-          "desc": "Ongoing support to ensure peak system performance"
-        },
-        "dataMigration": {
-          "title": "Data Migration",
-          "desc": "Seamless transfer of your existing data and processes"
-        }
+        "customSetup": { "title": "Custom setup", "desc": "Tailored HubSpot configuration for your business" },
+        "teamTraining": { "title": "Team training", "desc": "Comprehensive training to boost productivity" },
+        "performanceOptimization": { "title": "Performance optimization", "desc": "Ongoing support for maximum efficiency" },
+        "dataMigration": { "title": "Data migration", "desc": "Seamless migration of existing data and processes" }
       }
     },
     "automation": {
       "title": "Automation",
-      "description": "Remove routine with scenarios and integrations",
+      "description": "Remove routine with workflows and integrations",
       "cards": {
         "workflow": {
-          "title": "Workflow Automation",
-          "desc": "Streamline repetitive tasks and business processes",
-          "badge": "70% Time Saved"
+          "title": "Process automation",
+          "desc": "Optimize repetitive tasks and business workflows",
+          "badge": "70% time saved"
         },
         "email": {
-          "title": "Email Marketing",
-          "desc": "Automated email campaigns and nurture sequences",
-          "badge": "3x Higher ROI"
+          "title": "Email marketing",
+          "desc": "Automated campaigns and nurture sequences",
+          "badge": "3x higher ROI"
         },
         "support": {
-          "title": "Customer Support",
-          "desc": "Automated ticketing and response systems",
-          "badge": "50% Faster Response"
+          "title": "Customer support",
+          "desc": "Automated tickets and responses",
+          "badge": "50% faster replies"
         },
         "reporting": {
-          "title": "Reporting & Analytics",
-          "desc": "Automated data collection and insights generation",
-          "badge": "Real-time Insights"
+          "title": "Reporting & analytics",
+          "desc": "Auto data collection and insights",
+          "badge": "Real-time insights"
         }
       },
-      "btnLearnMore": "Learn More",
-      "btnStart": "Start Automation"
+      "btnLearnMore": "Learn more",
+      "btnStart": "Start automation"
     },
     "audit": {
       "title": "Business Process Audit",
-      "description": "We uncover hidden opportunities and provide actionable recommendations.",
-      "gainHeading": "What You'll Gain:",
+      "description": "We find hidden opportunities and provide actionable recommendations.",
+      "gainHeading": "What you get:",
       "gains": {
         "identify": "Identify inefficiencies",
-        "compliance": "Improve compliance",
+        "compliance": "Improved compliance",
         "decisions": "Better decisions",
-        "costs": "Reduce costs",
-        "productivity": "Boost productivity",
-        "resources": "Optimize resources"
+        "costs": "Cost reduction",
+        "productivity": "Productivity growth",
+        "resources": "Resource optimization"
       },
-      "btnLearnMore": "Learn More →",
-      "btnSchedule": "Schedule Audit",
-      "statCostReduction": "Avg. Cost Reduction",
-      "statAuditsCompleted": "Audits Completed",
+      "btnLearnMore": "Learn more →",
+      "btnSchedule": "Schedule an audit",
+      "statCostReduction": "Avg. cost reduction",
+      "statAuditsCompleted": "Audits completed",
       "cards": {
         "processAnalysis": {
-          "title": "Process Analysis",
-          "desc": "Deep dive into your current workflows and identify bottlenecks"
+          "title": "Process analysis",
+          "desc": "In-depth review of current workflows and bottlenecks"
         },
         "complianceReview": {
-          "title": "Compliance Review",
-          "desc": "Ensure your processes meet industry standards and regulations"
+          "title": "Compliance review",
+          "desc": "Ensure processes meet standards and regulations"
         },
         "efficiencyAssessment": {
-          "title": "Efficiency Assessment",
-          "desc": "Measure performance and identify optimization opportunities"
+          "title": "Efficiency assessment",
+          "desc": "Measure KPIs and identify optimization opportunities"
         },
         "recommendations": {
           "title": "Recommendations",
@@ -108,8 +107,8 @@
       }
     },
     "cta": {
-      "headline": "Ready to boost productivity?",
-      "text": "Create an account and start now",
+      "headline": "Ready to increase efficiency?",
+      "text": "Create an account and get started now",
       "button": "Create account"
     }
   },

@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b border-black/10 bg-white/95 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <nav className="flex items-center justify-between px-8 py-4">
+        <nav className="flex items-center justify-between px-8 py-6">
           <div
             className={`text-2xl font-bold text-black ${pacifico.className}`}
             aria-label={t('logo')}
