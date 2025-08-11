@@ -112,5 +112,109 @@
       "text": "Create an account and start now",
       "button": "Create account"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "About",
+      "description": "Learn more about PMD Solutions"
+    },
+    "hero": {
+      "title": "About Our Business",
+      "subtitle": "Solutions for Success",
+      "description": "PMD Solutions is a leading consulting firm. We provide our clients with a wide range of services that will help them thrive and grow. Whether it's project planning, business analyses, or crisis management — we're here for our clients, wherever, whenever.",
+      "cta": "Discover More"
+    },
+    "aboutSection": {
+      "title": "Who We Are",
+      "p1": "We've been helping brands develop and define their voice since 2000. The times may have changed, but our creativity certainly hasn't.",
+      "p2": "We're driven by technology and innovation to ensure we fulfill our key mission of helping our clients find their successful future.",
+      "stats": {
+        "years": "Years Experience",
+        "projects": "Projects Completed",
+        "satisfaction": "Client Satisfaction"
+      },
+      "cta": "See Our Story →",
+      "imageAlt": "Team in office",
+      "founded": "Founded"
+    },
+    "team": {
+      "title": "Meet the Team",
+      "subtitle": "Meet the visionaries behind PMD Solutions, dedicated to transforming businesses through innovation and expertise.",
+      "members": {
+        "sarah": {
+          "role": "CEO & FOUNDER",
+          "desc": "Strategic planning and business transformation"
+        },
+        "michael": {
+          "role": "CTO",
+          "desc": "Technology innovation and digital solutions"
+        },
+        "emily": {
+          "role": "HEAD OF OPERATIONS",
+          "desc": "Process optimization and project management"
+        },
+        "david": {
+          "role": "LEAD CONSULTANT",
+          "desc": "Crisis management and business analysis"
+        }
+      }
+    },
+    "contact": {
+      "title": {
+        "before": "Ready to",
+        "highlight": "Transform",
+        "after": "Your Business?"
+      },
+      "subtitle": "Let's discuss how PMD Solutions can help you achieve your business goals. Get in touch with our team of experts today.",
+      "form": {
+        "title": "Send us a message",
+        "name": "Your Name",
+        "email": "Your Email",
+        "company": "Company Name",
+        "message": "Tell us about your project...",
+        "submit": "Send Message"
+      },
+      "info": {
+        "title": "Get in Touch",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "addressLabel": "Address"
+      },
+      "hours": {
+        "title": "Office Hours",
+        "weekdays": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "closed": "Closed"
+      }
+    }
+  },
+  "industries": {
+    "meta": {
+      "title": "Industries",
+      "description": "Sectors we serve and transform"
+    },
+    "hero": {
+      "titlePart1": "Industries We",
+      "titlePart2": "Cover",
+      "descriptionLine1": "Specialized solutions across five core sectors, designed to transform",
+      "descriptionLine2": "your business operations and drive sustainable growth.",
+      "scroll": "Scroll to explore"
+    },
+    "list": {
+      "realEstate": "Real Estate",
+      "logistics": "Logistics",
+      "retail": "Retail",
+      "services": "Services",
+      "healthcare": "Healthcare"
+    },
+    "realEstate": {
+      "title": "Real Estate",
+      "paragraph1": "We transform property management and sales processes through advanced CRM systems and automated workflows.",
+      "paragraph2": "Our expertise helps real estate professionals streamline lead generation, client communication, and transaction management.",
+      "bullet1": "Automated lead nurturing systems that increased conversion rates by 40%",
+      "bullet2": "Integrated property management platforms for multi-location agencies",
+      "cta": "See Case Study →"
+    }
   }
 }
