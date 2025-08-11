@@ -129,10 +129,118 @@ export const industriesItems = [
 ];
 
 export const whyChooseItems = [
-  { key: 'certifiedExperts', icon: '🏅', iconBg: 'bg-amber-100/60', iconColor: 'text-amber-600' },
-  { key: 'provenTrackRecord', icon: '📈', iconBg: 'bg-emerald-100/60', iconColor: 'text-emerald-600' },
-  { key: 'customSolutions',   icon: '⚙️', iconBg: 'bg-blue-100/60',   iconColor: 'text-blue-600' },
-  { key: 'technologyPartners',icon: '🔌', iconBg: 'bg-indigo-100/60', iconColor: 'text-indigo-600' },
-  { key: 'ongoingSupport',    icon: '🎧', iconBg: 'bg-purple-100/60', iconColor: 'text-purple-600' },
-  { key: 'dataDrivenResults', icon: '📊', iconBg: 'bg-orange-100/60', iconColor: 'text-orange-600' },
+  {
+    key: 'certifiedExperts',
+    icon: <i className="ri-award-line text-yellow-600 text-2xl"></i>,
+    iconBg: 'bg-amber-100/60',
+    iconColor: 'text-yellow-600',
+  },
+  {
+    key: 'provenTrackRecord',
+    icon: <i className="ri-line-chart-line text-green-600 text-2xl"></i>,
+    iconBg: 'bg-emerald-100/60',
+    iconColor: 'text-green-600',
+  },
+  {
+    key: 'customSolutions',
+    icon: <i className="ri-settings-3-line text-blue-600 text-2xl"></i>,
+    iconBg: 'bg-blue-100/60',
+    iconColor: 'text-blue-600',
+  },
+  {
+    key: 'technologyPartners',
+    icon: <i className="ri-plug-line text-indigo-600 text-2xl"></i>, // логичная иконка для партнёров
+    iconBg: 'bg-indigo-100/60',
+    iconColor: 'text-indigo-600',
+  },
+  {
+    key: 'ongoingSupport',
+    icon: <i className="ri-customer-service-2-line text-indigo-600 text-2xl"></i>,
+    iconBg: 'bg-indigo-100/60',
+    iconColor: 'text-indigo-600',
+  },
+  {
+    key: 'dataDrivenResults',
+    icon: <i className="ri-bar-chart-line text-orange-600 text-2xl"></i>,
+    iconBg: 'bg-orange-100/60',
+    iconColor: 'text-orange-600',
+  },
+];
+
+export const servicesData = {
+  "services": [
+    {
+      "id": "bpa",
+      "href": "/services/automation",
+      "image": "https://readdy.ai/api/search-image?query=Modern%20business%20process%20automation%20workflow%20with%20digital%20systems%20and%20automated%20processes%2C%20clean%20technological%20interface%20showing%20workflow%20optimization%20and%20efficiency%20improvement%2C%20professional%20automation%20dashboard%20with%20interconnected%20processes%20and%20data%20flows%2C%20streamlined%20business%20operations%20with%20digital%20transformation%20elements&width=400&height=300&seq=automation-service&orientation=landscape",
+      "iconBg": "bg-blue-50 text-blue-600",
+      "iconClass": "ri-flow-chart text-blue-600 text-2xl"
+    },
+    {
+      "id": "crm",
+      "href": "/services/crm",
+      "image": "https://readdy.ai/api/search-image?query=Professional%20CRM%20implementation%20with%20HubSpot%20dashboard%20interface%2C%20modern%20customer%20relationship%20management%20system%20showing%20sales%20analytics%20and%20customer%20data%2C%20clean%20business%20software%20interface%20with%20CRM%20tools%20and%20customer%20management%20features%2C%20professional%20sales%20team%20using%20CRM%20platform%20for%20business%20growth&width=400&height=300&seq=crm-service&orientation=landscape",
+      "iconBg": "bg-orange-50 text-orange-600",
+      "iconClass": "ri-customer-service-line text-orange-600 text-2xl"
+    },
+    {
+      "id": "custom",
+      "href": "/services/custom",
+      "image": "https://readdy.ai/api/search-image?query=Custom%20software%20development%20workspace%20with%20developers%20creating%20tailored%20business%20solutions%2C%20modern%20programming%20environment%20with%20multiple%20monitors%20showing%20code%20and%20applications%2C%20professional%20software%20engineering%20team%20building%20custom%20platforms%20and%20digital%20solutions%2C%20clean%20tech%20workspace%20with%20development%20tools%20and%20custom%20applications&width=400&height=300&seq=development-service&orientation=landscape",
+      "iconBg": "bg-purple-50 text-purple-600",
+      "iconClass": "ri-code-s-slash-line text-purple-600 text-2xl"
+    },
+    {
+      "id": "integrations",
+      "href": "/services/integrations",
+      "image": "https://readdy.ai/api/search-image?query=System%20integration%20concept%20with%20multiple%20platforms%20and%20applications%20connected%20through%20APIs%20and%20data%20flows%2C%20modern%20business%20software%20integration%20dashboard%20showing%20connected%20systems%20and%20data%20synchronization%2C%20professional%20IT%20infrastructure%20with%20integrated%20platforms%20and%20seamless%20data%20exchange&width=400&height=300&seq=integration-service&orientation=landscape",
+      "iconBg": "bg-indigo-50 text-indigo-600",
+      "iconClass": "ri-links-line text-indigo-600 text-2xl"
+    },
+    {
+      "id": "audit",
+      "href": "/services/audit",
+      "image": "https://readdy.ai/api/search-image?query=Business%20process%20audit%20and%20analysis%20with%20professional%20consultants%20reviewing%20workflows%20and%20efficiency%20metrics%2C%20modern%20office%20environment%20with%20business%20analysts%20examining%20process%20documentation%20and%20performance%20charts%2C%20professional%20audit%20team%20conducting%20business%20process%20evaluation%20with%20data%20analysis%20tools&width=400&height=300&seq=audit-service&orientation=landscape",
+      "iconBg": "bg-emerald-50 text-emerald-600",
+      "iconClass": "ri-file-search-line text-emerald-600 text-2xl"
+    }
+  ]
+}
+
+export const servicesItems = [
+  {
+    id: 'bpa',
+    href: '/services/automation',
+    image: '/images/services/bpa.jpg',
+    iconBg: 'bg-blue-50 text-blue-600',
+    iconClass: 'ri-flow-chart text-blue-600 text-2xl',
+  },
+  {
+    id: 'crm',
+    href: '/services/crm',
+    image: '/images/services/crm.jpg',
+    iconBg: 'bg-orange-50 text-orange-600',
+    iconClass: 'ri-customer-service-line text-orange-600 text-2xl',
+  },
+  {
+    id: 'custom',
+    href: '/services/custom',
+    image: '/images/services/custom.jpg',
+    iconBg: 'bg-purple-50 text-purple-600',
+    iconClass: 'ri-code-s-slash-line text-purple-600 text-2xl',
+  },
+  {
+    id: 'integrations',
+    href: '/services/integrations',
+    image: '/images/services/integrations.jpg',
+    iconBg: 'bg-indigo-50 text-indigo-600',
+    iconClass: 'ri-links-line text-indigo-600 text-2xl',
+  },
+  {
+    id: 'audit',
+    href: '/services/audit',
+    image: '/images/services/audit.jpg',
+    iconBg: 'bg-emerald-50 text-emerald-600',
+    iconClass: 'ri-file-search-line text-emerald-600 text-2xl',
+  },
 ];

@@ -165,6 +165,35 @@
         "title": "Data‑Driven Results",
         "description": "Every recommendation backed by comprehensive analysis and measurable performance metrics."
       }
+    },
+    "coreServices": {
+      "titlePrefix": "Our",
+      "titleAccent": "Core Services",
+      "subtitle": "Comprehensive business solutions designed to optimize your operations and drive sustainable growth",
+      "learnMore": "Learn More",
+      "viewAllServices": "View all Services",
+      "services": {
+        "bpa": {
+          "title": "Business Process Automation",
+          "desc": "Streamline workflows and reduce manual work with intelligent automation."
+        },
+        "crm": {
+          "title": "CRM Implementation",
+          "desc": "Expert HubSpot setup and optimization for sales, marketing and service."
+        },
+        "custom": {
+          "title": "Custom Development",
+          "desc": "Bespoke software built for your unique business requirements."
+        },
+        "integrations": {
+          "title": "System Integrations",
+          "desc": "Connect tools and platforms for better data flow and efficiency."
+        },
+        "audit": {
+          "title": "Process Audit",
+          "desc": "Analyze current processes to uncover optimization opportunities."
+        }
+      }
     }
   },
   "about": {
@@ -269,6 +298,35 @@
       "bullet1": "Automated lead nurturing systems that increased conversion rates by 40%",
       "bullet2": "Integrated property management platforms for multi-location agencies",
       "cta": "See Case Study →"
+    }
+  },
+  "coreServices": {
+    "titlePrefix": "Our",
+    "titleAccent": "Core Services",
+    "subtitle": "Comprehensive business solutions designed to optimize your operations and drive sustainable growth",
+    "learnMore": "Learn More",
+    "viewAllServices": "View all Services",
+    "services": {
+      "bpa": {
+        "title": "Business Process Automation",
+        "desc": "Streamline workflows and reduce manual work with intelligent automation."
+      },
+      "crm": {
+        "title": "CRM Implementation",
+        "desc": "Expert HubSpot setup and optimization for sales, marketing and service."
+      },
+      "custom": {
+        "title": "Custom Development",
+        "desc": "Bespoke software built for your unique business requirements."
+      },
+      "integrations": {
+        "title": "System Integrations",
+        "desc": "Connect tools and platforms for better data flow and efficiency."
+      },
+      "audit": {
+        "title": "Process Audit",
+        "desc": "Analyze current processes to uncover optimization opportunities."
+      }
     }
   }
 }

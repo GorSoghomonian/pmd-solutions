@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getMessages } from 'next-intl/server';
 import IconInfoCard from '../../components/ui/IconInfoCard';
 import { industriesItems, whyChooseItems } from '../../data/homeItems';
 import ActionButtons from '../../components/ui/ActionButtons';
@@ -14,15 +14,26 @@ export default async function IndustriesSection({
   className = '',
 } = {}) {
   const t = await getTranslations('home');
+  const allMessages = await getMessages();
+  const homeMsgs = allMessages?.home ?? {};
+
+  // безопасный перевод с фолбэком
+  const safeT = (key, def) => {
+    try {
+      return t(key, { default: def });
+    } catch {
+      return def;
+    }
+  };
 
   const finalTitlePrefix =
-    titlePrefix ?? t(`${i18nSection}.titlePrefix`, { defaultMessage: 'Industries' });
+    titlePrefix ?? t(`${i18nSection}.titlePrefix`, { default: 'Industries' });
   const finalTitleAccent =
-    titleAccent ?? t(`${i18nSection}.titleAccent`, { defaultMessage: 'We Serve' });
+    titleAccent ?? t(`${i18nSection}.titleAccent`, { default: 'We Serve' });
   const finalSubtitle =
     subtitle ??
     t(`${i18nSection}.subtitle`, {
-      defaultMessage:
+      default:
         'Specialized solutions tailored to the unique challenges and opportunities in your industry',
     });
 
@@ -37,10 +48,10 @@ export default async function IndustriesSection({
     const key = it.key ?? String(idx);
     const titleText =
       it.title ??
-      t(`${i18nSection}.${key}.title`, { defaultMessage: it.title ?? '' });
+      t(`${i18nSection}.${key}.title`, { default: it.title ?? '' });
     const descriptionText =
       it.description ??
-      t(`${i18nSection}.${key}.description`, { defaultMessage: it.description ?? '' });
+      t(`${i18nSection}.${key}.description`, { default: it.description ?? '' });
 
     const iconNode = typeof it.icon === 'string' ? <span>{it.icon}</span> : it.icon;
 
@@ -57,8 +68,12 @@ export default async function IndustriesSection({
     );
   });
 
+  // безопасное получение текста кнопки (не вызываем t, если ключа нет)
+  const hasButton = homeMsgs?.[i18nSection]?.button != null;
+  const buttonText = hasButton ? t(`${i18nSection}.button`) : 'Explore →';
+
   const defaultButton = {
-    text: t(`${i18nSection}.button`, { defaultMessage: 'Explore →' }),
+    text: buttonText,
     href: '/services',
     className:
       'group relative px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-[#1f63c5] transition-all duration-300 hover:scale-105 shadow-lg',
@@ -92,6 +107,12 @@ export default async function IndustriesSection({
           </div>
         )}
       </div>
+
+      {/* нижняя тень (длиннее и мягче) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-slate-300/40 blur-2xl"
+      />
     </section>
   );
 }

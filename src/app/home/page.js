@@ -6,8 +6,8 @@ import IndustriesSection from './IndustriesSection';
 export async function generateMetadata() {
   const t = await getTranslations('home');
   return {
-    title: t('meta.title', { defaultMessage: 'Home' }),
-    description: t('meta.description', { defaultMessage: '' }),
+    title: t('meta.title', { default: 'Home' }),
+    description: t('meta.description', { default: '' }),
   };
 }
 
