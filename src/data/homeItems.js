@@ -94,3 +94,36 @@ export const auditItems = [
     titleFont: "sm"
   }
 ];
+
+export const industriesItems = [
+  {
+    key: 'realEstate',
+    icon: <i className="ri-building-2-line text-xl" />,
+    iconBg: 'bg-blue-100',
+    iconColor: 'text-blue-600'
+  },
+  {
+    key: 'logistics',
+    icon: <i className="ri-truck-line text-xl" />,
+    iconBg: 'bg-green-100',
+    iconColor: 'text-green-600'
+  },
+  {
+    key: 'retail',
+    icon: <i className="ri-store-2-line text-xl" />,
+    iconBg: 'bg-purple-100',
+    iconColor: 'text-purple-600'
+  },
+  {
+    key: 'healthcare',
+    icon: <i className="ri-heart-pulse-line text-xl" />,
+    iconBg: 'bg-rose-100',
+    iconColor: 'text-rose-600'
+  },
+  {
+    key: 'services',
+    icon: <i className="ri-briefcase-4-line text-xl" />,
+    iconBg: 'bg-indigo-100',
+    iconColor: 'text-indigo-600'
+  }
+];

@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '../../components/ui/HeroSection';
 import CoreServices from './CoreServices';
+import IndustriesSection from './IndustriesSection';
 
 export async function generateMetadata() {
   const t = await getTranslations('home');
@@ -65,6 +66,9 @@ export default async function HomePage() {
 
       {/* Core Services */}
       <CoreServices />
+
+      {/* Industries We Serve */}
+      <IndustriesSection />
     </main>
   );
 }

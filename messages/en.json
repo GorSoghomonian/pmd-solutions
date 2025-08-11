@@ -110,6 +110,31 @@
       "headline": "Ready to increase efficiency?",
       "text": "Create an account and get started now",
       "button": "Create account"
+    },
+    "industries": {
+      "titlePrefix": "Industries",
+      "titleAccent": "We Serve",
+      "subtitle": "Specialized solutions tailored to the unique challenges and opportunities in your industry",
+      "realEstate": {
+        "title": "Real Estate",
+        "description": "Property management systems, CRM optimization, and automated workflows for real estate professionals."
+      },
+      "logistics": {
+        "title": "Logistics",
+        "description": "Supply chain automation, inventory management, and operational efficiency solutions."
+      },
+      "retail": {
+        "title": "Retail",
+        "description": "E-commerce integration, customer management, and sales process optimization."
+      },
+      "healthcare": {
+        "title": "Healthcare",
+        "description": "Patient management systems, compliance automation, and healthcare workflow optimization."
+      },
+      "services": {
+        "title": "Service Companies",
+        "description": "Client management, service delivery automation, and business process optimization."
+      }
     }
   },
   "about": {
