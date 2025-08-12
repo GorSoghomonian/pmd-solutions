@@ -2,13 +2,16 @@
   "title": "Главная",
   "description": "Описание главной",
   "nav": {
-    "logo": "Лого",
+    "brand": "PMD Solutions",
     "home": "Главная",
-    "about": "О нас",
     "industries": "Отрасли",
+    "clients": "Клиенты",
+    "about": "О нас",
+    "blog": "Блог",
     "services": "Услуги",
-    "langEn": "Англ",
-    "langRu": "Рус"
+    "getStarted": "Начать",
+    "langEn": "Английский",
+    "langRu": "Русский"
   },
   "home": {
     "meta": {
@@ -160,82 +163,201 @@
       "customSolutions": { "title": "Индивидуальные решения", "description": "Подходы под ваши задачи вместо универсальных решений." },
       "technologyPartners": { "title": "Технологические партнёры", "description": "Официальные партнёрства обеспечивают доступ к новейшим инструментам и функциям." },
       "ongoingSupport": { "title": "Непрерывная поддержка", "description": "Постоянный мониторинг и оптимизация для максимальной эффективности систем." },
-      "dataDrivenResults": { "title": "Результаты на основе данных", "description": "Каждая рекомендация подкреплена анализом и измеримыми метриками." }
-    }
-  },
-  "about": {
-    "meta": {
-      "title": "О компании",
-      "description": "Узнайте больше о PMD Solutions"
+      "dataDrivenResults": { "title": "Результаты на основе данных", "description": "Каждая рекомендация подкреплена анализом и измеримыми метриками." },
+      "badges": {
+        "title": "Наши сертификаты и партнёрства",
+        "hubspot": "Сертифицированный партнёр HubSpot",
+        "iso": "ISO 27001",
+        "partner": "Business Plus Partner",
+        "topAgency": "Топ‑агентство"
+      }
     },
-    "hero": {
-      "title": "О нашем бизнесе",
-      "subtitle": "Решения для успеха",
-      "description": "PMD Solutions — ведущая консалтинговая компания. Мы предоставляем широкий спектр услуг, которые помогают нашим клиентам расти и развиваться. Планирование проектов, бизнес‑анализ или антикризисное управление — мы рядом с клиентами всегда и везде.",
-      "cta": "Узнать больше"
+    "testimonials": {
+      "titlePrefix": "Что говорят",
+      "titleAccent": "наши клиенты",
+      "subtitle": "Реальные результаты компаний, доверяющих PMD Solutions свою цифровую трансформацию",
+      "quote": "Индивидуальная разработка от PMD превзошла наши ожидания. Платформа управления недвижимостью теперь обрабатывает в 10 раз больше транзакций без сбоев.",
+      "author": "Дэвид Чэн",
+      "role": "Founding Partner",
+      "company": "Elite Real Estate",
+      "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Asian%20businessman%20real%20estate%20partner%20in%20upscale%20office%2C%20confident%20male%20executive%20with%20short%20black%20hair%20wearing%20sharp%20business%20suit%2C%20successful%20real%20estate%20professional%20with%20confident%20smile%2C%20luxury%20office%20background%20with%20city%20view&width=100&height=100&seq=testimonial-4&orientation=squarish",
+      "items": [
+        {
+          "quote": "«PMD Solutions преобразовала весь наш процесс продаж благодаря внедрению HubSpot. В первом квартале мы наблюдали 300-процентный рост коэффициента конверсии лидов».",
+          "author": "Дэвид Чен",
+          "role": "Founding Partner",
+          "company": "Elite Real Estate",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Asian%20businessman%20real%20estate%20partner%20in%20upscale%20office%2C%20confident%20male%20executive%20with%20short%20black%20hair%20wearing%20sharp%20business%20suit%2C%20successful%20real%20estate%20professional%20with%20confident%20smile%2C%20luxury%20office%20background%20with%20city%20view&width=100&height=100&seq=testimonial-4&orientation=squarish"
+        },
+        {
+          "quote": "Решения по автоматизации, внедренные PMD, позволили нам сэкономить 40 часов в неделю на ручных процессах. Их опыт в области оптимизации логистики не имеет себе равных.",
+          "author": "Анна Петрова",
+          "role": "CMO",
+          "company": "FinTech Plus",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20businesswoman%20CEO%20in%20modern%20office%20setting%2C%20confident%20female%20executive%20with%20short%20dark%20hair%20wearing%20business%20attire%2C%20professional%20headshot%20of%20successful%20tech%20company%20leader%20with%20friendly%20smile%2C%20corporate%20portrait%20with%20modern%20office%20background&width=100&height=100&seq=testimonial-1&orientation=squarish"
+        },
+        {
+          "quote": "Работа с PMD Solutions стала переломным моментом для наших систем управления пациентами. Их внимание к соблюдению норм в области здравоохранения и эффективности просто выдающееся.",
+          "author": "Марк Джонсон",
+          "role": "COO",
+          "company": "LogiChain",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Hispanic%20businessman%20operations%20director%20in%20warehouse%20setting%2C%20male%20executive%20with%20dark%20hair%20wearing%20business%20casual%20attire%2C%20confident%20logistics%20professional%20with%20warm%20smile%2C%20industrial%20office%20background%20with%20logistics%20operations&width=100&height=100&seq=testimonial-2&orientation=squarish"
+        },
+        {
+          "quote": "Работа по индивидуальной разработке, выполненная PMD, превзошла наши ожидания. Наша платформа по управлению недвижимостью теперь без проблем обрабатывает в 10 раз больше транзакций",
+          "author": "Ольга Соколова",
+          "role": "Head of Operations",
+          "company": "Retail Nova",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20healthcare%20manager%20in%20modern%20medical%20office%2C%20confident%20female%20practice%20manager%20with%20blonde%20hair%20wearing%20professional%20healthcare%20attire%2C%20friendly%20healthcare%20executive%20with%20warm%20smile%2C%20clean%20medical%20office%20background&width=100&height=100&seq=testimonial-3&orientation=squarish"
+        }
+      ],
+      "kpis": [
+        { "value": "98%",  "label": "Удовлетворенность клиентов" },
+        { "value": "250%", "label": "Средний рост ROI" },
+        { "value": "45",   "label": "Сэкономлено часов в неделю" },
+        { "value": "100%", "label": "Успешность проектов" }
+      ]
     },
-    "aboutSection": {
-      "title": "Кто мы",
-      "p1": "С 2000 года мы помогаем брендам находить свой голос. Времена меняются, но наша креативность — нет.",
-      "p2": "Мы опираемся на технологии и инновации, чтобы выполнять нашу ключевую миссию — помогать клиентам находить свой успешный путь.",
-      "stats": {
-        "years": "Лет опыта",
-        "projects": "Выполненных проектов",
-        "satisfaction": "Удовлетворенность клиентов"
-      },
-      "cta": "Наша история →",
-      "imageAlt": "Команда в офисе",
-      "founded": "Основана"
+    "blog": {
+      "titlePrefix": "Новое в нашем",
+      "titleAccent": "Блоге",
+      "subtitle": "Экспертные инсайты, практические руководства и отраслевые тренды, которые помогут вам опережать рынок в автоматизации бизнеса и цифровой трансформации",
+      "readMore": "Читать далее",
+      "ctaLabel": "Перейти в блог",
+      "ctaHref": "/blog",
+      "posts": [
+        {
+          "id": "1",
+          "category": "Автоматизация",
+          "date": "15 января 2024",
+          "readTime": "8 мин чтения",
+          "title": "10 ключевых рабочих процессов автоматизации HubSpot, которые нужны каждому бизнесу",
+          "excerpt": "Узнайте о самых эффективных рабочих процессах автоматизации, которые преобразят ваши продажи и маркетинг, сэкономят часы ручной работы и повысят конверсию.",
+          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/hubspot-automation-workflows"
+        },
+        {
+          "id": "2",
+          "category": "CRM",
+          "date": "10 января 2024",
+          "readTime": "6 мин чтения",
+          "title": "Успешное внедрение CRM: 5 критически важных шагов, которые нельзя пропустить",
+          "excerpt": "Узнайте ключевые шаги успешного внедрения CRM, которые обеспечивают принятие системой пользователями, целостность данных и максимальный ROI от вашей CRM‑системы.",
+          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/crm-implementation-steps"
+        },
+        {
+          "id": "3",
+          "category": "Оптимизация процессов",
+          "date": "5 января 2024",
+          "readTime": "10 мин чтения",
+          "title": "Оптимизация бизнес‑процессов: от хаоса к эффективности за 30 дней",
+          "excerpt": "Полное руководство по выявлению узких мест, упрощению рабочих процессов и внедрению решений по автоматизации, дающих измеримые улучшения эффективности.",
+          "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/business-process-optimization-30-days"
+        }
+      ]
     },
-    "team": {
-      "title": "Наша команда",
-      "subtitle": "Познакомьтесь с визионерами PMD Solutions, посвятившими себя трансформации бизнеса через инновации и экспертизу.",
-      "members": {
-        "sarah": {
-          "role": "CEO и основатель",
-          "desc": "Стратегическое планирование и трансформация бизнеса"
+    "contactCta": {
+      "title": { "prefix": "Готовы", "accent": "Преобразовать", "suffix": "свой бизнес?" },
+      "subtitle": "Присоединяйтесь к 500+ компаниям, которые кардинально улучшили свои процессы с PMD Solutions. Давайте обсудим, как мы поможем вам достичь ваших целей.",
+      "primaryButton": { "label": "Начать сегодня", "href": "/contact" },
+      "secondaryButton": { "label": "Наши услуги", "href": "/services" },
+      "cards": {
+        "email": {
+          "title": "Напишите нам",
+          "desc": "Ответим в течение 24 часов",
+          "value": "info@pmdsolutions.com",
+          "href": "mailto:info@pmdsolutions.com"
         },
-        "michael": {
-          "role": "CTO",
-          "desc": "Технологические инновации и цифровые решения"
+        "phone": {
+          "title": "Позвоните нам",
+          "desc": "Поговорите с нашим экспертом напрямую",
+          "value": "+1 (555) 123-4567",
+          "href": "tel:+15551234567"
         },
-        "emily": {
-          "role": "Руководитель операций",
-          "desc": "Оптимизация процессов и управление проектами"
-        },
-        "david": {
-          "role": "Ведущий консультант",
-          "desc": "Антикризисное управление и бизнес‑анализ"
+        "book": {
+          "title": "Назначить звонок",
+          "desc": "Бесплатная 30‑минутная консультация",
+          "value": "Записаться",
+          "href": "/schedule"
         }
       }
     },
-    "contact": {
-      "title": {
-        "before": "Готовы",
-        "highlight": "Трансформировать",
-        "after": "ваш бизнес?"
+    "about": {
+      "meta": {
+        "title": "О компании",
+        "description": "Узнайте больше о PMD Solutions"
       },
-      "subtitle": "Давайте обсудим, как PMD Solutions поможет вам достичь целей. Свяжитесь с нашей командой экспертов уже сегодня.",
-      "form": {
-        "title": "Отправьте нам сообщение",
-        "name": "Ваше имя",
-        "email": "Ваш email",
-        "company": "Компания",
-        "message": "Расскажите о вашем проекте...",
-        "submit": "Отправить"
+      "hero": {
+        "title": "О нашем бизнесе",
+        "subtitle": "Решения для успеха",
+        "description": "PMD Solutions — ведущая консалтинговая компания. Мы предоставляем широкий спектр услуг, которые помогают нашим клиентам расти и развиваться. Планирование проектов, бизнес‑анализ или антикризисное управление — мы рядом с клиентами всегда и везде.",
+        "cta": "Узнать больше"
       },
-      "info": {
-        "title": "Связаться с нами",
-        "emailLabel": "Email",
-        "phoneLabel": "Телефон",
-        "addressLabel": "Адрес"
+      "aboutSection": {
+        "title": "Кто мы",
+        "p1": "С 2000 года мы помогаем брендам находить свой голос. Времена меняются, но наша креативность — нет.",
+        "p2": "Мы опираемся на технологии и инновации, чтобы выполнять нашу ключевую миссию — помогать клиентам находить свой успешный путь.",
+        "stats": {
+          "years": "Лет опыта",
+          "projects": "Выполненных проектов",
+          "satisfaction": "Удовлетворенность клиентов"
+        },
+        "cta": "Наша история →",
+        "imageAlt": "Команда в офисе",
+        "founded": "Основана"
       },
-      "hours": {
-        "title": "Часы работы",
-        "weekdays": "Понедельник — Пятница",
-        "saturday": "Суббота",
-        "sunday": "Воскресенье",
-        "closed": "Выходной"
+      "team": {
+        "title": "Наша команда",
+        "subtitle": "Познакомьтесь с визионерами PMD Solutions, посвятившими себя трансформации бизнеса через инновации и экспертизу.",
+        "members": {
+          "sarah": {
+            "role": "CEO и основатель",
+            "desc": "Стратегическое планирование и трансформация бизнеса"
+          },
+          "michael": {
+            "role": "CTO",
+            "desc": "Технологические инновации и цифровые решения"
+          },
+          "emily": {
+            "role": "Руководитель операций",
+            "desc": "Оптимизация процессов и управление проектами"
+          },
+          "david": {
+            "role": "Ведущий консультант",
+            "desc": "Антикризисное управление и бизнес‑анализ"
+          }
+        }
+      },
+      "contact": {
+        "title": {
+          "before": "Готовы",
+          "highlight": "Трансформировать",
+          "after": "ваш бизнес?"
+        },
+        "subtitle": "Давайте обсудим, как PMD Solutions поможет вам достичь целей. Свяжитесь с нашей командой экспертов уже сегодня.",
+        "form": {
+          "title": "Отправьте нам сообщение",
+          "name": "Ваше имя",
+          "email": "Ваш email",
+          "company": "Компания",
+          "message": "Расскажите о вашем проекте...",
+          "submit": "Отправить"
+        },
+        "info": {
+          "title": "Связаться с нами",
+          "emailLabel": "Email",
+          "phoneLabel": "Телефон",
+          "addressLabel": "Адрес"
+        },
+        "hours": {
+          "title": "Часы работы",
+          "weekdays": "Понедельник — Пятница",
+          "saturday": "Суббота",
+          "sunday": "Воскресенье",
+          "closed": "Выходной"
+        }
       }
     }
   },

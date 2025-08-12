@@ -2,15 +2,17 @@ import { getTranslations, getMessages } from 'next-intl/server';
 import IconInfoCard from '../../components/ui/IconInfoCard';
 import { industriesItems, whyChooseItems } from '../../data/homeItems';
 import ActionButtons from '../../components/ui/ActionButtons';
+import RevealOnScroll from '../../components/ui/RevealOnScroll';
 
 export default async function IndustriesSection({
-  i18nSection = 'industries', // ключ секции в messages: 'industries' | 'whyChoose' | ...
+  i18nSection = 'industries',
   title,
   titlePrefix,
   titleAccent,
   subtitle,
   items,
   button,
+  footer, // NEW: кастомный футер вместо кнопки
   className = '',
 } = {}) {
   const t = await getTranslations('home');
@@ -56,15 +58,22 @@ export default async function IndustriesSection({
     const iconNode = typeof it.icon === 'string' ? <span>{it.icon}</span> : it.icon;
 
     return (
-      <IconInfoCard
+      <div
         key={key}
-        size="lg"
-        title={titleText}
-        description={descriptionText}
-        iconBg={it.iconBg}
-        iconColor={it.iconColor}
-        icon={<div className="text-2xl">{iconNode}</div>}
-      />
+        className="group h-full will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2
+                  [&_h3]:transition-colors [&_h3]:duration-500
+                  hover:[&_h3]:text-[#2A73DD]"
+      >
+        <IconInfoCard
+          size="lg"
+          title={titleText}
+          description={descriptionText}
+          iconBg={it.iconBg}
+          iconColor={it.iconColor}
+          icon={<div className="text-2xl">{iconNode}</div>}
+          delay={100 * idx} // 0ms, 100ms, 200ms, ...
+        />
+      </div>
     );
   });
 
@@ -78,11 +87,10 @@ export default async function IndustriesSection({
     className:
       'group relative px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-[#1f63c5] transition-all duration-300 hover:scale-105 shadow-lg',
   };
-  const finalButton =
-    button === false ? null : { ...defaultButton, ...(button || {}) };
+  const finalButton = button === false ? null : { ...defaultButton, ...(button || {}) };
 
   return (
-    <section className={`relative py-20 bg-blue-50/50 ${className}`}>
+    <section className={`relative isolate py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto max-w-7xl px-6">
         <h2 className="text-center text-3xl md:text-5xl font-extrabold tracking-tight text-slate-800">
           {title ?? (
@@ -97,14 +105,22 @@ export default async function IndustriesSection({
           {finalSubtitle}
         </p>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards}
-        </div>
-
-        {finalButton && (
-          <div className="mt-12 flex justify-center">
-            <ActionButtons buttons={[finalButton]} />
+        <RevealOnScroll threshold={0.25} rootMargin="0px 0px -10% 0px">
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {cards}
           </div>
+        </RevealOnScroll>
+
+        {footer ? (
+          <div className="mt-12 flex justify-center pb-5">
+            {footer}
+          </div>
+        ) : (
+          finalButton && (
+            <div className="mt-12 flex justify-center">
+              <ActionButtons buttons={[finalButton]} />
+            </div>
+          )
         )}
       </div>
 

@@ -55,24 +55,24 @@ export default function HeroSection({
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4">
         {title && (
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white opacity-0 animate-fade-in-up animate-delay-0">
             {title}
           </h1>
         )}
         {description && (
-          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up animate-delay-150">
             {description}
           </p>
         )}
 
         {buttons.length > 0 && (
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-6">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-6 opacity-0 animate-fade-in-up animate-delay-300">
             <ActionButtons buttons={buttons} />
           </div>
         )}
 
         {showScrollIndicator && scrollLabel && (
-          <div className="mt-10 flex flex-col items-center">
+          <div className="mt-10 flex flex-col items-center opacity-0 animate-fade-in-up animate-delay-500">
             <div className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-2">
               <span className="text-white text-2xl">⌄</span>
             </div>

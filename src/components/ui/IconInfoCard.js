@@ -7,13 +7,16 @@ export default function IconInfoCard({
   iconBg = 'bg-blue-50',
   iconColor = 'text-blue-600',
   className = '',
-  size = 'md' // md | lg
+  size = 'md', // md | lg
+  animate = true,
+  delay = 0,
 }) {
   const paddings = size === 'lg' ? 'p-8 md:p-10' : 'p-6 md:p-8';
 
   return (
     <div
-      className={`h-full rounded-2xl bg-white shadow-md ring-1 ring-slate-100 hover:shadow-lg transition-shadow ${paddings} ${className}`}
+      className={`h-full rounded-2xl bg-white shadow-md ring-1 ring-slate-100 hover:shadow-lg transition-shadow ${paddings} ${animate ? 'opacity-0 animate-fade-in-up' : ''} ${className}`}
+      style={animate ? { animationDelay: `${delay}ms` } : undefined}
     >
       <div className="flex flex-col items-center text-center">
         <div

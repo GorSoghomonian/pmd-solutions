@@ -2,13 +2,16 @@
   "title": "Home",
   "description": "Home description",
   "nav": {
-    "logo": "Logo",
+    "brand": "PMD Solutions",
     "home": "Home",
-    "about": "About",
     "industries": "Industries",
+    "clients": "Clients",
+    "about": "About",
+    "blog": "Blog",
     "services": "Services",
-    "langEn": "EN",
-    "langRu": "RU"
+    "getStarted": "Get Started",
+    "langEn": "English",
+    "langRu": "Russian"
   },
   "home": {
     "meta": {
@@ -164,6 +167,13 @@
       "dataDrivenResults": {
         "title": "Data‑Driven Results",
         "description": "Every recommendation backed by comprehensive analysis and measurable performance metrics."
+      },
+      "badges": {
+        "title": "Our Certifications & Partnerships",
+        "hubspot": "HubSpot Certified",
+        "iso": "ISO 27001",
+        "partner": "Business Plus Partner",
+        "topAgency": "Top Rated Agency"
       }
     },
     "coreServices": {
@@ -192,6 +202,119 @@
         "audit": {
           "title": "Process Audit",
           "desc": "Analyze current processes to uncover optimization opportunities."
+        }
+      }
+    },
+    "testimonials": {
+      "titlePrefix": "What Our",
+      "titleAccent": "Clients Say",
+      "subtitle": "Real results from real businesses who trust PMD Solutions with their digital transformation",
+      "quote": "The custom development work PMD delivered exceeded our expectations. Our property management platform now handles 10x more transactions seamlessly.",
+      "author": "David Chen",
+      "role": "Founding Partner",
+      "company": "Elite Real Estate",
+      "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Asian%20businessman%20real%20estate%20partner%20in%20upscale%20office%2C%20confident%20male%20executive%20with%20short%20black%20hair%20wearing%20sharp%20business%20suit%2C%20successful%20real%20estate%20professional%20with%20confident%20smile%2C%20luxury%20office%20background%20with%20city%20view&width=100&height=100&seq=testimonial-4&orientation=squarish",
+      "items": [
+        {
+          "quote": "The custom development work PMD delivered exceeded our expectations. Our property management platform now handles 10x more transactions seamlessly.",
+          "author": "David Chen",
+          "role": "Founding Partner",
+          "company": "Elite Real Estate",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Asian%20businessman%20real%20estate%20partner%20in%20upscale%20office%2C%20confident%20male%20executive%20with%20short%20black%20hair%20wearing%20sharp%20business%20suit%2C%20successful%20real%20estate%20professional%20with%20confident%20smile%2C%20luxury%20office%20background%20with%20city%20view&width=100&height=100&seq=testimonial-4&orientation=squarish"
+        },
+        {
+          "quote": "Working with PMD Solutions was a game-changer for our patient management systems. Their attention to healthcare compliance and efficiency is outstanding.",
+          "author": "Anna Petrova",
+          "role": "CMO",
+          "company": "FinTech Plus",
+          "avatarUrl":"https://readdy.ai/api/search-image?query=Professional%20businesswoman%20CEO%20in%20modern%20office%20setting%2C%20confident%20female%20executive%20with%20short%20dark%20hair%20wearing%20business%20attire%2C%20professional%20headshot%20of%20successful%20tech%20company%20leader%20with%20friendly%20smile%2C%20corporate%20portrait%20with%20modern%20office%20background&width=100&height=100&seq=testimonial-1&orientation=squarish"
+        },
+        {
+          "quote": "Systems integration reduced manual work and cut processing time by 60%.",
+          "author": "Mark Johnson",
+          "role": "COO",
+          "company": "LogiChain",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Hispanic%20businessman%20operations%20director%20in%20warehouse%20setting%2C%20male%20executive%20with%20dark%20hair%20wearing%20business%20casual%20attire%2C%20confident%20logistics%20professional%20with%20warm%20smile%2C%20industrial%20office%20background%20with%20logistics%20operations&width=100&height=100&seq=testimonial-2&orientation=squarish"
+        },
+        {
+          "quote": 
+"PMD Solutions transformed our entire sales process with their HubSpot implementation. We saw a 300% increase in lead conversion rates within the first quarter.",
+          "author": "Olga Sokolova",
+          "role": "Head of Operations",
+          "company": "Retail Nova",
+          "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20healthcare%20manager%20in%20modern%20medical%20office%2C%20confident%20female%20practice%20manager%20with%20blonde%20hair%20wearing%20professional%20healthcare%20attire%2C%20friendly%20healthcare%20executive%20with%20warm%20smile%2C%20clean%20medical%20office%20background&width=100&height=100&seq=testimonial-3&orientation=squarish"
+        }
+      ],
+      "kpis": [
+        { "value": "98%",  "label": "Client Satisfaction" },
+        { "value": "250%", "label": "Average ROI Increase" },
+        { "value": "45",   "label": "Hours Saved Weekly" },
+        { "value": "100%", "label": "Project Success Rate" }
+      ]
+    },
+    "blog": {
+      "titlePrefix": "Latest from Our",
+      "titleAccent": "Blog",
+      "subtitle": "Expert insights, practical guides, and industry trends to help you stay ahead in business automation and digital transformation",
+      "readMore": "Read More",
+      "ctaLabel": "Visit Our Blog",
+      "ctaHref": "/blog",
+      "posts": [
+        {
+          "id": "1",
+          "category": "Automation",
+          "date": "January 15, 2024",
+          "readTime": "8 min read",
+          "title": "10 Game-Changing HubSpot Automation Workflows Every Business Needs",
+          "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
+          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/hubspot-automation-workflows"
+        },
+        {
+          "id": "2",
+          "category": "CRM",
+          "date": "January 10, 2024",
+          "readTime": "6 min read",
+          "title": "CRM Implementation Success: 5 Critical Steps You Cannot Skip",
+          "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
+          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/crm-implementation-steps"
+        },
+        {
+          "id": "3",
+          "category": "Process Optimization",
+          "date": "January 5, 2024",
+          "readTime": "10 min read",
+          "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days",
+          "excerpt": "A comprehensive guide to identifying bottlenecks, streamlining workflows, and implementing automation solutions that deliver measurable efficiency improvements.",
+          "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1470&auto=format&fit=crop",
+          "href": "/blog/business-process-optimization-30-days"
+        }
+      ]
+    },
+    "contactCta": {
+      "title": { "prefix": "Ready to", "accent": "Transform", "suffix": "Your Business?" },
+      "subtitle": "Join 500+ successful businesses that have revolutionized their operations with PMD Solutions. Let's discuss how we can help you achieve your goals.",
+      "primaryButton": { "label": "Get Started Today", "href": "/contact" },
+      "secondaryButton": { "label": "View Our Services", "href": "/services" },
+      "cards": {
+        "email": {
+          "title": "Email Us",
+          "desc": "Get a response within 24 hours",
+          "value": "info@pmdsolutions.com",
+          "href": "mailto:info@pmdsolutions.com"
+        },
+        "phone": {
+          "title": "Call Us",
+          "desc": "Speak with our experts directly",
+          "value": "+1 (555) 123-4567",
+          "href": "tel:+15551234567"
+        },
+        "book": {
+          "title": "Book a Call",
+          "desc": "Free 30-minute consultation",
+          "value": "Schedule Now",
+          "href": "/schedule"
         }
       }
     }

@@ -62,7 +62,7 @@ export default async function CoreServices({
   const finalButton = button === false ? null : { ...defaultButton, ...(button || {}) };
 
   return (
-    <section className={`py-16 md:py-24 bg-white ${className}`}>
+    <section className={`relative isolate py-16 md:py-24 bg-white ${className}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-5xl font-extrabold text-center">
           {title ?? (
@@ -72,7 +72,8 @@ export default async function CoreServices({
             </>
           )}
         </h2>
-        <p className="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-center text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-300 opacity-100 translate-y-0 mt-5
+        ">
           {finalSubtitle}
         </p>
 
@@ -84,7 +85,7 @@ export default async function CoreServices({
             return (
               <div
                 key={s.id}
-                className="group rounded-3xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(42,115,221,0.15)] transition-shadow"
+                className="group rounded-3xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(42,115,221,0.15)]  transform transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
@@ -101,16 +102,18 @@ export default async function CoreServices({
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${s.iconBg} mb-4`}>
                     <i className={s.iconClass} aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900">{lsTitle}</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-[#2A73DD]">
+                    {lsTitle}
+                  </h3>
                   <p className="mt-3 text-gray-600">{lsDesc}</p>
 
                   <div className="mt-6">
                     <Link
                       href={s.href}
-                      className="inline-flex items-center gap-2 text-[#2A73DD] font-semibold hover:underline"
+                      className="inline-flex items-center gap-2 text-[#2A73DD] font-semibold hover:underline transition-transform duration-300 group-hover:translate-x-1"
                     >
                       {learnMoreText}{' '}
-                      <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                     </Link>
                   </div>
                 </div>
@@ -125,6 +128,11 @@ export default async function CoreServices({
           </div>
         )}
       </div>
+     {/* нижняя тень (длиннее и мягче) */}
+    <div
+      aria-hidden
+      className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-slate-300/40 blur-2xl"
+    />
     </section>
   );
 }

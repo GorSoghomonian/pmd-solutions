@@ -2,6 +2,9 @@ import { getTranslations } from 'next-intl/server';
 import HeroSection from '../../components/ui/HeroSection';
 import CoreServices from './CoreServices';
 import IndustriesSection from './IndustriesSection';
+import TestimonialsSection from './TestimonialsSection';
+import BlogSection from './BlogSection';
+import ContactCTA from './ContactCTA'; // добавлено
 
 export async function generateMetadata() {
   const t = await getTranslations('home');
@@ -14,8 +17,42 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const t = await getTranslations('home');
 
+  const badgesFooter = (
+    <div className="mt-20 text-center">
+      <h3 className="text-2xl font-bold text-gray-900 mb-8">
+        {t('whyChoose.badges.title', { default: 'Our Certifications & Partnerships' })}
+      </h3>
+      <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+        <div className="flex items-center space-x-2 bg-orange-50 px-6 py-3 rounded-full">
+          <i className="ri-award-fill text-orange-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.hubspot', { default: 'HubSpot Certified' })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2 bg-blue-50 px-6 py-3 rounded-full">
+          <i className="ri-shield-check-line text-blue-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.iso', { default: 'ISO 27001' })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2 bg-green-50 px-6 py-3 rounded-full">
+          <i className="ri-verified-badge-line text-green-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.partner', { default: 'Business Plus Partner' })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2 bg-purple-50 px-6 py-3 rounded-full">
+          <i className="ri-star-line text-purple-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.topAgency', { default: 'Top Rated Agency' })}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-visible bg-black">
       <HeroSection
         title={
           <>
@@ -48,7 +85,7 @@ export default async function HomePage() {
         minHeight="h-screen"
         className="flex items-center justify-center pb-10"
       >
-        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-center text-white">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-center text-white ">
           <div>
             <div className="text-4xl md:text-5xl font-extrabold">500+</div>
             <div className="text-blue-200 text-lg">{t('stats.projects')}</div>
@@ -69,9 +106,10 @@ export default async function HomePage() {
 
       {/* Industries We Serve (по умолчанию из переводов) */}
       <IndustriesSection />
-
-      {/* Why Choose PMD Solutions (весь текст из messages, данные карточек из homeItems) */}
-      <IndustriesSection i18nSection="whyChoose" />
+      <IndustriesSection i18nSection="whyChoose" button={false} footer={badgesFooter} />
+      <TestimonialsSection />
+      <BlogSection />
+      <ContactCTA />  //
     </main>
   );
 }
