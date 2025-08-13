@@ -30,10 +30,11 @@ export default function ContactCTA({ className = '' } = {}) {
             <ActionButtons
               buttons={[
                 {
-                  text: `${t('primaryButton.label')} →`,
+                  text: `${t('primaryButton.label')} `,
                   href: t('primaryButton.href'),
                   variant: 'primary',
                   size: 'lg',
+                  icon: <i className="ri-rocket-line ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>,
                   className:
                     'bg-[#2A73DD] hover:bg-[#1f5ec0] text-white rounded-full px-8 py-4 shadow-lg hover:shadow-xl text-lg md:text-xl font-semibold transition-all duration-200 ease-out transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2A73DD]/40',
                 },
@@ -42,6 +43,7 @@ export default function ContactCTA({ className = '' } = {}) {
                   href: t('secondaryButton.href'),
                   variant: 'secondary',
                   size: 'lg',
+                  icon: <i className="ri-service-line ml-2 transition-transform duration-300 group-hover:rotate-12"></i>,
                   className:
                     'border border-white/60 text-white hover:bg-white/10 rounded-full px-8 py-4 text-lg md:text-xl font-semibold transition-all duration-200 ease-out transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50',
                 },

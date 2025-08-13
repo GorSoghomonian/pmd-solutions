@@ -17,40 +17,6 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const t = await getTranslations('home');
 
-  const badgesFooter = (
-    <div className="mt-20 text-center">
-      <h3 className="text-2xl font-bold text-gray-900 mb-8">
-        {t('whyChoose.badges.title', { default: 'Our Certifications & Partnerships' })}
-      </h3>
-      <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-        <div className="flex items-center space-x-2 bg-orange-50 px-6 py-3 rounded-full">
-          <i className="ri-award-fill text-orange-600 text-xl"></i>
-          <span className="font-semibold text-gray-700">
-            {t('whyChoose.badges.hubspot', { default: 'HubSpot Certified' })}
-          </span>
-        </div>
-        <div className="flex items-center space-x-2 bg-blue-50 px-6 py-3 rounded-full">
-          <i className="ri-shield-check-line text-blue-600 text-xl"></i>
-          <span className="font-semibold text-gray-700">
-            {t('whyChoose.badges.iso', { default: 'ISO 27001' })}
-          </span>
-        </div>
-        <div className="flex items-center space-x-2 bg-green-50 px-6 py-3 rounded-full">
-          <i className="ri-verified-badge-line text-green-600 text-xl"></i>
-          <span className="font-semibold text-gray-700">
-            {t('whyChoose.badges.partner', { default: 'Business Plus Partner' })}
-          </span>
-        </div>
-        <div className="flex items-center space-x-2 bg-purple-50 px-6 py-3 rounded-full">
-          <i className="ri-star-line text-purple-600 text-xl"></i>
-          <span className="font-semibold text-gray-700">
-            {t('whyChoose.badges.topAgency', { default: 'Top Rated Agency' })}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <main className="min-h-screen overflow-visible bg-black">
       <HeroSection
@@ -106,7 +72,7 @@ export default async function HomePage() {
 
       {/* Industries We Serve (по умолчанию из переводов) */}
       <IndustriesSection />
-      <IndustriesSection i18nSection="whyChoose" button={false} footer={badgesFooter} />
+      <IndustriesSection i18nSection="whyChoose" button={false} />
       <TestimonialsSection />
       <BlogSection />
       <ContactCTA />  //

@@ -85,7 +85,7 @@ export default async function CoreServices({
             return (
               <div
                 key={s.id}
-                className="group rounded-3xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(42,115,221,0.15)]  transform transition-transform duration-300 hover:-translate-y-1"
+                className="group rounded-3xl overflow-hidden bg-white shadow-[0_6px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]  transform transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
@@ -128,11 +128,11 @@ export default async function CoreServices({
           </div>
         )}
       </div>
-     {/* нижняя тень (длиннее и мягче) */}
-    <div
-      aria-hidden
-      className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-slate-300/40 blur-2xl"
-    />
+      {/* нижняя тень (длиннее и мягче) */}
+      <div
+  aria-hidden
+  className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-black/10 blur-2xl"
+></div>
     </section>
   );
 }

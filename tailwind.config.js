@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+        colors: {
+          royalBlue: '#002A93',
+        },
       // TODO: Define custom color palette for brand consistency
       // TODO: Add custom typography scale
       // TODO: Define consistent spacing scale

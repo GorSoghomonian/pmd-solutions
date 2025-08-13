@@ -12,7 +12,7 @@ export default async function IndustriesSection({
   subtitle,
   items,
   button,
-  footer, // NEW: кастомный футер вместо кнопки
+  footer, // кастомный футер вместо кнопки
   className = '',
 } = {}) {
   const t = await getTranslations('home');
@@ -39,7 +39,7 @@ export default async function IndustriesSection({
         'Specialized solutions tailored to the unique challenges and opportunities in your industry',
     });
 
-  // Источник карточек: переданные items или набор из homeItems по ключу секции
+  // Источник карточек
   const itemsMap = {
     industries: industriesItems,
     whyChoose: whyChooseItems,
@@ -60,9 +60,9 @@ export default async function IndustriesSection({
     return (
       <div
         key={key}
-        className="group h-full will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2
+        className="group h-full rounded-3xl overflow-hidden bg-white will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2
                   [&_h3]:transition-colors [&_h3]:duration-500
-                  hover:[&_h3]:text-[#2A73DD]"
+                  hover:[&_h3]:text-[#2A73DD] shadow-[0_6px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
       >
         <IconInfoCard
           size="lg"
@@ -71,7 +71,7 @@ export default async function IndustriesSection({
           iconBg={it.iconBg}
           iconColor={it.iconColor}
           icon={<div className="text-2xl">{iconNode}</div>}
-          delay={100 * idx} // 0ms, 100ms, 200ms, ...
+          delay={100 * idx}
         />
       </div>
     );
@@ -89,6 +89,38 @@ export default async function IndustriesSection({
   };
   const finalButton = button === false ? null : { ...defaultButton, ...(button || {}) };
 
+  // Default badges footer for whyChoose (ISO removed)
+  const defaultBadgesFooter = i18nSection === 'whyChoose' ? (
+    <div className="mt-20 text-center">
+      <h3 className="text-2xl font-bold text-gray-900 mb-8">
+        {t('whyChoose.badges.title', { default: 'Our Certifications & Partnerships' })}
+      </h3>
+      <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+        <div className="flex items-center space-x-2 bg-orange-50 px-6 py-3 rounded-full">
+          <i className="ri-award-fill text-orange-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.hubspot', { default: 'HubSpot Certified' })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2 bg-green-50 px-6 py-3 rounded-full">
+          <i className="ri-verified-badge-line text-green-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.partner', { default: 'Business Plus Partner' })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2 bg-purple-50 px-6 py-3 rounded-full">
+          <i className="ri-star-line text-purple-600 text-xl"></i>
+          <span className="font-semibold text-gray-700">
+            {t('whyChoose.badges.topAgency', { default: 'Top Rated Agency' })}
+          </span>
+        </div>
+      </div>
+    </div>
+  ) : null;
+
+  // Use provided footer if set, otherwise fallback to default badges for whyChoose
+  const computedFooter = footer !== undefined ? footer : defaultBadgesFooter;
+
   return (
     <section className={`relative isolate py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto max-w-7xl px-6">
@@ -101,7 +133,7 @@ export default async function IndustriesSection({
           )}
         </h2>
 
-        <p className="mt-4 text-center text-slate-500 max-w-3xl mx-auto">
+        <p className="mt-4 text-center text-xl text-slate-500 max-w-3xl mx-auto">
           {finalSubtitle}
         </p>
 
@@ -111,9 +143,9 @@ export default async function IndustriesSection({
           </div>
         </RevealOnScroll>
 
-        {footer ? (
+        {computedFooter ? (
           <div className="mt-12 flex justify-center pb-5">
-            {footer}
+            {computedFooter}
           </div>
         ) : (
           finalButton && (
@@ -126,9 +158,9 @@ export default async function IndustriesSection({
 
       {/* нижняя тень (длиннее и мягче) */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-slate-300/40 blur-2xl"
-      />
+  aria-hidden
+  className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-black/10 blur-2xl"
+></div>
     </section>
   );
 }

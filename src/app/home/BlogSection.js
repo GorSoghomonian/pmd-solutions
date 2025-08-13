@@ -37,7 +37,7 @@ export default function BlogSection({ className = '' } = {}) {
           {posts.map((p) => (
             <article
               key={p.id}
-              className="bg-white rounded-3xl shadow-xl ring-1 ring-gray-100 overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
+              className="bg-white rounded-3xl shadow-[0_6px_16px_rgba(0,0,0,0.06)] ring-1 ring-gray-100 overflow-hidden transition-shadow duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
             >
               <Link href={p.href} className="block">
                 <Image

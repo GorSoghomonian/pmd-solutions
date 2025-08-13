@@ -48,9 +48,9 @@ export default function Header() {
   const flagBtnBase =
     'w-8 h-8 flex items-center justify-center rounded-full border text-sm transition select-none';
   const active =
-    'border-blue-600 ring-2 ring-blue-300';
+    'border-[#2A73DD] ring-2 ring-[#2A73DD]/40';
   const inactive =
-    'border-gray-300 hover:border-blue-500';
+    'border-gray-300 hover:border-[#2A73DD]';
 
   const isActive = (href) => {
     if (href === '/home') return pathname === '/home';
@@ -64,7 +64,7 @@ export default function Header() {
           <div className="flex items-center">
             {/* Brand */}
             <Link href="/home" className="flex items-center space-x-3 cursor-pointer">
-              <div className="w-10 h-10 bg-[#2A73DD] rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#002A93] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">P</span>
               </div>
               <span className={`text-2xl transition-colors duration-300 text-[#030000]`}>
@@ -79,7 +79,7 @@ export default function Header() {
                   key={item.key}
                   href={item.href}
                   className={`font-medium transition-colors duration-300 ${
-                    isActive(item.href) ? 'text-[#2A73DD]' : 'text-gray-700 hover:text-[#2A73DD]'
+                    isActive(item.href) ? 'text-[#002A93]' : 'text-gray-700 hover:text-[#2A73DD]'
                   }`}
                 >
                   {t(item.key, { default: item.fallback })}
@@ -102,8 +102,8 @@ export default function Header() {
                         href={s.href}
                         className={`block px-4 py-3 transition-colors duration-300 cursor-pointer ${
                           i === 0
-                            ? 'text-gray-700 hover:text-[#2A73DD] hover:bg-blue-50 font-semibold border-b border-gray-100'
-                            : 'text-gray-700 hover:text-[#2A73DD] hover:bg-blue-50'
+                            ? 'text-gray-700 hover:text-[#2A73DD] hover:bg-[#B0C1D6]/30 font-semibold border-b border-gray-100'
+                            : 'text-gray-700 hover:text-[#2A73DD] hover:bg-[#B0C1D6]/30'
                         }`}
                       >
                         {s.label}
@@ -115,9 +115,9 @@ export default function Header() {
               {/* CTA */}
               <Link
                 href="/contact"
-                className="group relative px-8 py-4 bg-[#2A73DD] text-white rounded-xl font-semibold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105 whitespace-nowrap overflow-hidden"
+                className="group relative px-8 py-4 bg-[#002A93] text-white rounded-xl font-semibold text-lg shadow-2xl transition-all duration-300 hover:scale-105 whitespace-nowrap overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2A73DD] to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2A73DD] to-[#002A93] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                 <div className="relative flex items-center space-x-2">
                   <span>{t('getStarted', { default: 'Get Started' })}</span>
                   <i className="ri-rocket-line transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-12" />
@@ -129,7 +129,7 @@ export default function Header() {
                   disabled={pending}
                   onClick={() => switchLocale('en')}
                   aria-label={t('langEn', { default: 'English' })}
-                  className={`${flagBtnBase} ${locale === 'en' ? 'border-blue-600 ring-2 ring-blue-300' : 'border-gray-300 hover:border-blue-500'}`}
+                  className={`${flagBtnBase} ${locale === 'en' ? 'border-royalBlue ring-2 ring-royalBlue/40' : 'border-gray-300 hover:border-royalBlue'}`}
                 >
                   <span role="img" aria-hidden="true">🇬🇧</span>
                 </button>
@@ -137,7 +137,7 @@ export default function Header() {
                   disabled={pending}
                   onClick={() => switchLocale('ru')}
                   aria-label={t('langRu', { default: 'Russian' })}
-                  className={`${flagBtnBase} ${locale === 'ru' ? 'border-blue-600 ring-2 ring-blue-300' : 'border-gray-300 hover:border-blue-500'}`}
+                  className={`${flagBtnBase} ${locale === 'ru' ? 'border-royalBlue ring-2 ring-royalBlue/40' : 'border-gray-300 hover:border-royalBlue'}`}
                 >
                   <span role="img" aria-hidden="true">🇷🇺</span>
                 </button>
@@ -151,7 +151,7 @@ export default function Header() {
                     key={item.key}
                     href={item.href}
                     className={`font-medium text-sm transition-all duration-300 ${
-                      isActive(item.href) ? 'text-[#2A73DD]' : 'text-gray-700 hover:text-[#2A73DD]'
+                      isActive(item.href) ? 'text-[#002A93]' : 'text-gray-700 hover:text-[#2A73DD]'
                     }`}
                   >
                     {t(item.key, { default: item.fallback })}
@@ -175,6 +175,113 @@ export default function Header() {
           </div>
         </nav>
       </div>
+
+      {/* Mobile overlay */}
+      <div
+        onClick={() => setMobileOpen(false)}
+        className={`fixed inset-0 z-[60] bg-white min-h-[100dvh] ${mobileOpen ? 'block pointer-events-auto' : 'hidden pointer-events-none'}`}
+        aria-hidden={!mobileOpen}
+      />
+
+      {/* Mobile drawer */}
+      <aside
+        id="mobile-menu"
+        className={`fixed inset-0 z-[70] w-full bg-white min-h-[100dvh] flex flex-col transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        aria-hidden={!mobileOpen}
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className="flex items-center justify-between p-4 border-b">
+          <Link href="/home" className="flex items-center space-x-3" onClick={() => setMobileOpen(false)}>
+            <div className="w-9 h-9 shrink-0 bg-[#002A93] bg-royalBlue rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">P</span>
+            </div>
+            <span className="text-lg font-semibold text-slate-900">{t('brand', { default: 'PMD Solutions' })}</span>
+          </Link>
+          <button
+            className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-slate-100 text-slate-600"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <i className="ri-close-line text-xl" />
+          </button>
+        </div>
+
+        {/* Scrollable content that fills the remaining height */}
+        <div className="flex-1 overflow-y-auto">
+          <nav className="py-2">
+            <ul className="px-2 space-y-1">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                      isActive(item.href)
+                        ? 'bg-[#B0C1D6]/30 text-[#002A93] font-semibold'
+                        : 'text-slate-800 hover:bg-[#B0C1D6]/20'
+                    }`}
+                  >
+                    {t(item.key, { default: item.fallback })}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                  aria-expanded={mobileServicesOpen}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-slate-800 hover:bg-[#B0C1D6]/20 hover:text-[#002A93]"
+                >
+                  <span>{t('services', { default: 'Services' })}</span>
+                  <i className={`ri-arrow-down-s-line transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`${mobileServicesOpen ? 'block' : 'hidden'} pl-2`}>
+                  {servicesMenu.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-5 py-2.5 rounded-lg text-slate-700 hover:text-[#002A93] hover:bg-[#B0C1D6]/20"
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+            </ul>
+
+            <div className="px-4 py-4">
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full text-center px-5 py-3 rounded-xl text-white font-semibold shadow-xl bg-gradient-to-r from-[#2A73DD] to-[#002A93] hover:from-[#2A73DD]/90 hover:to-[#002A93]/90 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+              >
+                {t('getStarted', { default: 'Get Started' })} <i className="ri-rocket-line ml-1"></i>
+              </Link>
+            </div>
+
+            <div className="px-4 pb-6 flex items-center gap-2">
+              <button
+                disabled={pending}
+                onClick={() => switchLocale('en')}
+                aria-label={t('langEn', { default: 'English' })}
+                className={`${flagBtnBase} ${locale === 'en' ? active : inactive}`}
+              >
+                <span role="img" aria-hidden="true">🇬🇧</span>
+              </button>
+              <button
+                disabled={pending}
+                onClick={() => switchLocale('ru')}
+                aria-label={t('langRu', { default: 'Russian' })}
+                className={`${flagBtnBase} ${locale === 'ru' ? active : inactive}`}
+              >
+                <span role="img" aria-hidden="true">🇷🇺</span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </aside>
     </header>
   );
 }
