@@ -29,7 +29,7 @@ export default function AutomationSection({ title, subtitle, items = [] }) {
     <section className="relative mt-20 pb-20">
       <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-0" />
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
-        <div className="relative w-full lg:w-1/2 flex justify-center">
+        <div className="relative w-full lg:w-1/2 smflex justify-center hidden md:block">
           <Image
             alt="Automation"
             src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"

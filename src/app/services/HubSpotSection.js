@@ -47,6 +47,7 @@ export default function HubSpotSection({title, subtitle, items = []}) {
                   <FeatureCard
                     key={itemKey ?? rest.id ?? idx}
                     {...rest}
+                    reverse={idx % 2 === 1}
                   />
                 );
               })}
@@ -73,7 +74,7 @@ export default function HubSpotSection({title, subtitle, items = []}) {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <Image
               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
               alt="HubSpot"

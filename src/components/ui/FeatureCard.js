@@ -1,3 +1,4 @@
+import Image from 'next/image';
 /**
  * FeatureCard Component
  * 
@@ -28,6 +29,7 @@ export default function FeatureCard({
   cardSize = "md",
   descFont = "md",
   titleFont = "md",
+  reverse = false,
 }) {
   // Size configuration object - could be moved to a theme config file
   const sizeStyles = {
@@ -51,27 +53,66 @@ export default function FeatureCard({
     lg: "text-[16px]",
     xl: "text-[17px]"
   };
-
+  
   return (
     <div
-      className={`flex gap-4 rounded-xl shadow-md ${sizeStyles[cardSize]} items-start`}
+      className={`flex gap-4 rounded-xl shadow-md ${sizeStyles[cardSize]} items-start w-full ${reverse ? 'flex-row-reverse' : 'flex-row'}`}
       style={{ background: bgColor }}
+    
     >
+      {/* {image container} */}
+      <div  className={`md:hidden `}>
+        <Image
+          alt="Automation"
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+          width={240}
+          height={150}
+          priority
+          className="w-full object-cover rounded-2xl shadow-2xl"
+                  />
+      </div>
       {/* Icon container */}
-      <div className="flex flex-col items-center justify-center">
-        <div className={`w-10 h-10 ${iconBg} ${iconColor} rounded-full flex items-center justify-center`}>
+      {/* <div className="sm:flex flex-col items-center justify-center hidden md-block">
+        <div className={`w-10 h-10 ${iconBg} ${iconColor}  rounded-full flex items-center justify-center`}>
           {icon}
         </div>
-      </div>
+      </div> */}
       
       {/* Content container */}
-      <div className="flex flex-col items-start w-full">
-        <h4 className={`${titleFontStyles[titleFont]} font-semibold text-gray-900 text-left mb-1 flex items-center gap-2`}>
-          {title}
-        </h4>
-        <p className={`${descFontStyles[descFont]} text-gray-700 text-left leading-snug break-words w-full`}>
+      <div className="flex flex-col items-start w-full ">
+        <div className={`block md:hidden ${reverse ? 'flex-row-reverse' : 'flex-row'}`}>
+          <div className='flex items-center '>
+          <div className={`w-8 h-8 ${iconBg} ${iconColor}  rounded-full flex items-center justify-center`}>
+            {icon}
+          </div>
+          <h4 className={`${titleFontStyles[titleFont]} font-semibold text-gray-900 text-left  flex items-center ml-2`}>
+            {title}
+          </h4>
+          </div>
+          <p className={`${descFontStyles[descFont]} text-gray-700 text-left leading-snug break-words w-full py-2`}>
           {description}
-        </p>
+          </p>
+        </div>
+
+          <div className={"hidden md:block"}>
+            <div className='flex'>
+
+            <div className="sm:flex hidden md-block">
+              <div className={`w-10 h-10 ${iconBg} ${iconColor}  rounded-full flex items-center justify-center`}>
+                {icon}
+              </div>
+          </div>
+      <div className='ml-6'>
+
+          <h4 className={`${titleFontStyles[titleFont]} font-semibold text-gray-900 text-left mb-1 flex items-center gap-2`}>
+              {title}
+            </h4>
+          <p className={`${descFontStyles[descFont]} text-gray-700 text-left leading-snug break-words w-full`}>
+            {description}
+          </p>
+      </div>
+            </div>
+        </div>
         {/* Optional badge */}
         {badge && (
           <span className={`px-2 mt-3 rounded-full text-xs font-medium ${badgeColor}`}>

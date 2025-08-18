@@ -62,6 +62,7 @@ export default function FeatureCardsSection({
                 cardSize={item.cardSize || cardSize}
                 descFont={item.descFont || "md"}       // Fixed undefined usage
                 titleFont={item.titleFont || "md"}
+                reverse={index % 2 !== 0}
               />
             ))}
       </div>

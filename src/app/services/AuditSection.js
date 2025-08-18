@@ -47,7 +47,8 @@ export default function AuditSection({
 
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               {localized.map((item, idx) => (
-                <FeatureCard key={idx} {...item} />
+                <FeatureCard key={idx} {...item}
+                reverse={idx % 2 === 1} />
               ))}
             </div>
 
@@ -91,7 +92,7 @@ export default function AuditSection({
           </div>
 
           <div className="relative">
-            <div className="relative w-full aspect-[16/10] rounded-2xl shadow-2xl overflow-hidden">
+            <div className="relative w-full aspect-[16/10] rounded-2xl shadow-2xl overflow-hidden hidden md:block">
               <Image
                 src={imageSrc}
                 alt={imageAlt}

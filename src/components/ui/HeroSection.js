@@ -3,9 +3,11 @@ import ActionButtons from '../../components/ui/ActionButtons';
 
 export default function HeroSection({
   title,
+  decoLine,
   description,
   backgroundImage,
   backgroundColor = 'bg-blue-600',
+  textColor = 'text-white',
   overlayOpacity = 40,          // 0–100
   primaryButton,
   secondaryButton,
@@ -55,12 +57,17 @@ export default function HeroSection({
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4">
         {title && (
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white opacity-0 animate-fade-in-up animate-delay-0">
+        <h1 className={`text-5xl md:text-7xl font-bold mb-6 mt-32 md:mt-0 leading-tight ${textColor} opacity-0 animate-fade-in-up animate-delay-0`}>
             {title}
           </h1>
         )}
+        {decoLine && (
+          <div className="mb-2 md:mt-1 flex justify-center opacity-0 animate-fade-in-up animate-delay-100">
+						<span className="h-1 w-24 bg-[#002A93] rounded-full" />
+					</div>
+        )}
         {description && (
-          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up animate-delay-150">
+          <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up animate-delay-150 ${textColor}`}>
             {description}
           </p>
         )}
