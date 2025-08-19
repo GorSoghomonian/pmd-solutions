@@ -60,3 +60,5 @@ out/
 *.tgz
 
 my-next-app/
+
+.env.local

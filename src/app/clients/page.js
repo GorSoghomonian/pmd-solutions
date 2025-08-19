@@ -274,7 +274,7 @@ export default function ClientsPage() {
 					</p> */}
 
 					{/* Filters */}
-					<div className=" flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up animate-delay-300">
+					<div className=" flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up animate-delay-300 pt-8 md:pt-0">
 						{CATEGORIES.map((c) => {
 							const active = c === category;
 							return (
@@ -295,7 +295,7 @@ export default function ClientsPage() {
 					</div>
 					
 				{/* Arena */}
-				<div className="relative max-w-7xl mx-auto px-6 ">
+				<div className="relative max-w-7xl mx-auto px-6">
 					<div
 						ref={arenaRef}
 						className="relative w-full h-[560px] md:h-[640px] lg:h-[720px] rounded-3xl bg-gradient-to-b from-white to-slate-50/60 overflow-hidden"

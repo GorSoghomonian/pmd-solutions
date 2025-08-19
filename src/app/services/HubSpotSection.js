@@ -1,23 +1,20 @@
-import Image from 'next/image';
 import FeatureCard from '../../components/ui/FeatureCard';
 import ActionButtons from '../../components/ui/ActionButtons';
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
-export default function HubSpotSection({title, subtitle, items = []}) {
+export default function HubSpotSection({ title, subtitle, items = [], error = null }) {
   const t = useTranslations('home.hubspot');
-  const tCards = useTranslations('home.hubspot.cards');
 
-  const list = Array.isArray(items) ? items : [];
-  if (!list.length) return null;
+  if (!items.length) return null;
 
-  // Локализация карточек по titleKey/descriptionKey из homeItems
-  const localized = list.map(it => {
-    const base = it.key || it.titleKey;
+  const localized = items.map((it, idx) => {
+    const key = it.key || it.titleKey;
     return {
       ...it,
-      // icon остается как есть (React-нода <i> ...)
-      title: base ? t(`cards.${base}.title`) : it.title,
-      description: base ? t(`cards.${base}.desc`) : it.description
+      title: t(`cards.${key}.title`, { default: it.title || '' }),
+      description: t(`cards.${key}.desc`, { default: it.description || '' }),
+      iconHtml: it.icon || ''
     };
   });
 
@@ -41,7 +38,6 @@ export default function HubSpotSection({title, subtitle, items = []}) {
 
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               {localized.map((item, idx) => {
-                // Strip out key before spreading
                 const { key: itemKey, ...rest } = item;
                 return (
                   <FeatureCard
