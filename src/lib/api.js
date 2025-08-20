@@ -97,15 +97,18 @@ async function fetchHubSpotData(type) {
 
 // Новая функция, возвращает оба типа данных сразу
 export async function getAllHubSpotData() {
-  const [hubspot, automation] = await Promise.all([
+  const [hubspot, automation, audit] = await Promise.all([
     fetchHubSpotData('hubspotItems'),
-    fetchHubSpotData('automationItems')
+    fetchHubSpotData('automationItems'),
+    fetchHubSpotData('auditItems')
   ]);
 
   return {
     hubspotItems: hubspot.items,
     automationItems: automation.items,
+    auditItems: audit.items,
     hubspotError: hubspot.error,
-    automationError: automation.error
+    automationError: automation.error,
+    auditError: audit.error
   };
 }

@@ -11,19 +11,18 @@ export default function AuditSection({
   imageAlt = 'Business Process Audit'
 }) {
   const tAudit = useTranslations('home.audit');          // общий раздел
-  const tCards = useTranslations('home.audit.cards');    // карточки
+  const t = useTranslations('home.audit.cards');    // карточки
 
-  const list = Array.isArray(items) ? items : [];
-  if (!list.length) return null;
+  if (!items.length) return null;
 
-  const localized = list.map(it => ({
+  const localized = items.map(it => ({
     ...it,
     // Если ключ уже содержит .title / .desc — не добавляем второй раз
     title: it.titleKey
-      ? tCards(it.titleKey.endsWith('.title') ? it.titleKey : `${it.titleKey}.title`)
+      ? t(it.titleKey.endsWith('.title') ? it.titleKey : `${it.titleKey}.title`)
       : it.title,
     description: it.descriptionKey
-      ? tCards(it.descriptionKey.endsWith('.desc') ? it.descriptionKey : `${it.descriptionKey}.desc`)
+      ? t(it.descriptionKey.endsWith('.desc') ? it.descriptionKey : `${it.descriptionKey}.desc`)
       : it.description
   }));
 

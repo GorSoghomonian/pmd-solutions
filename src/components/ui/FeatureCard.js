@@ -24,7 +24,7 @@ export default function FeatureCard({
   bgColor = "#f7f9fa",
   iconBg = "bg-blue-600",
   iconColor = "text-white",
-  badge,
+  badge = '',
   badgeColor = "bg-blue-100 text-blue-700",
   cardSize = "md",
   descFont = "md",
@@ -34,7 +34,7 @@ export default function FeatureCard({
   // Size configuration object - could be moved to a theme config file
   const sizeStyles = {
     sm: "w-[260px] min-h-[90px] p-2",
-    md: "w-[260px] min-h-[110px] p-6",
+    md: "w-[260px] min-h-[120px] p-6",
     lg: "w-[380px] min-h-[140px] p-8",
     xl: "w-[440px] min-h-[170px] p-10"
   };
@@ -115,7 +115,7 @@ export default function FeatureCard({
         </div>
         {/* Optional badge */}
         {badge && (
-          <span className={`px-2 mt-3 rounded-full text-xs font-medium ${badgeColor}`}>
+          <span className={`px-2 mt-3 ml-14 rounded-full text-xs font-medium p-2 ${badgeColor}`}>
             {badge}
           </span>
         )}

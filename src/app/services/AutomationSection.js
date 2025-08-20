@@ -1,25 +1,26 @@
 import Image from 'next/image';
 import ActionButtons from '../../components/ui/ActionButtons';
 import {useTranslations} from 'next-intl';
+import FeatureCard from '../../components/ui/FeatureCard';
 
-export default function AutomationSection({ title, subtitle, items = [] }) {
+export default function AutomationSection({ title, subtitle, badge, items = [] }) {
   const t = useTranslations('home.automation');
   const list = Array.isArray(items) ? items : [];
   if (!list.length) return null;
 
   const localized = list.map((it, idx) => {
     const key = it.key || it.titleKey;
-
     return {
       ...it,
       title: t(`cards.${key}.title`, { default: it.title || '' }),
       description: t(`cards.${key}.desc`, { default: it.description || '' }),
-      iconHtml: it.icon || ''
+      badge: it.badge ? t(`cards.${it.badge}`, { default: it.badge || '' }) : it.badge,
+      iconHtml: it.icon || '' 
     };
   });
 
   return (
-    <section className="relative mt-20 pb-20">
+    <section className="relative pt-20 pb-20 bg-[#f7f9fa]">
       <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-0" />
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <div className="relative w-full lg:w-1/2 sm:flex justify-center hidden md:block">
@@ -49,7 +50,7 @@ export default function AutomationSection({ title, subtitle, items = [] }) {
           <p className="text-xl text-gray-600 leading-relaxed">
             {subtitle || t('description')}
           </p>
-          <div className="grid md:grid-cols-2 gap-6 mb-4">
+          {/* <div className="grid md:grid-cols-2 gap-6 mb-4">
             {localized.map((it, i) => (
               <div
                 key={i}
@@ -84,6 +85,20 @@ export default function AutomationSection({ title, subtitle, items = [] }) {
                 )}
               </div>
             ))}
+          </div> */}
+          <div>
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+                          {localized.map((item, idx) => {
+                            const { key: itemKey, ...rest } = item;
+                            return (
+                              <FeatureCard
+                                key={itemKey ?? rest.id ?? idx}
+                                {...rest}
+                                reverse={idx % 2 === 1}
+                              />
+                            );
+                          })}
+                        </div>
           </div>
           <ActionButtons
             buttons={[

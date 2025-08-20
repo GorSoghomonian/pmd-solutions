@@ -33,28 +33,45 @@ export const automationItems = [
   {
     key: 'workflow',
     icon: <i className="ri-shape-line text-white text-lg" />,
+    cardSize: 'lg',
+    titleFont: 'sm',
+    badge: "workflow.badge",
     iconBg: 'bg-blue-600',
-    badgeColor: 'bg-blue-50 text-blue-600'
+    badgeColor: 'bg-blue-50 text-blue-600',
+    bgColor: '#fff'
   },
   {
     key: 'email',
     icon: <i className="ri-mail-send-line text-white text-lg" />,
+    titleFont: 'sm',
+    cardSize: 'lg',
+    badge: "email.badge",
     iconBg: 'bg-blue-600',
-    badgeColor: 'bg-blue-50 text-blue-600'
+    badgeColor: 'bg-blue-50 text-blue-600',
+    bgColor: '#fff'
   },
   {
     key: 'support',
     icon: <i className="ri-customer-service-2-line text-white text-lg" />,
+    titleFont: 'sm',
+    cardSize: 'lg',
+    badge: "support.badge",
     iconBg: 'bg-blue-600',
-    badgeColor: 'bg-blue-50 text-blue-600'
+    badgeColor: 'bg-blue-50 text-blue-600',
+    bgColor: '#fff'
   },
   {
     key: 'reporting',
     icon: <i className="ri-bar-chart-box-line text-white text-lg" />,
+    titleFont: 'sm',
+    cardSize: 'lg',
+    badge: "reporting.badge",
     iconBg: 'bg-blue-600',
-    badgeColor: 'bg-blue-50 text-blue-600'
+    badgeColor: 'bg-blue-50 text-blue-600',
+    bgColor: '#fff'
   }
 ];
+
 
 export const auditItems = [
   {
