@@ -88,13 +88,13 @@ export default function Header() {
               {/* Services dropdown (desktop) */}
               <div className="relative group">
                 <button
-                  className="font-medium transition-colors duration-300 flex items-center space-x-1 text-gray-700 group-hover:text-[#2A73DD]"
+                  className="font-medium transition-colors duration-300 flex items-center space-x-1 text-gray-700 group-hover:text-[#2A73DD] "
                   type="button"
                 >
                   <span>{t('services', { default: 'Services' })}</span>
                   <i className="ri-arrow-down-s-line transition-transform duration-300 group-hover:rotate-180" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                <div className="absolute top-full left-0 z-12 w-64 bg-white rounded-xl shadow-2xl border  border-gray-100 transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                   <div className="py-2">
                     {servicesMenu.map((s, i) => (
                       <Link

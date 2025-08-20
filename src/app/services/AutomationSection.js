@@ -94,7 +94,6 @@ export default function AutomationSection({ title, subtitle, badge, items = [] }
                               <FeatureCard
                                 key={itemKey ?? rest.id ?? idx}
                                 {...rest}
-                                reverse={idx % 2 === 1}
                               />
                             );
                           })}
@@ -106,14 +105,14 @@ export default function AutomationSection({ title, subtitle, badge, items = [] }
                 text: t('btnLearnMore'),
                 href: '/services/automation',
                 className:
-                  'px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer'
+                  'px-8 py-4 border-2 border-[#2A73DD] bg-[#2A73DD] text-white rounded-full hover:bg-[#2A73DD] font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
               },
               {
                 text: t('btnStart'),
                 href: '/contact',
                 icon: '⭑',
                 className:
-                  'px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD] rounded-full font-semibold text-lg hover:bg-[#2A73DD] hover:text-white transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer flex items-center gap-2'
+                  'px-8 py-4 border-2 border-[#2A73DD] text-[#2A73DD]  rounded-full hover:text-white hover:bg-[#2A73DD] font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
               }
             ]}
           />

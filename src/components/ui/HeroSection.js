@@ -34,7 +34,7 @@ export default function HeroSection({
       icon: secondaryButton.icon,
       className:
         secondaryButton.className ??
-        'group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer flex items-center gap-2',
+        'group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer ',
     },
   ].filter(Boolean);
 
@@ -73,7 +73,7 @@ export default function HeroSection({
         )}
 
         {buttons.length > 0 && (
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-6 opacity-0 animate-fade-in-up animate-delay-300">
+          <div className="flex flex-col md:flex-row gap-4 text-center items-center justify-center mt-6 opacity-0 animate-fade-in-up animate-delay-300">
             <ActionButtons buttons={buttons} />
           </div>
         )}

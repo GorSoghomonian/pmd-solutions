@@ -76,14 +76,14 @@ export default function AuditSection({
                     text: tAudit('btnLearnMore'),
                     href: '/services/audit',
                     className:
-                      'px-8 py-4 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
+                      'px-8 py-4 bg-green-600  border-2 border-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                   },
                   {
                     text: tAudit('btnSchedule'),
                     href: '/contact',
                     icon: '🗓️',
                     className:
-                      'px-8 py-4 border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 hover:scale-105 text-center whitespace-nowrap cursor-pointer flex items-center gap-2'
+                      'px-8 py-4 border-2 border-green-600 text-green-600 hover:text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                   }
                 ]}
               />
