@@ -100,8 +100,8 @@ export default function AuditSection({
                 className="object-cover"
                 priority
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-green-500/15 to-transparent" />
-              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className=" absolute inset-0 bg-gradient-to-tr from-green-500/15 to-transparent rounded-2xl" />
+              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg ">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">35%</div>
                   <div className="text-sm text-gray-600">{tAudit('statCostReduction')}</div>
