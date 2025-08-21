@@ -11,7 +11,15 @@
     "services": "Services",
     "getStarted": "Get Started",
     "langEn": "English",
-    "langRu": "Russian"
+    "langRu": "Russian",
+    "servicesMenu": [
+      { "href": "/services", "label": "All Services" },
+      { "href": "/services/automation", "label": "Business Process Automation" },
+      { "href": "/services/hubspot", "label": "CRM Implementation" },
+      { "href": "/services/development", "label": "Custom Development" },
+      { "href": "/services/integrations", "label": "System Integrations" },
+      { "href": "/services/audit", "label": "Process Audit" }
+    ]
   },
   "home": {
     "meta": {
@@ -236,8 +244,7 @@
           "avatarUrl": "https://readdy.ai/api/search-image?query=Professional%20Hispanic%20businessman%20operations%20director%20in%20warehouse%20setting%2C%20male%20executive%20with%20dark%20hair%20wearing%20business%20casual%20attire%2C%20confident%20logistics%20professional%20with%20warm%20smile%2C%20industrial%20office%20background%20with%20logistics%20operations&width=100&height=100&seq=testimonial-2&orientation=squarish"
         },
         {
-          "quote": 
-"PMD Solutions transformed our entire sales process with their HubSpot implementation. We saw a 300% increase in lead conversion rates within the first quarter.",
+          "quote": "PMD Solutions transformed our entire sales process with their HubSpot implementation. We saw a 300% increase in lead conversion rates within the first quarter.",
           "author": "Olga Sokolova",
           "role": "Head of Operations",
           "company": "Retail Nova",
@@ -252,44 +259,149 @@
       ]
     },
     "blog": {
-      "titlePrefix": "Latest from Our",
-      "titleAccent": "Blog",
-      "subtitle": "Expert insights, practical guides, and industry trends to help you stay ahead in business automation and digital transformation",
-      "readMore": "Read More",
-      "ctaLabel": "Visit Our Blog",
-      "ctaHref": "/blog",
-      "posts": [
-        {
-          "id": "1",
-          "category": "Automation",
-          "date": "January 15, 2024",
-          "readTime": "8 min read",
-          "title": "10 Game-Changing HubSpot Automation Workflows Every Business Needs",
-          "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
-          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/hubspot-automation-workflows"
-        },
-        {
-          "id": "2",
-          "category": "CRM",
-          "date": "January 10, 2024",
-          "readTime": "6 min read",
-          "title": "CRM Implementation Success: 5 Critical Steps You Cannot Skip",
-          "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
-          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/crm-implementation-steps"
-        },
-        {
-          "id": "3",
-          "category": "Process Optimization",
-          "date": "January 5, 2024",
-          "readTime": "10 min read",
-          "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days",
-          "excerpt": "A comprehensive guide to identifying bottlenecks, streamlining workflows, and implementing automation solutions that deliver measurable efficiency improvements.",
-          "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/business-process-optimization-30-days"
-        }
-      ]
+      "meta": {
+        "title": "PMD Solutions Blog",
+        "description": "Expert insights, practical guides, and industry trends in business automation, CRM optimization, and digital transformation"
+      },
+      "hero": {
+        "title": "PMD Solutions Blog",
+        "subtitle": "Expert insights, practical guides, and industry trends in business \n automation, CRM optimization, and digital transformation"
+      },
+      "featured": {
+        "label": "Featured Article",
+        "subtitle": "Our most comprehensive guide to business transformation",
+        "title": "The Complete Guide to CRM Transformation: From Selection to Success",
+        "categoryKey": "crmStrategy",
+        "categoryLabel": "CRM Strategy",
+        "date": "January 20, 2024",
+        "readTime": "15 min read",
+        "author": "PMD Solutions Team",
+        "summary": "A comprehensive deep-dive into choosing, implementing, and optimizing CRM systems for maximum business impact. Learn from real-world case studies and expert strategies that have helped 500+ businesses achieve measurable ROI improvements.",
+        "tags": ["CRM", "Digital Transformation", "Business Strategy", "HubSpot"],
+        "ctaLabel": "Read Full Article",
+        "href": "/blog/crm-transformation-complete-guide",
+        "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+      },
+      "browse": {
+        "title": "Browse by Category",
+        "subtitle": "Find the topics that matter most to your business"
+      },
+      "categories": [
+        { "key": "all", "label": "All", "count": 24 },
+        { "key": "crmStrategy", "label": "CRM Strategy", "count": 8 },
+        { "key": "automation", "label": "Automation", "count": 6 },
+        { "key": "digitalTransformation", "label": "Digital Transformation", "count": 5 },
+        { "key": "processOptimization", "label": "Process Optimization", "count": 4 },
+        { "key": "hubspotTips", "label": "HubSpot Tips", "count": 7 },
+        { "key": "integration", "label": "Integration", "count": 4 }
+      ],
+      "latest": {
+        "title": "Latest Articles",
+        "countLabel": "{count} articles found",
+        "items": [
+          {
+            "slug": "hubspot-automation-workflows",
+            "title": "10 Game-Changing HubSpot Automation Workflows Every Business Needs",
+            "categoryKey": "hubspotTips",
+            "categoryLabel": "HubSpot Tips",
+            "date": "Jan 15, 2024",
+            "readTime": "8 min read",
+            "author": "Sarah Mitchell",
+            "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
+            "href": "/blog/hubspot-automation-workflows"
+          },
+          {
+            "slug": "crm-implementation-5-critical-steps",
+            "title": "CRM Implementation Success: 5 Critical Steps You Cannot Skip",
+            "categoryKey": "crmStrategy",
+            "categoryLabel": "CRM Strategy",
+            "date": "Jan 10, 2024",
+            "readTime": "6 min read",
+            "author": "Michael Rodriguez",
+            "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
+            "href": "/blog/crm-implementation-steps"
+          },
+          {
+            "slug": "business-process-optimization-30-days",
+            "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days",
+            "categoryKey": "processOptimization",
+            "categoryLabel": "Process Optimization",
+            "date": "Jan 5, 2024",
+            "readTime": "10 min read",
+            "author": "Jennifer Thompson",
+            "excerpt": "A comprehensive guide to identifying bottlenecks, streamlining workflows, and implementing automation solutions that deliver measurable efficiency improvements.",
+            "href": "/blog/business-process-optimization-30-days"
+          },
+          {
+            "slug": "digital-transformation-roadmap-smbs",
+            "title": "Digital Transformation Roadmap: A Step-by-Step Guide for SMBs",
+            "categoryKey": "digitalTransformation",
+            "categoryLabel": "Digital Transformation",
+            "date": "Jan 2, 2024",
+            "readTime": "12 min read",
+            "author": "David Chen",
+            "excerpt": "Navigate your digital transformation journey with confidence. This practical roadmap covers planning, execution, and measuring success in digital initiatives.",
+            "href": "/blog/digital-transformation-roadmap-smbs"
+          },
+          {
+            "slug": "roi-on-business-automation",
+            "title": "How to Calculate ROI on Business Automation: A Complete Framework",
+            "categoryKey": "automation",
+            "categoryLabel": "Automation",
+            "date": "Dec 28, 2023",
+            "readTime": "9 min read",
+            "author": "Sarah Mitchell",
+            "excerpt": "Master the art of measuring automation success with our comprehensive ROI calculation framework. Includes templates and real-world examples.",
+            "href": "/blog/roi-business-automation"
+          },
+          {
+            "slug": "system-integration-best-practices",
+            "title": "System Integration Best Practices: Connecting Your Business Tools",
+            "categoryKey": "integration",
+            "categoryLabel": "Integration",
+            "date": "Dec 25, 2023",
+            "readTime": "7 min read",
+            "author": "Michael Rodriguez",
+            "excerpt": "Learn proven strategies for integrating disparate business systems. Avoid common pitfalls and ensure seamless data flow across your organization.",
+            "href": "/blog/system-integration-best-practices"
+          },
+          {
+            "slug": "advanced-hubspot-customization",
+            "title": "Advanced HubSpot Customization: Tailoring CRM to Your Business",
+            "categoryKey": "hubspotTips",
+            "categoryLabel": "HubSpot Tips",
+            "date": "Dec 20, 2023",
+            "readTime": "11 min read",
+            "author": "Jennifer Thompson",
+            "excerpt": "Go beyond basic setup with advanced HubSpot customization techniques. Create custom properties, workflows, and reports that match your unique processes.",
+            "href": "/blog/advanced-hubspot-customization"
+          },
+          {
+            "slug": "data-migration-checklist-crm",
+            "title": "Data Migration Checklist: Ensuring Clean CRM Implementation",
+            "categoryKey": "crmStrategy",
+            "categoryLabel": "CRM Strategy",
+            "date": "Dec 15, 2023",
+            "readTime": "8 min read",
+            "author": "David Chen",
+            "excerpt": "A comprehensive checklist for successful data migration during CRM implementation. Protect your valuable business data and ensure smooth transitions.",
+            "href": "/blog/data-migration-checklist-crm"
+          },
+          {
+            "slug": "workflow-automation-examples-save-20-hours",
+            "title": "15 Workflow Automation Examples That Save 20+ Hours Per Week",
+            "categoryKey": "automation",
+            "categoryLabel": "Automation",
+            "date": "Dec 10, 2023",
+            "readTime": "13 min read",
+            "author": "Sarah Mitchell",
+            "excerpt": "Real-world automation examples from successful implementations. See how businesses are saving time and reducing errors with smart workflow design.",
+            "href": "/blog/workflow-automation-examples-save-20-hours"
+          }
+        ],
+        "readMore": "Read More",
+        "loadMore": "Load More Articles"
+      }
     },
     "contactCta": {
       "title": { "prefix": "Ready to", "accent": "Transform", "suffix": "Your Business?" },
@@ -450,5 +562,152 @@
         "desc": "Analyze current processes to uncover optimization opportunities."
       }
     }
+  },
+  "clients": {
+    "hero": {
+      "title": "Our Valued Clients",
+      "description": "Explore our trusted partnerships. Hover to pause bubbles, click to discover detailed case studies."
+    },
+    "categories": [
+      {"key": "all", "label": "All Industries"},
+      {"key": "technology", "label": "Technology"},
+      {"key": "healthcare", "label": "Healthcare"},
+      {"key": "realEstate", "label": "Real Estate"},
+      {"key": "logistics", "label": "Logistics"},
+      {"key": "retail", "label": "Retail"},
+      {"key": "finance", "label": "Finance"},
+      {"key": "manufacturing", "label": "Manufacturing"},
+      {"key": "education", "label": "Education"},
+      {"key": "energy", "label": "Energy"},
+      {"key": "media", "label": "Media"}
+    ],
+    "panel": {
+      "overview": "Project Overview",
+      "testimonial": "Client Testimonial",
+      "keyResults": "Key Results",
+      "visitWebsite": "Visit Website"
+    },
+    "items": [
+      {
+        "id": "edutech",
+        "shortName": "EI",
+        "name": "EduTech Innovations",
+        "categoryKey": "education",
+        "description": "Implemented an adaptive learning platform with real-time analytics and personalized study paths for students and teachers.",
+        "testimonial": "Their platform helped us improve student engagement and streamline our curriculum updates.",
+        "results": [
+          "30% increase in student engagement",
+          "Custom dashboards for teachers and admins",
+          "Integration with LMS and SSO"
+        ],
+        "website": "https://example.com/edutech"
+      },
+      {
+        "id": "globalhealth",
+        "shortName": "GH",
+        "name": "GlobalHealth Systems",
+        "categoryKey": "healthcare",
+        "description": "EHR optimizations, appointment automation, and HIPAA-compliant patient communication channels.",
+        "testimonial": "We reduced manual scheduling by 65% while improving patient satisfaction.",
+        "results": [
+          "65% fewer manual appointments",
+          "Secure messaging portal",
+          "Faster intake workflows"
+        ],
+        "website": "https://example.com/ghs"
+      },
+      {
+        "id": "retailx",
+        "shortName": "RE",
+        "name": "Retail Excellence",
+        "categoryKey": "retail",
+        "description": "Unified inventory and POS data, with real-time stock alerts and automated reordering rules.",
+        "testimonial": "Stock-outs fell dramatically and we finally got one source of truth across stores.",
+        "results": [
+          "-40% stock-outs",
+          "Cross-store analytics",
+          "Automated replenishment"
+        ],
+        "website": "https://example.com/retail"
+      },
+      {
+        "id": "techcorp",
+        "shortName": "TC",
+        "name": "TechCorp Solutions",
+        "categoryKey": "technology",
+        "description": "DevOps pipelines and internal tooling that accelerated feature delivery and reduced incidents.",
+        "testimonial": "Our deploys are faster and safer than ever before.",
+        "results": ["3x faster deployments", "Fewer rollbacks", "Improved DX"],
+        "website": "https://example.com/techcorp"
+      },
+      {
+        "id": "finpartners",
+        "shortName": "FP",
+        "name": "Financial Partners",
+        "categoryKey": "finance",
+        "description": "Client onboarding automation and KYC/AML workflows integrated with core banking systems.",
+        "testimonial": "Onboarding times were cut in half and audits became simpler.",
+        "results": [
+          "-50% onboarding time",
+          "Audit-ready records",
+          "KYC/AML automation"
+        ],
+        "website": "https://example.com/finance"
+      },
+      {
+        "id": "manupro",
+        "shortName": "MP",
+        "name": "Manufacturing Pro",
+        "categoryKey": "manufacturing",
+        "description": "IoT integrations, quality checkpoints and production dashboards for real-time insights.",
+        "testimonial": "Their workflow automation reduced our production bottlenecks by 45%.",
+        "results": ["-45% bottlenecks", "Real-time monitoring", "Lower scrap rate"],
+        "website": "https://example.com/manupro"
+      },
+      {
+        "id": "realprime",
+        "shortName": "RP",
+        "name": "RealPrime Estates",
+        "categoryKey": "realEstate",
+        "description": "Lead routing, tenant portals and payment tracking for a modern real estate operation.",
+        "testimonial": "Vacancy cycles shortened and tenant satisfaction improved.",
+        "results": [
+          "Faster lease cycles",
+          "Self-service tenant portal",
+          "Automated lead routing"
+        ],
+        "website": "https://example.com/realprime"
+      },
+      {
+        "id": "energysol",
+        "shortName": "ES",
+        "name": "Energy Solutions",
+        "categoryKey": "energy",
+        "description": "Maintenance scheduling and field service mobile tools for energy installations.",
+        "testimonial": "Operational visibility increased across all sites.",
+        "results": ["Optimized maintenance windows", "Mobile field app", "Better uptime"],
+        "website": "https://example.com/energy"
+      },
+      {
+        "id": "mediady",
+        "shortName": "MD",
+        "name": "Media Dynamics",
+        "categoryKey": "media",
+        "description": "Content pipeline automation and analytics for multi-channel publishing.",
+        "testimonial": "Publishing velocity increased without sacrificing quality.",
+        "results": ["Faster content pipeline", "Audience analytics", "CMS automations"],
+        "website": "https://example.com/media"
+      },
+      {
+        "id": "nextgenlog",
+        "shortName": "NL",
+        "name": "NextGen Logistics",
+        "categoryKey": "logistics",
+        "description": "Route optimization and live tracking for a mid-size logistics network.",
+        "testimonial": "We save hours every week and deliver more reliably.",
+        "results": ["Optimized routes", "Live tracking", "Fewer delays"],
+        "website": "https://example.com/log"
+      }
+    ]
   }
 }

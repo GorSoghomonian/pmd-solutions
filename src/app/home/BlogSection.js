@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMessages } from 'next-intl';
 // Скорректируйте путь, если у вас другой
-import ActionButtons from '../../components/ui/ActionButtons';
+import ActionButtons from '../../components/molecules/ActionButtons';
 
 export default function BlogSection({ className = '' } = {}) {
   const messages = useMessages();

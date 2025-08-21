@@ -19,20 +19,13 @@ const navItems = [
   { href: '/blog', key: 'blog', fallback: 'Blog' }, // если нет роутов — можно убрать
 ];
 
-const servicesMenu = [
-  { href: '/services', label: 'All Services' },
-  { href: '/services/automation', label: 'Business Process Automation' },
-  { href: '/services/hubspot', label: 'CRM Implementation' },
-  { href: '/services/development', label: 'Custom Development' },
-  { href: '/services/integrations', label: 'System Integrations' },
-  { href: '/services/audit', label: 'Process Audit' },
-];
-
 export default function Header() {
   const pathname = usePathname();
   const t = useTranslations('nav');
   const locale = useLocale();
   const [pending, startTransition] = useTransition();
+
+  const servicesMenu = t.raw('servicesMenu');
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -96,9 +89,9 @@ export default function Header() {
                 </button>
                 <div className="absolute top-full left-0 z-12 w-64 bg-white rounded-xl shadow-2xl border  border-gray-100 transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                   <div className="py-2">
-                    {servicesMenu.map((s, i) => (
+                    {servicesMenu?.map((s, i) => (
                       <Link
-                        key={s.href}
+                        key={`${s.href}-${i}`}
                         href={s.href}
                         className={`block px-4 py-3 transition-colors duration-300 cursor-pointer ${
                           i === 0
@@ -237,9 +230,9 @@ export default function Header() {
                   <i className={`ri-arrow-down-s-line transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <div className={`${mobileServicesOpen ? 'block' : 'hidden'} pl-2`}>
-                  {servicesMenu.map((s) => (
+                  {servicesMenu?.map((s, i) => (
                     <Link
-                      key={s.href}
+                      key={`${s.href}-${i}`}
                       href={s.href}
                       onClick={() => setMobileOpen(false)}
                       className="block px-5 py-2.5 rounded-lg text-slate-700 hover:text-[#002A93] hover:bg-[#B0C1D6]/20"

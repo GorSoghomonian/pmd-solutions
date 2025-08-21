@@ -1,0 +1,35 @@
+import { getTranslations } from "next-intl/server";
+import HeroSection from "../../components/molecules/HeroSection"
+import FeatureArticle from "./FeatureArticle";
+
+
+export default async function BlogPage() {
+    const t = await getTranslations('home');
+
+  return (
+    <main>
+      <HeroSection 
+        title={
+          <>
+            <span className="block text-5xl mt-27 md:text-4xl lg:text-6xl font-bold items-center">
+              {t("blog.hero.title")}
+            </span>
+          </>
+        }
+        description={
+          <span className="block text-xl md:text-2xl text-blue-100 whitespace-pre-line">
+            {t("blog.hero.subtitle")}
+          </span>
+        }
+        backgroundImage=""
+        backgroundColor="bg-[#002A93]"
+        overlayOpacity={15}
+        showScrollIndicator={true}
+        minHeight="700px"
+        className="flex items-center justify-center pb-10 text-white h-110 md:h-95"
+      />
+
+      <FeatureArticle />
+    </main>
+  )
+}

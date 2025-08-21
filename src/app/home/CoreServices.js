@@ -1,6 +1,6 @@
 import { getTranslations, getMessages } from 'next-intl/server';
 import Link from 'next/link';
-import ActionButtons from '../../components/ui/ActionButtons';
+import ActionButtons from '../../components/molecules/ActionButtons';
 import Image from 'next/image';
 
 import { servicesData, servicesItems } from '../../data/homeItems';

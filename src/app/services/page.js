@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import HeroSection from '../../components/ui/HeroSection';
+import HeroSection from '../../components/molecules/HeroSection';
 import HubSpotSection from './HubSpotSection';
 import AutomationSection from './AutomationSection';
 import AuditSection from './AuditSection';

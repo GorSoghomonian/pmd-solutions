@@ -11,7 +11,15 @@
     "services": "Услуги",
     "getStarted": "Начать",
     "langEn": "Английский",
-    "langRu": "Русский"
+    "langRu": "Русский",
+    "servicesMenu": [
+      { "href": "/services", "label": "Все услуги" },
+      { "href": "/services/automation", "label": "Автоматизация бизнес‑процессов" },
+      { "href": "/services/hubspot", "label": "Внедрение CRM" },
+      { "href": "/services/development", "label": "Индивидуальная разработка" },
+      { "href": "/services/integrations", "label": "Интеграции систем" },
+      { "href": "/services/audit", "label": "Аудит процессов" }
+    ]
   },
   "home": {
     "meta": {
@@ -218,44 +226,149 @@
       ]
     },
     "blog": {
-      "titlePrefix": "Новое в нашем",
-      "titleAccent": "Блоге",
-      "subtitle": "Экспертные инсайты, практические руководства и отраслевые тренды, которые помогут вам опережать рынок в автоматизации бизнеса и цифровой трансформации",
-      "readMore": "Читать далее",
-      "ctaLabel": "Перейти в блог",
-      "ctaHref": "/blog",
-      "posts": [
-        {
-          "id": "1",
-          "category": "Автоматизация",
-          "date": "15 января 2024",
-          "readTime": "8 мин чтения",
-          "title": "10 ключевых рабочих процессов автоматизации HubSpot, которые нужны каждому бизнесу",
-          "excerpt": "Узнайте о самых эффективных рабочих процессах автоматизации, которые преобразят ваши продажи и маркетинг, сэкономят часы ручной работы и повысят конверсию.",
-          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/hubspot-automation-workflows"
-        },
-        {
-          "id": "2",
-          "category": "CRM",
-          "date": "10 января 2024",
-          "readTime": "6 мин чтения",
-          "title": "Успешное внедрение CRM: 5 критически важных шагов, которые нельзя пропустить",
-          "excerpt": "Узнайте ключевые шаги успешного внедрения CRM, которые обеспечивают принятие системой пользователями, целостность данных и максимальный ROI от вашей CRM‑системы.",
-          "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/crm-implementation-steps"
-        },
-        {
-          "id": "3",
-          "category": "Оптимизация процессов",
-          "date": "5 января 2024",
-          "readTime": "10 мин чтения",
-          "title": "Оптимизация бизнес‑процессов: от хаоса к эффективности за 30 дней",
-          "excerpt": "Полное руководство по выявлению узких мест, упрощению рабочих процессов и внедрению решений по автоматизации, дающих измеримые улучшения эффективности.",
-          "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1470&auto=format&fit=crop",
-          "href": "/blog/business-process-optimization-30-days"
-        }
-      ]
+      "meta": {
+        "title": "Блог PMD Solutions",
+        "description": "Экспертные материалы, практические руководства и тренды индустрии: автоматизация бизнеса, оптимизация CRM и цифровая трансформация"
+      },
+      "hero": {
+        "title": "Блог PMD Solutions",
+        "subtitle": "Экспертные материалы, практические руководства и тренды индустрии: \n автоматизация бизнеса, оптимизация CRM и цифровая трансформация"
+      },
+      "featured": {
+        "label": "Рекомендуемая статья",
+        "subtitle": "Наше самое полное руководство по трансформации бизнеса",
+        "title": "Полное руководство по CRM‑трансформации: от выбора до успеха",
+        "categoryKey": "crmStrategy",
+        "categoryLabel": "CRM‑стратегия",
+        "date": "20 января 2024",
+        "readTime": "15 мин чтения",
+        "author": "Команда PMD Solutions",
+        "summary": "Подробный разбор выбора, внедрения и оптимизации CRM‑систем для максимального бизнес‑эффекта. Реальные кейсы и стратегии, которые помогли 500+ компаниям добиться измеримого роста ROI.",
+        "tags": ["CRM", "Цифровая трансформация", "Бизнес‑стратегия", "HubSpot"],
+        "ctaLabel": "Читать полностью",
+        "href": "/ru/blog/crm-transformation-complete-guide",
+        "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+      },
+      "browse": {
+        "title": "Категории",
+        "subtitle": "Найдите темы, которые важны именно для вашего бизнеса"
+      },
+      "categories": [
+        { "key": "all", "label": "Все", "count": 24 },
+        { "key": "crmStrategy", "label": "CRM‑стратегия", "count": 8 },
+        { "key": "automation", "label": "Автоматизация", "count": 6 },
+        { "key": "digitalTransformation", "label": "Цифровая трансформация", "count": 5 },
+        { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4 },
+        { "key": "hubspotTips", "label": "Советы по HubSpot", "count": 7 },
+        { "key": "integration", "label": "Интеграции", "count": 4 }
+      ],
+      "latest": {
+        "title": "Новые статьи",
+        "countLabel": "Найдено: {count}",
+        "items": [
+          {
+            "slug": "hubspot-automation-workflows",
+            "title": "10 мощных сценариев автоматизации HubSpot, которые нужны каждому бизнесу",
+            "categoryKey": "hubspotTips",
+            "categoryLabel": "Советы по HubSpot",
+            "date": "15 янв 2024",
+            "readTime": "8 мин чтения",
+            "author": "Sarah Mitchell",
+            "excerpt": "Узнайте об эффективных сценариях автоматизации, которые трансформируют маркетинг и продажи, сокращая рутину и повышая конверсию.",
+            "href": "/ru/blog/hubspot-automation-workflows"
+          },
+          {
+            "slug": "crm-implementation-5-critical-steps",
+            "title": "Успешное внедрение CRM: 5 критически важных шагов",
+            "categoryKey": "crmStrategy",
+            "categoryLabel": "CRM‑стратегия",
+            "date": "10 янв 2024",
+            "readTime": "6 мин чтения",
+            "author": "Michael Rodriguez",
+            "excerpt": "Ключевые шаги успешного внедрения CRM: повышение вовлечённости пользователей, целостность данных и максимальный ROI.",
+            "href": "/ru/blog/crm-implementation-steps"
+          },
+          {
+            "slug": "business-process-optimization-30-days",
+            "title": "Оптимизация бизнес‑процессов: от хаоса к эффективности за 30 дней",
+            "categoryKey": "processOptimization",
+            "categoryLabel": "Оптимизация процессов",
+            "date": "5 янв 2024",
+            "readTime": "10 мин чтения",
+            "author": "Jennifer Thompson",
+            "excerpt": "Полное руководство по выявлению узких мест, оптимизации рабочих потоков и внедрению автоматизации с измеримыми результатами.",
+            "href": "/ru/blog/business-process-optimization-30-days"
+          },
+          {
+            "slug": "digital-transformation-roadmap-smbs",
+            "title": "Дорожная карта цифровой трансформации: пошаговое руководство для SMB",
+            "categoryKey": "digitalTransformation",
+            "categoryLabel": "Цифровая трансформация",
+            "date": "2 янв 2024",
+            "readTime": "12 мин чтения",
+            "author": "David Chen",
+            "excerpt": "Уверенно пройдите путь цифровой трансформации: планирование, исполнение и измерение успеха цифровых инициатив.",
+            "href": "/ru/blog/digital-transformation-roadmap-smbs"
+          },
+          {
+            "slug": "roi-on-business-automation",
+            "title": "Как посчитать ROI от автоматизации: полная методика",
+            "categoryKey": "automation",
+            "categoryLabel": "Автоматизация",
+            "date": "28 дек 2023",
+            "readTime": "9 мин чтения",
+            "author": "Sarah Mitchell",
+            "excerpt": "Освойте расчёт эффективности автоматизации по нашей методике с шаблонами и реальными примерами.",
+            "href": "/ru/blog/roi-business-automation"
+          },
+          {
+            "slug": "system-integration-best-practices",
+            "title": "Лучшие практики системной интеграции: соединяем инструменты бизнеса",
+            "categoryKey": "integration",
+            "categoryLabel": "Интеграции",
+            "date": "25 дек 2023",
+            "readTime": "7 мин чтения",
+            "author": "Michael Rodriguez",
+            "excerpt": "Проверенные стратегии интеграции разнородных систем. Избегайте типичных ошибок и обеспечьте бесшовный обмен данными.",
+            "href": "/ru/blog/system-integration-best-practices"
+          },
+          {
+            "slug": "advanced-hubspot-customization",
+            "title": "Продвинутая кастомизация HubSpot: под ваш бизнес",
+            "categoryKey": "hubspotTips",
+            "categoryLabel": "Советы по HubSpot",
+            "date": "20 дек 2023",
+            "readTime": "11 мин чтения",
+            "author": "Jennifer Thompson",
+            "excerpt": "Выходите за рамки базовой настройки: создавайте свойства, процессы и отчёты, отражающие ваши уникальные процессы.",
+            "href": "/ru/blog/advanced-hubspot-customization"
+          },
+          {
+            "slug": "data-migration-checklist-crm",
+            "title": "Чек‑лист миграции данных: чистое внедрение CRM",
+            "categoryKey": "crmStrategy",
+            "categoryLabel": "CRM‑стратегия",
+            "date": "15 дек 2023",
+            "readTime": "8 мин чтения",
+            "author": "David Chen",
+            "excerpt": "Полный чек‑лист успешной миграции данных при внедрении CRM. Защитите ценные данные и обеспечьте гладкий переход.",
+            "href": "/ru/blog/data-migration-checklist-crm"
+          },
+          {
+            "slug": "workflow-automation-examples-save-20-hours",
+            "title": "15 примеров автоматизации, экономящих 20+ часов в неделю",
+            "categoryKey": "automation",
+            "categoryLabel": "Автоматизация",
+            "date": "10 дек 2023",
+            "readTime": "13 мин чтения",
+            "author": "Sarah Mitchell",
+            "excerpt": "Реальные примеры автоматизации: как компании экономят время и сокращают ошибки благодаря умному дизайну процессов.",
+            "href": "/ru/blog/workflow-automation-examples-save-20-hours"
+          }
+        ],
+        "readMore": "Читать",
+        "loadMore": "Загрузить ещё"
+      }
     },
     "contactCta": {
       "title": { "prefix": "Готовы", "accent": "Преобразовать", "suffix": "свой бизнес?" },
@@ -282,7 +395,8 @@
           "href": "/schedule"
         }
       }
-    },
+    }
+  },
     "about": {
       "meta": {
         "title": "О компании",
@@ -358,9 +472,8 @@
           "closed": "Выходной"
         }
       }
-    }
-  },
-  "industries": {
+    },
+    "industries": {
     "meta": {
       "title": "Отрасли",
       "description": "Секторы, с которыми мы работаем и которые трансформируем"
@@ -387,5 +500,148 @@
       "bullet2": "Интегрированные платформы управления для сетевых агентств",
       "cta": "Смотреть кейс →"
     }
+  },
+  "clients": {
+    "hero": {
+      "title": "Наши клиенты",
+      "description": "Изучите наших партнёров. Наведите, чтобы остановить, кликните — чтобы увидеть детали кейса."
+    },
+    "categories": [
+      {"key": "all", "label": "Все отрасли"},
+      {"key": "technology", "label": "Технологии"},
+      {"key": "healthcare", "label": "Здравоохранение"},
+      {"key": "realEstate", "label": "Недвижимость"},
+      {"key": "logistics", "label": "Логистика"},
+      {"key": "retail", "label": "Ритейл"},
+      {"key": "finance", "label": "Финансы"},
+      {"key": "manufacturing", "label": "Производство"},
+      {"key": "education", "label": "Образование"},
+      {"key": "energy", "label": "Энергетика"},
+      {"key": "media", "label": "Медиа"}
+    ],
+    "panel": {
+      "overview": "Обзор проекта",
+      "testimonial": "Отзыв клиента",
+      "keyResults": "Ключевые результаты",
+      "visitWebsite": "Перейти на сайт"
+    },
+    "items": [
+      {
+        "id": "edutech",
+        "shortName": "EI",
+        "name": "EduTech Innovations",
+        "categoryKey": "education",
+        "description": "Внедрена адаптивная платформа обучения с онлайн‑аналитикой и персональными траекториями для студентов и преподавателей.",
+        "testimonial": "Их платформа помогла повысить вовлечённость студентов и упростила обновление программ.",
+        "results": [
+          "+30% вовлечённости студентов",
+          "Кастомные панели для преподавателей и админов",
+          "Интеграция с LMS и SSO"
+        ],
+        "website": "https://example.com/edutech"
+      },
+      {
+        "id": "globalhealth",
+        "shortName": "GH",
+        "name": "GlobalHealth Systems",
+        "categoryKey": "healthcare",
+        "description": "Оптимизация EHR, автоматизация записи и HIPAA‑совместимые каналы коммуникации с пациентами.",
+        "testimonial": "Мы сократили ручное планирование на 65% и повысили удовлетворённость пациентов.",
+        "results": [
+          "−65% ручных записей",
+          "Безопасный портал сообщений",
+          "Более быстрый приём"
+        ],
+        "website": "https://example.com/ghs"
+      },
+      {
+        "id": "retailx",
+        "shortName": "RE",
+        "name": "Retail Excellence",
+        "categoryKey": "retail",
+        "description": "Единые данные инвентаря и POS, оповещения о запасах в реальном времени и автоматические правила дозакупок.",
+        "testimonial": "Дефициты упали, и мы получили единый источник правды по всем магазинам.",
+        "results": [
+          "−40% out‑of‑stock",
+          "Кросс‑магазинная аналитика",
+          "Автопополнение"
+        ],
+        "website": "https://example.com/retail"
+      },
+      {
+        "id": "techcorp",
+        "shortName": "TC",
+        "name": "TechCorp Solutions",
+        "categoryKey": "technology",
+        "description": "CI/CD пайплайны и внутренние инструменты, ускорившие релизы и снизившие инциденты.",
+        "testimonial": "Наши деплои стали быстрее и безопаснее, чем когда‑либо.",
+        "results": ["×3 скорость деплоев", "Меньше откатов", "Лучшая DX"],
+        "website": "https://example.com/techcorp"
+      },
+      {
+        "id": "finpartners",
+        "shortName": "FP",
+        "name": "Financial Partners",
+        "categoryKey": "finance",
+        "description": "Автоматизация онбординга клиентов и KYC/AML, интеграция с ядром банка.",
+        "testimonial": "Время онбординга сократилось вдвое, а аудиты упростились.",
+        "results": [
+          "−50% времени онбординга",
+          "Записи, готовые к аудиту",
+          "Автоматизация KYC/AML"
+        ],
+        "website": "https://example.com/finance"
+      },
+      {
+        "id": "manupro",
+        "shortName": "MP",
+        "name": "Manufacturing Pro",
+        "categoryKey": "manufacturing",
+        "description": "IoT‑интеграции, контроль качества и производственные дашборды для онлайн‑инсайтов.",
+        "testimonial": "Их автоматизация сократила производственные бутылочные горлышки на 45%.",
+        "results": ["−45% узких мест", "Онлайн‑мониторинг", "Меньше брака"],
+        "website": "https://example.com/manupro"
+      },
+      {
+        "id": "realprime",
+        "shortName": "RP",
+        "name": "RealPrime Estates",
+        "categoryKey": "realEstate",
+        "description": "Маршрутизация лидов, порталы для арендаторов и учёт платежей для современной недвижимости.",
+        "testimonial": "Сократились периоды вакантности и выросла удовлетворённость арендаторов.",
+        "results": ["Быстрее циклы аренды", "Самообслуживание арендаторов", "Автоматический роутинг лидов"],
+        "website": "https://example.com/realprime"
+      },
+      {
+        "id": "energysol",
+        "shortName": "ES",
+        "name": "Energy Solutions",
+        "categoryKey": "energy",
+        "description": "Планирование обслуживания и мобильные инструменты для выездных команд в энергетике.",
+        "testimonial": "Операционная прозрачность выросла на всех площадках.",
+        "results": ["Оптимальные окна обслуживания", "Мобильное приложение", "Выше аптайм"],
+        "website": "https://example.com/energy"
+      },
+      {
+        "id": "mediady",
+        "shortName": "MD",
+        "name": "Media Dynamics",
+        "categoryKey": "media",
+        "description": "Автоматизация контент‑пайплайна и аналитика для мультиканальной публикации.",
+        "testimonial": "Скорость публикации выросла без потери качества.",
+        "results": ["Быстрее контент‑пайплайн", "Аналитика аудитории", "CMS‑автоматизации"],
+        "website": "https://example.com/media"
+      },
+      {
+        "id": "nextgenlog",
+        "shortName": "NL",
+        "name": "NextGen Logistics",
+        "categoryKey": "logistics",
+        "description": "Оптимизация маршрутов и лайв‑трекер для сети среднего размера.",
+        "testimonial": "Экономим часы каждую неделю и доставляем надёжнее.",
+        "results": ["Оптимальные маршруты", "Онлайн‑трекер", "Меньше задержек"],
+        "website": "https://example.com/log"
+      }
+    ]
   }
 }

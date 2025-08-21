@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ActionButtons from '../../components/ui/ActionButtons';
+import ActionButtons from '../../components/molecules/ActionButtons';
 
 export default function HeroSection({
   title,

@@ -1,8 +1,8 @@
 import { getTranslations, getMessages } from 'next-intl/server';
-import IconInfoCard from '../../components/ui/IconInfoCard';
+import IconInfoCard from '../../components/molecules/IconInfoCard';
 import { industriesItems, whyChooseItems } from '../../data/homeItems';
-import ActionButtons from '../../components/ui/ActionButtons';
-import RevealOnScroll from '../../components/ui/RevealOnScroll';
+import ActionButtons from '../../components/molecules/ActionButtons';
+import RevealOnScroll from '../../components/molecules/RevealOnScroll';
 
 export default async function IndustriesSection({
   i18nSection = 'industries',

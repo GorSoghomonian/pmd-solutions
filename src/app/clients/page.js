@@ -2,163 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import HeroSection from '../../components/ui/HeroSection';
-
-// Categories
-const CATEGORIES = [
-	'All Industries',
-	'Technology',
-	'Healthcare',
-	'Real Estate',
-	'Logistics',
-	'Retail',
-	'Finance',
-	'Manufacturing',
-	'Education',
-	'Energy',
-	'Media',
-];
-
-// Mock data
-const MOCK_CLIENTS = [
-	{
-		id: 'edutech',
-		shortName: 'EI',
-		name: 'EduTech Innovations',
-		category: 'Education',
-		description:
-			'Implemented an adaptive learning platform with real-time analytics and personalized study paths for students and teachers.',
-		testimonial:
-			'“Their platform helped us improve student engagement and streamline our curriculum updates.”',
-		results: [
-			'30% increase in student engagement',
-			'Custom dashboards for teachers and admins',
-			'Integration with LMS and SSO',
-		],
-		website: 'https://example.com/edutech',
-	},
-	{
-		id: 'globalhealth',
-		shortName: 'GH',
-		name: 'GlobalHealth Systems',
-		category: 'Healthcare',
-		description:
-			'EHR optimizations, appointment automation, and HIPAA-compliant patient communication channels.',
-		testimonial:
-			'“We reduced manual scheduling by 65% while improving patient satisfaction.”',
-		results: [
-			'65% fewer manual appointments',
-			'Secure messaging portal',
-			'Faster intake workflows',
-		],
-		website: 'https://example.com/ghs',
-	},
-	{
-		id: 'retailx',
-		shortName: 'RE',
-		name: 'Retail Excellence',
-		category: 'Retail',
-		description:
-			'Unified inventory and POS data, with real-time stock alerts and automated reordering rules.',
-		testimonial:
-			'“Stock-outs fell dramatically and we finally got one source of truth across stores.”',
-		results: [
-			'-40% stock-outs',
-			'Cross-store analytics',
-			'Automated replenishment',
-		],
-		website: 'https://example.com/retail',
-	},
-	{
-		id: 'techcorp',
-		shortName: 'TC',
-		name: 'TechCorp Solutions',
-		category: 'Technology',
-		description:
-			'DevOps pipelines and internal tooling that accelerated feature delivery and reduced incidents.',
-		testimonial: '“Our deploys are faster and safer than ever before.”',
-		results: ['3x faster deployments', 'Fewer rollbacks', 'Improved DX'],
-		website: 'https://example.com/techcorp',
-	},
-	{
-		id: 'finpartners',
-		shortName: 'FP',
-		name: 'Financial Partners',
-		category: 'Finance',
-		description:
-			'Client onboarding automation and KYC/AML workflows integrated with core banking systems.',
-		testimonial:
-			'“Onboarding times were cut in half and audits became simpler.”',
-		results: [
-			'-50% onboarding time',
-			'Audit-ready records',
-			'KYC/AML automation',
-		],
-		website: 'https://example.com/finance',
-	},
-	{
-		id: 'manupro',
-		shortName: 'MP',
-		name: 'Manufacturing Pro',
-		category: 'Manufacturing',
-		description:
-			'IoT integrations, quality checkpoints and production dashboards for real-time insights.',
-		testimonial:
-			'“Their workflow automation reduced our production bottlenecks by 45%.”',
-		results: ['-45% bottlenecks', 'Real-time monitoring', 'Lower scrap rate'],
-		website: 'https://example.com/manupro',
-	},
-	{
-		id: 'realprime',
-		shortName: 'RP',
-		name: 'RealPrime Estates',
-		category: 'Real Estate',
-		description:
-			'Lead routing, tenant portals and payment tracking for a modern real estate operation.',
-		testimonial:
-			'“Vacancy cycles shortened and tenant satisfaction improved.”',
-		results: [
-			'Faster lease cycles',
-			'Self-service tenant portal',
-			'Automated lead routing',
-		],
-		website: 'https://example.com/realprime',
-	},
-	{
-		id: 'energysol',
-		shortName: 'ES',
-		name: 'Energy Solutions',
-		category: 'Energy',
-		description:
-			'Maintenance scheduling and field service mobile tools for energy installations.',
-		testimonial: '“Operational visibility increased across all sites.”',
-		results: ['Optimized maintenance windows', 'Mobile field app', 'Better uptime'],
-		website: 'https://example.com/energy',
-	},
-	{
-		id: 'mediady',
-		shortName: 'MD',
-		name: 'Media Dynamics',
-		category: 'Media',
-		description:
-			'Content pipeline automation and analytics for multi-channel publishing.',
-		testimonial:
-			'“Publishing velocity increased without sacrificing quality.”',
-		results: ['Faster content pipeline', 'Audience analytics', 'CMS automations'],
-		website: 'https://example.com/media',
-	},
-	{
-		id: 'nextgenlog',
-		shortName: 'NL',
-		name: 'NextGen Logistics',
-		category: 'Logistics',
-		description:
-			'Route optimization and live tracking for a mid-size logistics network.',
-		testimonial: '“We save hours every week and deliver more reliably.”',
-		results: ['Optimized routes', 'Live tracking', 'Fewer delays'],
-		website: 'https://example.com/log',
-	},
-];
+import {useTranslations} from 'next-intl';
+import HeroSection from '../../components/molecules/HeroSection';
 
 function useContainerSize(ref) {
 	const [size, setSize] = useState({ width: 0, height: 0 });
@@ -207,16 +52,21 @@ function mulberry32(a) {
 }
 
 export default function ClientsPage() {
-	const [category, setCategory] = useState('All Industries');
+	const t = useTranslations('clients');
+
+	// Categories and items from translations
+	const categories = t.raw('categories'); // [{ key, label }]
+	const allClients = t.raw('items');
+
+	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [selected, setSelected] = useState(null);
 
-	const allClients = MOCK_CLIENTS;
 	const filtered = useMemo(
 		() =>
-			category === 'All Industries'
+			selectedCategory === 'all'
 				? allClients
-				: allClients.filter((c) => c.category === category),
-		[category]
+				: allClients.filter((c) => c.categoryKey === selectedCategory),
+		[selectedCategory, allClients]
 	);
 
 	const arenaRef = useRef(null);
@@ -232,7 +82,7 @@ export default function ClientsPage() {
 	// Floating animation variables per bubble (deterministic by id)
 	const floatVars = useMemo(
 		() =>
-			filtered.map((c, i) => {
+			filtered.map((c) => {
 				const rng = mulberry32(seedFromString(c.id));
 				const dx = (12 + rng() * 24).toFixed(1) + 'px';
 				const dy = (12 + rng() * 24).toFixed(1) + 'px';
@@ -246,8 +96,8 @@ export default function ClientsPage() {
 	return (
 		<>
 			<HeroSection
-				title="Our Valued Clients"
-				description="Explore our trusted partnerships. Hover to pause bubbles, click to discover detailed case studies."
+				title={t('hero.title')}
+				description={t('hero.description')}
 				decoLine={true}
 				backgroundColor="white"
 				textColor='black'
@@ -259,41 +109,27 @@ export default function ClientsPage() {
 				id="clients-arena"
 				className="relative bg-white pb-24 md:pb-32"
 			>
-				{/* Header */}
-				{/* <div className="max-w-7xl mx-auto px-6">
-					<h1 className="text-center text-4xl md:text-6xl font-extrabold text-slate-900 opacity-0 animate-fade-in-up animate-delay-0">
-						Our Valued{' '}
-						<span className="text-[#002A93]">Clients</span>
-					</h1>
-					<div className="mt-3 md:mt-4 flex justify-center opacity-0 animate-fade-in-up animate-delay-100">
-						<span className="h-1 w-24 bg-[#002A93] rounded-full" />
-					</div>
-					<p className="mt-6 text-center text-lg md:text-xl text-slate-600 max-w-3xl mx-auto opacity-0 animate-fade-in-up animate-delay-200">
-						Explore our trusted partnerships. Hover to pause bubbles, click to
-						discover detailed case studies.
-					</p> */}
-
-					{/* Filters */}
-					<div className=" flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up animate-delay-300 pt-8 md:pt-0">
-						{CATEGORIES.map((c) => {
-							const active = c === category;
-							return (
-								<button
-									key={c}
-									onClick={() => setCategory(c)}
-									className={
-										'px-4 py-2 rounded-full text-sm font-semibold transition-all ' +
-										(active
-											? 'bg-[#002A93] text-white shadow-[0_6px_16px_rgba(0,42,147,0.35)]'
-											: 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-50')
-									}
-								>
-									{c}
-								</button>
-							);
-						})}
-					</div>
-					
+				{/* Filters */}
+				<div className=" flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up animate-delay-300 pt-8 md:pt-0">
+					{categories.map((c) => {
+						const active = c.key === selectedCategory;
+						return (
+							<button
+								key={c.key}
+								onClick={() => setSelectedCategory(c.key)}
+								className={
+									'px-4 py-2 rounded-full text-sm font-semibold transition-all ' +
+									(active
+										? 'bg-[#002A93] text-white shadow-[0_6px_16px_rgba(0,42,147,0.35)]'
+										: 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-50')
+								}
+							>
+								{c.label}
+							</button>
+						);
+					})}
+				</div>
+				
 				{/* Arena */}
 				<div className="relative max-w-7xl mx-auto px-6">
 					<div
@@ -389,7 +225,7 @@ export default function ClientsPage() {
 											{selected.name}
 										</div>
 										<span className="inline-flex items-center px-2 py-0.5 mt-1 rounded-full bg-slate-100 text-slate-600 text-xs ring-1 ring-slate-200">
-											{selected.category}
+											{categories.find((x) => x.key === selected.categoryKey)?.label}
 										</span>
 									</div>
 								</div>
@@ -405,8 +241,7 @@ export default function ClientsPage() {
 							<div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-6">
 								<section>
 									<h3 className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-										<i className="ri-pie-chart-2-line text-[#002A93]" /> Project
-										Overview
+										<i className="ri-pie-chart-2-line text-[#002A93]" /> {t('panel.overview')}
 									</h3>
 									<p className="mt-2 text-slate-600 leading-relaxed">
 										{selected.description}
@@ -415,8 +250,7 @@ export default function ClientsPage() {
 
 								<section>
 									<h3 className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-										<i className="ri-chat-quote-line text-[#002A93]" /> Client
-										Testimonial
+										<i className="ri-chat-quote-line text-[#002A93]" /> {t('panel.testimonial')}
 									</h3>
 									<blockquote className="mt-2 pl-4 border-l-4 border-green-500 text-slate-700 italic">
 										{selected.testimonial}
@@ -425,7 +259,7 @@ export default function ClientsPage() {
 
 								<section>
 									<h3 className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-										<i className="ri-list-check-2 text-[#002A93]" /> Key Results
+										<i className="ri-list-check-2 text-[#002A93]" /> {t('panel.keyResults')}
 									</h3>
 									<ul className="mt-2 space-y-2 text-slate-700">
 										{selected.results.map((r, i) => (
@@ -444,7 +278,7 @@ export default function ClientsPage() {
 									target="_blank"
 									className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-5 py-3 rounded-xl text-white font-semibold bg-[#002A93] hover:opacity-90"
 								>
-									<i className="ri-external-link-line" /> Visit Website
+									<i className="ri-external-link-line" /> {t('panel.visitWebsite')}
 								</Link>
 							</div>
 						</div>
@@ -454,29 +288,14 @@ export default function ClientsPage() {
 				{/* Keyframes + helpers */}
 				<style jsx global>{`
 					@keyframes floatXY {
-						0% {
-							transform: translate(0, 0);
-						}
-						25% {
-							transform: translate(var(--dx), calc(var(--dy) * 0.5));
-						}
-						50% {
-							transform: translate(calc(var(--dx) * -0.6), var(--dy));
-						}
-						75% {
-							transform: translate(calc(var(--dx) * 0.8), calc(var(--dy) * -0.8));
-						}
-						100% {
-							transform: translate(0, 0);
-						}
+						0% { transform: translate(0, 0); }
+						25% { transform: translate(var(--dx), calc(var(--dy) * 0.5)); }
+						50% { transform: translate(calc(var(--dx) * -0.6), var(--dy)); }
+						75% { transform: translate(calc(var(--dx) * 0.8), calc(var(--dy) * -0.8)); }
+						100% { transform: translate(0, 0); }
 					}
-					.bubble-anim {
-						animation: floatXY var(--dur) ease-in-out infinite;
-						will-change: transform;
-					}
-					.bubble-anim:hover {
-						animation-play-state: paused;
-					}
+					.bubble-anim { animation: floatXY var(--dur) ease-in-out infinite; will-change: transform; }
+					.bubble-anim:hover { animation-play-state: paused; }
 				`}</style>
 			</div>
 		</>

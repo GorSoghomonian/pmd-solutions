@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server"; // i18n
-import HeroSection from "../../components/ui/HeroSection"; // добавлено
-import ActionButtons from "../../components/ui/ActionButtons"; // добавлено
+import HeroSection from "../../components/molecules/HeroSection"; // добавлено
+import ActionButtons from "../../components/molecules/ActionButtons"; // добавлено
 
 // TODO: Extract all text content for i18n support
 // TODO: Move team member data to external data source or CMS

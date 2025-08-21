@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import ActionButtons from '../../components/ui/ActionButtons';
+import ActionButtons from '../../components/molecules/ActionButtons';
 import { useTranslations } from 'next-intl';
 
 export default function ContactCTA({ className = '' } = {}) {

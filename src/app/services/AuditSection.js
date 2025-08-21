@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import FeatureCard from '../../components/ui/FeatureCard';
-import ActionButtons from '../../components/ui/ActionButtons';
+import FeatureCard from '../../components/molecules/FeatureCard';
+import ActionButtons from '../../components/molecules/ActionButtons';
 import {useTranslations} from 'next-intl';
 
 export default function AuditSection({

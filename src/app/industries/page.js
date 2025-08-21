@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import HeroSection from '../../components/ui/HeroSection';
-import ActionButtons from '../../components/ui/ActionButtons'; // добавлено
+import HeroSection from '../../components/molecules/HeroSection';
+import ActionButtons from '../../components/molecules/ActionButtons'; // добавлено
 
 // TODO: Remove 'use client' if no client-side interactivity is needed
 // TODO: Extract industry data to external data source

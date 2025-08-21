@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import ActionButtons from '../../components/ui/ActionButtons';
+import ActionButtons from '../../components/molecules/ActionButtons';
 import {useTranslations} from 'next-intl';
-import FeatureCard from '../../components/ui/FeatureCard';
+import FeatureCard from '../../components/molecules/FeatureCard';
 
 export default function AutomationSection({ title, subtitle, badge, items = [] }) {
   const t = useTranslations('home.automation');

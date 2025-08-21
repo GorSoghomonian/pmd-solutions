@@ -2,7 +2,7 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 import './globals.css';
-import Header from '../components/layout/Header';
+import Header from '../components/organsim/Header';
 
 export const metadata = {
   title: 'App',
