@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import HeroSection from "../../components/molecules/HeroSection"
 import FeatureArticle from "./FeatureArticle";
+import CategoryArticle from "./CategoryArticle";
 
 
 export default async function BlogPage() {
@@ -30,6 +31,7 @@ export default async function BlogPage() {
       />
 
       <FeatureArticle />
+      <CategoryArticle />
     </main>
   )
 }

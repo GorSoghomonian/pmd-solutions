@@ -287,13 +287,13 @@
         "subtitle": "Find the topics that matter most to your business"
       },
       "categories": [
-        { "key": "all", "label": "All", "count": 24 },
-        { "key": "crmStrategy", "label": "CRM Strategy", "count": 8 },
-        { "key": "automation", "label": "Automation", "count": 6 },
-        { "key": "digitalTransformation", "label": "Digital Transformation", "count": 5 },
-        { "key": "processOptimization", "label": "Process Optimization", "count": 4 },
-        { "key": "hubspotTips", "label": "HubSpot Tips", "count": 7 },
-        { "key": "integration", "label": "Integration", "count": 4 }
+        { "key": "all", "label": "All", "count": 24, "iconClass": "ri-apps-line" },
+        { "key": "crmStrategy", "label": "CRM Strategy", "count": 8, "iconClass": "ri-customer-service-line" },
+        { "key": "automation", "label": "Automation", "count": 6, "iconClass": "ri-settings-4-line" },
+        { "key": "digitalTransformation", "label": "Digital Transformation", "count": 5, "iconClass": "ri-smartphone-line" },
+        { "key": "processOptimization", "label": "Process Optimization", "count": 4, "iconClass": "ri-customer-service-line"  },
+        { "key": "hubspotTips", "label": "HubSpot Tips", "count": 7, "iconClass": "ri-links-line" },
+        { "key": "integration", "label": "Integration", "count": 4, "iconClass": "ri-link-m" }
       ],
       "latest": {
         "title": "Latest Articles",

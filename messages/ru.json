@@ -253,14 +253,14 @@
         "title": "Категории",
         "subtitle": "Найдите темы, которые важны именно для вашего бизнеса"
       },
-      "categories": [
-        { "key": "all", "label": "Все", "count": 24 },
-        { "key": "crmStrategy", "label": "CRM‑стратегия", "count": 8 },
-        { "key": "automation", "label": "Автоматизация", "count": 6 },
-        { "key": "digitalTransformation", "label": "Цифровая трансформация", "count": 5 },
-        { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4 },
-        { "key": "hubspotTips", "label": "Советы по HubSpot", "count": 7 },
-        { "key": "integration", "label": "Интеграции", "count": 4 }
+      "categories":[
+        { "key": "all", "label": "Все", "count": 24, "iconClass": "ri-apps-line" },
+        { "key": "crmStrategy", "label": "CRM стратегия", "count": 8, "iconClass": "ri-customer-service-line" },
+        { "key": "automation", "label": "Автоматизация", "count": 6, "iconClass": "ri-settings-4-line" },
+        { "key": "digitalTransformation", "label": "Цифровая трансформация", "count": 5, "iconClass": "ri-smartphone-line" },
+        { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4, "iconClass": "ri-flow-chart-line" },
+        { "key": "hubspotTips", "label": "Советы по HubSpot", "count": 7, "iconClass": "ri-links-line" },
+        { "key": "integration", "label": "Интеграция", "count": 4, "iconClass": "ri-link-m" }
       ],
       "latest": {
         "title": "Новые статьи",

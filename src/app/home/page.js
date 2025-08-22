@@ -69,7 +69,7 @@ export default async function HomePage() {
       <IndustriesSection i18nSection="whyChoose" button={false} />
       <TestimonialsSection />
       <BlogSection />
-      <ContactCTA />  //
+      <ContactCTA />  
     </main>
   );
 }

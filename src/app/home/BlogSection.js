@@ -3,28 +3,61 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMessages } from 'next-intl';
-// Скорректируйте путь, если у вас другой
 import ActionButtons from '../../components/molecules/ActionButtons';
+import BlogPostCard from '../../components/molecules/BlogPostCard';
 
-export default function BlogSection({ className = '' } = {}) {
+export default function BlogSection({} = {}) {
   const messages = useMessages();
-  const bm = messages?.home?.blog ?? {};
 
-  const titlePrefix = bm.titlePrefix ?? 'Latest from Our';
-  const titleAccent = bm.titleAccent ?? 'Blog';
+  // Возможные варианты структуры:
+  // 1) messages.blog (объект) если вынесен в корень
+  // 2) messages.blog (string) как навигационный label + messages.home.blog (объект со структурой)
+  // Используем объект, иначе fallback на home.blog
+  const rawBlog = messages?.blog;
+  const blogObj =
+    (rawBlog && typeof rawBlog === 'object' && !Array.isArray(rawBlog) ? rawBlog : messages?.home?.blog) || {};
+
+  const latest = blogObj?.latest || {};
+  const categories = Array.isArray(blogObj?.categories) ? blogObj.categories : [];
+
+  // Map категорий по key для быстрого доступа
+  const categoriesMap = new Map(
+    categories.map((c) => [c.key, c.label || c.name || c.title || c.key])
+  );
+
+  // Конфигурация секции с fallback'ами
+  const titlePrefix = latest.titlePrefix || blogObj.titlePrefix || 'Latest from Our';
+  const titleAccent = latest.titleAccent || blogObj.titleAccent || 'Blog';
   const subtitle =
-    bm.subtitle ??
+    latest.subtitle || blogObj.subtitle ||
     'Expert insights, practical guides, and industry trends to help you stay ahead in business automation and digital transformation';
 
-  // Посты берём только из messages (без локального дефолта)
-  const posts = Array.isArray(bm.posts) ? bm.posts : [];
+  const ctaHref = latest.ctaHref || blogObj.ctaHref || '/blog';
+  const ctaLabel = latest.ctaLabel || blogObj.ctaLabel || 'Visit Our Blog';
+  const readMoreLabel = latest.readMore || blogObj.readMore || 'Read More';
 
-  const ctaHref = bm.ctaHref ?? '/blog';
-  const ctaLabel = bm.ctaLabel ?? 'Visit Our Blog';
-  const readMoreLabel = bm.readMore ?? 'Read More'; // <— безопасная метка
+  // Формируем массив постов
+  const posts = Array.isArray(latest.items)
+    ? latest.items.map((item) => {
+        const slug = item.slug || item.id || '';
+        const categoryKey = item.categoryKey || item.category || '';
+        return {
+          id: slug,
+          href: item.href || `/blog/${slug}`,
+          image: item.image || '/placeholder-blog.jpg',
+          category: categoriesMap.get(categoryKey) || item.categoryLabel || categoryKey || '',
+          date: item.date || '',
+          readTime: item.readTime || item.read || '',
+          title: item.title || '',
+          excerpt: item.excerpt || item.description || '',
+        };
+      })
+    : [];
+
+  const firstThree = posts.slice(0, 3);
 
   return (
-    <section className={`py-20 bg-slate-50 ${className}`}>
+    <section className={`py-20 bg-slate-50 `}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -34,65 +67,12 @@ export default function BlogSection({ className = '' } = {}) {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {posts.map((p) => (
-            <article
-              key={p.id}
-              className="bg-white rounded-3xl shadow-[0_6px_16px_rgba(0,0,0,0.06)] ring-1 ring-gray-100 overflow-hidden transition-shadow duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
-            >
-              <Link href={p.href} className="block">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  width={640}
-                  height={360}
-                  className="h-56 w-full object-cover"
-                  unoptimized
-                />
-              </Link>
-
-              <div className="p-6 md:p-7">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center px-3 text-center py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">
-                    {p.category}
-                  </span>
-                  <div className="flex items-center gap-4 text-gray-500 text-xs ml-5 text-center">
-                    <span className="inline-flex items-center gap-1">
-                      <i className="ri-calendar-2-line" /> {p.date}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <i className="ri-time-line" /> {p.readTime}
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="mt-4 text-xl md:text-2xl font-bold text-gray-900">
-                  <Link href={p.href} className="hover:text-[#2A73DD] transition-colors">
-                    {p.title}
-                  </Link>
-                </h3>
-
-                <p className="mt-3 text-gray-600 text-sm md:text-base">{p.excerpt}</p>
-
-                <div className="mt-5">
-                  <ActionButtons
-                    buttons={[
-                      {
-                        text: `${readMoreLabel} →`,
-                        href: p.href,
-                        // оставляем "link", но добавляем стили на саму ссылку
-                        variant: 'link',
-                        size: 'sm',
-                        className:
-                          'text-[#2A73DD] hover:text-[#1f5ec0] inline-flex items-center gap-1 font-semibold transition-colors ',
-                      },
-                    ]}
-                    align="start"
-                    gap="sm"
-                  />
-                </div>
-              </div>
-            </article>
+          {firstThree.map((p) => (
+            <BlogPostCard key={p.id} post={p} readMoreLabel={readMoreLabel} />
           ))}
+          {firstThree.length === 0 && (
+            <div className="col-span-full text-center text-gray-500">No articles available.</div>
+          )}
         </div>
 
         <div className="mt-12 flex justify-center">
