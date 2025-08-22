@@ -297,7 +297,7 @@
       ],
       "latest": {
         "title": "Latest Articles",
-        "countLabel": "{count} articles found",
+        "countLabel": "9 articles found",
         "items": [
           {
             "slug": "hubspot-automation-workflows",
@@ -308,7 +308,8 @@
             "readTime": "8 min read",
             "author": "Sarah Mitchell",
             "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
-            "href": "/blog/hubspot-automation-workflows"
+            "href": "/blog/hubspot-automation-workflows",
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
           },
           {
             "slug": "crm-implementation-5-critical-steps",
@@ -319,7 +320,8 @@
             "readTime": "6 min read",
             "author": "Michael Rodriguez",
             "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
-            "href": "/blog/crm-implementation-steps"
+            "href": "/blog/crm-implementation-steps",
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
           },
           {
             "slug": "business-process-optimization-30-days",
@@ -330,7 +332,8 @@
             "readTime": "10 min read",
             "author": "Jennifer Thompson",
             "excerpt": "A comprehensive guide to identifying bottlenecks, streamlining workflows, and implementing automation solutions that deliver measurable efficiency improvements.",
-            "href": "/blog/business-process-optimization-30-days"
+            "href": "/blog/business-process-optimization-30-days",
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
           },
           {
             "slug": "digital-transformation-roadmap-smbs",
@@ -341,7 +344,8 @@
             "readTime": "12 min read",
             "author": "David Chen",
             "excerpt": "Navigate your digital transformation journey with confidence. This practical roadmap covers planning, execution, and measuring success in digital initiatives.",
-            "href": "/blog/digital-transformation-roadmap-smbs"
+            "href": "/blog/digital-transformation-roadmap-smbs",
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
           },
           {
             "slug": "roi-on-business-automation",

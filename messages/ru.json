@@ -258,13 +258,13 @@
         { "key": "crmStrategy", "label": "CRM стратегия", "count": 8, "iconClass": "ri-customer-service-line" },
         { "key": "automation", "label": "Автоматизация", "count": 6, "iconClass": "ri-settings-4-line" },
         { "key": "digitalTransformation", "label": "Цифровая трансформация", "count": 5, "iconClass": "ri-smartphone-line" },
-        { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4, "iconClass": "ri-flow-chart-line" },
+        { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4, "iconClass": "ri-customer-service-line" },
         { "key": "hubspotTips", "label": "Советы по HubSpot", "count": 7, "iconClass": "ri-links-line" },
         { "key": "integration", "label": "Интеграция", "count": 4, "iconClass": "ri-link-m" }
       ],
       "latest": {
         "title": "Новые статьи",
-        "countLabel": "Найдено: {count}",
+        "countLabel": "Найдено: 9",
         "items": [
           {
             "slug": "hubspot-automation-workflows",

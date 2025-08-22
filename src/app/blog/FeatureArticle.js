@@ -7,7 +7,7 @@ export default async function FeatureArticle() {
 
   return (
     <section>
-      <div className="max-w-7xl mx-auto px-6 pb-12">
+      <div className="max-w-7xl mx-auto px-6 pb-12 ">
         <div className="flex justify-center items-center flex-col text-center p-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             {t("blog.featured.label")}

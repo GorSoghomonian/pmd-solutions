@@ -34,7 +34,7 @@ export default function HeroSection({
       icon: secondaryButton.icon,
       className:
         secondaryButton.className ??
-        'group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer ',
+        'group px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#2A73DD] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer',
     },
   ].filter(Boolean);
 
