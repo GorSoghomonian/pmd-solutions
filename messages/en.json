@@ -320,7 +320,7 @@
             "readTime": "6 min read",
             "author": "Michael Rodriguez",
             "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
-            "href": "/blog/crm-implementation-steps",
+            "href": "/blog/crm-implementation-5-critical-steps",
             "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
           },
           {
@@ -356,7 +356,8 @@
             "readTime": "9 min read",
             "author": "Sarah Mitchell",
             "excerpt": "Master the art of measuring automation success with our comprehensive ROI calculation framework. Includes templates and real-world examples.",
-            "href": "/blog/roi-business-automation"
+            "href": "/blog/roi-on-business-automation",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "system-integration-best-practices",
@@ -367,7 +368,8 @@
             "readTime": "7 min read",
             "author": "Michael Rodriguez",
             "excerpt": "Learn proven strategies for integrating disparate business systems. Avoid common pitfalls and ensure seamless data flow across your organization.",
-            "href": "/blog/system-integration-best-practices"
+            "href": "/blog/system-integration-best-practices",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "advanced-hubspot-customization",
@@ -378,7 +380,8 @@
             "readTime": "11 min read",
             "author": "Jennifer Thompson",
             "excerpt": "Go beyond basic setup with advanced HubSpot customization techniques. Create custom properties, workflows, and reports that match your unique processes.",
-            "href": "/blog/advanced-hubspot-customization"
+            "href": "/blog/advanced-hubspot-customization",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "data-migration-checklist-crm",
@@ -389,7 +392,8 @@
             "readTime": "8 min read",
             "author": "David Chen",
             "excerpt": "A comprehensive checklist for successful data migration during CRM implementation. Protect your valuable business data and ensure smooth transitions.",
-            "href": "/blog/data-migration-checklist-crm"
+            "href": "/blog/data-migration-checklist-crm",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "workflow-automation-examples-save-20-hours",
@@ -400,7 +404,8 @@
             "readTime": "13 min read",
             "author": "Sarah Mitchell",
             "excerpt": "Real-world automation examples from successful implementations. See how businesses are saving time and reducing errors with smart workflow design.",
-            "href": "/blog/workflow-automation-examples-save-20-hours"
+            "href": "/blog/workflow-automation-examples-save-20-hours",
+            "image": "/placeholder-blog.svg"
           }
         ],
         "readMore": "Read More",
@@ -454,6 +459,12 @@
         "projects": "Projects Completed",
         "satisfaction": "Client Satisfaction"
       },
+      "values": {
+        "years": "23+",
+        "projects": "500+",
+        "satisfaction": "98%",
+        "foundedYear": "2000"
+      },
       "cta": "See Our Story →",
       "imageAlt": "Team in office",
       "founded": "Founded"
@@ -463,18 +474,22 @@
       "subtitle": "Meet the visionaries behind PMD Solutions, dedicated to transforming businesses through innovation and expertise.",
       "members": {
         "sarah": {
+          "name": "Sarah Johnson",
           "role": "CEO & FOUNDER",
           "desc": "Strategic planning and business transformation"
         },
         "michael": {
+          "name": "Michael Chen",
           "role": "CTO",
           "desc": "Technology innovation and digital solutions"
         },
         "emily": {
+          "name": "Emily Rodriguez",
           "role": "HEAD OF OPERATIONS",
           "desc": "Process optimization and project management"
         },
         "david": {
+          "name": "David Kim",
           "role": "LEAD CONSULTANT",
           "desc": "Crisis management and business analysis"
         }
@@ -499,14 +514,19 @@
         "title": "Get in Touch",
         "emailLabel": "Email",
         "phoneLabel": "Phone",
-        "addressLabel": "Address"
+        "addressLabel": "Address",
+        "emailValue": "info@pmdsolutions.com",
+        "phoneValue": "+1 (555) 123-4567",
+        "addressValue": "123 Business Ave, Suite 100\nNew York, NY 10001"
       },
       "hours": {
         "title": "Office Hours",
         "weekdays": "Monday - Friday",
         "saturday": "Saturday",
         "sunday": "Sunday",
-        "closed": "Closed"
+        "closed": "Closed",
+        "weekdaysHours": "9:00 AM - 6:00 PM",
+        "saturdayHours": "10:00 AM - 4:00 PM"
       }
     }
   },

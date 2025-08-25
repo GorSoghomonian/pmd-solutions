@@ -275,7 +275,8 @@
             "readTime": "8 мин чтения",
             "author": "Sarah Mitchell",
             "excerpt": "Узнайте об эффективных сценариях автоматизации, которые трансформируют маркетинг и продажи, сокращая рутину и повышая конверсию.",
-            "href": "/ru/blog/hubspot-automation-workflows"
+            "href": "/blog/hubspot-automation-workflows",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "crm-implementation-5-critical-steps",
@@ -286,7 +287,8 @@
             "readTime": "6 мин чтения",
             "author": "Michael Rodriguez",
             "excerpt": "Ключевые шаги успешного внедрения CRM: повышение вовлечённости пользователей, целостность данных и максимальный ROI.",
-            "href": "/ru/blog/crm-implementation-steps"
+            "href": "/blog/crm-implementation-5-critical-steps",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "business-process-optimization-30-days",
@@ -297,7 +299,8 @@
             "readTime": "10 мин чтения",
             "author": "Jennifer Thompson",
             "excerpt": "Полное руководство по выявлению узких мест, оптимизации рабочих потоков и внедрению автоматизации с измеримыми результатами.",
-            "href": "/ru/blog/business-process-optimization-30-days"
+            "href": "/blog/business-process-optimization-30-days",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "digital-transformation-roadmap-smbs",
@@ -308,7 +311,8 @@
             "readTime": "12 мин чтения",
             "author": "David Chen",
             "excerpt": "Уверенно пройдите путь цифровой трансформации: планирование, исполнение и измерение успеха цифровых инициатив.",
-            "href": "/ru/blog/digital-transformation-roadmap-smbs"
+            "href": "/blog/digital-transformation-roadmap-smbs",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "roi-on-business-automation",
@@ -319,9 +323,10 @@
             "readTime": "9 мин чтения",
             "author": "Sarah Mitchell",
             "excerpt": "Освойте расчёт эффективности автоматизации по нашей методике с шаблонами и реальными примерами.",
-            "href": "/ru/blog/roi-business-automation"
+            "href": "/blog/roi-on-business-automation",
+            "image": "/placeholder-blog.svg"
           },
-          {
+            {
             "slug": "system-integration-best-practices",
             "title": "Лучшие практики системной интеграции: соединяем инструменты бизнеса",
             "categoryKey": "integration",
@@ -330,7 +335,8 @@
             "readTime": "7 мин чтения",
             "author": "Michael Rodriguez",
             "excerpt": "Проверенные стратегии интеграции разнородных систем. Избегайте типичных ошибок и обеспечьте бесшовный обмен данными.",
-            "href": "/ru/blog/system-integration-best-practices"
+            "href": "/blog/system-integration-best-practices",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "advanced-hubspot-customization",
@@ -341,7 +347,8 @@
             "readTime": "11 мин чтения",
             "author": "Jennifer Thompson",
             "excerpt": "Выходите за рамки базовой настройки: создавайте свойства, процессы и отчёты, отражающие ваши уникальные процессы.",
-            "href": "/ru/blog/advanced-hubspot-customization"
+            "href": "/blog/advanced-hubspot-customization",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "data-migration-checklist-crm",
@@ -352,7 +359,8 @@
             "readTime": "8 мин чтения",
             "author": "David Chen",
             "excerpt": "Полный чек‑лист успешной миграции данных при внедрении CRM. Защитите ценные данные и обеспечьте гладкий переход.",
-            "href": "/ru/blog/data-migration-checklist-crm"
+            "href": "/blog/data-migration-checklist-crm",
+            "image": "/placeholder-blog.svg"
           },
           {
             "slug": "workflow-automation-examples-save-20-hours",
@@ -363,7 +371,8 @@
             "readTime": "13 мин чтения",
             "author": "Sarah Mitchell",
             "excerpt": "Реальные примеры автоматизации: как компании экономят время и сокращают ошибки благодаря умному дизайну процессов.",
-            "href": "/ru/blog/workflow-automation-examples-save-20-hours"
+            "href": "/blog/workflow-automation-examples-save-20-hours",
+            "image": "/placeholder-blog.svg"
           }
         ],
         "readMore": "Читать",
@@ -417,6 +426,12 @@
           "projects": "Выполненных проектов",
           "satisfaction": "Удовлетворенность клиентов"
         },
+        "values": {
+          "years": "23+",
+          "projects": "500+",
+          "satisfaction": "98%",
+          "foundedYear": "2000"
+        },
         "cta": "Наша история →",
         "imageAlt": "Команда в офисе",
         "founded": "Основана"
@@ -426,18 +441,22 @@
         "subtitle": "Познакомьтесь с визионерами PMD Solutions, посвятившими себя трансформации бизнеса через инновации и экспертизу.",
         "members": {
           "sarah": {
+            "name": "Sarah Johnson",
             "role": "CEO и основатель",
             "desc": "Стратегическое планирование и трансформация бизнеса"
           },
           "michael": {
+            "name": "Michael Chen",
             "role": "CTO",
             "desc": "Технологические инновации и цифровые решения"
           },
           "emily": {
+            "name": "Emily Rodriguez",
             "role": "Руководитель операций",
             "desc": "Оптимизация процессов и управление проектами"
           },
           "david": {
+            "name": "David Kim",
             "role": "Ведущий консультант",
             "desc": "Антикризисное управление и бизнес‑анализ"
           }
@@ -462,14 +481,19 @@
           "title": "Связаться с нами",
           "emailLabel": "Email",
           "phoneLabel": "Телефон",
-          "addressLabel": "Адрес"
+          "addressLabel": "Адрес",
+          "emailValue": "info@pmdsolutions.com",
+          "phoneValue": "+1 (555) 123-4567",
+          "addressValue": "123 Business Ave, Suite 100\nNew York, NY 10001"
         },
         "hours": {
           "title": "Часы работы",
           "weekdays": "Понедельник — Пятница",
           "saturday": "Суббота",
           "sunday": "Воскресенье",
-          "closed": "Выходной"
+          "closed": "Выходной",
+          "weekdaysHours": "9:00 - 18:00",
+          "saturdayHours": "10:00 - 16:00"
         }
       }
     },

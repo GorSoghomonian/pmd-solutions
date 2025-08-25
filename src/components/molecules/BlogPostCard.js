@@ -10,7 +10,7 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
   const {
     id,
     href = '#',
-    image = '/placeholder-blog.jpg',
+    image = '/placeholder-blog.svg', // updated fallback to existing SVG
     title = '',
     excerpt = '',
     category = '',
