@@ -538,7 +538,7 @@
     "hero": {
       "titlePart1": "Industries We",
       "titlePart2": "Cover",
-      "descriptionLine1": "Specialized solutions across five core sectors, designed to transform",
+      "descriptionLine1": "Specialized solutions across five core sectors, designed to transform ",
       "descriptionLine2": "your business operations and drive sustainable growth.",
       "scroll": "Scroll to explore"
     },
@@ -549,6 +549,13 @@
       "services": "Services",
       "healthcare": "Healthcare"
     },
+    "arrList": [
+      { "key": "realEstate", "label": "Real Estate", "iconClass": "ri-building-line"},
+      { "key": "logistics", "label": "Logistics", "iconClass": "ri-truck-line"},
+      { "key": "retail", "label": "Retail", "iconClass": "ri-store-line"},
+      { "key": "services", "label": "Services", "iconClass": "ri-customer-service-line"},
+      { "key": "healthcare", "label": "Healthcare", "iconClass": "ri-hospital-line"}
+    ],
     "realEstate": {
       "title": "Real Estate",
       "paragraph1": "We transform property management and sales processes through advanced CRM systems and automated workflows.",

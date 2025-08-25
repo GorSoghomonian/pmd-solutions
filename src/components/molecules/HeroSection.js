@@ -5,6 +5,7 @@ export default function HeroSection({
   title,
   decoLine,
   description,
+  additional,
   backgroundImage,
   backgroundColor = 'bg-blue-600',
   textColor = 'text-white',
@@ -70,6 +71,11 @@ export default function HeroSection({
           <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up animate-delay-150 ${textColor}`}>
             {description}
           </p>
+        )}
+        {additional && (
+          <div className={`mt-4 text-lg max-w-3xl leading-relaxed opacity-0 animate-fade-in-up animate-delay-200 ${textColor}`}>
+            {additional}
+          </div>
         )}
 
         {buttons.length > 0 && (
