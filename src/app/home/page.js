@@ -24,16 +24,16 @@ export default async function HomePage() {
         <HeroSection
           title={
             <>
-              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold mt-9">
+              <span className="block text-4xl md:text-6xl lg:text-7xl font-bold mt-14">
                 {t('hero.titleLine1')}
               </span>
-              <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold">
+              <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold text-blue-400">
                 {t('hero.titleLine2')}
               </span>
             </>
           }
           description={
-            <span className="block text-xl md:text-2xl mt-4 text-blue-100">
+            <span className="block text-xl md:text-2xl mt-2 text-blue-100">
               {t('hero.description')}
             </span>
           }
@@ -41,17 +41,17 @@ export default async function HomePage() {
           secondaryButton={{ text: t('hero.ctaSecondary'), href: '/about' }}
           additional={
             <>
-              <div className="mt-8 md:mt-16 pb-10 max-w-7xl mx-auto text-center text-white">
-              <div className="flex sm:grid sm:grid-cols-3 gap-8 sm:gap-32 overflow-x-auto px-4 sm:px-0">
-                <div className="shrink-0 sm:shrink">
+              <div className="mt-2 md:mt-16 md:pb-10 max-w-7xl mx-auto text-center text-white">
+              <div className="flex sm:grid sm:grid-cols-3 gap-8 sm:gap-32  px-4 sm:px-0">
+                <div className="shrink-23 sm:shrink">
                   <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold">500+</div>
                   <div className="text-blue-200 text-base sm:text-lg">{t('stats.projects')}</div>
                 </div>
-                <div className="shrink-0 sm:shrink">
+                <div className="shrink-23 sm:shrink">
                   <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold">50+</div>
                   <div className="text-blue-200 text-base sm:text-lg">{t('stats.clients')}</div>
                 </div>
-                <div className="shrink-0 sm:shrink">
+                <div className="shrink-0 sm:shrink pr-6">
                   <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold">5+</div>
                   <div className="text-blue-200 text-base sm:text-lg">{t('stats.years')}</div>
                 </div>

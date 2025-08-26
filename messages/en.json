@@ -32,8 +32,8 @@
       "ctaPrimary": "Explore Our Services",
       "ctaSecondary": "Learn About Us",
       "scroll": "Scroll down",
-      "titleLine1": "Transform Your Business with Smart",
-      "titleLine2": "Solutions"
+      "titleLine1": "Transform Your Business with ",
+      "titleLine2": "Smart Solutions"
     },
     "stats": {
       "projects": "Projects Completed",
@@ -309,7 +309,69 @@
             "author": "Sarah Mitchell",
             "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
             "href": "/blog/hubspot-automation-workflows",
-            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape",
+            "details": {
+              "heroImageAlt": "HubSpot automation workflow interface",
+              "heroImageCaption": "Example of a lead scoring workflow in HubSpot",
+              "author": {
+                "name": "Sarah Mitchell",
+                "role": "Senior HubSpot Specialist",
+                "shortBio": "Senior HubSpot Specialist with 8+ years of experience in marketing automation and CRM optimization.",
+                "longBio": "Senior HubSpot Specialist with 8+ years of experience in marketing automation and CRM optimization. Sarah has helped 200+ businesses streamline their sales processes."
+              },
+              "shareLabel": "Share:",
+              "overviewHeading": "Article Overview",
+              "overview": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
+              "intro": "HubSpot automation has revolutionized how businesses manage their sales and marketing processes. In this comprehensive guide, we'll explore 10 powerful automation workflows that can save your team countless hours while dramatically improving conversion rates and customer satisfaction. These workflows have been tested across hundreds of implementations and consistently deliver measurable ROI improvements within the first 30 days of implementation.",
+              "sections": [
+                {
+                  "heading": "1. Lead Scoring and Qualification Automation",
+                  "body": "Automatically score leads based on behavior, demographics, and engagement levels. This workflow ensures your sales team focuses on the highest-quality prospects.",
+                  "keyComponentsHeading": "Key Components:",
+                  "keyComponents": [
+                    "Email engagement tracking",
+                    "Website behavior analysis",
+                    "Form submission scoring",
+                    "Social media interaction points"
+                  ],
+                  "quote": {
+                    "text": "Since implementing HubSpot lead scoring automation, our sales team has seen a 40% increase in qualified leads and a 25% improvement in conversion rates.",
+                    "cite": "Michael Rodriguez, Sales Director at TechCorp"
+                  }
+                },
+                {
+                  "heading": "2. Welcome Email Series Automation",
+                  "body": "Create a seamless onboarding experience for new subscribers with a carefully crafted welcome email sequence that educates and engages."
+                },
+                {
+                  "heading": "3. Abandoned Cart Recovery",
+                  "body": "For e-commerce businesses, this workflow can recover up to 30% of abandoned carts by sending timely, personalized reminders."
+                }
+              ],
+              "bestPracticesHeading": "Implementation Best Practices",
+              "bestPracticesIntro": "When implementing these automation workflows, remember to:",
+              "bestPractices": [
+                "Start with simple workflows and gradually add complexity",
+                "Test all automation paths before going live",
+                "Monitor performance metrics weekly",
+                "Regularly update and optimize based on data",
+                "Ensure compliance with data protection regulations"
+              ],
+              "tagsHeading": "Tags",
+              "tags": ["HubSpot","Automation","Marketing","Sales","Workflows"],
+              "aboutAuthorHeading": "About Sarah Mitchell",
+              "relatedHeading": "Related Articles",
+              "related": [
+                { "slug": "business-process-optimization-30-days", "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days" },
+                { "slug": "digital-transformation-roadmap-smbs", "title": "Digital Transformation Roadmap: A Step-by-Step Guide for SMBs" },
+                { "slug": "roi-on-business-automation", "title": "How to Calculate ROI on Business Automation: A Complete Framework" }
+              ],
+              "cta": {
+                "heading": "Ready to Transform Your Business?",
+                "text": "Get expert guidance on CRM implementation, automation strategies, and business process optimization.",
+                "primaryButton": { "label": "Start Your Project", "href": "/contact" }
+              }
+            }
           },
           {
             "slug": "crm-implementation-5-critical-steps",
@@ -319,9 +381,56 @@
             "date": "Jan 10, 2024",
             "readTime": "6 min read",
             "author": "Michael Rodriguez",
-            "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your customer relationship management system.",
+            "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI.",
             "href": "/blog/crm-implementation-5-critical-steps",
-            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+            "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape",
+            "details": {
+              "heroImageAlt": "CRM implementation planning session",
+              "heroImageCaption": "Defining clear objectives is crucial for CRM success",
+              "author": {
+                "name": "Michael Rodriguez",
+                "role": "CRM Implementation Specialist",
+                "shortBio": "CRM Implementation Specialist with 10+ years of experience helping businesses optimize CRM processes.",
+                "longBio": "CRM Implementation Specialist with 10+ years of experience helping businesses optimize their customer relationship management processes and achieve digital transformation success."
+              },
+              "shareLabel": "Share:",
+              "overviewHeading": "Article Overview",
+              "overview": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI from your CRM system.",
+              "intro": "CRM implementation success depends on careful planning, proper execution, and continuous optimization. After managing 500+ CRM implementations, we've identified 5 critical steps that determine project success. Skip any of these steps, and you risk poor user adoption, data quality issues, and failed ROI expectations.",
+              "sections": [
+                {
+                  "heading": "Step 1: Define Clear Objectives and Success Metrics",
+                  "body": "Before selecting any CRM platform, establish specific, measurable goals for your implementation.",
+                  "questionsHeading": "Essential Questions to Answer:",
+                  "questions": [
+                    "What specific business problems are you solving?",
+                    "How will you measure success?",
+                    "What are your user adoption targets?",
+                    "What ROI do you expect and by when?"
+                  ],
+                  "quote": {
+                    "text": "Clear objectives from day one made all the difference. We achieved 95% user adoption within 3 months and saw immediate improvements in sales productivity.",
+                    "cite": "Jennifer Thompson, Operations Manager at GrowthCo"
+                  }
+                },
+                { "heading": "Step 2: Conduct Thorough Data Audit and Migration Planning", "body": "Data is the foundation of any successful CRM. Poor data quality will undermine even the best implementation." },
+                { "heading": "Step 3: Design User-Centric Workflows", "body": "Your CRM should adapt to your team's existing processes, not the other way around." }
+              ],
+              "tagsHeading": "Tags",
+              "tags": ["CRM","Implementation","Strategy","Business Process","Data Management"],
+              "aboutAuthorHeading": "About Michael Rodriguez",
+              "relatedHeading": "Related Articles",
+              "related": [
+                { "slug": "business-process-optimization-30-days", "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days" },
+                { "slug": "digital-transformation-roadmap-smbs", "title": "Digital Transformation Roadmap: A Step-by-Step Guide for SMBs" },
+                { "slug": "roi-on-business-automation", "title": "How to Calculate ROI on Business Automation: A Complete Framework" }
+              ],
+              "cta": {
+                "heading": "Ready to Transform Your Business?",
+                "text": "Get expert guidance on CRM implementation, automation strategies, and business process optimization.",
+                "primaryButton": { "label": "Start Your Project", "href": "/contact" }
+              }
+            }
           },
           {
             "slug": "business-process-optimization-30-days",
