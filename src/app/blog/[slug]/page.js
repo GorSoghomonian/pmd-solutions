@@ -52,29 +52,17 @@ export default async function Page(props) {
             className="pb-12 md:pb-0"
           />
 
-          <div className="max-w-4xl mx-auto py-6 border-blue-100 w-max h-max items-center rounded-2xl bg-gradient-to-r from-blue-100 to-blue-50 shadow-lg mt-16">
-            <h2 className="text-2xl font-bold text-black px-6 pt-4">
-              {post.details.overviewHeading}
-            </h2>
-            <p className="px-6 py-3 text-lg text-gray-700 leading-relaxed">
-              {post.details.overview}
-            </p>
-          </div>
 
-          <div>
-            <div className="max-w-4xl mx-auto py-6">{post.details.intro}</div>
-            <div className="flex justify-center">
-              {post.details.heroImageCaption}
-            </div>
-          </div>
 
-          <div className="max-w-4xl mx-auto py-6 flex justify-center flex-col gap-10">
-            {post.details.sections.map((section, index) => (
+        <div className="max-w-4xl mx-auto py-6 flex justify-center flex-col gap-10">
+            {post.details?.sections?.map((section, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow">
-                <h3 className="text-2xl font-semibold mb-3">
-                  {section.heading}
-                </h3>
-                <p className="text-gray-700 mb-4">{section.body}</p>
+                {section.heading && (
+                  <h3 className="text-2xl font-semibold mb-3">{section.heading}</h3>
+                )}
+                {section.body && (
+                  <p className="text-gray-700 mb-4">{section.body}</p>
+                )}
 
                 {section.keyComponentsHeading && (
                   <p className="font-medium text-gray-800 mb-2">
@@ -82,7 +70,7 @@ export default async function Page(props) {
                   </p>
                 )}
 
-                {section.keyComponents && (
+                {section.keyComponents?.length > 0 && (
                   <ul className="list-disc list-inside space-y-2 mb-4 text-gray-600">
                     {section.keyComponents.map((item, i) => (
                       <li key={i}>{item}</li>
@@ -90,8 +78,8 @@ export default async function Page(props) {
                   </ul>
                 )}
 
-                {section.quote && section.quote.text && (
-                  <div className="border-l-4 border-blue-400 pl-4 py-8   italic text-gray-600 bg-blue-50 p-3 rounded">
+                {section.quote?.text && (
+                  <div className="border-l-4 border-blue-400 pl-4 py-8 italic text-gray-600 bg-blue-50 p-3 rounded">
                     “{section.quote.text}”
                     {section.quote.cite && (
                       <div className="mt-2 text-sm font-medium text-gray-500 text-right">
@@ -100,9 +88,50 @@ export default async function Page(props) {
                     )}
                   </div>
                 )}
-
               </div>
             ))}
+            <div className="rounded-xl shadow p-6">
+              {post.details?.bestPracticesHeading && (
+                <h2 className="text-2xl font-semibold">
+                  {post.details.bestPracticesHeading}
+                </h2>
+              )}
+
+              {post.details?.bestPracticesIntro && (
+                <h3 className="py-4">{post.details.bestPracticesIntro}</h3>
+              )}
+
+              {post.details?.bestPractices?.length > 0 && (
+                <ul className="list-disc list-inside space-y-2  text-gray-600">
+                  {post.details.bestPractices.map((practice, index) => (
+                    <li key={index}>{practice}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+              <div>
+                <h2 className="text-xl font-semibold py-4">{post.details.tagsHeading}</h2>
+                <div className="flex items-center text-sm gap-6">
+                  {post.details?.tags.map((tag, index) => (
+                    <div key={index} 
+                    className="px-3 py-1 bg-blue-100 text-[#2A73DD] rounded-full text-sm font-medium cursor-pointer hover:bg-blue-200 transition-colors duration-300">
+                      {tag}
+                    </div>
+                  ))}
+              </div>
+              </div>
+          </div>
+            <div className="bg-blue-50 h-80 pt-20 ">
+              <div className="max-w-4xl  mx-auto flex justify-center  flex-col gap-14 shadow  rounded-lg pl-4 italic text-gray-600 bg-white">
+                  <h2>
+                    {post.details.aboutAuthorHeading} 
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {post.details.author.longBio}
+                  </p>
+              </div>
+            </div>
+          <div>
           </div>
         </div>
       </ErrorBoundary>
