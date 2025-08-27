@@ -93,7 +93,7 @@ export default function CategoryArticle() {
                 {tHome('blog.latest.countLabel')}
               </p>
             </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
             {posts.map((p) => (
               <BlogPostCard key={p.id} post={p} readMoreLabel={readMoreLabel} />
             ))}

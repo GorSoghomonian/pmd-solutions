@@ -358,7 +358,8 @@
                 "Ensure compliance with data protection regulations"
               ],
               "tagsHeading": "Tags",
-              "tags": ["HubSpot","Automation","Marketing","Sales","Workflows"],
+              "tags": ["#HubSpot","#Automation","#Marketing","#Sales","#Workflows"],
+              "socials": [ "ri-linkedin-fill", "ri-twitter-x-fill" ],
               "aboutAuthorHeading": "About Sarah Mitchell",
               "relatedHeading": "Related Articles",
               "related": [
@@ -369,7 +370,8 @@
               "cta": {
                 "heading": "Ready to Transform Your Business?",
                 "text": "Get expert guidance on CRM implementation, automation strategies, and business process optimization.",
-                "primaryButton": { "label": "Start Your Project", "href": "/contact" }
+                "primaryButton": { "label": "Start Your Project" },
+                "secondaryButton": {"label": "More Articles"}
               }
             }
           },
@@ -420,6 +422,7 @@
               "tags": ["CRM","Implementation","Strategy","Business Process","Data Management"],
               "aboutAuthorHeading": "About Michael Rodriguez",
               "relatedHeading": "Related Articles",
+              "socials": [ "ri-linkedin-fill", "ri-twitter-x-fill" ],
               "related": [
                 { "slug": "business-process-optimization-30-days", "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days" },
                 { "slug": "digital-transformation-roadmap-smbs", "title": "Digital Transformation Roadmap: A Step-by-Step Guide for SMBs" },
@@ -428,7 +431,8 @@
               "cta": {
                 "heading": "Ready to Transform Your Business?",
                 "text": "Get expert guidance on CRM implementation, automation strategies, and business process optimization.",
-                "primaryButton": { "label": "Start Your Project", "href": "/contact" }
+                "primaryButton": { "label": "Start Your Project" },
+                "secondaryButton": {"label": "More Articles"}
               }
             }
           },
