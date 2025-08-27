@@ -10,16 +10,16 @@ export default async function TeamSection() {
   return (
       <section className="bg-white py-24 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-bold text-center mb-4text-5xl lg:text-6xl text-[#030000] mb-6 transition-all duration-1000 opacity-100 translate-y-0">
+          <h2 className="text-5xl font-bold text-center mb-4text-5xl lg:text-6xl text-[#030000] mb-6 transition-all duration-1000 opacity-100 translate-y-0 ">
             {t('team.title')}
           </h2>
           <div className="flex justify-center mb-8"><span className="w-24 h-1 bg-blue-600 rounded" /></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto transition-all duration-1000 delay-500 opacity-100 translate-y-0 text-center mb-16">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto transition-all duration-1000 delay-500 opacity-100 translate-y-0  text-center mb-16">
             {t('team.subtitle')}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center mx-auto">
             {["sarah","michael","emily","david"].map(key => (
-              <div key={key} className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center">
+              <div key={key} className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center justify-center md:w-auto w-95  mx-auto">
                 <Image
                   src={
                     key === 'sarah' ? 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80' :

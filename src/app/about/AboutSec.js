@@ -48,7 +48,7 @@ export default async function AboutSec() {
                 </div>
               </div>
     
-              <div className="flex-1 flex items-center justify-center relative">
+              <div className="flex-1 md:flex items-center justify-center relative hidden sm:block">
                 <div style={{ position: 'relative', width: '100%', maxWidth: 600, height: 384 }} className="rounded-2xl shadow-lg bg-white">
                   <div className="overflow-hidden rounded-2xl h-full">
                     <Image

@@ -50,42 +50,6 @@ export default function AutomationSection({ title, subtitle, badge, items = [] }
           <p className="text-xl text-gray-600 leading-relaxed">
             {subtitle || t('description')}
           </p>
-          {/* <div className="grid md:grid-cols-2 gap-6 mb-4">
-            {localized.map((it, i) => (
-              <div
-                key={i}
-                className="p-5 rounded-lg border bg-white shadow-sm flex flex-col gap-3"
-                style={{ backgroundColor: it.bgColor || '#fff' }}
-              >
-                <div
-                  className={it.iconBg || ''}
-                  style={{
-                    width: 48,
-                    height: 48,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: 12
-                  }}
-                >
-                  {it.icon}
-                </div>
-                <h3 className="font-medium text-lg">{it.title}</h3>
-                <p className="text-sm text-gray-600">
-                  {it.description}
-                </p>
-                {it.badge && (
-                  <span
-                    className={`inline-block mt-auto text-xs font-medium px-2 py-1 rounded ${
-                      it.badgeColor || 'bg-blue-50 text-blue-600'
-                    }`}
-                  >
-                    {it.badge}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div> */}
           <div>
             <div className="grid md:grid-cols-2 gap-6 mb-10">
                           {localized.map((item, idx) => {
