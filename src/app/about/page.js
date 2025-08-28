@@ -8,11 +8,6 @@ import ContactSection from "./ContactSection";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Typewriter from "../../components/molecules/TypeWriter";
 
-// TODO: Extract all text content for i18n support
-// TODO: Move team member data to external data source or CMS
-// TODO: Implement proper image optimization for team photos
-// TODO: Add error boundaries and loading states
-// TODO: Consider lazy loading for images below the fold
 
 
 export async function generateMetadata() {

@@ -9,10 +9,7 @@ import BlogPostCard from '../../components/molecules/BlogPostCard';
 export default function BlogSection({} = {}) {
   const messages = useMessages();
 
-  // Возможные варианты структуры:
-  // 1) messages.blog (объект) если вынесен в корень
-  // 2) messages.blog (string) как навигационный label + messages.home.blog (объект со структурой)
-  // Используем объект, иначе fallback на home.blog
+
   const rawBlog = messages?.blog;
   const blogObj =
     (rawBlog && typeof rawBlog === 'object' && !Array.isArray(rawBlog) ? rawBlog : messages?.home?.blog) || {};
@@ -20,12 +17,10 @@ export default function BlogSection({} = {}) {
   const latest = blogObj?.latest || {};
   const categories = Array.isArray(blogObj?.categories) ? blogObj.categories : [];
 
-  // Map категорий по key для быстрого доступа
   const categoriesMap = new Map(
     categories.map((c) => [c.key, c.label || c.name || c.title || c.key])
   );
 
-  // Конфигурация секции с fallback'ами
   const titlePrefix = latest.titlePrefix || blogObj.titlePrefix || 'Latest from Our';
   const titleAccent = latest.titleAccent || blogObj.titleAccent || 'Blog';
   const subtitle =
@@ -36,7 +31,7 @@ export default function BlogSection({} = {}) {
   const ctaLabel = latest.ctaLabel || blogObj.ctaLabel || 'Visit Our Blog';
   const readMoreLabel = latest.readMore || blogObj.readMore || 'Read More';
 
-  // Формируем массив постов
+  
   const posts = Array.isArray(latest.items)
     ? latest.items.map((item) => {
         const slug = item.slug || item.id || '';

@@ -8,11 +8,11 @@ export default async function AboutSec() {
     const t = await getTranslations('about');
 
   return (
-          <section className="bg-white text-gray-900 min-h-[500px] flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-20 py-18 relative">
+          <section className="bg-white text-gray-900 min-h-[500px] flex flex-col lg:flex-row items-center justify-between gap-12  px-6 md:px-20 py-18 relative">
             <div className="w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
               {/* Content Section */}
               <div className="flex-1">
-                <div className="max-w-2xl">
+                <div className="max-w-2xl ml-12">
                   <h2 className="text-5xl md:text-6xl font-bold leading-tight">{t('aboutSection.title')}</h2>
                   <div className='w-24 h-1 bg-[#2A73DD] transition-all duration-1000 delay-300 opacity-100 scale-x-100 my-4'></div>
                   <p className="text-xl lg:text-2xl text-gray-600  transition-all duration-1000 delay-500 opacity-100 translate-y-0">
@@ -24,7 +24,7 @@ export default async function AboutSec() {
     
                   {/* Statistics */}
                   <div>
-                    <ul className="mb-8 space-x-8 mt-5 flex ml-5 ">
+                    <ul className="mb-8 space-x-8 mt-5 flex">
                       <li className="flex flex-col items-center justify-center p-6">
                         <div className="flex items-center mb-2 ">
                           <span className="text-3xl font-bold text-[#2A73DD] mb-2">{t('aboutSection.values.years')}</span>
@@ -57,7 +57,6 @@ export default async function AboutSec() {
                       fill
                       className="object-cover object-top transition-transform duration-700 hover:scale-105 rounded-2xl"
                       sizes="(max-width: 768px) 100vw, 600px"
-                      priority
                       unoptimized={false}
                     />
                   </div>

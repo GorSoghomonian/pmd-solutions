@@ -12,14 +12,13 @@ export default async function IndustriesSection({
   subtitle,
   items,
   button,
-  footer, // кастомный футер вместо кнопки
+  footer, 
   className = '',
 } = {}) {
   const t = await getTranslations('home');
   const allMessages = await getMessages();
   const homeMsgs = allMessages?.home ?? {};
 
-  // безопасный перевод с фолбэком
   const safeT = (key, def) => {
     try {
       return t(key, { default: def });
@@ -89,7 +88,6 @@ export default async function IndustriesSection({
   };
   const finalButton = button === false ? null : { ...defaultButton, ...(button || {}) };
 
-  // Default badges footer for whyChoose (ISO removed)
   const defaultBadgesFooter = i18nSection === 'whyChoose' ? (
     <div className="mt-20 text-center">
       <h3 className="text-2xl font-bold text-gray-900 mb-8">
@@ -118,7 +116,7 @@ export default async function IndustriesSection({
     </div>
   ) : null;
 
-  // Use provided footer if set, otherwise fallback to default badges for whyChoose
+
   const computedFooter = footer !== undefined ? footer : defaultBadgesFooter;
 
   return (
@@ -155,8 +153,6 @@ export default async function IndustriesSection({
           )
         )}
       </div>
-
-      {/* нижняя тень (длиннее и мягче) */}
       <div
   aria-hidden
   className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-black/10 blur-2xl"

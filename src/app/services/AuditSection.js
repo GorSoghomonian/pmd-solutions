@@ -91,17 +91,24 @@ export default function AuditSection({
           </div>
 
           <div className="relative">
-            <div className="relative w-full aspect-[16/10] rounded-2xl shadow-2xl overflow-hidden hidden md:block">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                sizes="(max-width:1024px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-              <div className=" absolute inset-0 bg-gradient-to-tr from-green-500/15 to-transparent rounded-2xl" />
-              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg ">
+            <div className="relative w-full aspect-[16/10] hidden md:block">
+              <div className="relative w-full h-full rounded-2xl shadow-2xl overflow-hidden">
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  sizes="(max-width:1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className=" absolute inset-0 bg-gradient-to-tr from-green-500/15 to-transparent rounded-2xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-xl ring-4 ring-white/40">
+                    <span className="text-white text-2xl">🛡️</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">35%</div>
                   <div className="text-sm text-gray-600">{tAudit('statCostReduction')}</div>
@@ -111,11 +118,6 @@ export default function AuditSection({
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">200+</div>
                   <div className="text-sm text-gray-600">{tAudit('statAuditsCompleted')}</div>
-                </div>
-              </div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-xl ring-4 ring-white/40">
-                  <span className="text-white text-2xl">🛡️</span>
                 </div>
               </div>
             </div>

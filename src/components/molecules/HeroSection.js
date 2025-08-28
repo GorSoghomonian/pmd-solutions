@@ -15,10 +15,7 @@ export default function HeroSection({
   showScrollIndicator = true,
   scrollLabel,
   className = '',
-  minHeight = 'min-h-screen',
-    overlayClassName,      // кастомный overlay вместо bg-black/opacity
-  decorations,           // абсолютные декоративные элементы под контентом
-  backgroundBlend, 
+  minHeight = 'min-h-screen', 
 }) {
   const buttons = [
     primaryButton && {

@@ -100,12 +100,11 @@ const items = Array.isArray(list) ? list : [];
                     <span>{t('realEstate.bullet2')}</span>
                   </li>
                 </ul>
-                {/* Используем ActionButtons вместо button */}
                 <ActionButtons
                   buttons={[
                     {
                       text: t('realEstate.cta'),
-                      href: '/industries/real-estate', // при необходимости поменяйте URL
+                      href: '/industries/real-estate',
                       className:
                         'px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer bg-white text-[#2A73DD] hover:bg-gray-100',
                     },
@@ -115,7 +114,7 @@ const items = Array.isArray(list) ? list : [];
             </div>
 
             {/* Картинка через next/image */}
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 md:flex items-center justify-center sm:block hidden">
               <div style={{ position: 'relative', width: '100%', maxWidth: 600, height: 384 }} className="overflow-hidden rounded-2xl shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
@@ -123,7 +122,6 @@ const items = Array.isArray(list) ? list : [];
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 600px"
-                  priority
                   unoptimized={false}
                 />
               </div>

@@ -49,7 +49,6 @@ export default async function ServicesPage() {
           statSuccessLabel={t('hubspot.statSuccess')}
           statProjectsLabel={t('hubspot.statProjects')}
         />
-      </ErrorBoundary>
 
       <AutomationSection
         title={t('automation.title')}
@@ -83,6 +82,7 @@ export default async function ServicesPage() {
         <p>{t('cta.text')}</p>
         <button>{t('cta.button')}</button>
       </section>
+        </ErrorBoundary>
     </main>
   );
 }

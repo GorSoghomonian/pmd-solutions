@@ -15,36 +15,52 @@ export default function ActionButtons({
   className = "",
 }) {
   // TODO: Add proper TypeScript interfaces for better type safety
-  // TODO: Consider adding onClick handlers in addition to href for more flexibility
-  // TODO: Add proper button/link semantics (use button for actions, Link for navigation)
   
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
       {buttons.map((btn, idx) => {
-        const isInternal = btn.href && btn.href.startsWith("/");
+        const {className, text, icon, onClick, href} = btn 
+        const isInternal = href && href.startsWith("/");
+
+        if(onClick) {
+          return (
+            <button
+            className={className}
+            onClick={onClick}
+            key={idx}
+            type="button"
+            >
+              <span>{text}</span>
+              {/* Optional icon support */}
+              {icon && <span className="text-lg ml-2">{icon}</span>}
+            </button>
+          )
+        }
+
         if (isInternal) {
           return (
-            <Link key={idx} href={btn.href} className={btn.className}>
-              <span>{btn.text}</span>
+            <Link key={idx} href={href} className={className}>
+              <span>{text}</span> 
               {/* Optional icon support */}
-              {btn.icon && <span className="text-lg ml-2">{btn.icon}</span>}
+              {icon && <span className="text-lg ml-2">{icon}</span>}
             </Link>
           );
         }
         return (
           <a
             key={idx}
-            href={btn.href}
-            className={btn.className}
+            href={href}
+            className={className}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>{btn.text}</span>
+            <span>{text}</span>
             {/* Optional icon support */}
-            {btn.icon && <span className="text-lg ml-2">{btn.icon}</span>}
+            {icon && <span className="text-lg ml-2">{icon}</span>}
           </a>
         );
-      })}
+      })
+      }
     </div>
   );
 }

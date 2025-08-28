@@ -11,14 +11,14 @@ export default function TestimonialsSection({ className = '' } = {}) {
   const messages = useMessages();
   const mt = messages?.home?.testimonials ?? {};
 
-  // SVG fallback для аватара
+
   const defaultAvatar =
     'data:image/svg+xml;utf8,' +
     encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2A73DD" offset="0"/><stop stop-color="#1e3a8a" offset="1"/></linearGradient></defs><rect fill="url(#g)" width="100" height="100"/><circle cx="50" cy="40" r="18" fill="#ffffff"/><rect x="22" y="64" width="56" height="18" rx="9" fill="#ffffff"/></svg>`
     );
 
-  // Базовые — фиксируем как у первого слайда для всех
+
   const baseAuthor = t('testimonials.author', { fallback: 'David Chen' });
   const baseRole = t('testimonials.role', { fallback: 'Founding Partner' });
   const baseCompany = t('testimonials.company', { fallback: 'Elite Real Estate' });
@@ -28,7 +28,7 @@ export default function TestimonialsSection({ className = '' } = {}) {
   });
   const baseAvatar = t('testimonials.avatarUrl', { fallback: '' });
 
-  // Слайды: меняются цитата, фото и ФИО/роль/компания
+
   const slides = useMemo(() => {
     const getItem = (i) => ({
       quote: t(`testimonials.items.${i}.quote`, { fallback: baseQuote }),
@@ -40,10 +40,10 @@ export default function TestimonialsSection({ className = '' } = {}) {
     return [0, 1, 2, 3].map(getItem);
   }, [t, baseQuote, baseAvatar, baseAuthor, baseRole, baseCompany]);
 
-  // Индекс
+
   const [index, setIndex] = useState(0);
 
-  // Embla + автоскролл
+
   const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }));
   const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: 'start' }, [autoplay.current]);
   useEffect(() => {
