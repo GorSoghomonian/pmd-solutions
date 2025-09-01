@@ -5,6 +5,8 @@ import AutomationSection from './AutomationSection';
 import AuditSection from './AuditSection';
 import ErrorBoundary from '../../components/common/ErrorBoundary';
 import { auditItems, automationItems, hubspotItems } from '../../data/homeItems';
+import SoftwareSection from './SoftwareSection';
+import ServiceFooter from '../../components/organsim/ServiceFooter';
 
 export async function generateMetadata() {
   const t = await getTranslations();
@@ -76,12 +78,9 @@ export default async function ServicesPage() {
         statCostReductionLabel={t('audit.statCostReduction')}
         statAuditsCompletedLabel={t('audit.statAuditsCompleted')}
       />
-
-      <section style={{ padding: '60px 0', textAlign: 'center' }}>
-        <h2>{t('cta.headline')}</h2>
-        <p>{t('cta.text')}</p>
-        <button>{t('cta.button')}</button>
-      </section>
+      <SoftwareSection
+      />
+      <ServiceFooter />
         </ErrorBoundary>
     </main>
   );
