@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { servicesData, servicesItems } from '../../../data/homeItems';
 
 export default async function CoreServices({
+  locale = 'en',
   i18nSection = 'coreServices',
   title,
   titlePrefix,
@@ -15,47 +16,34 @@ export default async function CoreServices({
   button,
   className = '',
 } = {}) {
-  const t = await getTranslations('home');
-  const allMessages = await getMessages();
-  const homeMsgs = allMessages?.home ?? {};
-
+  // Получаем переводы для конкретной локали
+  const t = await getTranslations({locale, namespace: 'home'});
+  
+  // Создаем функцию для безопасного получения переводов
   const safeT = (key, def) => {
     try {
       return t(key, { default: def });
-    } catch {
+    } catch (error) {
+      console.warn(`Translation failed for key: ${key}`, error);
       return def;
     }
   };
 
-  const finalTitlePrefix =
-    titlePrefix ?? safeT(`${i18nSection}.titlePrefix`, 'Our');
-  const finalTitleAccent =
-    titleAccent ?? safeT(`${i18nSection}.titleAccent`, 'Core Services');
-  const finalSubtitle =
-    subtitle ??
-    safeT(
-      `${i18nSection}.subtitle`,
-      'Comprehensive business solutions designed to optimize your operations and drive sustainable growth'
-    );
+  const finalTitlePrefix = titlePrefix ?? safeT(`${i18nSection}.titlePrefix`, 'Our');
+  const finalTitleAccent = titleAccent ?? safeT(`${i18nSection}.titleAccent`, 'Core Services');
+  const finalSubtitle = subtitle ?? safeT(`${i18nSection}.subtitle`, 'Comprehensive business solutions designed to optimize your operations and drive sustainable growth');
 
   const source =
     Array.isArray(items) && items.length > 0
       ? items
       : (servicesData?.services ?? servicesItems);
 
-  const hasLearnMore = homeMsgs?.[i18nSection]?.learnMore != null;
-  const learnMoreText = hasLearnMore
-    ? safeT(`${i18nSection}.learnMore`, 'Learn More')
-    : 'Learn More';
-
-  const hasButton = homeMsgs?.[i18nSection]?.viewAllServices != null;
-  const buttonText = hasButton
-    ? safeT(`${i18nSection}.viewAllServices`, 'View all Services')
-    : 'View all Services';
+  const learnMoreText = safeT(`${i18nSection}.learnMore`, 'Learn More');
+  const buttonText = safeT(`${i18nSection}.viewAllServices`, 'View all Services');
 
   const defaultButton = {
     text: buttonText,
-    href: '/services',
+    href: `/${locale}/services`,
     className:
       'group relative px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-[#1f63c5] transition-all duration-300 hover:scale-105 shadow-lg',
   };
@@ -108,7 +96,7 @@ export default async function CoreServices({
 
                   <div className="mt-6">
                     <Link
-                      href={s.href}
+                      href={`/${locale}${s.href}`}
                       className="inline-flex items-center gap-2 text-[#2A73DD] font-semibold hover:underline transition-transform duration-300 group-hover:translate-x-1"
                     >
                       {learnMoreText}{' '}

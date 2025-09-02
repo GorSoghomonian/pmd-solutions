@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Pacifico } from 'next/font/google';
 import { useTranslations, useLocale } from 'next-intl';
 import { useTransition, useState } from 'react';
@@ -21,6 +21,7 @@ const navItems = [
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const t = useTranslations('nav');
   const locale = useLocale();
   const [pending, startTransition] = useTransition();
@@ -30,11 +31,17 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  const switchLocale = (next) => {
-    if (next === locale) return;
-    document.cookie = `locale=${next}; path=/; max-age=31536000`;
+  const switchLocale = (newLocale) => {
+    if (pending || locale === newLocale) return;
+    
     startTransition(() => {
-      window.location.reload();
+      // Получаем текущий путь без локали
+      const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
+      
+      // Создаем новый путь с новой локалью
+      const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+      
+      router.push(newPath);
     });
   };
 
@@ -46,8 +53,9 @@ export default function Header() {
     'border-gray-300 hover:border-[#2A73DD]';
 
   const isActive = (href) => {
-    if (href === '/home') return pathname === '/home';
-    return pathname?.startsWith(href);
+    const localizedHref = `/${locale}${href}`;
+    if (href === '/home') return pathname === localizedHref;
+    return pathname?.startsWith(localizedHref);
   };
 
   return (
@@ -70,7 +78,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <Link
                   key={item.key}
-                  href={item.href}
+                  href={`/${locale}${item.href}`}
                   className={`font-medium transition-colors duration-300 ${
                     isActive(item.href) ? 'text-[#002A93]' : 'text-gray-700 hover:text-[#2A73DD]'
                   }`}
@@ -92,7 +100,7 @@ export default function Header() {
                     {servicesMenu?.map((s, i) => (
                       <Link
                         key={`${s.href}-${i}`}
-                        href={s.href}
+                        href={`/${locale}${s.href}`}
                         className={`block px-4 py-3 transition-colors duration-300 cursor-pointer ${
                           i === 0
                             ? 'text-gray-700 hover:text-[#2A73DD] hover:bg-[#B0C1D6]/30 font-semibold border-b border-gray-100'
@@ -142,7 +150,7 @@ export default function Header() {
                 {navItems.slice(0, 5).map((item) => (
                   <Link
                     key={item.key}
-                    href={item.href}
+                    href={`/${locale}${item.href}`}
                     className={`font-medium text-sm transition-all duration-300 ${
                       isActive(item.href) ? 'text-[#002A93]' : 'text-gray-700 hover:text-[#2A73DD]'
                     }`}
@@ -207,7 +215,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <li key={item.key}>
                   <Link
-                    href={item.href}
+                    href={`/${locale}${item.href}`}
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-3 rounded-lg transition-colors ${
                       isActive(item.href)
@@ -233,7 +241,7 @@ export default function Header() {
                   {servicesMenu?.map((s, i) => (
                     <Link
                       key={`${s.href}-${i}`}
-                      href={s.href}
+                      href={`/${locale}${s.href}`}
                       onClick={() => setMobileOpen(false)}
                       className="block px-5 py-2.5 rounded-lg text-slate-700 hover:text-[#002A93] hover:bg-[#B0C1D6]/20"
                     >

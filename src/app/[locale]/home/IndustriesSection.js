@@ -5,6 +5,7 @@ import ActionButtons from '../../../components/molecules/ActionButtons';
 import RevealOnScroll from '../../../components/molecules/RevealOnScroll';
 
 export default async function IndustriesSection({
+  locale = 'en',
   i18nSection = 'industries',
   title,
   titlePrefix,
@@ -15,7 +16,7 @@ export default async function IndustriesSection({
   footer, 
   className = '',
 } = {}) {
-  const t = await getTranslations('home');
+  const t = await getTranslations({locale, namespace: 'home'});
   const allMessages = await getMessages();
   const homeMsgs = allMessages?.home ?? {};
 
@@ -27,16 +28,11 @@ export default async function IndustriesSection({
     }
   };
 
-  const finalTitlePrefix =
-    titlePrefix ?? t(`${i18nSection}.titlePrefix`, { default: 'Industries' });
-  const finalTitleAccent =
-    titleAccent ?? t(`${i18nSection}.titleAccent`, { default: 'We Serve' });
-  const finalSubtitle =
-    subtitle ??
-    t(`${i18nSection}.subtitle`, {
-      default:
-        'Specialized solutions tailored to the unique challenges and opportunities in your industry',
-    });
+  const finalTitlePrefix = titlePrefix ?? t(`${i18nSection}.titlePrefix`, { default: 'Industries' });
+  const finalTitleAccent = titleAccent ?? t(`${i18nSection}.titleAccent`, { default: 'We Serve' });
+  const finalSubtitle = subtitle ?? t(`${i18nSection}.subtitle`, {
+    default: 'Specialized solutions tailored to the unique challenges and opportunities in your industry',
+  });
 
   // Источник карточек
   const itemsMap = {
