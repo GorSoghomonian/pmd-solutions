@@ -2,6 +2,5 @@
 module.exports = {
   locales: ['en', 'ru'],
   defaultLocale: 'en',
-  localePrefix: 'as-needed',
-  messagesDir: './messages'
+  localePrefix: 'always'
 };

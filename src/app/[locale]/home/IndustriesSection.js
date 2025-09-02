@@ -5,6 +5,7 @@ import ActionButtons from '../../../components/molecules/ActionButtons';
 import RevealOnScroll from '../../../components/molecules/RevealOnScroll';
 
 export default async function IndustriesSection({
+  locale = 'en',
   i18nSection = 'industries',
   title,
   titlePrefix,
@@ -15,8 +16,8 @@ export default async function IndustriesSection({
   footer, 
   className = '',
 } = {}) {
-  const t = await getTranslations('home');
-
+  const t = await getTranslations({locale, namespace: 'home'});
+  
   const safeT = (key, def) => {
     try {
       return t(key, { default: def });
@@ -25,16 +26,11 @@ export default async function IndustriesSection({
     }
   };
 
-  const finalTitlePrefix =
-    titlePrefix ?? t(`${i18nSection}.titlePrefix`, { default: 'Industries' });
-  const finalTitleAccent =
-    titleAccent ?? t(`${i18nSection}.titleAccent`, { default: 'We Serve' });
-  const finalSubtitle =
-    subtitle ??
-    t(`${i18nSection}.subtitle`, {
-      default:
-        'Specialized solutions tailored to the unique challenges and opportunities in your industry',
-    });
+  const finalTitlePrefix = titlePrefix ?? t(`${i18nSection}.titlePrefix`, { default: 'Industries' });
+  const finalTitleAccent = titleAccent ?? t(`${i18nSection}.titleAccent`, { default: 'We Serve' });
+  const finalSubtitle = subtitle ?? t(`${i18nSection}.subtitle`, {
+    default: 'Specialized solutions tailored to the unique challenges and opportunities in your industry',
+  });
 
   // Источник карточек
   const itemsMap = {
@@ -79,7 +75,7 @@ export default async function IndustriesSection({
 
   const defaultButton = {
     text: buttonText,
-    href: '/services',
+    href: `/${locale}/industries`,
     className:
       'group relative px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-[#1f63c5] transition-all duration-300 hover:scale-105 shadow-lg',
   };

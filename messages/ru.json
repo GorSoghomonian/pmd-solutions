@@ -145,7 +145,8 @@
       "services": {
         "title": "Сервисные компании",
         "description": "Управление клиентами, автоматизация оказания услуг и оптимизация процессов для компаний сферы услуг."
-      }
+      },
+      "button": "Изучить отрасли →"
     },
     "coreServices": {
       "titlePrefix": "Наши",
@@ -488,6 +489,10 @@
         ],
         "readMore": "Читать",
         "loadMore": "Загрузить ещё"
+      },
+      "post": {
+        "title": "Статья",
+        "content": "Содержание статьи будет отображено здесь."
       }
     },
     "contactCta": {
@@ -515,6 +520,85 @@
           "href": "/schedule"
         }
       }
+    },
+    "softwareDevelopment": {
+      "title": "Разработка ПО",
+      "description": "Воплощаем ваши идеи в жизнь с помощью индивидуальных программных решений. Наша опытная команда разработчиков создаёт масштабируемые, безопасные и удобные приложения, адаптированные под ваши конкретные бизнес‑потребности.",
+      "learnMore": "Подробнее →",
+      "getQuote": "Запросить предложение",
+      "statSuccessRate": "Успешность",
+      "statProjectsDelivered": "Проектов сдано",
+      "technologies": {
+        "frontend": {
+          "title": "Frontend‑разработка",
+          "items": "React, Next.js, Vue.js, Angular"
+        },
+        "backend": {
+          "title": "Backend‑разработка",
+          "items": "Node.js, Python, .NET, PHP"
+        },
+        "database": {
+          "title": "Решения для БД",
+          "items": "PostgreSQL, MongoDB, MySQL"
+        },
+        "cloud": {
+          "title": "Облачная интеграция",
+          "items": "AWS, Azure, Google Cloud"
+        },
+        "mobile": {
+          "title": "Мобильная разработка",
+          "items": "React Native, Flutter, iOS, Android"
+        },
+        "api": {
+          "title": "Разработка API",
+          "items": "RESTful APIs, GraphQL, Микросервисы"
+        }
+      },
+      "buildHeading": "Что мы создаём:",
+      "buildItems": {
+        "webApps": "Индивидуальные веб‑приложения",
+        "mobileApps": "Мобильные приложения",
+        "apiIntegration": "Разработка API и интеграции",
+        "databaseDesign": "Проектирование и миграция БД",
+        "legacyModernization": "Модернизация устаревших систем",
+        "ecommerce": "E‑commerce платформы"
+      }
+    },
+    "integrations": {
+      "title": "20+ Интеграций",
+      "description": "Соединяйте ваши любимые инструменты и платформы без швов. Наш опыт в интеграциях обеспечивает гармоничную работу ваших систем, создавая единую экосистему, которая повышает эффективность и способствует росту.",
+      "popularTitle": "Популярные интеграции",
+      "benefitsTitle": "Преимущества интеграций",
+      "popular": {
+        "hubspot": { "name": "HubSpot", "description": "CRM и автоматизация маркетинга" },
+        "salesforce": { "name": "Salesforce", "description": "Управление продажами и клиентами" },
+        "slack": { "name": "Slack", "description": "Командное общение и сотрудничество" },
+        "zapier": { "name": "Zapier", "description": "Платформа автоматизации рабочих процессов" },
+        "quickbooks": { "name": "QuickBooks", "description": "Система финансового управления" },
+        "shopify": { "name": "Shopify", "description": "Платформа электронной коммерции" },
+        "googleworkspace": { "name": "Google Workspace", "description": "Инструменты продуктивности и сотрудничества" },
+        "microsoft365": { "name": "Microsoft 365", "description": "Офисный пакет продуктивности" },
+        "stripe": { "name": "Stripe", "description": "Платформа обработки платежей" },
+        "mailchimp": { "name": "Mailchimp", "description": "Автоматизация email‑маркетинга" },
+        "trello": { "name": "Trello", "description": "Инструмент управления проектами" },
+        "asana": { "name": "Asana", "description": "Платформа командной продуктивности" }
+      },
+      "benefits": {
+        "unified": "Единый поток данных",
+        "efficiency": "Повышенная эффективность", 
+        "realtime": "Синхронизация в реальном времени",
+        "scalable": "Масштабируемые решения",
+        "streamlinedData": "Упрощённый поток данных между системами",
+        "reducedManual": "Сокращение ручного ввода данных",
+        "improvedAccuracy": "Повышение точности и согласованности",
+        "enhancedReporting": "Расширенные возможности отчётности",
+        "betterCustomer": "Улучшение клиентского опыта",
+        "increasedEfficiency": "Повышение операционной эффективности"
+      },
+      "getStarted": "Начать работу",
+      "learnMore": "Узнать больше",
+      "btnLearnMore": "Узнать больше",
+      "btnStart": "Начать работу"
     }
   },
     "about": {
@@ -785,5 +869,294 @@
         "website": "https://example.com/log"
       }
     ]
+  },
+  "services": {
+    "meta": {
+      "title": "Услуги",
+      "description": "Наши комплексные бизнес-решения"
+    },
+    "hero": {
+      "title": "Наши Услуги",
+      "description": "Комплексные бизнес-решения для роста и развития вашей компании."
+    },
+    "hubspot": {
+      "title": "Внедрение и поддержка HubSpot",
+      "description": "Трансформируйте продажи и маркетинг с помощью стратегической настройки, кастомизации и оптимизации HubSpot.",
+      "cards": {
+        "setup": {
+          "title": "Стратегическая настройка",
+          "desc": "Полная конфигурация HubSpot под потребности вашего бизнеса"
+        },
+        "customization": {
+          "title": "Пользовательские рабочие процессы",
+          "desc": "Автоматизированные процессы для оптимизации операций"
+        },
+        "optimization": {
+          "title": "Оптимизация производительности",
+          "desc": "Непрерывное улучшение и отслеживание аналитики"
+        }
+      }
+    },
+    "automation": {
+      "title": "Автоматизация бизнес-процессов",
+      "description": "Оптимизируйте операции с помощью интеллектуальных решений автоматизации.",
+      "cards": {
+        "workflow": {
+          "title": "Автоматизация рабочих процессов",
+          "desc": "Автоматизация повторяющихся задач и процессов"
+        },
+        "integration": {
+          "title": "Интеграция систем",
+          "desc": "Беспрепятственно соединяйте ваши инструменты и платформы"
+        },
+        "analytics": {
+          "title": "Аналитика производительности",
+          "desc": "Отслеживайте и измеряйте эффективность автоматизации"
+        }
+      }
+    },
+    "audit": {
+      "title": "Аудит бизнес-процессов",
+      "description": "Комплексный анализ ваших бизнес-процессов для выявления возможностей оптимизации.",
+      "cards": {
+        "analysis": {
+          "title": "Анализ процессов",
+          "desc": "Глубокое погружение в ваши текущие рабочие процессы и системы"
+        },
+        "recommendations": {
+          "title": "Стратегические рекомендации",
+          "desc": "Практические идеи для повышения эффективности"
+        },
+        "implementation": {
+          "title": "Поддержка внедрения",
+          "desc": "Руководство в процессе оптимизации"
+        }
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Блог",
+      "description": "Последние аналитические обзоры и новости отрасли"
+    },
+    "hero": {
+      "title": "Аналитика и новости отрасли",
+      "subtitle": "Будьте в курсе последних тенденций в области автоматизации бизнеса и цифровой трансформации."
+    },
+    "featured": {
+      "label": "Рекомендуемая статья",
+      "subtitle": "Глубокое погружение в самые важные темы, формирующие вашу отрасль",
+      "title": "Будущее автоматизации бизнеса",
+      "summary": "Узнайте, как ИИ и автоматизация трансформируют современные бизнес-операции.",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      "date": "15 декабря 2024",
+      "readTime": "8 мин",
+      "author": "Команда PMD Solutions",
+      "tags": ["Автоматизация", "ИИ", "Бизнес"],
+      "ctaLabel": "Читать полную статью",
+      "href": "/blog/future-of-automation"
+    },
+    "browse": {
+      "title": "Просмотр последних статей",
+      "subtitle": "Изучайте аналитику по различным отраслям и темам"
+    },
+    "categories": [
+      { "key": "all", "label": "Все статьи", "iconClass": "ri-file-list-3-line", "count": 12 },
+      { "key": "automation", "label": "Автоматизация", "iconClass": "ri-robot-line", "count": 5 },
+      { "key": "insights", "label": "Аналитика отрасли", "iconClass": "ri-lightbulb-line", "count": 4 },
+      { "key": "case-studies", "label": "Кейсы", "iconClass": "ri-bar-chart-line", "count": 3 }
+    ],
+    "latest": {
+      "title": "Последние статьи",
+      "countLabel": "Откройте для себя наши последние аналитические материалы",
+      "readMore": "Читать далее",
+      "loadMore": "Загрузить ещё статьи",
+      "items": [
+        {
+          "slug": "automation-trends-2024",
+          "title": "Топ тенденций автоматизации на 2024 год",
+          "excerpt": "Изучите последние тенденции, формирующие автоматизацию бизнеса в этом году.",
+          "image": "https://images.unsplash.com/photo-1518186233392-c232efbf2373?auto=format&fit=crop&w=400&q=80",
+          "categoryKey": "automation",
+          "categoryLabel": "Автоматизация",
+          "date": "10 дек 2024",
+          "readTime": "5 мин"
+        },
+        {
+          "slug": "crm-success-stories",
+          "title": "Истории успеха внедрения CRM",
+          "excerpt": "Реальные примеры успешных трансформаций CRM.",
+          "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80",
+          "categoryKey": "case-studies",
+          "categoryLabel": "Кейсы",
+          "date": "8 дек 2024",
+          "readTime": "6 мин"
+        },
+        {
+          "slug": "industry-digital-transformation",
+          "title": "Цифровая трансформация в разных отраслях",
+          "excerpt": "Как различные отрасли принимают цифровые изменения.",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+          "categoryKey": "insights",
+          "categoryLabel": "Аналитика отрасли",
+          "date": "5 дек 2024",
+          "readTime": "7 мин"
+        }
+      ]
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Блог PMD Solutions",
+      "description": "Экспертные советы, практические руководства и отраслевые тренды в автоматизации бизнеса, оптимизации CRM и цифровой трансформации"
+    },
+    "hero": {
+      "title": "Блог PMD Solutions",
+      "subtitle": "Экспертные советы, практические руководства и отраслевые тренды в \n автоматизации бизнеса, оптимизации CRM и цифровой трансформации"
+    },
+    "featured": {
+      "label": "Рекомендуемая статья",
+      "subtitle": "Наше наиболее полное руководство по трансформации бизнеса",
+      "title": "Полное руководство по трансформации CRM: от выбора до успеха",
+      "categoryKey": "crmStrategy",
+      "categoryLabel": "CRM стратегия",
+      "date": "20 января 2024",
+      "readTime": "15 мин чтения",
+      "author": "Команда PMD Solutions",
+      "summary": "Комплексное погружение в выбор, внедрение и оптимизацию CRM-систем для максимального воздействия на бизнес. Изучите реальные кейсы и экспертные стратегии, которые помогли 500+ компаниям достичь измеримых улучшений ROI.",
+      "tags": ["CRM", "Цифровая трансформация", "Бизнес стратегия", "HubSpot"],
+      "ctaLabel": "Читать полную статью",
+      "href": "/ru/blog/crm-transformation-complete-guide",
+      "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+    },
+    "browse": {
+      "title": "Просмотр по категориям",
+      "subtitle": "Найдите темы, которые наиболее важны для вашего бизнеса"
+    },
+    "categories": [
+      { "key": "all", "label": "Все", "count": 24, "iconClass": "ri-apps-line" },
+      { "key": "crmStrategy", "label": "CRM стратегия", "count": 8, "iconClass": "ri-customer-service-line" },
+      { "key": "automation", "label": "Автоматизация", "count": 6, "iconClass": "ri-settings-4-line" },
+      { "key": "digitalTransformation", "label": "Цифровая трансформация", "count": 5, "iconClass": "ri-smartphone-line" },
+      { "key": "processOptimization", "label": "Оптимизация процессов", "count": 4, "iconClass": "ri-customer-service-line"  },
+      { "key": "hubspotTips", "label": "Советы HubSpot", "count": 7, "iconClass": "ri-links-line" },
+      { "key": "integration", "label": "Интеграция", "count": 4, "iconClass": "ri-link-m" }
+    ],
+    "latest": {
+      "title": "Последние статьи",
+      "countLabel": "Найдено 9 статей",
+      "readMore": "Читать",
+      "loadMore": "Загрузить ещё",
+      "items": [
+        {
+          "slug": "hubspot-automation-workflows",
+          "title": "10 кардинально меняющих HubSpot процессов автоматизации для любого бизнеса",
+          "categoryKey": "hubspotTips",
+          "categoryLabel": "Советы HubSpot",
+          "date": "15 янв 2024",
+          "readTime": "8 мин чтения",
+          "author": "Sarah Mitchell",
+          "excerpt": "Откройте для себя наиболее эффективные автоматизированные процессы, которые могут преобразить ваши продажи и маркетинг, экономя часы ручной работы и повышая конверсию.",
+          "href": "/blog/hubspot-automation-workflows",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "crm-implementation-5-critical-steps",
+          "title": "Успех внедрения CRM: 5 критических шагов, которые нельзя пропустить",
+          "categoryKey": "crmStrategy",
+          "categoryLabel": "CRM стратегия",
+          "date": "10 янв 2024",
+          "readTime": "6 мин чтения",
+          "author": "Michael Rodriguez",
+          "excerpt": "Изучите основные шаги для успешного внедрения CRM, которые обеспечивают принятие пользователями, целостность данных и максимальный ROI.",
+          "href": "/blog/crm-implementation-5-critical-steps",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "business-process-optimization-30-days",
+          "title": "Оптимизация бизнес-процессов: от хаоса к эффективности за 30 дней",
+          "categoryKey": "processOptimization",
+          "categoryLabel": "Оптимизация процессов",
+          "date": "5 янв 2024",
+          "readTime": "10 мин чтения",
+          "author": "Jennifer Thompson",
+          "excerpt": "Комплексное руководство по выявлению узких мест, оптимизации рабочих процессов и внедрению решений автоматизации, которые обеспечивают измеримые улучшения эффективности.",
+          "href": "/blog/business-process-optimization-30-days",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "digital-transformation-roadmap-smbs",
+          "title": "Дорожная карта цифровой трансформации: пошаговое руководство для МСБ",
+          "categoryKey": "digitalTransformation",
+          "categoryLabel": "Цифровая трансформация",
+          "date": "2 янв 2024",
+          "readTime": "12 мин чтения",
+          "author": "David Chen",
+          "excerpt": "Уверенно проводите цифровую трансформацию. Эта практическая дорожная карта охватывает планирование, выполнение и измерение успеха цифровых инициатив.",
+          "href": "/blog/digital-transformation-roadmap-smbs",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "roi-on-business-automation",
+          "title": "Как рассчитать ROI автоматизации бизнеса: полная схема",
+          "categoryKey": "automation",
+          "categoryLabel": "Автоматизация",
+          "date": "28 дек 2023",
+          "readTime": "9 мин чтения",
+          "author": "Sarah Mitchell",
+          "excerpt": "Освойте искусство измерения успеха автоматизации с нашей комплексной схемой расчета ROI. Включает шаблоны и реальные примеры.",
+          "href": "/blog/roi-on-business-automation",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "system-integration-best-practices",
+          "title": "Лучшие практики интеграции систем: соединение ваших бизнес-инструментов",
+          "categoryKey": "integration",
+          "categoryLabel": "Интеграция",
+          "date": "25 дек 2023",
+          "readTime": "7 мин чтения",
+          "author": "Michael Rodriguez",
+          "excerpt": "Изучите проверенные стратегии интеграции разрозненных бизнес-систем. Избегайте типичных ошибок и обеспечьте бесшовный поток данных в вашей организации.",
+          "href": "/blog/system-integration-best-practices",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "advanced-hubspot-customization",
+          "title": "Расширенная настройка HubSpot: адаптация CRM под ваш бизнес",
+          "categoryKey": "hubspotTips",
+          "categoryLabel": "Советы HubSpot",
+          "date": "20 дек 2023",
+          "readTime": "11 мин чтения",
+          "author": "Jennifer Thompson",
+          "excerpt": "Выйдите за рамки базовой настройки с продвинутыми техниками настройки HubSpot. Создавайте пользовательские свойства, процессы и отчеты, соответствующие вашим уникальным процессам.",
+          "href": "/blog/advanced-hubspot-customization",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "data-migration-checklist-crm",
+          "title": "Чек-лист миграции данных: обеспечение чистого внедрения CRM",
+          "categoryKey": "crmStrategy",
+          "categoryLabel": "CRM стратегия",
+          "date": "15 дек 2023",
+          "readTime": "8 мин чтения",
+          "author": "David Chen",
+          "excerpt": "Комплексный чек-лист для успешной миграции данных при внедрении CRM. Защитите ваши ценные бизнес-данные и обеспечьте плавные переходы.",
+          "href": "/blog/data-migration-checklist-crm",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "workflow-automation-examples-save-20-hours",
+          "title": "15 примеров автоматизации процессов, экономящих 20+ часов в неделю",
+          "categoryKey": "automation",
+          "categoryLabel": "Автоматизация",
+          "date": "10 дек 2023",
+          "readTime": "13 мин чтения",
+          "author": "Sarah Mitchell",
+          "excerpt": "Реальные примеры автоматизации: как компании экономят время и сокращают ошибки благодаря умному дизайну процессов.",
+          "href": "/blog/workflow-automation-examples-save-20-hours",
+          "image": "/placeholder-blog.svg"
+        }
+      ]
+    }
   }
 }

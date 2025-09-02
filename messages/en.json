@@ -117,6 +117,85 @@
         }
       }
     },
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "Bring your vision to life with custom software solutions. Our experienced development team creates scalable, secure, and user-friendly applications tailored to your specific business needs.",
+      "learnMore": "Learn more →",
+      "getQuote": "Get a quote",
+      "statSuccessRate": "Success rate",
+      "statProjectsDelivered": "Projects delivered",
+      "technologies": {
+        "frontend": {
+          "title": "Frontend Development",
+          "items": "React, Next.js, Vue.js, Angular"
+        },
+        "backend": {
+          "title": "Backend Development",
+          "items": "Node.js, Python, .NET, PHP"
+        },
+        "database": {
+          "title": "Database Solutions",
+          "items": "PostgreSQL, MongoDB, MySQL"
+        },
+        "cloud": {
+          "title": "Cloud Integration",
+          "items": "AWS, Azure, Google Cloud"
+        },
+        "mobile": {
+          "title": "Mobile Development",
+          "items": "React Native, Flutter, iOS, Android"
+        },
+        "api": {
+          "title": "API Development",
+          "items": "RESTful APIs, GraphQL, Microservices"
+        }
+      },
+      "buildHeading": "What We Build:",
+      "buildItems": {
+        "webApps": "Custom Web Applications",
+        "mobileApps": "Mobile Applications",
+        "apiIntegration": "API Development & Integration",
+        "databaseDesign": "Database Design & Migration",
+        "legacyModernization": "Legacy System Modernization",
+        "ecommerce": "E-commerce Platforms"
+      }
+    },
+    "integrations": {
+      "title": "20+ Integrations",
+      "description": "Connect your favorite tools and platforms seamlessly. Our integration expertise ensures your systems work together harmoniously, creating a unified ecosystem that drives efficiency and growth.",
+      "popularTitle": "Popular Integrations",
+      "benefitsTitle": "Integration Benefits",
+      "popular": {
+        "hubspot": { "name": "HubSpot", "description": "CRM and marketing automation" },
+        "salesforce": { "name": "Salesforce", "description": "Sales and customer management" },
+        "slack": { "name": "Slack", "description": "Team communication and collaboration" },
+        "zapier": { "name": "Zapier", "description": "Workflow automation platform" },
+        "quickbooks": { "name": "QuickBooks", "description": "Financial management system" },
+        "shopify": { "name": "Shopify", "description": "E-commerce platform" },
+        "googleworkspace": { "name": "Google Workspace", "description": "Productivity and collaboration tools" },
+        "microsoft365": { "name": "Microsoft 365", "description": "Office productivity suite" },
+        "stripe": { "name": "Stripe", "description": "Payment processing platform" },
+        "mailchimp": { "name": "Mailchimp", "description": "Email marketing automation" },
+        "trello": { "name": "Trello", "description": "Project management tool" },
+        "asana": { "name": "Asana", "description": "Team productivity platform" }
+      },
+      "benefits": {
+        "unified": "Unified Data Flow",
+        "efficiency": "Increased Efficiency", 
+        "realtime": "Real-time Sync",
+        "scalable": "Scalable Solutions",
+        "streamlinedData": "Streamlined data flow between systems",
+        "reducedManual": "Reduced manual data entry",
+        "improvedAccuracy": "Improved accuracy and consistency",
+        "enhancedReporting": "Enhanced reporting capabilities",
+        "betterCustomer": "Better customer experience",
+        "increasedEfficiency": "Increased operational efficiency"
+      },
+      "getStarted": "Get Started",
+      "learnMore": "Learn More",
+      "btnLearnMore": "Learn More",
+      "btnStart": "Get Started"
+    },
     "cta": {
       "headline": "Ready to increase efficiency?",
       "text": "Create an account and get started now",
@@ -145,7 +224,8 @@
       "services": {
         "title": "Service Companies",
         "description": "Client management, service delivery automation, and business process optimization."
-      }
+      },
+      "button": "Explore Industries →"
     },
     "whyChoose": {
       "titlePrefix": "Why Choose",
@@ -853,5 +933,163 @@
         "website": "https://example.com/log"
       }
     ]
+  },
+  "blog": {
+    "meta": {
+      "title": "PMD Solutions Blog",
+      "description": "Expert insights, practical guides, and industry trends in business automation, CRM optimization, and digital transformation"
+    },
+    "hero": {
+      "title": "PMD Solutions Blog",
+      "subtitle": "Expert insights, practical guides, and industry trends in business \n automation, CRM optimization, and digital transformation"
+    },
+    "featured": {
+      "label": "Featured Article",
+      "subtitle": "Our most comprehensive guide to business transformation",
+      "title": "The Complete Guide to CRM Transformation: From Selection to Success",
+      "categoryKey": "crmStrategy",
+      "categoryLabel": "CRM Strategy",
+      "date": "January 20, 2024",
+      "readTime": "15 min read",
+      "author": "PMD Solutions Team",
+      "summary": "A comprehensive deep-dive into choosing, implementing, and optimizing CRM systems for maximum business impact. Learn from real-world case studies and expert strategies that have helped 500+ businesses achieve measurable ROI improvements.",
+      "tags": ["CRM", "Digital Transformation", "Business Strategy", "HubSpot"],
+      "ctaLabel": "Read Full Article",
+      "href": "/blog/crm-transformation-complete-guide",
+      "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+    },
+    "browse": {
+      "title": "Browse by Category",
+      "subtitle": "Find the topics that matter most to your business"
+    },
+    "categories": [
+      { "key": "all", "label": "All", "count": 24, "iconClass": "ri-apps-line" },
+      { "key": "crmStrategy", "label": "CRM Strategy", "count": 8, "iconClass": "ri-customer-service-line" },
+      { "key": "automation", "label": "Automation", "count": 6, "iconClass": "ri-settings-4-line" },
+      { "key": "digitalTransformation", "label": "Digital Transformation", "count": 5, "iconClass": "ri-smartphone-line" },
+      { "key": "processOptimization", "label": "Process Optimization", "count": 4, "iconClass": "ri-customer-service-line"  },
+      { "key": "hubspotTips", "label": "HubSpot Tips", "count": 7, "iconClass": "ri-links-line" },
+      { "key": "integration", "label": "Integration", "count": 4, "iconClass": "ri-link-m" }
+    ],
+    "latest": {
+      "title": "Latest Articles",
+      "countLabel": "9 articles found",
+      "readMore": "Read More",
+      "loadMore": "Load More Articles",
+      "items": [
+        {
+          "slug": "hubspot-automation-workflows",
+          "title": "10 Game-Changing HubSpot Automation Workflows Every Business Needs",
+          "categoryKey": "hubspotTips",
+          "categoryLabel": "HubSpot Tips",
+          "date": "Jan 15, 2024",
+          "readTime": "8 min read",
+          "author": "Sarah Mitchell",
+          "excerpt": "Discover the most effective automation workflows that can transform your sales and marketing processes, saving hours of manual work while improving conversion rates.",
+          "href": "/blog/hubspot-automation-workflows",
+          "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+        },
+        {
+          "slug": "crm-implementation-5-critical-steps",
+          "title": "CRM Implementation Success: 5 Critical Steps You Cannot Skip",
+          "categoryKey": "crmStrategy",
+          "categoryLabel": "CRM Strategy",
+          "date": "Jan 10, 2024",
+          "readTime": "6 min read",
+          "author": "Michael Rodriguez",
+          "excerpt": "Learn the essential steps for successful CRM implementation that ensure user adoption, data integrity, and maximum ROI.",
+          "href": "/blog/crm-implementation-5-critical-steps",
+          "image": "https://readdy.ai/api/search-image?query=Comprehensive%20CRM%20transformation%20concept%20with%20business%20team%20implementing%20customer%20relationship%20management%20system%2C%20modern%20office%20environment%20with%20CRM%20strategy%20planning%20and%20digital%20transformation%2C%20professional%20consultants%20presenting%20CRM%20implementation%20roadmap%20with%20success%20metrics%20and%20customer%20data%20analytics%20on%20large%20presentation%20screens&width=800&height=400&seq=featured-blog&orientation=landscape"
+        },
+        {
+          "slug": "business-process-optimization-30-days",
+          "title": "Business Process Optimization: From Chaos to Efficiency in 30 Days",
+          "categoryKey": "processOptimization",
+          "categoryLabel": "Process Optimization",
+          "date": "Jan 5, 2024",
+          "readTime": "10 min read",
+          "author": "Jennifer Thompson",
+          "excerpt": "A comprehensive guide to identifying bottlenecks, streamlining workflows, and implementing automation solutions that deliver measurable efficiency improvements.",
+          "href": "/blog/business-process-optimization-30-days",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "digital-transformation-roadmap-smbs",
+          "title": "Digital Transformation Roadmap: A Step-by-Step Guide for SMBs",
+          "categoryKey": "digitalTransformation",
+          "categoryLabel": "Digital Transformation",
+          "date": "Jan 2, 2024",
+          "readTime": "12 min read",
+          "author": "David Chen",
+          "excerpt": "Navigate your digital transformation journey with confidence. This practical roadmap covers planning, execution, and measuring success in digital initiatives.",
+          "href": "/blog/digital-transformation-roadmap-smbs",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "roi-on-business-automation",
+          "title": "How to Calculate ROI on Business Automation: A Complete Framework",
+          "categoryKey": "automation",
+          "categoryLabel": "Automation",
+          "date": "Dec 28, 2023",
+          "readTime": "9 min read",
+          "author": "Sarah Mitchell",
+          "excerpt": "Master the art of measuring automation success with our comprehensive ROI calculation framework. Includes templates and real-world examples.",
+          "href": "/blog/roi-on-business-automation",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "system-integration-best-practices",
+          "title": "System Integration Best Practices: Connecting Your Business Tools",
+          "categoryKey": "integration",
+          "categoryLabel": "Integration",
+          "date": "Dec 25, 2023",
+          "readTime": "7 min read",
+          "author": "Michael Rodriguez",
+          "excerpt": "Learn proven strategies for integrating disparate business systems. Avoid common pitfalls and ensure seamless data flow across your organization.",
+          "href": "/blog/system-integration-best-practices",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "advanced-hubspot-customization",
+          "title": "Advanced HubSpot Customization: Tailoring CRM to Your Business",
+          "categoryKey": "hubspotTips",
+          "categoryLabel": "HubSpot Tips",
+          "date": "Dec 20, 2023",
+          "readTime": "11 min read",
+          "author": "Jennifer Thompson",
+          "excerpt": "Go beyond basic setup with advanced HubSpot customization techniques. Create custom properties, workflows, and reports that match your unique processes.",
+          "href": "/blog/advanced-hubspot-customization",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "data-migration-checklist-crm",
+          "title": "Data Migration Checklist: Ensuring Clean CRM Implementation",
+          "categoryKey": "crmStrategy",
+          "categoryLabel": "CRM Strategy",
+          "date": "Dec 15, 2023",
+          "readTime": "8 min read",
+          "author": "David Chen",
+          "excerpt": "A comprehensive checklist for successful data migration during CRM implementation. Protect your valuable business data and ensure smooth transitions.",
+          "href": "/blog/data-migration-checklist-crm",
+          "image": "/placeholder-blog.svg"
+        },
+        {
+          "slug": "workflow-automation-examples-save-20-hours",
+          "title": "15 Workflow Automation Examples That Save 20+ Hours Per Week",
+          "categoryKey": "automation",
+          "categoryLabel": "Automation",
+          "date": "Dec 10, 2023",
+          "readTime": "13 min read",
+          "author": "Sarah Mitchell",
+          "excerpt": "Real-world automation examples from successful implementations. See how businesses are saving time and reducing errors with smart workflow design.",
+          "href": "/blog/workflow-automation-examples-save-20-hours",
+          "image": "/placeholder-blog.svg"
+        }
+      ]
+    },
+    "post": {
+      "title": "Article",
+      "content": "Article content will be displayed here."
+    }
   }
 }
