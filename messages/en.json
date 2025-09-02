@@ -117,6 +117,79 @@
         }
       }
     },
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "Bring your vision to life with custom software solutions. Our experienced development team creates scalable, secure, and user-friendly applications tailored to your specific business needs.",
+      "learnMore": "Learn more →",
+      "getQuote": "Get a quote",
+      "statSuccessRate": "Success rate",
+      "statProjectsDelivered": "Projects delivered",
+      "technologies": {
+        "frontend": {
+          "title": "Frontend Development",
+          "items": "React, Next.js, Vue.js, Angular"
+        },
+        "backend": {
+          "title": "Backend Development",
+          "items": "Node.js, Python, .NET, PHP"
+        },
+        "database": {
+          "title": "Database Solutions",
+          "items": "PostgreSQL, MongoDB, MySQL"
+        },
+        "cloud": {
+          "title": "Cloud Integration",
+          "items": "AWS, Azure, Google Cloud"
+        },
+        "mobile": {
+          "title": "Mobile Development",
+          "items": "React Native, Flutter, iOS, Android"
+        },
+        "api": {
+          "title": "API Development",
+          "items": "RESTful APIs, GraphQL, Microservices"
+        }
+      },
+      "buildHeading": "What We Build:",
+      "buildItems": {
+        "webApps": "Custom Web Applications",
+        "mobileApps": "Mobile Applications",
+        "apiIntegration": "API Development & Integration",
+        "databaseDesign": "Database Design & Migration",
+        "legacyModernization": "Legacy System Modernization",
+        "ecommerce": "E-commerce Platforms"
+      }
+    },
+    "integrations": {
+      "title": "20+ Integrations",
+      "description": "Connect your favorite tools and platforms seamlessly. Our integration expertise ensures your systems work together harmoniously, creating a unified ecosystem that drives efficiency and growth.",
+      "popularTitle": "Popular Integrations",
+      "benefitsTitle": "Integration Benefits",
+      "popular": {
+        "hubspot": { "name": "HubSpot", "description": "CRM and marketing automation" },
+        "salesforce": { "name": "Salesforce", "description": "Sales and customer management" },
+        "slack": { "name": "Slack", "description": "Team communication and collaboration" },
+        "zapier": { "name": "Zapier", "description": "Workflow automation platform" },
+        "quickbooks": { "name": "QuickBooks", "description": "Financial management system" },
+        "shopify": { "name": "Shopify", "description": "E-commerce platform" },
+        "googleworkspace": { "name": "Google Workspace", "description": "Productivity and collaboration tools" },
+        "microsoft365": { "name": "Microsoft 365", "description": "Office productivity suite" },
+        "stripe": { "name": "Stripe", "description": "Payment processing platform" },
+        "mailchimp": { "name": "Mailchimp", "description": "Email marketing automation" },
+        "trello": { "name": "Trello", "description": "Project management tool" },
+        "asana": { "name": "Asana", "description": "Team productivity platform" }
+      },
+      "benefits": {
+        "streamlinedData": "Streamlined data flow between systems",
+        "reducedManual": "Reduced manual data entry",
+        "improvedAccuracy": "Improved accuracy and consistency",
+        "enhancedReporting": "Enhanced reporting capabilities",
+        "betterCustomer": "Better customer experience",
+        "increasedEfficiency": "Increased operational efficiency"
+      },
+      "btnLearnMore": "Learn More",
+      "btnStart": "Get Started"
+    },
     "cta": {
       "headline": "Ready to increase efficiency?",
       "text": "Create an account and get started now",

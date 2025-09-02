@@ -4,28 +4,32 @@ export const hubspotItems = [
     icon: <i className="ri-settings-4-line text-white text-lg" />,
     cardSize: 'sm',
     titleFont: 'sm',
-    iconBg: 'bg-blue-600 rounded-full'
+    iconBg: 'bg-blue-600 rounded-full',
+    bgColor: '#fff'
   },
   {
     key: 'teamTraining',
     icon: <i className="ri-team-line text-white text-lg" />,
     cardSize: 'sm',
     titleFont: 'sm',
-    iconBg: 'bg-blue-600 rounded-full'
+    iconBg: 'bg-blue-600 rounded-full',
+    bgColor: '#fff'
   },
   {
     key: 'performanceOptimization',
     icon: <i className="ri-speed-up-line text-white text-lg" />,
     cardSize: 'sm',
     titleFont: 'sm',
-    iconBg: 'bg-blue-600 rounded-full'
+    iconBg: 'bg-blue-600 rounded-full',
+    bgColor: '#fff'
   },
   {
     key: 'dataMigration',
     icon: <i className="ri-database-2-line text-white text-lg" />,
     cardSize: 'sm',
     titleFont: 'sm',
-    iconBg: 'bg-blue-600 rounded-full'
+    iconBg: 'bg-blue-600 rounded-full',
+    bgColor: '#fff'
   }
 ];
 
@@ -260,4 +264,78 @@ export const servicesItems = [
     iconBg: 'bg-emerald-50 text-emerald-600',
     iconClass: 'ri-file-search-line text-emerald-600 text-2xl',
   },
+];
+
+export const softwareDevelopmentTechnologies = [
+  {
+    key: 'frontend',
+    icon: <i className="ri-reactjs-line text-white text-sm" />,
+    iconBg: 'bg-indigo-500',
+    iconColor: 'text-purple-600'
+  },
+  {
+    key: 'backend', 
+    icon: <i className="ri-server-line text-white text-sm" />,
+    iconBg: 'bg-indigo-500',
+    iconColor: 'text-blue-600'
+  },
+  {
+    key: 'database',
+    icon: <i className="ri-database-2-line text-white text-sm" />,
+    iconBg: 'bg-indigo-500', 
+    iconColor: 'text-purple-600'
+  },
+  {
+    key: 'cloud',
+    icon: <i className="ri-cloud-line text-white text-sm" />,
+    iconBg: 'bg-indigo-500',
+    iconColor: 'text-blue-600'
+  },
+  {
+    key: 'mobile',
+    icon: <i className="ri-smartphone-line text-white text-sm" />,
+    iconBg: 'bg-indigo-500',
+    iconColor: 'text-purple-600'
+  },
+  {
+    key: 'api',
+    icon: <i className="ri-code-s-slash-line text-white text-sm" />, 
+    iconBg: 'bg-indigo-500',
+    iconColor: 'text-blue-600'
+  }
+];
+
+export const softwareDevelopmentBuildItems = [
+  { key: 'webApps', icon: '🌐' },
+  { key: 'mobileApps', icon: '📱' },
+  { key: 'apiIntegration', icon: '🔗' },
+  { key: 'databaseDesign', icon: '🗃️' },
+  { key: 'legacyModernization', icon: '🔄' },
+  { key: 'ecommerce', icon: '🛒' }
+];
+
+// Popular Integrations data for ServiceFooter
+export const popularIntegrations = [
+  { key: 'hubspot', icon: 'ri-customer-service-2-line' },
+  { key: 'salesforce', icon: 'ri-cloud-line' },
+  { key: 'slack', icon: 'ri-chat-4-line' },
+  { key: 'zapier', icon: 'ri-flashlight-line' },
+  { key: 'quickbooks', icon: 'ri-file-text-line' },
+  { key: 'shopify', icon: 'ri-shopping-cart-line' },
+  { key: 'googleworkspace', icon: 'ri-google-line' },
+  { key: 'microsoft365', icon: 'ri-microsoft-line' },
+  { key: 'stripe', icon: 'ri-bank-card-line' },
+  { key: 'mailchimp', icon: 'ri-mail-send-line' },
+  { key: 'trello', icon: 'ri-trello-line' },
+  { key: 'asana', icon: 'ri-task-line' }
+];
+
+// Integration Benefits data
+export const integrationBenefits = [
+  { key: 'streamlinedData', icon: 'ri-arrow-left-right-line' },
+  { key: 'reducedManual', icon: 'ri-robot-line' },
+  { key: 'improvedAccuracy', icon: 'ri-check-double-line' },
+  { key: 'enhancedReporting', icon: 'ri-bar-chart-line' },
+  { key: 'betterCustomer', icon: 'ri-user-heart-line' },
+  { key: 'increasedEfficiency', icon: 'ri-speed-up-line' }
 ];

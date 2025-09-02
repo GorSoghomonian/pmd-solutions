@@ -520,6 +520,79 @@
           "href": "/schedule"
         }
       }
+    },
+    "softwareDevelopment": {
+      "title": "Разработка ПО",
+      "description": "Воплощаем ваши идеи в жизнь с помощью индивидуальных программных решений. Наша опытная команда разработчиков создаёт масштабируемые, безопасные и удобные приложения, адаптированные под ваши конкретные бизнес‑потребности.",
+      "learnMore": "Подробнее →",
+      "getQuote": "Запросить предложение",
+      "statSuccessRate": "Успешность",
+      "statProjectsDelivered": "Проектов сдано",
+      "technologies": {
+        "frontend": {
+          "title": "Frontend‑разработка",
+          "items": "React, Next.js, Vue.js, Angular"
+        },
+        "backend": {
+          "title": "Backend‑разработка",
+          "items": "Node.js, Python, .NET, PHP"
+        },
+        "database": {
+          "title": "Решения для БД",
+          "items": "PostgreSQL, MongoDB, MySQL"
+        },
+        "cloud": {
+          "title": "Облачная интеграция",
+          "items": "AWS, Azure, Google Cloud"
+        },
+        "mobile": {
+          "title": "Мобильная разработка",
+          "items": "React Native, Flutter, iOS, Android"
+        },
+        "api": {
+          "title": "Разработка API",
+          "items": "RESTful APIs, GraphQL, Микросервисы"
+        }
+      },
+      "buildHeading": "Что мы создаём:",
+      "buildItems": {
+        "webApps": "Индивидуальные веб‑приложения",
+        "mobileApps": "Мобильные приложения",
+        "apiIntegration": "Разработка API и интеграции",
+        "databaseDesign": "Проектирование и миграция БД",
+        "legacyModernization": "Модернизация устаревших систем",
+        "ecommerce": "E‑commerce платформы"
+      }
+    },
+    "integrations": {
+      "title": "20+ Интеграций",
+      "description": "Соединяйте ваши любимые инструменты и платформы без швов. Наш опыт в интеграциях обеспечивает гармоничную работу ваших систем, создавая единую экосистему, которая повышает эффективность и способствует росту.",
+      "popularTitle": "Популярные интеграции",
+      "benefitsTitle": "Преимущества интеграций",
+      "popular": {
+        "hubspot": { "name": "HubSpot", "description": "CRM и автоматизация маркетинга" },
+        "salesforce": { "name": "Salesforce", "description": "Управление продажами и клиентами" },
+        "slack": { "name": "Slack", "description": "Командное общение и сотрудничество" },
+        "zapier": { "name": "Zapier", "description": "Платформа автоматизации рабочих процессов" },
+        "quickbooks": { "name": "QuickBooks", "description": "Система финансового управления" },
+        "shopify": { "name": "Shopify", "description": "Платформа электронной коммерции" },
+        "googleworkspace": { "name": "Google Workspace", "description": "Инструменты продуктивности и сотрудничества" },
+        "microsoft365": { "name": "Microsoft 365", "description": "Офисный пакет продуктивности" },
+        "stripe": { "name": "Stripe", "description": "Платформа обработки платежей" },
+        "mailchimp": { "name": "Mailchimp", "description": "Автоматизация email‑маркетинга" },
+        "trello": { "name": "Trello", "description": "Инструмент управления проектами" },
+        "asana": { "name": "Asana", "description": "Платформа командной продуктивности" }
+      },
+      "benefits": {
+        "streamlinedData": "Упрощённый поток данных между системами",
+        "reducedManual": "Сокращение ручного ввода данных",
+        "improvedAccuracy": "Повышение точности и согласованности",
+        "enhancedReporting": "Расширенные возможности отчётности",
+        "betterCustomer": "Улучшение клиентского опыта",
+        "increasedEfficiency": "Повышение операционной эффективности"
+      },
+      "btnLearnMore": "Узнать больше",
+      "btnStart": "Начать работу"
     }
   },
     "about": {
