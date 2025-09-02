@@ -4,7 +4,7 @@ import HubSpotSection from './HubSpotSection';
 import AutomationSection from './AutomationSection';
 import AuditSection from './AuditSection';
 import SoftwareSection from './SoftwareSection';
-import ServiceFooter from './ServiceFooter';
+import ServiceFooter from '../../../components/organsim/ServiceFooter';
 import ErrorBoundary from '../../../components/common/ErrorBoundary';
 import { auditItems, automationItems, hubspotItems, softwareDevelopmentTechnologies, softwareDevelopmentBuildItems } from '../../../data/homeItems';
 
@@ -37,6 +37,7 @@ export default async function ServicesPage({ params }) {
           minHeight="min-h-screen"
           className="pt-20"
         />
+        {/* @ts-expect-error Server Component */}
         <HubSpotSection
           locale={locale}
           title={t('hubspot.title')}
@@ -44,6 +45,7 @@ export default async function ServicesPage({ params }) {
           items={hubspotItems}
         />
 
+      {/* @ts-expect-error Server Component */}
       <AutomationSection
         locale={locale}
         title={t('automation.title')}
@@ -51,6 +53,7 @@ export default async function ServicesPage({ params }) {
         items={automationItems}
       />
 
+      {/* @ts-expect-error Server Component */}
       <AuditSection
         locale={locale}
         title={t('audit.title')}
@@ -58,6 +61,7 @@ export default async function ServicesPage({ params }) {
         items={auditItems}
       />
 
+      {/* @ts-expect-error Server Component */}
       <SoftwareSection
         locale={locale}
         title={t('softwareDevelopment.title')}

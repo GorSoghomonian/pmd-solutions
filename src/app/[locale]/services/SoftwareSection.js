@@ -31,7 +31,7 @@ export default async function SoftwareSection({
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Левая часть - изображение */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl hidden md:block">
               <Image
                 alt="Software Development - Developer working on multiple screens"
                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
