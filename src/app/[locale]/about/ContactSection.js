@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-export default async function ContactSection () {
-
-  const t = await getTranslations('about');
+export default async function ContactSection({ locale }) {
+  const t = await getTranslations({ locale, namespace: 'about' });
 
   return (
   <section className="relative bg-gradient-to-br from-[#0a0a13] via-[#11111a] to-black py-24 px-4 flex flex-col items-center justify-center min-h-screen">

@@ -1,10 +1,10 @@
-import FeatureCard from '../../components/molecules/FeatureCard';
-import ActionButtons from '../../components/molecules/ActionButtons';
-import { useTranslations } from 'next-intl';
+import FeatureCard from '../../../components/molecules/FeatureCard';
+import ActionButtons from '../../../components/molecules/ActionButtons';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
-export default function HubSpotSection({ title, subtitle, items = [], error = null }) {
-  const t = useTranslations('home.hubspot');
+export default async function HubSpotSection({ locale, title, subtitle, items = [], error = null }) {
+  const t = await getTranslations({ locale, namespace: 'home' });
 
   if (!items.length) return null;
 
@@ -12,8 +12,8 @@ export default function HubSpotSection({ title, subtitle, items = [], error = nu
     const key = it.key || it.titleKey;
     return {
       ...it,
-      title: t(`cards.${key}.title`, { default: it.title || '' }),
-      description: t(`cards.${key}.desc`, { default: it.description || '' }),
+      title: t(`hubspot.cards.${key}.title`, { default: it.title || '' }),
+      description: t(`hubspot.cards.${key}.desc`, { default: it.description || '' }),
       iconHtml: it.icon || ''
     };
   });

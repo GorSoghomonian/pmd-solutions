@@ -1,4 +1,4 @@
-import { getTranslations, getMessages } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 import Image from 'next/image';
@@ -16,8 +16,6 @@ export default async function CoreServices({
   className = '',
 } = {}) {
   const t = await getTranslations('home');
-  const allMessages = await getMessages();
-  const homeMsgs = allMessages?.home ?? {};
 
   const safeT = (key, def) => {
     try {
@@ -43,15 +41,8 @@ export default async function CoreServices({
       ? items
       : (servicesData?.services ?? servicesItems);
 
-  const hasLearnMore = homeMsgs?.[i18nSection]?.learnMore != null;
-  const learnMoreText = hasLearnMore
-    ? safeT(`${i18nSection}.learnMore`, 'Learn More')
-    : 'Learn More';
-
-  const hasButton = homeMsgs?.[i18nSection]?.viewAllServices != null;
-  const buttonText = hasButton
-    ? safeT(`${i18nSection}.viewAllServices`, 'View all Services')
-    : 'View all Services';
+  const learnMoreText = safeT(`${i18nSection}.learnMore`, 'Learn More');
+  const buttonText = safeT(`${i18nSection}.viewAllServices`, 'View all Services');
 
   const defaultButton = {
     text: buttonText,

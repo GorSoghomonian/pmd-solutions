@@ -3,9 +3,8 @@ import Image from "next/image";
 
 
 
-export default async function TeamSection() {
-
-  const t = await getTranslations('about');
+export default async function TeamSection({ locale }) {
+  const t = await getTranslations({ locale, namespace: 'about' });
 
   return (
       <section className="bg-white py-24 relative">

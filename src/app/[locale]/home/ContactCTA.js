@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 import { useTranslations } from 'next-intl';
 
-export default function ContactCTA({ className = '' } = {}) {
+export default function ContactCTA({ locale = 'en', className = '' } = {}) {
   const t = useTranslations('home.contactCta');
 
   return (

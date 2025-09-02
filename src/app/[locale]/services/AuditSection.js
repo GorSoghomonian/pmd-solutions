@@ -1,17 +1,17 @@
 import Image from 'next/image';
-import FeatureCard from '../../components/molecules/FeatureCard';
-import ActionButtons from '../../components/molecules/ActionButtons';
-import {useTranslations} from 'next-intl';
+import FeatureCard from '../../../components/molecules/FeatureCard';
+import ActionButtons from '../../../components/molecules/ActionButtons';
+import { getTranslations } from 'next-intl/server';
 
-export default function AuditSection({
+export default async function AuditSection({
+  locale,
   title,
   subtitle,
   items = [],
   imageSrc = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
   imageAlt = 'Business Process Audit'
 }) {
-  const tAudit = useTranslations('home.audit');          // общий раздел
-  const t = useTranslations('home.audit.cards');    // карточки
+  const t = await getTranslations({ locale, namespace: 'home' });
 
   if (!items.length) return null;
 
@@ -19,10 +19,10 @@ export default function AuditSection({
     ...it,
     // Если ключ уже содержит .title / .desc — не добавляем второй раз
     title: it.titleKey
-      ? t(it.titleKey.endsWith('.title') ? it.titleKey : `${it.titleKey}.title`)
+      ? t(`audit.cards.${it.titleKey}.title`, { default: it.title || '' })
       : it.title,
     description: it.descriptionKey
-      ? t(it.descriptionKey.endsWith('.desc') ? it.descriptionKey : `${it.descriptionKey}.desc`)
+      ? t(`audit.cards.${it.descriptionKey}.desc`, { default: it.description || '' })
       : it.description
   }));
 

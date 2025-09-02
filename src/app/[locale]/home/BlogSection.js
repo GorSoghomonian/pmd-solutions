@@ -6,7 +6,7 @@ import { useMessages } from 'next-intl';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 import BlogPostCard from '../../../components/molecules/BlogPostCard';
 
-export default function BlogSection({} = {}) {
+export default function BlogSection({ locale = 'en' } = {}) {
   const messages = useMessages();
 
 

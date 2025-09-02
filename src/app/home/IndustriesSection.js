@@ -1,4 +1,4 @@
-import { getTranslations, getMessages } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import IconInfoCard from '../../../components/molecules/IconInfoCard';
 import { industriesItems, whyChooseItems } from '../../../data/homeItems';
 import ActionButtons from '../../../components/molecules/ActionButtons';
@@ -16,8 +16,6 @@ export default async function IndustriesSection({
   className = '',
 } = {}) {
   const t = await getTranslations('home');
-  const allMessages = await getMessages();
-  const homeMsgs = allMessages?.home ?? {};
 
   const safeT = (key, def) => {
     try {
@@ -76,9 +74,8 @@ export default async function IndustriesSection({
     );
   });
 
-  // безопасное получение текста кнопки (не вызываем t, если ключа нет)
-  const hasButton = homeMsgs?.[i18nSection]?.button != null;
-  const buttonText = hasButton ? t(`${i18nSection}.button`) : 'Explore →';
+  // безопасное получение текста кнопки
+  const buttonText = safeT(`${i18nSection}.button`, 'Explore →');
 
   const defaultButton = {
     text: buttonText,

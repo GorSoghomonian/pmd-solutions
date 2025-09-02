@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import ActionButtons from '../../components/molecules/ActionButtons';
-import {useTranslations} from 'next-intl';
-import FeatureCard from '../../components/molecules/FeatureCard';
+import ActionButtons from '../../../components/molecules/ActionButtons';
+import { getTranslations } from 'next-intl/server';
+import FeatureCard from '../../../components/molecules/FeatureCard';
 
-export default function AutomationSection({ title, subtitle, badge, items = [] }) {
-  const t = useTranslations('home.automation');
+export default async function AutomationSection({ locale, title, subtitle, badge, items = [] }) {
+  const t = await getTranslations({ locale, namespace: 'home' });
   const list = Array.isArray(items) ? items : [];
   if (!list.length) return null;
 
@@ -12,9 +12,9 @@ export default function AutomationSection({ title, subtitle, badge, items = [] }
     const key = it.key || it.titleKey;
     return {
       ...it,
-      title: t(`cards.${key}.title`, { default: it.title || '' }),
-      description: t(`cards.${key}.desc`, { default: it.description || '' }),
-      badge: it.badge ? t(`cards.${it.badge}`, { default: it.badge || '' }) : it.badge,
+      title: t(`automation.cards.${key}.title`, { default: it.title || '' }),
+      description: t(`automation.cards.${key}.desc`, { default: it.description || '' }),
+      badge: it.badge ? t(`automation.cards.${it.badge}`, { default: it.badge || '' }) : it.badge,
       iconHtml: it.icon || '' 
     };
   });

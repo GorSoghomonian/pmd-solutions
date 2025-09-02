@@ -6,7 +6,7 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
-export default function TestimonialsSection({ className = '' } = {}) {
+export default function TestimonialsSection({ locale = 'en', className = '' } = {}) {
   const t = useTranslations('home');
   const messages = useMessages();
   const mt = messages?.home?.testimonials ?? {};

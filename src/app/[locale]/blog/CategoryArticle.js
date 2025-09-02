@@ -1,21 +1,16 @@
 "use client";
 
-import { useTranslations, useMessages } from 'next-intl';
+import { useTranslations, useMessages, useLocale } from 'next-intl';
 import { useMemo, useState } from 'react';
 import BlogPostCard from '../../../components/molecules/BlogPostCard';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 
-export default function CategoryArticle() {
-  const tHome = useTranslations('home');
-  const messages = useMessages();
+export default function CategoryArticle({ locale }) {
+  const t = useTranslations('blog');
+  const currentLocale = useLocale();
 
-  const rootBlog = messages?.blog && typeof messages.blog === 'object' ? messages.blog : null;
-  const homeBlog = tHome.raw('blog');
-  const blog = rootBlog || homeBlog || {};
-
-  const categories = Array.isArray(blog.categories) ? blog.categories : [];
-  const latest = blog.latest || {};
-  const items = Array.isArray(latest.items) ? latest.items : [];
+  const categories = t.raw('categories') || [];
+  const items = t.raw('latest.items') || [];
 
   const [selectedCat, setSelectedCat] = useState('all');
 
@@ -26,8 +21,8 @@ export default function CategoryArticle() {
 
   const posts = filtered.map((item) => ({
     id: item.slug || item.id,
-    href: item.href || `/blog/${item.slug}`,
-    image: item.image || '/placeholder-blog.jpg',
+    href: `/${locale || currentLocale}/blog/${item.slug}`,
+    image: item.image || '/placeholder-blog.svg',
     category: item.categoryLabel || item.categoryKey,
     date: item.date || '',
     readTime: item.readTime || item.read || '',
@@ -35,7 +30,7 @@ export default function CategoryArticle() {
     excerpt: item.excerpt || item.description || '',
   }));
 
-  const readMoreLabel = latest.readMore || blog.readMore || 'Read More';
+  const readMoreLabel = t('latest.readMore', { default: 'Read More' });
 
   return (
     <section className="py-20">
@@ -44,10 +39,10 @@ export default function CategoryArticle() {
           <div className='max-w-7xl mx-auto px-6'> 
             <div className='text-center mb-10 pt-12'>
               <h2 className='text-3xl font-bold text-gray-900 mb-4 transition-all duration-1000 opacity-100 translate-y-0'>
-                {tHome('blog.browse.title')}
+                {t('browse.title')}
               </h2>
               <p className='text-lg text-gray-600 transition-all duration-1000 delay-300 opacity-100 translate-y-0'>
-                {tHome('blog.browse.subtitle')}
+                {t('browse.subtitle')}
               </p>
             </div>
             <div className="flex  flex-wrap justify-center gap-4 pb-12">
@@ -87,10 +82,10 @@ export default function CategoryArticle() {
         <div>
           <div className='text-center mb-10 pt-12'>
               <h2 className='text-3xl font-bold text-gray-900 mb-4 transition-all duration-1000 opacity-100 translate-y-0'>
-                {tHome('blog.latest.title')}
+                {t('latest.title', { default: 'Latest Articles' })}
               </h2>
               <p className='text-lg text-gray-600 transition-all duration-1000 delay-300 opacity-100 translate-y-0'>
-                {tHome('blog.latest.countLabel')}
+                {t('latest.countLabel', { default: 'Discover our latest insights' })}
               </p>
             </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
@@ -105,7 +100,7 @@ export default function CategoryArticle() {
             <ActionButtons
                         buttons={[
                           {
-                            text: `${latest.loadMore}`,
+                            text: t('latest.loadMore', { default: 'Load More' }),
                             href: '',
                             variant: 'primary',
                             size: 'lg',

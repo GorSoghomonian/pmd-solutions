@@ -2,8 +2,8 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import ActionButtons from "../../../components/molecules/ActionButtons";
 
-export default async function FeatureArticle() {
-  const t = await getTranslations("home");
+export default async function FeatureArticle({ locale }) {
+  const t = await getTranslations({ locale, namespace: "home" });
 
   return (
     <section>
@@ -42,7 +42,7 @@ export default async function FeatureArticle() {
                 {t("blog.featured.summary")}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {t.raw("blog.featured.tags").map((tag, i) => (
+                {(t.raw("blog.featured.tags") || []).map((tag, i) => (
                   <span
                     key={i}
                     className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full"
@@ -55,7 +55,7 @@ export default async function FeatureArticle() {
                 <ActionButtons 
                 buttons = {[
                   { text: t('blog.featured.ctaLabel'), 
-                    href: t('blog.featured.href'),
+                    href: `/${locale}${t('blog.featured.href')}`,
                     icon: '➜',
                     className: 'px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer',
                 }]}

@@ -1,4 +1,4 @@
-import { getTranslations, getMessages } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import IconInfoCard from '../../../components/molecules/IconInfoCard';
 import { industriesItems, whyChooseItems } from '../../../data/homeItems';
 import ActionButtons from '../../../components/molecules/ActionButtons';
@@ -17,9 +17,7 @@ export default async function IndustriesSection({
   className = '',
 } = {}) {
   const t = await getTranslations({locale, namespace: 'home'});
-  const allMessages = await getMessages();
-  const homeMsgs = allMessages?.home ?? {};
-
+  
   const safeT = (key, def) => {
     try {
       return t(key, { default: def });
@@ -72,13 +70,12 @@ export default async function IndustriesSection({
     );
   });
 
-  // безопасное получение текста кнопки (не вызываем t, если ключа нет)
-  const hasButton = homeMsgs?.[i18nSection]?.button != null;
-  const buttonText = hasButton ? t(`${i18nSection}.button`) : 'Explore →';
+  // безопасное получение текста кнопки
+  const buttonText = safeT(`${i18nSection}.button`, 'Explore →');
 
   const defaultButton = {
     text: buttonText,
-    href: '/services',
+    href: `/${locale}/industries`,
     className:
       'group relative px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold text-lg hover:bg-[#1f63c5] transition-all duration-300 hover:scale-105 shadow-lg',
   };

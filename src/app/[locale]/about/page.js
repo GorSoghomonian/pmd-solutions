@@ -16,8 +16,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function AboutPage() {
-  const t = await getTranslations('about');
+export default async function AboutPage({ params }) {
+  const { locale } = params;
+  const t = await getTranslations({ locale, namespace: 'about' });
 
   return (
     <main>
@@ -84,11 +85,11 @@ export default async function AboutPage() {
           overlayOpacity={14}
           showScrollIndicator={false}
           minHeight="h-screen"
-          primaryButton={{ text: t('hero.cta'), href: '/contact' }}
+          primaryButton={{ text: t('hero.cta'), href: `/${locale}/contact` }}
         />
-        <AboutSec />
-        <TeamSection />
-        <ContactSection />
+        <AboutSec locale={locale} />
+        <TeamSection locale={locale} />
+        <ContactSection locale={locale} />
       </ErrorBoundary>
     </main>
   );

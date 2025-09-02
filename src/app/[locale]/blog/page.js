@@ -4,8 +4,9 @@ import FeatureArticle from "./FeatureArticle";
 import CategoryArticle from "./CategoryArticle";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
-export default async function BlogPage() {
-    const t = await getTranslations('home');
+export default async function BlogPage({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'home' });
 
   return (
     <main>
@@ -31,8 +32,8 @@ export default async function BlogPage() {
           className="flex items-center justify-center pb-10 text-white h-110 md:h-95"
         />
 
-        <FeatureArticle />
-        <CategoryArticle />
+        <FeatureArticle locale={locale} />
+        <CategoryArticle locale={locale} />
       </ErrorBoundary>
     </main>
   )

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import {useTranslations} from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import HeroSection from '../../../components/molecules/HeroSection';
 
 function useContainerSize(ref) {
@@ -53,6 +53,7 @@ function mulberry32(a) {
 
 export default function ClientsPage() {
 	const t = useTranslations('clients');
+	const locale = useLocale();
 
 	// Categories and items from translations
 	const categories = t.raw('categories'); // [{ key, label }]

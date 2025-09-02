@@ -3,9 +3,8 @@ import Image from "next/image";
 
 
 
-export default async function AboutSec() {
-
-    const t = await getTranslations('about');
+export default async function AboutSec({ locale }) {
+    const t = await getTranslations({ locale, namespace: 'about' });
 
   return (
           <section className="bg-white text-gray-900 min-h-[500px] flex flex-col lg:flex-row items-center justify-between gap-12  px-6 md:px-20 py-18 relative">
