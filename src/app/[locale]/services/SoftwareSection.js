@@ -1,21 +1,27 @@
 import FeatureCard from '../../../components/molecules/FeatureCard';
 import ActionButtons from '../../../components/molecules/ActionButtons';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import { softwareDevelopmentTechnologies, softwareDevelopmentBuildItems } from '../../data/homeItems';
 
-export default function SoftwareSection({ title, subtitle, items = [] }) {
-  const t = useTranslations('home.softwareDevelopment');
+export default async function SoftwareSection({ 
+  locale,
+  title, 
+  subtitle, 
+  items = [],
+  technologies = [],
+  buildItems = []
+}) {
+  const t = await getTranslations({ locale, namespace: 'home' });
 
-  const localizedTechnologies = softwareDevelopmentTechnologies.map((tech) => ({
+  const localizedTechnologies = technologies.map((tech) => ({
     ...tech,
-    title: t(`technologies.${tech.key}.title`),
-    description: t(`technologies.${tech.key}.items`)
+    title: t(`softwareDevelopment.technologies.${tech.key}.title`, { default: tech.title || '' }),
+    description: t(`softwareDevelopment.technologies.${tech.key}.items`, { default: tech.description || '' })
   }));
 
-  const localizedBuildItems = softwareDevelopmentBuildItems.map((item) => ({
+  const localizedBuildItems = buildItems.map((item) => ({
     ...item,
-    title: t(`buildItems.${item.key}`)
+    title: t(`softwareDevelopment.buildItems.${item.key}`, { default: item.title || '' })
   }));
 
   return (
@@ -55,57 +61,61 @@ export default function SoftwareSection({ title, subtitle, items = [] }) {
               <div className="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-6">
                 <span className="text-2xl text-purple-600">💻</span>
               </div>
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                {title || t('title')}
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                {title || t('softwareDevelopment.title')}
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                {subtitle || t('description')}
+                {subtitle || t('softwareDevelopment.description')}
               </p>
             </div>
 
             {/* Технологии в сетке */}
-            <div className="grid md:grid-cols-2 gap-4 mb-10">
-              {localizedTechnologies.map((tech, idx) => (
-                <FeatureCard
-                  key={tech.key}
-                  icon={tech.icon}
-                  title={tech.title}
-                  description={tech.description}
-                  iconBg={tech.iconBg}
-                  iconColor={tech.iconColor}
-                  cardSize="sm"
-                  titleFont="sm"
-                  descFont="sm"
-                />
-              ))}
-            </div>
-
-            {/* Что мы строим */}
-            <div className="mb-10">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {t('buildHeading')}
-              </h3>
-              <div className="grid md:grid-cols-2 gap-3">
-                {localizedBuildItems.map((item, idx) => (
-                  <div key={item.key} className="flex items-center gap-3">
-                    <i className="ri-code-line text-purple-600 text-sm"></i>
-                    <span className="text-gray-700">{item.title}</span>
-                  </div>
+            {localizedTechnologies.length > 0 && (
+              <div className="grid md:grid-cols-2 gap-4 mb-10">
+                {localizedTechnologies.map((tech, idx) => (
+                  <FeatureCard
+                    key={tech.key}
+                    icon={tech.icon}
+                    title={tech.title}
+                    description={tech.description}
+                    iconBg={tech.iconBg}
+                    iconColor={tech.iconColor}
+                    cardSize="sm"
+                    titleFont="sm"
+                    descFont="sm"
+                  />
                 ))}
               </div>
-            </div>
+            )}
+
+            {/* Что мы строим */}
+            {localizedBuildItems.length > 0 && (
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  {t('softwareDevelopment.buildHeading')}
+                </h3>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {localizedBuildItems.map((item, idx) => (
+                    <div key={item.key} className="flex items-center gap-3">
+                      <i className="ri-code-line text-purple-600 text-sm"></i>
+                      <span className="text-gray-700">{item.title}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Кнопки действий */}
             <ActionButtons
               buttons={[
                 {
-                  text: t('learnMore'),
-                  href: '/services/development',
+                  text: t('softwareDevelopment.learnMore'),
+                  href: `/${locale}/services/development`,
                   className: 'px-8 py-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                 },
                 {
-                  text: t('getQuote'),
-                  href: '/contact',
+                  text: t('softwareDevelopment.getQuote'),
+                  href: `/${locale}/contact`,
                   icon: '🔒',
                   className: 'px-8 py-4 border-2 border-purple-600 text-purple-600 rounded-full hover:text-white hover:bg-purple-600 font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                 }

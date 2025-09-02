@@ -3,8 +3,10 @@ import HeroSection from '../../../components/molecules/HeroSection';
 import HubSpotSection from './HubSpotSection';
 import AutomationSection from './AutomationSection';
 import AuditSection from './AuditSection';
+import SoftwareSection from './SoftwareSection';
+import ServiceFooter from './ServiceFooter';
 import ErrorBoundary from '../../../components/common/ErrorBoundary';
-import { auditItems, automationItems, hubspotItems } from '../../../data/homeItems';
+import { auditItems, automationItems, hubspotItems, softwareDevelopmentTechnologies, softwareDevelopmentBuildItems } from '../../../data/homeItems';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -56,11 +58,16 @@ export default async function ServicesPage({ params }) {
         items={auditItems}
       />
 
-      <section style={{ padding: '60px 0', textAlign: 'center' }}>
-        <h2>{t('cta.headline')}</h2>
-        <p>{t('cta.text')}</p>
-        <button>{t('cta.button')}</button>
-      </section>
+      <SoftwareSection
+        locale={locale}
+        title={t('softwareDevelopment.title')}
+        subtitle={t('softwareDevelopment.description')}
+        technologies={softwareDevelopmentTechnologies}
+        buildItems={softwareDevelopmentBuildItems}
+      />
+
+      <ServiceFooter locale={locale} />
+
         </ErrorBoundary>
     </main>
   );

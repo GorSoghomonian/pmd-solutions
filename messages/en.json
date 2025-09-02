@@ -180,6 +180,10 @@
         "asana": { "name": "Asana", "description": "Team productivity platform" }
       },
       "benefits": {
+        "unified": "Unified Data Flow",
+        "efficiency": "Increased Efficiency", 
+        "realtime": "Real-time Sync",
+        "scalable": "Scalable Solutions",
         "streamlinedData": "Streamlined data flow between systems",
         "reducedManual": "Reduced manual data entry",
         "improvedAccuracy": "Improved accuracy and consistency",
@@ -187,6 +191,8 @@
         "betterCustomer": "Better customer experience",
         "increasedEfficiency": "Increased operational efficiency"
       },
+      "getStarted": "Get Started",
+      "learnMore": "Learn More",
       "btnLearnMore": "Learn More",
       "btnStart": "Get Started"
     },
