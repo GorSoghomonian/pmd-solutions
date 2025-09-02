@@ -7,7 +7,7 @@ import ErrorBoundary from '../../../components/common/ErrorBoundary';
 import { auditItems, automationItems, hubspotItems } from '../../../data/homeItems';
 
 export async function generateMetadata({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
   return {
     title: 'Services',
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ServicesPage({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
 
   return (

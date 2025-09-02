@@ -66,13 +66,13 @@ export default async function AutomationSection({ locale, title, subtitle, badge
           <ActionButtons
             buttons={[
               {
-                text: t('btnLearnMore'),
+                text: t('automation.btnLearnMore'),
                 href: '/services/automation',
                 className:
                   'px-8 py-4 border-2 border-[#2A73DD] bg-[#2A73DD] text-white rounded-full hover:bg-[#2A73DD] font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
               },
               {
-                text: t('btnStart'),
+                text: t('automation.btnStart'),
                 href: '/contact',
                 icon: '⭑',
                 className:

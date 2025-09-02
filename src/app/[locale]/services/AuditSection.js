@@ -17,12 +17,11 @@ export default async function AuditSection({
 
   const localized = items.map(it => ({
     ...it,
-    // Если ключ уже содержит .title / .desc — не добавляем второй раз
     title: it.titleKey
-      ? t(`audit.cards.${it.titleKey}.title`, { default: it.title || '' })
+      ? t(`audit.cards.${it.titleKey}`, { default: it.title || '' })
       : it.title,
     description: it.descriptionKey
-      ? t(`audit.cards.${it.descriptionKey}.desc`, { default: it.description || '' })
+      ? t(`audit.cards.${it.descriptionKey}`, { default: it.description || '' })
       : it.description
   }));
 
@@ -37,10 +36,10 @@ export default async function AuditSection({
                 <span className="text-2xl text-green-600">🛡️</span>
               </div>
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                {title || tAudit('title')}
+                {title || t('audit.title')}
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                {subtitle || tAudit('description')}
+                {subtitle || t('audit.description')}
               </p>
             </div>
 
@@ -53,18 +52,18 @@ export default async function AuditSection({
 
             <div className="mb-10">
               <h4 className="font-semibold text-gray-900 mb-2">
-                {tAudit('gainHeading')}
+                {t('audit.gainHeading')}
               </h4>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-green-700 text-[15px]">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.identify')}</div>
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.compliance')}</div>
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.decisions')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.identify')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.compliance')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.decisions')}</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.costs')}</div>
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.productivity')}</div>
-                  <div className="flex items-center gap-2"><span>✅</span>{tAudit('gains.resources')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.costs')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.productivity')}</div>
+                  <div className="flex items-center gap-2"><span>✅</span>{t('audit.gains.resources')}</div>
                 </div>
               </div>
             </div>
@@ -73,13 +72,13 @@ export default async function AuditSection({
               <ActionButtons
                 buttons={[
                   {
-                    text: tAudit('btnLearnMore'),
+                    text: t('audit.btnLearnMore'),
                     href: '/services/audit',
                     className:
                       'px-8 py-4 bg-green-600  border-2 border-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                   },
                   {
-                    text: tAudit('btnSchedule'),
+                    text: t('audit.btnSchedule'),
                     href: '/contact',
                     icon: '🗓️',
                     className:
@@ -111,13 +110,13 @@ export default async function AuditSection({
               <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">35%</div>
-                  <div className="text-sm text-gray-600">{tAudit('statCostReduction')}</div>
+                  <div className="text-sm text-gray-600">{t('audit.statCostReduction')}</div>
                 </div>
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">200+</div>
-                  <div className="text-sm text-gray-600">{tAudit('statAuditsCompleted')}</div>
+                  <div className="text-sm text-gray-600">{t('audit.statAuditsCompleted')}</div>
                 </div>
               </div>
             </div>

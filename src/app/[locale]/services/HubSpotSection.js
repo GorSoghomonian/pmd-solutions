@@ -53,13 +53,13 @@ export default async function HubSpotSection({ locale, title, subtitle, items = 
               <ActionButtons
                 buttons={[
                   {
-                    text: t('learnMore'),
+                    text: t('hubspot.learnMore'),
                     href: '/services/hubspot',
                     className:
                       'px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                   },
                   {
-                    text: t('getQuote'),
+                    text: t('hubspot.getQuote'),
                     href: '/contact',
                     icon: '⭑',
                     className:
@@ -83,13 +83,13 @@ export default async function HubSpotSection({ locale, title, subtitle, items = 
             <div className="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
               <div className="text-center">
                 <div className="text-2xl font-bold text-[#2A73DD]">98%</div>
-                <div className="text-sm text-gray-600">{t('statSuccess')}</div>
+                <div className="text-sm text-gray-600">{t('hubspot.statSuccess')}</div>
               </div>
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
               <div className="text-center">
                 <div className="text-2xl font-bold text-orange-600">150+</div>
-                <div className="text-sm text-gray-600">{t('statProjects')}</div>
+                <div className="text-sm text-gray-600">{t('hubspot.statProjects')}</div>
               </div>
             </div>
           </div>
