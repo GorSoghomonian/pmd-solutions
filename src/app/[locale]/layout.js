@@ -28,19 +28,13 @@ export default async function LocaleLayout({children, params}) {
   }
   
   return (
-    <html lang={validLocale}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-        />
-      </head>
-      <body style={{margin: 0}}>
-        <NextIntlClientProvider locale={validLocale} messages={messages}>
-          <Header />
-          <main>{children}</main>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider locale={validLocale} messages={messages}>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      />
+      <Header />
+      <main>{children}</main>
+    </NextIntlClientProvider>
   );
 }

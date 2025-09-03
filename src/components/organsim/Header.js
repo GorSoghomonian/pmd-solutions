@@ -64,7 +64,7 @@ export default function Header() {
         <nav className="px-6 py-4">
           <div className="flex items-center">
             {/* Brand */}
-            <Link href="/home" className="flex items-center space-x-3 cursor-pointer">
+            <Link href={`/${locale}/home`} className="flex items-center space-x-3 cursor-pointer">
               <div className="w-10 h-10 bg-[#002A93] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">P</span>
               </div>

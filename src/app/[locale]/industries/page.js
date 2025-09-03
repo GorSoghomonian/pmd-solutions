@@ -8,7 +8,7 @@ import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 // TODO: Implement i18n for all text content
 
 export async function generateMetadata({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'industries' });
   return {
     title: t('meta.title', { defaultMessage: 'Industries' }),
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function IndustriesPage({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'industries' });
 
   // TODO: Extract industries data to separate file

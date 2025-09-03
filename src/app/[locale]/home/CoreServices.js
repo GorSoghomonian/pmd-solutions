@@ -4,6 +4,8 @@ import ActionButtons from '../../../components/molecules/ActionButtons';
 import Image from 'next/image';
 
 import { servicesData, servicesItems } from '../../../data/homeItems';
+import ErrorBoundary from '../../../components/common/ErrorBoundary';
+import SafeServiceLink from '../../../components/common/SafeServiceLink';
 
 export default async function CoreServices({
   locale = 'en',
@@ -95,13 +97,17 @@ export default async function CoreServices({
                   <p className="mt-3 text-gray-600">{lsDesc}</p>
 
                   <div className="mt-6">
-                    <Link
+                    <ErrorBoundary fallback={<span className="text-sm text-gray-400">...</span>}>
+                    <SafeServiceLink
                       href={`/${locale}${s.href}`}
+                      locale={locale}
+                      serviceId={lsTitle}
                       className="inline-flex items-center gap-2 text-[#2A73DD] font-semibold hover:underline transition-transform duration-300 group-hover:translate-x-1"
                     >
                       {learnMoreText}{' '}
                       <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                    </Link>
+                    </SafeServiceLink>
+                    </ErrorBoundary>
                   </div>
                 </div>
               </div>

@@ -73,13 +73,13 @@ export default async function AuditSection({
                 buttons={[
                   {
                     text: t('audit.btnLearnMore'),
-                    href: '/services/audit',
+                    href: '/',
                     className:
                       'px-8 py-4 bg-green-600  border-2 border-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
                   },
                   {
                     text: t('audit.btnSchedule'),
-                    href: '/contact',
+                    href: '/',
                     icon: '🗓️',
                     className:
                       'px-8 py-4 border-2 border-green-600 text-green-600 hover:text-white rounded-full font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer'
