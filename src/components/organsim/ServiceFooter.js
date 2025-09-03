@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from 'next-intl';
 import { popularIntegrations, integrationBenefits } from '../../data/homeItems';
 import ActionButtons from '../molecules/ActionButtons';
