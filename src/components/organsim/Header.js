@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Pacifico } from 'next/font/google';
 import { useTranslations, useLocale } from 'next-intl';
-import { useTransition, useState } from 'react';
+import { useTransition, useState, useEffect } from 'react';
 
 const pacifico = Pacifico({
   weight: '400',
@@ -31,14 +31,28 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) { 
+        setMobileOpen(false);
+        setMobileServicesOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const switchLocale = (newLocale) => {
     if (pending || locale === newLocale) return;
     
     startTransition(() => {
-      // Получаем текущий путь без локали
+
       const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-      
-      // Создаем новый путь с новой локалью
+
       const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
       
       router.push(newPath);
