@@ -54,7 +54,8 @@
 const BASE_URL = process.env.HUBSPOT_BASE_URL;
 
 async function fetchHubSpotData(type) {
-  const ENDPOINT = `${BASE_URL}/pmdDataTemporary.php?type=${type}`;
+  // const ENDPOINT = `${BASE_URL}/pmdDataTemporary.php?type=${type}`;
+  const ENDPOINT = `${BASE_URL}?type=${type}`;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
 
