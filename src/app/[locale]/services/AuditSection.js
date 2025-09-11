@@ -2,6 +2,8 @@ import Image from 'next/image';
 import FeatureCard from '../../../components/molecules/FeatureCard';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 import { getTranslations } from 'next-intl/server';
+import { getAllHubSpotData } from '../../../lib/api'; // Добавляем импорт
+import { auditItems } from '../../../data/homeItems'; // Fallback импорт
 
 export default async function AuditSection({
   locale,
@@ -13,17 +15,80 @@ export default async function AuditSection({
 }) {
   const t = await getTranslations({ locale, namespace: 'home' });
 
-  if (!items.length) return null;
+  // Получаем данные из API
+  console.log('🔄 AuditSection: Fetching data from API...');
+  const apiData = await getAllHubSpotData();
+  const finalItems = apiData.auditItems?.length ? apiData.auditItems : (items.length ? items : auditItems);
+  
+  console.log('📋 AuditSection: Final items count:', finalItems.length);
+  console.log('📋 Raw item example:', finalItems[0]);
 
-  const localized = items.map(it => ({
-    ...it,
-    title: it.titleKey
-      ? t(`audit.cards.${it.titleKey}`, { default: it.title || '' })
-      : it.title,
-    description: it.descriptionKey
-      ? t(`audit.cards.${it.descriptionKey}`, { default: it.description || '' })
-      : it.description
-  }));
+  if (!finalItems.length) return null;
+
+  const localized = finalItems.map(it => {
+    let title = it.title || '';
+    let description = it.description || '';
+
+    // Для данных с составными ключами (и с сервера, и из homeItems.js)
+    if (it.titleKey && it.titleKey.includes('.')) {
+      const [section, field] = it.titleKey.split('.');
+      const translationKey = `audit.cards.${section}.${field}`;
+      title = t(translationKey, { default: `Missing: ${translationKey}` });
+      console.log(`🔍 Translation lookup: "${translationKey}" -> "${title}"`);
+    } else if (it.titleKey) {
+      // Если ключ без точки
+      const translationKey = `audit.cards.${it.titleKey}`;
+      title = t(translationKey, { default: `Missing: ${translationKey}` });
+      console.log(`🔍 Translation lookup: "${translationKey}" -> "${title}"`);
+    }
+    
+    if (it.descriptionKey && it.descriptionKey.includes('.')) {
+      const [section, field] = it.descriptionKey.split('.');
+      const translationKey = `audit.cards.${section}.${field}`;
+      description = t(translationKey, { default: `Missing: ${translationKey}` });
+    } else if (it.descriptionKey) {
+      // Если ключ без точки
+      const translationKey = `audit.cards.${it.descriptionKey}`;
+      description = t(translationKey, { default: `Missing: ${translationKey}` });
+    }
+
+    // Временные тестовые тексты если переводы не работают
+    if (!title || title.includes('Missing:')) {
+      const testTitles = ['Process Analysis', 'Compliance Review', 'Efficiency Assessment', 'Recommendations'];
+      title = testTitles[finalItems.indexOf(it)] || 'Test Title';
+    }
+    
+    if (!description || description.includes('Missing:')) {
+      const testDescriptions = [
+        'In-depth review of current workflows and bottlenecks',
+        'Ensure processes meet standards and regulations', 
+        'Measure KPIs and identify optimization opportunities',
+        'Strategic recommendations for process improvements'
+      ];
+      description = testDescriptions[finalItems.indexOf(it)] || 'Test Description';
+    }
+
+    // Преобразуем HTML строку иконки в React компонент
+    let icon = it.icon;
+    if (typeof it.icon === 'string' && it.icon.includes('<i class="ri-')) {
+      // Извлекаем класс из HTML строки
+      const classMatch = it.icon.match(/class="([^"]+)"/);
+      if (classMatch) {
+        const iconClass = classMatch[1];
+        icon = <i className={iconClass} />;
+      }
+    }
+
+    console.log(`🔤 Processing item: titleKey="${it.titleKey}" -> title="${title}"`);
+    console.log(`📝 Final title/desc:`, { title, description });
+
+    return {
+      ...it,
+      icon,
+      title,
+      description
+    };
+  });
 
   return (
     <section className="relative mt-24 pb-20">
@@ -44,10 +109,16 @@ export default async function AuditSection({
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {localized.map((item, idx) => (
-                <FeatureCard key={idx} {...item}
-                reverse={idx % 2 === 1} />
-              ))}
+              {localized.map((item, idx) => {
+                const { key, ...itemProps } = item;
+                return (
+                  <FeatureCard 
+                    key={item.key || idx} 
+                    {...itemProps}
+                    reverse={idx % 2 === 1} 
+                  />
+                );
+              })}
             </div>
 
             <div className="mb-10">
