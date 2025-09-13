@@ -69,7 +69,7 @@ export default function FeatureCard({
           height={150}
           priority
           className="w-full object-cover rounded-2xl shadow-2xl"
-                  />
+        />
       </div>
       {/* Icon container */}
       {/* <div className="sm:flex flex-col items-center justify-center hidden md-block">
