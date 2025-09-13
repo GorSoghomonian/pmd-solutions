@@ -47,7 +47,7 @@ export default async function HomePage({ params }) {
         <HeroSection
           title={
             <>
-              <span className="block text-4xl md:text-6xl lg:text-7xl font-bold mt-14">
+              <span className="block text-4xl md:text-6xl lg:text-7xl font-bold mt-14 md:mt-29">
                 {t('hero.titleLine1')}
               </span>
               <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold text-blue-400">
