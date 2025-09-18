@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getBlogPost, getBlogData } from '../../../../lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
+import SafeHtmlContent from '../../../../components/common/SafeHtmlContent';
 
 // Генерируем статические параметры для всех постов
 export async function generateStaticParams({ params }) {
@@ -221,18 +222,25 @@ export default async function BlogPostPage({ params }) {
 
         {/* Контент поста */}
         {post?.content && (
-          <div 
-            className="prose prose-lg max-w-none
-              prose-headings:text-gray-900 prose-headings:font-bold
-              prose-p:text-gray-700 prose-p:leading-relaxed
-              prose-a:text-[#2A73DD] prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-gray-900
-              prose-ul:text-gray-700 prose-ol:text-gray-700
-              prose-blockquote:border-l-[#2A73DD] prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
-              prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-              prose-pre:bg-gray-900 prose-pre:text-gray-100"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <>
+            <style>{`
+              .ql-align-center { text-align: center; }
+              .ql-align-right { text-align: right; }
+              .ql-align-left { text-align: left; }
+            `}</style>
+            <SafeHtmlContent
+              html={post.content}
+              className="prose prose-lg max-w-none
+                prose-headings:text-gray-900 prose-headings:font-bold
+                prose-p:text-gray-700 prose-p:leading-relaxed
+                prose-a:text-[#2A73DD] prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-gray-900
+                prose-ul:text-gray-700 prose-ol:text-gray-700
+                prose-blockquote:border-l-[#2A73DD] prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
+                prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+                prose-pre:bg-gray-900 prose-pre:text-gray-100"
+            />
+          </>
         )}
 
         {/* Сообщение об ошибке, если данные получены из fallback */}
