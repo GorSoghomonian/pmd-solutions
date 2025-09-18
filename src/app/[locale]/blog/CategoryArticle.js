@@ -1,33 +1,68 @@
 "use client";
 
 import { useTranslations, useMessages, useLocale } from 'next-intl';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import BlogPostCard from '../../../components/molecules/BlogPostCard';
 import ActionButtons from '../../../components/molecules/ActionButtons';
+import { getBlogData } from '../../../lib/api';
 
-export default function CategoryArticle({ locale }) {
-  const t = useTranslations('blog');
+export default function CategoryArticle({ locale, blogData }) {
+  const t = useTranslations('home.blog');
   const currentLocale = useLocale();
-
-  const categories = t.raw('categories') || [];
-  const items = t.raw('latest.items') || [];
-
+  
   const [selectedCat, setSelectedCat] = useState('all');
+  const [apiPosts, setApiPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  // Fallback данные из translations
+  const categories = t.raw('categories') || [];
+  const fallbackItems = t.raw('latest.items') || [];
+
+  // Используем данные из API если есть, иначе fallback
+  const items = blogData?.items?.length ? blogData.items : fallbackItems;
+
+  // Фильтрация постов
   const filtered = useMemo(() => {
     if (selectedCat === 'all') return items;
     return items.filter((item) => item.categoryKey === selectedCat);
   }, [selectedCat, items]);
 
-  const posts = filtered.map((item) => ({
+  // Загружаем отфильтрованные посты при смене категории
+  useEffect(() => {
+    if (selectedCat !== 'all') {
+      const fetchFilteredPosts = async () => {
+        setLoading(true);
+        try {
+          const result = await getBlogData(locale, { category: selectedCat });
+          if (result.items?.length) {
+            setApiPosts(result.items);
+          }
+        } catch (err) {
+          console.error('Error fetching filtered posts:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchFilteredPosts();
+    } else {
+      setApiPosts([]);
+    }
+  }, [selectedCat, locale]);
+
+  // Используем API посты если доступны и фильтр активен
+  const displayPosts = (selectedCat !== 'all' && apiPosts.length) ? apiPosts : filtered;
+
+  const posts = displayPosts.map((item) => ({
     id: item.slug || item.id,
-    href: `/${locale || currentLocale}/blog/${item.slug}`,
+    slug: item.slug || `blog-${item.id}`,
+    href: item.href || `/${locale || currentLocale}/blog/${item.slug || `blog-${item.id}`}`,
     image: item.image || '/placeholder-blog.svg',
     category: item.categoryLabel || item.categoryKey,
     date: item.date || '',
     readTime: item.readTime || item.read || '',
     title: item.title || '',
     excerpt: item.excerpt || item.description || '',
+    locale: locale || currentLocale,
   }));
 
   const readMoreLabel = t('latest.readMore', { default: 'Read More' });
@@ -45,7 +80,7 @@ export default function CategoryArticle({ locale }) {
                 {t('browse.subtitle')}
               </p>
             </div>
-            <div className="flex  flex-wrap justify-center gap-4 pb-12">
+            <div className="flex flex-wrap justify-center gap-4 pb-8">
               {categories.map((c) => {
                 const active = c.key === selectedCat;
                 return (
@@ -88,14 +123,24 @@ export default function CategoryArticle({ locale }) {
                 {t('latest.countLabel', { default: 'Discover our latest insights' })}
               </p>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
-            {posts.map((p) => (
-              <BlogPostCard key={p.id} post={p} readMoreLabel={readMoreLabel} />
-            ))}
-            {posts.length === 0 && (
-              <div className="col-span-full text-center text-gray-500">No articles available.</div>
-            )}
-          </div>
+          {/* Посты */}
+          {loading ? (
+            <div className="text-center py-12 max-w-7xl mx-auto px-6">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#2A73DD]"></div>
+              <p className="mt-2 text-gray-600">Loading posts...</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+              {posts.map((p) => (
+                <BlogPostCard key={p.id} post={p} readMoreLabel={readMoreLabel} />
+              ))}
+              {posts.length === 0 && (
+                <div className="col-span-full text-center text-gray-500 py-12">
+                  No articles found for this category.
+                </div>
+              )}
+            </div>
+          )}
           <div className='flex justify-center items-center mt-12'>
             <ActionButtons
                         buttons={[

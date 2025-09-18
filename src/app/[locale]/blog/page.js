@@ -3,10 +3,14 @@ import HeroSection from "../../../components/molecules/HeroSection"
 import FeatureArticle from "./FeatureArticle";
 import CategoryArticle from "./CategoryArticle";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { getBlogData } from "../../../lib/api";
 
 export default async function BlogPage({ params }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'home' });
+
+    // Получаем данные блога из API
+    const blogApiData = await getBlogData(locale);
 
   return (
     <main>
@@ -32,8 +36,8 @@ export default async function BlogPage({ params }) {
           className="flex items-center justify-center pb-10 text-white h-110 md:h-95"
         />
 
-        <FeatureArticle locale={locale} />
-        <CategoryArticle locale={locale} />
+        <FeatureArticle locale={locale} blogData={blogApiData} />
+        <CategoryArticle locale={locale} blogData={blogApiData} />
       </ErrorBoundary>
     </main>
   )

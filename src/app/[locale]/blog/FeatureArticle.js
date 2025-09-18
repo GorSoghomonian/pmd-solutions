@@ -2,8 +2,12 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import ActionButtons from "../../../components/molecules/ActionButtons";
 
-export default async function FeatureArticle({ locale }) {
+export default async function FeatureArticle({ locale, blogData }) {
   const t = await getTranslations({ locale, namespace: "home" });
+  
+  // Используем первый пост из API как featured или fallback к переводам
+  const featuredPost = blogData?.items?.[0];
+  const fallbackFeatured = t.raw("blog.featured") || {};
 
   return (
     <section>
@@ -20,29 +24,36 @@ export default async function FeatureArticle({ locale }) {
           <div className="lg:flex">
             
             <div className="lg:w-1/2 relative">
-              <Image
-                src={t("blog.featured.image")}
-                alt={t("blog.featured.title")}
-                width={1500}
-                height={1800}
-                className="w-full h-full object-cover"
-              />
+              {(() => {
+                const imageSrc = featuredPost?.image || fallbackFeatured?.image || "/placeholder-blog.svg";
+                const imageAlt = featuredPost?.title || fallbackFeatured?.title || "Featured post";
+                
+                return (
+                  <Image
+                    src={imageSrc || "/placeholder-blog.svg"}
+                    alt={imageAlt}
+                    width={1500}
+                    height={1800}
+                    className="w-full h-full object-cover"
+                  />
+                );
+              })()}
             </div>
 
             <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-between">
               <div className="text-gray-500 text-sm flex gap-4 mb-3">
-                <span>{t("blog.featured.date")}</span>
-                <span>• {t("blog.featured.readTime")}</span>
-                <span>• {t("blog.featured.author")}</span>
+                <span>{featuredPost?.date || fallbackFeatured?.date}</span>
+                <span>• {featuredPost?.readTime || fallbackFeatured?.readTime}</span>
+                <span>• {featuredPost?.author || fallbackFeatured?.author}</span>
               </div>
               <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                {t("blog.featured.title")}
+                {featuredPost?.title || fallbackFeatured?.title || t("blog.featured.title")}
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                {t("blog.featured.summary")}
+                {featuredPost?.excerpt || fallbackFeatured?.summary || t("blog.featured.summary")}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {(t.raw("blog.featured.tags") || []).map((tag, i) => (
+                {(featuredPost?.tags || fallbackFeatured?.tags || t.raw("blog.featured.tags") || []).map((tag, i) => (
                   <span
                     key={i}
                     className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full"
@@ -54,8 +65,8 @@ export default async function FeatureArticle({ locale }) {
               <div>
                 <ActionButtons 
                 buttons = {[
-                  { text: t('blog.featured.ctaLabel'), 
-                    href: `/${locale}${t('blog.featured.href')}`,
+                  { text: fallbackFeatured?.ctaLabel || t('blog.featured.ctaLabel'), 
+                    href: featuredPost?.href || `/${locale}/blog/${featuredPost?.slug || `blog-${featuredPost?.id}`}` || `/${locale}${fallbackFeatured?.href || t('blog.featured.href')}`,
                     icon: '➜',
                     className: 'px-8 py-4 bg-[#2A73DD] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-center whitespace-nowrap cursor-pointer',
                 }]}

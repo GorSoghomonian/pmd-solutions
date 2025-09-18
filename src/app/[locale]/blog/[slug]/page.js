@@ -1,220 +1,267 @@
-import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
-import HeroSection from "../../../../components/molecules/HeroSection";
-import ErrorBoundary from "../../../../components/common/ErrorBoundary";
-import Image from "next/image";
-import BlogPostCard from "../../../../components/molecules/BlogPostCard";
-import BlogFooter from "../../../../components/organsim/BlogFooter";
+import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
+import { getBlogPost, getBlogData } from '../../../../lib/api';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default async function Page(props) {
-  let slug, locale;
+// Генерируем статические параметры для всех постов
+export async function generateStaticParams({ params }) {
+  const { locale } = params;
+  
   try {
-    const params = await props.params;
-    slug = params?.slug;
-    locale = params?.locale;
-  } catch {
-    slug = undefined;
-    locale = 'en';
+    console.log(`🔧 [generateStaticParams] Generating params for locale: ${locale}`);
+    const blogData = await getBlogData(locale);
+    console.log(`📊 [generateStaticParams] Got ${blogData.items?.length || 0} posts`);
+    
+    const slugs = blogData.items.map((post) => {
+      const slug = post.slug || `blog-${post.id}`;
+      console.log(`🔗 [generateStaticParams] Generated slug: ${slug}`);
+      return { slug };
+    });
+    
+    return slugs;
+  } catch (error) {
+    console.error(`❌ [generateStaticParams] Error:`, error);
+    return [];
   }
+}
 
-  let blog = {};
-  let items = [];
+// Генерируем метаданные для SEO
+export async function generateMetadata({ params }) {
+  const { locale, slug } = params;
+  
   try {
-    const tHome = await getTranslations({ locale, namespace: "home" });
-    blog = tHome.raw("blog") || {};
-    if (Array.isArray(blog?.latest?.items)) {
-      items = blog.latest.items;
+    const { post } = await getBlogPost(slug, locale);
+    
+    if (!post) {
+      return {
+        title: 'Post Not Found',
+      };
     }
-  } catch (e) {
-    // Swallow translation/data errors; page will render fallback
-    items = [];
+
+    return {
+      title: post.title,
+      description: post.excerpt || post.subtitle,
+      openGraph: {
+        title: post.title,
+        description: post.excerpt || post.subtitle,
+        images: post.image ? [{ url: post.image }] : [],
+        type: 'article',
+        publishedTime: post.date,
+        authors: post.author ? [post.author] : [],
+      },
+    };
+  } catch {
+    return {
+      title: 'Blog Post',
+    };
+  }
+}
+
+export default async function BlogPostPage({ params }) {
+  const { locale, slug } = params;
+  
+  console.log(`🔧 [BlogPostPage] Loading post with slug: ${slug}, locale: ${locale}`);
+  
+  // Получаем данные поста
+  const { post, error } = await getBlogPost(slug, locale);
+  
+  console.log(`📊 [BlogPostPage] Post result:`, { post: !!post, error: !!error });
+  
+  // Если пост не найден, показываем 404
+  if (!post && !error) {
+    console.log(`❌ [BlogPostPage] Post not found, redirecting to 404`);
+    notFound();
   }
 
-  const post = items.find((p) => p.slug === slug);
+  // Получаем переводы
+  const t = await getTranslations({ locale, namespace: 'blog' });
 
-  // If slug missing entirely, show graceful fallback instead of throwing 404 that can break navigation
-  if (!slug) {
+  // Функция для форматирования даты
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch {
+      return dateString;
+    }
+  };
+
+  // Если есть ошибка и нет поста, показываем ошибку
+  if (error && !post) {
     return (
-      <section className="max-w-4xl mx-auto py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Post unavailable</h1>
-        <p className="text-gray-600">No article identifier provided.</p>
-      </section>
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            Post Not Found
+          </h1>
+          <p className="text-gray-600 mb-8">
+            The requested blog post could not be found.
+          </p>
+          <Link 
+            href={`/${locale}/blog`}
+            className="inline-flex items-center px-6 py-3 bg-[#2A73DD] text-white rounded-lg hover:bg-[#1f5ec0] transition-colors"
+          >
+            ← Back to Blog
+          </Link>
+        </div>
+      </div>
     );
   }
-
-  // If we have translations loaded but specific post not found -> fallback (avoid notFound() crash during data issues)
-  if (!post) {
-    return (
-      <section className="max-w-4xl mx-auto py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Post not found</h1>
-        <p className="text-gray-600">The requested article is not available right now.</p>
-      </section>
-    );
-  }
-
-  const image = post.image || "/placeholder-blog.svg";
-  const recommendedPosts = items
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3)
-    .map((p) => ({
-      id: p.slug,
-      href: `/${locale}/blog/${p.slug}`,
-      category: p.categoryLabel || p.categoryKey || '',
-      date: p.date || '',
-      readTime: p.readTime || p.read || '',
-      image: p.image || "/placeholder-blog.svg",
-      title: p.title || '',
-    }));
-
-  const readMoreLabel = blog?.latest?.readMore || "Read More";
-
-  const details = post.details || {};
-  const hasBestPractices = !!(
-    details.bestPracticesHeading ||
-    details.bestPracticesIntro ||
-    (details.bestPractices && details.bestPractices.length > 0)
-  );
-  const hasTags = !!(
-    details.tagsHeading ||
-    (details.tags && details.tags.length > 0)
-  );
-  const author = details.author;
-  const hasAuthor = !!(author && (author.name || author.longBio));
-  const hasRelated = !!(
-    details.relatedHeading ||
-    (recommendedPosts && recommendedPosts.length > 0)
-  );
 
   return (
-    <section>
-      <ErrorBoundary fallback={null}>
-        <HeroSection
-          title={
-            <>
-              <div className="text-sm flex gap-6 ">
-                <div className="border-0 w-28 h-8 rounded-full text-center bg-blue-500 flex justify-center items-center">
-                  {post.categoryLabel}
-                </div>
-                <div className="flex justify-center items-center text-grey-300 gap-2">
-                  <i className="ri-calendar-2-line text-grey-300" /> {post.date}
-                </div>
-                <div className="flex justify-center items-center text-grey-300 gap-2">
-                  <i className="ri-time-line text-white" /> {post.readTime}
-                </div>
-              </div>
-
-              <span className="block text-4xl max-w-4xl mx-auto md:text-6xl lg:text-6xl font-bold mt-4 md:mt-6 text-left">
-                {post.title}
-              </span>
-            </>
-          }
-          description={
-            <span className="block text-xl md:text-lg mt-2 text-blue-100 text-left max-w-4xl mx-auto">
-              {post.excerpt}
+    <main className="min-h-screen bg-gray-50">
+      {/* Хлебные крошки и навигация */}
+      <div className="bg-white border-b">
+        <div className="max-w-4xl mx-auto px-6 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            <Link href={`/${locale}`} className="hover:text-[#2A73DD]">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href={`/${locale}/blog`} className="hover:text-[#2A73DD]">
+              Blog
+            </Link>
+            <span>/</span>
+            <span className="text-gray-900 truncate max-w-xs">
+              {post?.title || 'Loading...'}
             </span>
-          }
-          backgroundColor="bg-black"
-          minHeight="md:min-h-[600px] min-h-[500px]"
-          className="pb-12 md:pb-0"
-        />
+          </nav>
+        </div>
+      </div>
 
-        <div className="max-w-4xl mx-auto py-6 flex justify-center flex-col gap-10">
-          {details.sections?.length > 0 && (
-            <ErrorBoundary fallback={null}>
-              {details.sections.map((section, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow">
-                  {section.heading && <h3 className="text-2xl font-semibold mb-3">{section.heading}</h3>}
-                  {section.body && <p className="text-gray-700 mb-4">{section.body}</p>}
-                  {section.keyComponentsHeading && <p className="font-medium text-gray-800 mb-2">{section.keyComponentsHeading}</p>}
-                  {section.keyComponents?.length > 0 && (
-                    <ul className="list-disc list-inside space-y-2 mb-4 text-gray-600">
-                      {section.keyComponents.map((item, i) => (<li key={i}>{item}</li>))}
-                    </ul>
-                  )}
-                  {section.quote?.text && (
-                    <div className="border-l-4 border-blue-400 pl-4 py-8 italic text-gray-600 bg-blue-50 p-3 rounded">
-                      "{section.quote.text}"
-                      {section.quote.cite && <div className="mt-2 text-sm font-medium text-gray-500 text-right">— {section.quote.cite}</div>}
-                    </div>
-                  )}
+      {/* Кнопка "Назад" */}
+      <div className="max-w-4xl mx-auto px-6 py-6">
+        <Link 
+          href={`/${locale}/blog`}
+          className="inline-flex items-center text-[#2A73DD] hover:text-[#1f5ec0] transition-colors"
+        >
+          ← Back to Blog
+        </Link>
+      </div>
+
+      {/* Основной контент */}
+      <article className="max-w-4xl mx-auto px-6 pb-20">
+        {/* Заголовок поста */}
+        <header className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            {post?.title || 'Loading...'}
+          </h1>
+          
+          {/* Метаинформация */}
+          <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
+            {post?.author && (
+              <div className="flex items-center">
+                <span className="w-5 h-5 mr-2">👤</span>
+                <span>{post.author}</span>
+              </div>
+            )}
+            
+            {post?.date && (
+              <div className="flex items-center">
+                <span className="w-5 h-5 mr-2">📅</span>
+                <span>{formatDate(post.date)}</span>
+              </div>
+            )}
+            
+            {post?.readTime && (
+              <div className="flex items-center">
+                <span className="w-5 h-5 mr-2">🕒</span>
+                <span>{post.readTime}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Подзаголовок */}
+          {post?.excerpt && (
+            <p className="text-xl text-gray-600 leading-relaxed">
+              {post.excerpt}
+            </p>
+          )}
+        </header>
+
+        {/* Главное изображение */}
+        {post?.image && (
+          <div className="mb-8 rounded-xl overflow-hidden">
+            <Image
+              src={post.image}
+              alt={post.title || 'Blog post image'}
+              width={800}
+              height={400}
+              className="w-full h-[400px] object-cover"
+              priority
+            />
+          </div>
+        )}
+
+        {/* Карусель изображений */}
+        {post?.carouselImages && post.carouselImages.length > 0 && (
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-4">Gallery</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {post.carouselImages.map((image, index) => (
+                <div key={index} className="rounded-lg overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={`Gallery image ${index + 1}`}
+                    width={400}
+                    height={250}
+                    className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               ))}
-            </ErrorBoundary>
-          )}
+            </div>
+          </div>
+        )}
 
-          {hasBestPractices && (
-            <ErrorBoundary fallback={null}>
-              <div className="rounded-xl shadow p-6">
-                {details.bestPracticesHeading && <h2 className="text-2xl font-semibold">{details.bestPracticesHeading}</h2>}
-                {details.bestPracticesIntro && <h3 className="py-4">{details.bestPracticesIntro}</h3>}
-                {details.bestPractices?.length > 0 && (
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    {details.bestPractices.map((practice, index) => (<li key={index}>{practice}</li>))}
-                  </ul>
-                )}
-              </div>
-            </ErrorBoundary>
-          )}
+        {/* Контент поста */}
+        {post?.content && (
+          <div 
+            className="prose prose-lg max-w-none
+              prose-headings:text-gray-900 prose-headings:font-bold
+              prose-p:text-gray-700 prose-p:leading-relaxed
+              prose-a:text-[#2A73DD] prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-gray-900
+              prose-ul:text-gray-700 prose-ol:text-gray-700
+              prose-blockquote:border-l-[#2A73DD] prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
+              prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+              prose-pre:bg-gray-900 prose-pre:text-gray-100"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        )}
 
-          {hasTags && (
-            <ErrorBoundary fallback={null}>
-              <div>
-                {details.tagsHeading && <h2 className="text-xl font-semibold pt-4 p-4 md:p-0">{details.tagsHeading}</h2>}
-                {details.tags?.length > 0 && (
-                  <div className="flex items-center flex-wrap gap-3 pb-12 py-2 md:p-0 md:gap-3 md:py-8 ml-4 md:ml-0">
-                    {details.tags.map((tag, index) => (
-                      <div key={index} className="px-3 py-1 bg-blue-100 text-[#2A73DD] rounded-full text-sm font-medium cursor-pointer hover:bg-blue-200 transition-colors duration-300">{tag}</div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </ErrorBoundary>
-          )}
+        {/* Сообщение об ошибке, если данные получены из fallback */}
+        {error && (
+          <div className="mt-8 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+            <p className="text-orange-800 text-sm">
+              ⚠️ This content is displayed from cached data due to API unavailability.
+            </p>
+          </div>
+        )}
+      </article>
+
+      {/* Связанные посты или призыв к действию */}
+      <div className="bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Explore More Articles
+          </h3>
+          <p className="text-gray-600 mb-8">
+            Discover more insights and expert guidance in our blog.
+          </p>
+          <Link 
+            href={`/${locale}/blog`}
+            className="inline-flex items-center px-8 py-4 bg-[#2A73DD] text-white rounded-lg hover:bg-[#1f5ec0] transition-colors font-semibold"
+          >
+            View All Posts
+          </Link>
         </div>
-
-        {hasAuthor && (
-          <ErrorBoundary fallback={null}>
-            <div className="bg-blue-50 py-16">
-              <div className="max-w-4xl py-12 mx-auto flex items-center gap-6 shadow-lg rounded-2xl p-6 bg-white">
-                {author?.name && (
-                  <div className="flex-shrink-0">
-                    <Image src={image} alt={author.name} width={90} height={120} className="rounded-full" />
-                    <p className="mt-2 text-sm font-medium text-gray-800 text-center">{author.name}</p>
-                  </div>
-                )}
-                <div className="flex flex-col">
-                  {details.aboutAuthorHeading && <h2 className="text-2xl font-bold text-gray-900 mb-2">{details.aboutAuthorHeading}</h2>}
-                  {author?.longBio && <p className="text-gray-700 leading-relaxed mb-4">{author.longBio}</p>}
-                  {details.socials?.length > 0 && (
-                    <div className="flex gap-4 text-blue-600">
-                      {details.socials.map((icon, index) => (<a key={index} href="#" aria-label={icon}><i className={`fa-brands ${icon} text-xl`}></i></a>))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </ErrorBoundary>
-        )}
-
-        {hasRelated && (
-          <ErrorBoundary fallback={null}>
-            <div className="max-w-4xl md:max-w-7xl mx-auto py-6 pt-14 flex justify-center flex-col gap-10">
-              {details.relatedHeading && (
-                <div className="flex justify-center flex-col text-center text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  <h2>{details.relatedHeading}</h2>
-                </div>
-              )}
-              {recommendedPosts.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {recommendedPosts.map((p) => (<BlogPostCard key={p.id} post={p} readMoreLabel={readMoreLabel} />))}
-                </div>
-              )}
-            </div>
-          </ErrorBoundary>
-        )}
-
-        <BlogFooter />
-      </ErrorBoundary>
-    </section>
+      </div>
+    </main>
   );
 }

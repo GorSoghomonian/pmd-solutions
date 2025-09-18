@@ -603,6 +603,27 @@
         ],
         "readMore": "Read More",
         "loadMore": "Load More Articles"
+      },
+      "create": {
+        "title": "Create New Blog Post",
+        "button": "+ Create New Post",
+        "form": {
+          "title": "Title",
+          "titlePlaceholder": "Enter blog title...",
+          "subtitle": "Subtitle",
+          "subtitlePlaceholder": "Enter subtitle...",
+          "category": "Category",
+          "selectCategory": "Select category...",
+          "content": "Content",
+          "contentPlaceholder": "Write your blog content here... (HTML supported)",
+          "contentHint": "You can use HTML tags for formatting",
+          "mainImage": "Main Image",
+          "carouselImages": "Carousel Images",
+          "carouselHint": "Select multiple images for carousel (optional)",
+          "create": "Create Blog Post",
+          "creating": "Creating...",
+          "cancel": "Cancel"
+        }
       }
     },
     "contactCta": {

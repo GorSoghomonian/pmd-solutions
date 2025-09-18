@@ -8,7 +8,6 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
   if (!post) return null;
   const {
     slug,
-    href = `/blog/${post.slug || post.slug}`,
     categoryLabel,
     categoryKey,
     date,
@@ -16,7 +15,11 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
     image = '/placeholder-blog.svg',
     title,
     excerpt,
+    locale,
   } = post;
+  
+  // Генерируем href с правильным форматом
+  const href = post.href || `/${locale || 'en'}/blog/${post.slug || slug}`;
 
   const category = categoryLabel || categoryKey || '';
   return (

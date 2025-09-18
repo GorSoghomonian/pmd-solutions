@@ -7,7 +7,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.js');
 module.exports = withNextIntl({
   images: {
     // Можно использовать domains (хватает для твоих случаев)
-    domains: ['readdy.ai', 'images.unsplash.com'],
+    domains: ['readdy.ai', 'images.unsplash.com', 'localhost'],
     // Если хочешь оставить remotePatterns — раскомментируй:
     // remotePatterns: [
     //   {protocol: 'https', hostname: 'images.unsplash.com'},
