@@ -51,7 +51,7 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
             <div className="flex items-center gap-4 text-gray-500 text-xs ml-5 text-center">
               {date && (
                 <span className="inline-flex items-center gap-1">
-                  <i className="ri-calendar-2-line" /> {date}
+                  <i className="ri-calendar-2-line" /> {date.slice(0, 10)}
                 </span>
               )}
               {readTime && (

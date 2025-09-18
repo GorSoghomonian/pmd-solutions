@@ -42,7 +42,7 @@ export default async function FeatureArticle({ locale, blogData }) {
 
             <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-between">
               <div className="text-gray-500 text-sm flex gap-4 mb-3">
-                <span>{featuredPost?.date || fallbackFeatured?.date}</span>
+                <span>{featuredPost?.date.slice(0, 10) || fallbackFeatured?.date}</span>
                 <span>• {featuredPost?.readTime || fallbackFeatured?.readTime}</span>
                 <span>• {featuredPost?.author || fallbackFeatured?.author}</span>
               </div>

@@ -136,17 +136,17 @@ export default async function BlogPostPage({ params }) {
       </div>
 
       {/* Кнопка "Назад" */}
-      <div className="max-w-4xl mx-auto px-6 py-6">
+      {/* <div className="max-w-4xl mx-auto px-6 py-18">
         <Link 
           href={`/${locale}/blog`}
           className="inline-flex items-center text-[#2A73DD] hover:text-[#1f5ec0] transition-colors"
         >
           ← Back to Blog
         </Link>
-      </div>
+      </div> */}
 
       {/* Основной контент */}
-      <article className="max-w-4xl mx-auto px-6 pb-20">
+      <article className="max-w-4xl mx-auto px-6 pb-20 py-18">
         {/* Заголовок поста */}
         <header className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
