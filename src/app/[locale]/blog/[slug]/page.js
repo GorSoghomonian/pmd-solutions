@@ -4,6 +4,7 @@ import { getBlogPost, getBlogData } from '../../../../lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
 import SafeHtmlContent from '../../../../components/common/SafeHtmlContent';
+import HeroSection from "../../../../components/molecules/HeroSection";
 
 // Генерируем статические параметры для всех постов
 export async function generateStaticParams({ params }) {
@@ -147,48 +148,51 @@ export default async function BlogPostPage({ params }) {
       </div> */}
 
       {/* Основной контент */}
-      <article className="max-w-4xl mx-auto px-6 pb-20 py-18">
+      <article className="mx-auto ">
         {/* Заголовок поста */}
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            {post?.title || 'Loading...'}
-          </h1>
-          
-          {/* Метаинформация */}
-          <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
-            {post?.author && (
-              <div className="flex items-center">
-                <span className="w-5 h-5 mr-2">👤</span>
-                <span>{post.author}</span>
+        <HeroSection
+          title={
+            <>
+              <div className="text-sm flex gap-6">
+                {post.categoryLabel && (
+                  <div className="border-0 w-28 h-8 rounded-full text-center bg-blue-500 flex justify-center items-center">
+                    {post.categoryLabel}
+                  </div>
+                )}
+                {post.date && (
+                  <div className="flex justify-center items-center text-grey-300 gap-2">
+                    <i className="ri-calendar-2-line text-grey-300" /> {formatDate(post.date)}
+                  </div>
+                )}
+                {post.author && (
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5">👤</span>
+                    <span>{post.author}</span>
+                  </div>
+                )}
               </div>
-            )}
-            
-            {post?.date && (
-              <div className="flex items-center">
-                <span className="w-5 h-5 mr-2">📅</span>
-                <span>{formatDate(post.date)}</span>
-              </div>
-            )}
-            
-            {post?.readTime && (
-              <div className="flex items-center">
-                <span className="w-5 h-5 mr-2">🕒</span>
-                <span>{post.readTime}</span>
-              </div>
-            )}
-          </div>
-
-          {/* Подзаголовок */}
-          {post?.excerpt && (
-            <p className="text-xl text-gray-600 leading-relaxed">
-              {post.excerpt}
-            </p>
-          )}
-        </header>
+              <span className="block text-4xl max-w-4xl mx-auto md:text-6xl lg:text-6xl font-bold mt-4 md:mt-6 text-left">
+                {post.title}
+              </span>
+            </>
+          }
+          description={
+            post.excerpt && (
+              <span className="block text-xl md:text-lg mt-2 text-blue-100 text-left max-w-4xl mx-auto">
+                {post.excerpt}
+              </span>
+            )
+          }
+          backgroundColor="bg-black"
+          minHeight="md:min-h-[500px] min-h-[500px]"
+          className="pb-12 md:pb-0"
+        />
 
         {/* Главное изображение */}
+        <article  className='max-w-4xl mx-auto'>
+
         {post?.image && (
-          <div className="mb-8 rounded-xl overflow-hidden">
+          <div className="mb-8 rounded-xl overflow-hidden mt-12">
             <Image
               src={post.image}
               alt={post.title || 'Blog post image'}
@@ -270,6 +274,8 @@ export default async function BlogPostPage({ params }) {
           </Link>
         </div>
       </div>
+        </article>
     </main>
   );
 }
+        
