@@ -1,4 +1,3 @@
-
 // lib/api.js
 const BASE_URL = process.env.HUBSPOT_BASE_URL;
 const CLIENT_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -388,6 +387,52 @@ export async function deleteBlogPost(blogId) {
   } catch (err) {
     console.error(`❌ [delete-blog] Failed to delete post:`, err.message);
     return { success: false, error: err?.message ?? 'Unknown error' };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+// Функция для получения тегов блога по blogId
+export async function getBlogTags(blogId) {
+  const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
+  const TAGS_ENDPOINT = `${API_BASE}/api/blogs/${blogId}/tags`;
+
+  console.log(`🌐 [blog-tags] Trying to fetch tags from: ${TAGS_ENDPOINT}`);
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+
+  try {
+    const res = await fetch(TAGS_ENDPOINT, {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+      signal: controller.signal
+    });
+
+    console.log(`📡 [blog-tags] Response status: ${res.status}`);
+
+    if (res.status === 404) {
+      // Блог не найден — возвращаем пустой массив тегов
+      return [];
+    }
+
+    if (!res.ok) throw new Error(`Failed to fetch blog tags: ${res.status} ${res.statusText}`);
+
+    let raw;
+    try {
+      raw = await res.json();
+      console.log(`✅ [blog-tags] Server data received:`, raw);
+    } catch {
+      throw new Error(`Invalid JSON from blog tags endpoint`);
+    }
+
+    // Ожидаем массив тегов
+    const tags = Array.isArray(raw) ? raw : raw?.tags ?? [];
+    return tags;
+  } catch (err) {
+    console.error(`❌ [blog-tags] API failed:`, err.message);
+    return [];
   } finally {
     clearTimeout(timeout);
   }

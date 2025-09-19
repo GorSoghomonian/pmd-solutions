@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import { getBlogPost, getBlogData } from '../../../../lib/api';
+import { getBlogPost, getBlogData, getBlogTags } from '../../../../lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
 import SafeHtmlContent from '../../../../components/common/SafeHtmlContent';
@@ -30,7 +30,8 @@ export async function generateStaticParams({ params }) {
 
 // Генерируем метаданные для SEO
 export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
+  const awaitedParams = await params;
+  const { locale, slug } = awaitedParams;
   
   try {
     const { post } = await getBlogPost(slug, locale);
@@ -61,13 +62,15 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  const { locale, slug } = params;
+  const awaitedParams = await params;
+  const { locale, slug } = awaitedParams;
   
   console.log(`🔧 [BlogPostPage] Loading post with slug: ${slug}, locale: ${locale}`);
   
   // Получаем данные поста
   const { post, error } = await getBlogPost(slug, locale);
   
+  const tags = post?.id ? await getBlogTags(post.id) : [];
   console.log(`📊 [BlogPostPage] Post result:`, { post: !!post, error: !!error });
   
   // Если пост не найден, показываем 404
@@ -255,10 +258,23 @@ export default async function BlogPostPage({ params }) {
             </p>
           </div>
         )}
+
+        <div className='border-t pt-8 mt-12 border-gray-200'>
+          <h2 className="text-xl font-semibold pt-4 p-4 md:p-0">Tags</h2>
+          {tags?.length > 0 && (
+            <div className="flex items-center flex-wrap gap-3 pb-12 py-2 md:p-0 md:gap-3 md:py-8 ml-4 md:ml-0">
+              {tags.map((tag, index) => (
+                <div key={index} className="px-3 py-1 bg-blue-100 text-[#2A73DD] rounded-full text-sm font-medium cursor-pointer hover:bg-blue-200 transition-colors duration-300">
+                  {typeof tag === 'string' ? tag : tag.name}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </article>
 
       {/* Связанные посты или призыв к действию */}
-      <div className="bg-gray-100 py-16">
+      <div className="bg-gray-100 py-12 mt-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Explore More Articles
@@ -278,4 +294,3 @@ export default async function BlogPostPage({ params }) {
     </main>
   );
 }
-        
