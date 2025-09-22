@@ -393,9 +393,9 @@ export async function deleteBlogPost(blogId) {
 }
 
 // Функция для получения тегов блога по blogId
-export async function getBlogTags(blogId) {
+export async function getBlogTags(blogId, lang = 'en') {
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
-  const TAGS_ENDPOINT = `${API_BASE}/api/blogs/${blogId}/tags`;
+  const TAGS_ENDPOINT = `${API_BASE}/api/blogs/${blogId}/tags?lang=${lang}`;
 
   console.log(`🌐 [blog-tags] Trying to fetch tags from: ${TAGS_ENDPOINT}`);
 
@@ -428,7 +428,11 @@ export async function getBlogTags(blogId) {
     }
 
     // Ожидаем массив тегов
-    const tags = Array.isArray(raw) ? raw : raw?.tags ?? [];
+    const tags =
+      Array.isArray(raw) ? raw
+      : Array.isArray(raw?.tags) ? raw.tags
+      : raw?.tag ? [raw.tag]
+      : [];
     return tags;
   } catch (err) {
     console.error(`❌ [blog-tags] API failed:`, err.message);

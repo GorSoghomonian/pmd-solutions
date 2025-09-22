@@ -69,8 +69,9 @@ export default async function BlogPostPage({ params }) {
   
   // Получаем данные поста
   const { post, error } = await getBlogPost(slug, locale);
-  
-  const tags = post?.id ? await getBlogTags(post.id) : [];
+
+  // Получаем теги с учетом языка
+  const tags = post?.id ? await getBlogTags(post.id, locale) : [];
   console.log(`📊 [BlogPostPage] Post result:`, { post: !!post, error: !!error });
   
   // Если пост не найден, показываем 404
