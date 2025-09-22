@@ -261,7 +261,7 @@ export default async function BlogPostPage({ params }) {
 
         <div className='border-t pt-8 mt-12 border-gray-200'>
           <h2 className="text-xl font-semibold pt-4 p-4 md:p-0">Tags</h2>
-          {tags?.length > 0 && (
+          {tags?.length > 0 ? (
             <div className="flex items-center flex-wrap gap-3 pb-12 py-2 md:p-0 md:gap-3 md:py-8 ml-4 md:ml-0">
               {tags.map((tag, index) => (
                 <div key={index} className="px-3 py-1 bg-blue-100 text-[#2A73DD] rounded-full text-sm font-medium cursor-pointer hover:bg-blue-200 transition-colors duration-300">
@@ -269,6 +269,8 @@ export default async function BlogPostPage({ params }) {
                 </div>
               ))}
             </div>
+          ) : (
+            <div className="text-gray-400 italic px-4 py-2">No tags yet</div>
           )}
         </div>
       </article>
