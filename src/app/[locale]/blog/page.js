@@ -18,7 +18,7 @@ export default async function BlogPage({ params }) {
         <HeroSection 
           title={
             <>
-              <span className="block text-5xl mt-27 md:text-4xl lg:text-6xl font-bold items-center">
+              <span className="block text-5xl mt-6 md:mt-27 md:text-4xl lg:text-6xl font-bold items-center">
                 {t("blog.hero.title")}
               </span>
             </>

@@ -57,7 +57,7 @@ export default async function FeatureArticle({ locale, blogData }) {
                     key={i}
                     className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full"
                   >
-                    {tag}
+                    {"#" + (typeof tag === "string" ? tag : tag.name)}
                   </span>
                 ))}
               </div>

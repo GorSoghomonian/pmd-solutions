@@ -239,6 +239,7 @@ export default async function BlogPostPage({ params }) {
             <SafeHtmlContent
               html={post.content}
               className="prose prose-lg max-w-none
+              px-4 sm:px-0
                 prose-headings:text-gray-900 prose-headings:font-bold
                 prose-p:text-gray-700 prose-p:leading-relaxed
                 prose-a:text-[#2A73DD] prose-a:no-underline hover:prose-a:underline
@@ -246,7 +247,7 @@ export default async function BlogPostPage({ params }) {
                 prose-ul:text-gray-700 prose-ol:text-gray-700
                 prose-blockquote:border-l-[#2A73DD] prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
                 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-                prose-pre:bg-gray-900 prose-pre:text-gray-100"
+                prose-pre:bg-gray-900 prose-pre:text-gray-100 "
             />
           </>
         )}
@@ -266,7 +267,7 @@ export default async function BlogPostPage({ params }) {
             <div className="flex items-center flex-wrap gap-3 pb-12 py-2 md:p-0 md:gap-3 md:py-8 ml-4 md:ml-0">
               {tags.map((tag, index) => (
                 <div key={index} className="px-3 py-1 bg-blue-100 text-[#2A73DD] rounded-full text-sm font-medium cursor-pointer hover:bg-blue-200 transition-colors duration-300">
-                  {typeof tag === 'string' ? tag : tag.name}
+                  #{typeof tag === 'string' ? tag : tag.name}
                 </div>
               ))}
             </div>
