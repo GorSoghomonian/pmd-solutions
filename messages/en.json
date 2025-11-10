@@ -1,155 +1,155 @@
-{
-  "title": "Home",
-  "description": "Home description",
-  "nav": {
-    "brand": "PMD Solutions",
-    "home": "Home",
-    "industries": "Industries",
-    "clients": "Clients",
-    "about": "About",
-    "blog": "Blog",
-    "services": "Services",
-    "getStarted": "Get Started",
-    "langEn": "English",
-    "langRu": "Russian",
-    "servicesMenu": [
-      { "href": "/services", "label": "All Services" },
-      { "href": "/services/automation", "label": "Business Process Automation" },
-      { "href": "/services/hubspot", "label": "CRM Implementation" },
-      { "href": "/services/development", "label": "Custom Development" },
-      { "href": "/services/integrations", "label": "System Integrations" },
-      { "href": "/services/audit", "label": "Process Audit" }
-    ]
-  },
-  "home": {
-    "meta": {
-      "title": "Home",
-      "description": "Welcome to PMD Solutions"
+  {
+    "title": "Home",
+    "description": "Home description",
+    "nav": {
+      "brand": "PMD Solutions",
+      "home": "Home",
+      "industries": "Industries",
+      "clients": "Clients",
+      "about": "About",
+      "blog": "Blog",
+      "services": "Services",
+      "getStarted": "Get Started",
+      "langEn": "English",
+      "langRu": "Russian",
+      "servicesMenu": [
+        { "href": "/services", "label": "All Services" },
+        { "href": "/services/automation", "label": "Business Process Automation" },
+        { "href": "/services/hubspot", "label": "CRM Implementation" },
+        { "href": "/services/development", "label": "Custom Development" },
+        { "href": "/services/integrations", "label": "System Integrations" },
+        { "href": "/services/audit", "label": "Process Audit" }
+      ]
     },
-    "hero": {
-      "title": "Our Services",
-      "description": "Leading consulting firm providing comprehensive business automation, CRM implementation, and custom development solutions to help your business thrive in the digital age.",
-      "ctaPrimary": "Explore Our Services",
-      "ctaSecondary": "Learn About Us",
-      "scroll": "Scroll down",
-      "titleLine1": "Transform Your Business with ",
-      "titleLine2": "Smart Solutions"
-    },
-    "stats": {
-      "projects": "Projects Completed",
-      "clients": "Happy Clients",
-      "years": "Years Experience"
-    },
-    "hubspot": {
-      "title": "HubSpot Implementation & Support",
-      "description": "Transform sales and marketing with strategic setup, customization, and optimization of HubSpot.",
-      "learnMore": "Learn more →",
-      "getQuote": "Get a quote",
-      "statSuccess": "Success rate",
-      "statProjects": "Projects completed",
-      "cards": {
-        "customSetup": { "title": "Custom setup", "desc": "Tailored HubSpot configuration for your business" },
-        "teamTraining": { "title": "Team training", "desc": "Comprehensive training to boost productivity" },
-        "performanceOptimization": { "title": "Performance optimization", "desc": "Ongoing support for maximum efficiency" },
-        "dataMigration": { "title": "Data migration", "desc": "Seamless migration of existing data and processes" }
-      }
-    },
-    "automation": {
-      "title": "Automation",
-      "description": "Remove routine with workflows and integrations",
-      "cards": {
-        "workflow": {
-          "title": "Process automation",
-          "desc": "Optimize repetitive tasks and business workflows",
-          "badge": "70% time saved"
-        },
-        "email": {
-          "title": "Email marketing",
-          "desc": "Automated campaigns and nurture sequences",
-          "badge": "3x higher ROI"
-        },
-        "support": {
-          "title": "Customer support",
-          "desc": "Automated tickets and responses",
-          "badge": "50% faster replies"
-        },
-        "reporting": {
-          "title": "Reporting & analytics",
-          "desc": "Auto data collection and insights",
-          "badge": "Real-time insights"
+    "home": {
+      "meta": {
+        "title": "Home",
+        "description": "Welcome to PMD Solutions"
+      },
+      "hero": {
+        "title": "Our Services",
+        "description": "Leading consulting firm providing comprehensive business automation, CRM implementation, and custom development solutions to help your business thrive in the digital age.",
+        "ctaPrimary": "Explore Our Services",
+        "ctaSecondary": "Learn About Us",
+        "scroll": "Scroll down",
+        "titleLine1": "Transform Your Business with ",
+        "titleLine2": "Smart Solutions"
+      },
+      "stats": {
+        "projects": "Projects Completed",
+        "clients": "Happy Clients",
+        "years": "Years Experience"
+      },
+      "hubspot": {
+        "title": "HubSpot Implementation & Support",
+        "description": "Transform sales and marketing with strategic setup, customization, and optimization of HubSpot.",
+        "learnMore": "Learn more →",
+        "getQuote": "Get a quote",
+        "statSuccess": "Success rate",
+        "statProjects": "Projects completed",
+        "cards": {
+          "customSetup": { "title": "Custom setup", "desc": "Tailored HubSpot configuration for your business" },
+          "teamTraining": { "title": "Team training", "desc": "Comprehensive training to boost productivity" },
+          "performanceOptimization": { "title": "Performance optimization", "desc": "Ongoing support for maximum efficiency" },
+          "dataMigration": { "title": "Data migration", "desc": "Seamless migration of existing data and processes" }
         }
       },
-      "btnLearnMore": "Learn more",
-      "btnStart": "Start automation"
-    },
-    "audit": {
-      "title": "Business Process Audit",
-      "description": "We find hidden opportunities and provide actionable recommendations.",
-      "gainHeading": "What you get:",
-      "gains": {
-        "identify": "Identify inefficiencies",
-        "compliance": "Improved compliance",
-        "decisions": "Better decisions",
-        "costs": "Cost reduction",
-        "productivity": "Productivity growth",
-        "resources": "Resource optimization"
+      "automation": {
+        "title": "Automation",
+        "description": "Remove routine with workflows and integrations",
+        "cards": {
+          "workflow": {
+            "title": "Process automation",
+            "desc": "Optimize repetitive tasks and business workflows",
+            "badge": "70% time saved"
+          },
+          "email": {
+            "title": "Email marketing",
+            "desc": "Automated campaigns and nurture sequences",
+            "badge": "3x higher ROI"
+          },
+          "support": {
+            "title": "Customer support",
+            "desc": "Automated tickets and responses",
+            "badge": "50% faster replies"
+          },
+          "reporting": {
+            "title": "Reporting & analytics",
+            "desc": "Auto data collection and insights",
+            "badge": "Real-time insights"
+          }
+        },
+        "btnLearnMore": "Learn more",
+        "btnStart": "Start automation"
       },
-      "btnLearnMore": "Learn more →",
-      "btnSchedule": "Schedule an audit",
-      "statCostReduction": "Avg. cost reduction",
-      "statAuditsCompleted": "Audits completed",
-      "cards": {
-        "processAnalysis": {
-          "title": "Process analysis",
-          "desc": "In-depth review of current workflows and bottlenecks"
+      "audit": {
+        "title": "Business Process Audit",
+        "description": "We find hidden opportunities and provide actionable recommendations.",
+        "gainHeading": "What you get:",
+        "gains": {
+          "identify": "Identify inefficiencies",
+          "compliance": "Improved compliance",
+          "decisions": "Better decisions",
+          "costs": "Cost reduction",
+          "productivity": "Productivity growth",
+          "resources": "Resource optimization"
         },
-        "complianceReview": {
-          "title": "Compliance review",
-          "desc": "Ensure processes meet standards and regulations"
-        },
-        "efficiencyAssessment": {
-          "title": "Efficiency assessment",
-          "desc": "Measure KPIs and identify optimization opportunities"
-        },
-        "recommendations": {
-          "title": "Recommendations",
-          "desc": "Strategic recommendations for process improvements"
-        }
-      }
-    },
-    "softwareDevelopment": {
-      "title": "Software Development",
-      "description": "Bring your vision to life with custom software solutions. Our experienced development team creates scalable, secure, and user-friendly applications tailored to your specific business needs.",
-      "learnMore": "Learn more →",
-      "getQuote": "Get a quote",
-      "statSuccessRate": "Success rate",
-      "statProjectsDelivered": "Projects delivered",
-      "technologies": {
-        "frontend": {
-          "title": "Frontend Development",
-          "items": "React, Next.js, Vue.js, Angular"
-        },
-        "backend": {
-          "title": "Backend Development",
-          "items": "Node.js, Python, .NET, PHP"
-        },
-        "database": {
-          "title": "Database Solutions",
-          "items": "PostgreSQL, MongoDB, MySQL"
-        },
-        "cloud": {
-          "title": "Cloud Integration",
-          "items": "AWS, Azure, Google Cloud"
-        },
-        "mobile": {
-          "title": "Mobile Development",
-          "items": "React Native, Flutter, iOS, Android"
-        },
-        "api": {
-          "title": "API Development",
-          "items": "RESTful APIs, GraphQL, Microservices"
+        "btnLearnMore": "Learn more →",
+        "btnSchedule": "Schedule an audit",
+        "statCostReduction": "Avg. cost reduction",
+        "statAuditsCompleted": "Audits completed",
+        "cards": {
+          "processAnalysis": {
+            "title": "Process analysis",
+            "desc": "In-depth review of current workflows and bottlenecks"
+          },
+          "complianceReview": {
+            "title": "Compliance review",
+            "desc": "Ensure processes meet standards and regulations"
+          },
+          "efficiencyAssessment": {
+            "title": "Efficiency assessment",
+            "desc": "Measure KPIs and identify optimization opportunities"
+          },
+          "recommendations": {
+            "title": "Recommendations",
+            "desc": "Strategic recommendations for process improvements"
+          }
         }
       },
+      "softwareDevelopment": {
+        "title": "Software Development",
+        "description": "Bring your vision to life with custom software solutions. Our experienced development team creates scalable, secure, and user-friendly applications tailored to your specific business needs.",
+        "learnMore": "Learn more →",
+        "getQuote": "Get a quote",
+        "statSuccessRate": "Success rate",
+        "statProjectsDelivered": "Projects delivered",
+        "technologies": {
+          "frontend": {
+            "title": "Frontend Development",
+            "items": "React, Next.js, Vue.js, Angular"
+          },
+          "backend": {
+            "title": "Backend Development",
+            "items": "Node.js, Python, .NET, PHP"
+          },
+          "database": {
+            "title": "Database Solutions",
+            "items": "PostgreSQL, MongoDB, MySQL"
+          },
+          "cloud": {
+            "title": "Cloud Integration",
+            "items": "AWS, Azure, Google Cloud"
+          },
+          "mobile": {
+            "title": "Mobile Development",
+            "items": "React Native, Flutter, iOS, Android"
+          },
+          "api": {
+            "title": "API Development",
+            "items": "RESTful APIs, GraphQL, Microservices"
+          }
+        },
       "buildHeading": "What We Build:",
       "buildItems": {
         "webApps": "Custom Web Applications",
