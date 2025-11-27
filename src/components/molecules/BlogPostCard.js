@@ -8,15 +8,18 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
   if (!post) return null;
   const {
     slug,
-    href = `/blog/${post.slug || post.slug}`,
     categoryLabel,
     categoryKey,
     date,
-    readTime,
+    author,
     image = '/placeholder-blog.svg',
     title,
     excerpt,
+    locale,
   } = post;
+  
+  // Генерируем href с правильным форматом
+  const href = post.href || `/${locale || 'en'}/blog/${post.slug || slug}`;
 
   const category = categoryLabel || categoryKey || '';
   return (
@@ -38,7 +41,7 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
       </Link>
 
       <div className="p-6 md:p-7 flex flex-col flex-1">
-        {(category || date || readTime) && (
+        {(category || date || author) && (
           <div className="flex items-center justify-between">
             {category && (
               <span className="inline-flex items-center px-3 text-center py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">
@@ -48,12 +51,12 @@ export default function BlogPostCard({ post, readMoreLabel = 'Read More' }) {
             <div className="flex items-center gap-4 text-gray-500 text-xs ml-5 text-center">
               {date && (
                 <span className="inline-flex items-center gap-1">
-                  <i className="ri-calendar-2-line" /> {date}
+                  <i className="ri-calendar-2-line" /> {date.slice(0, 10)}
                 </span>
               )}
-              {readTime && (
+              {author && (
                 <span className="inline-flex items-center gap-1">
-                  <i className="ri-time-line" /> {readTime}
+                  <i className="ri-time-line" /> {author}
                 </span>
               )}
             </div>

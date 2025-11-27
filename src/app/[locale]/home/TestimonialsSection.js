@@ -156,7 +156,6 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
                             width={64}
                             height={64}
                             className="w-16 h-16 rounded-full object-cover border-4 border-white/20"
-                            onError={() => onImgError(i)}
                             unoptimized
                           />
                           <div className="text-left">
