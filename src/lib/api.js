@@ -160,17 +160,31 @@ export async function getBlogData(locale = 'en', filters = {}) {
       const titleContent = localeContents.find(c => c.type === 'title');
       // Извлекаем body из элемента с type: "body"
       const bodyContent = localeContents.find(c => c.type === 'body');
+      // Поддержка старого формата с type: "text"
+      const textContent = localeContents.find(c => c.type === 'text');
       
-      // Для body текст хранится в поле subtitle, а не content
-      const bodyText = bodyContent?.subtitle || bodyContent?.content || '';
-      const titleText = titleContent?.title || titleContent?.content || '';
+      // Определяем title и body в зависимости от формата
+      let titleText, bodyText, subtitleText;
+      
+      if (textContent) {
+        // Старый формат: все в одном элементе с type: "text"
+        titleText = textContent.title || blog.title || '';
+        subtitleText = textContent.subtitle || '';
+        bodyText = textContent.content || '';
+      } else {
+        // Новый формат: разделение на title и body
+        titleText = titleContent?.title || titleContent?.content || '';
+        subtitleText = titleContent?.subtitle || '';
+        // Для body текст хранится в поле subtitle, а не content
+        bodyText = bodyContent?.subtitle || bodyContent?.content || '';
+      }
       
       return {
         id: blog.id ?? idx,
         slug: `blog-${blog.id}` ?? `blog-${idx}`,
         title: titleText,
-        subtitle: titleContent?.subtitle ?? '',
-        excerpt: bodyText.replace(/<[^>]*>/g, '').substring(0, 150),
+        subtitle: subtitleText,
+        excerpt: (bodyText || subtitleText).replace(/<[^>]*>/g, '').substring(0, 150),
         content: bodyText,
         categoryKey: blog.categoryKey ?? blog.category ?? '',
         categoryLabel: blog.categoryLabel ?? blog.category ?? '',
