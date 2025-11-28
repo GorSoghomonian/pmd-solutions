@@ -31,7 +31,6 @@ export default function FeatureCard({
   titleFont = "md",
   reverse = false,
 }) {
-  // Size configuration object - could be moved to a theme config file
   const sizeStyles = {
     sm: "w-[260px] min-h-[90px] p-2",
     md: "w-[260px] min-h-[120px] p-6",
@@ -39,7 +38,6 @@ export default function FeatureCard({
     xl: "w-[440px] min-h-[170px] p-10"
   };
   
-  // Typography configuration - consider using Tailwind's built-in text sizing
   const titleFontStyles = {
     sm: "text-[14px]",
     md: "text-lg",
@@ -60,7 +58,6 @@ export default function FeatureCard({
       style={{ background: bgColor }}
     
     >
-      {/* {image container} */}
       <div  className={`md:hidden `}>
         <Image
           alt="Automation"
@@ -71,14 +68,6 @@ export default function FeatureCard({
           className="w-full object-cover rounded-2xl shadow-2xl"
         />
       </div>
-      {/* Icon container */}
-      {/* <div className="sm:flex flex-col items-center justify-center hidden md-block">
-        <div className={`w-10 h-10 ${iconBg} ${iconColor}  rounded-full flex items-center justify-center`}>
-          {icon}
-        </div>
-      </div> */}
-      
-      {/* Content container */}
       <div className="flex flex-col items-start w-full ">
         <div className={`block md:hidden ${reverse ? 'flex-row-reverse' : 'flex-row'}`}>
           <div className='flex items-center '>
@@ -113,7 +102,6 @@ export default function FeatureCard({
       </div>
             </div>
         </div>
-        {/* Optional badge */}
         {badge && (
           <span className={`px-2 mt-3 ml-14 rounded-full text-xs font-medium p-2 ${badgeColor}`}>
             {badge}

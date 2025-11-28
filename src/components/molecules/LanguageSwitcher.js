@@ -13,13 +13,11 @@ export default function LanguageSwitcher() {
     if (pending || locale === newLocale) return;
     
     startTransition(() => {
-      // Получаем текущий путь без локали
       const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
       
-      // Создаем новый путь с новой локалью
       const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
       
-      console.log('Switching from:', pathname, 'to:', newPath); // для отладки
+      console.log('Switching from:', pathname, 'to:', newPath); 
       router.push(newPath);
     });
   };

@@ -4,7 +4,7 @@ import CoreServices from './CoreServices';
 import IndustriesSection from './IndustriesSection';
 import TestimonialsSection from './TestimonialsSection';
 import BlogSection from './BlogSection';
-import ContactCTA from './ContactCTA'; // добавлено
+import ContactCTA from './ContactCTA';
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 
 export async function generateMetadata({ params }) {
@@ -20,7 +20,6 @@ export default async function HomePage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({locale, namespace: 'home'});
   
-  // Получаем все переводы для передачи в компоненты
   const coreServicesTranslations = {
     titlePrefix: t('coreServices.titlePrefix'),
     titleAccent: t('coreServices.titleAccent'),
@@ -94,7 +93,6 @@ export default async function HomePage({ params }) {
 
         </HeroSection>
 
-        {/* Core Services */}
         <CoreServices 
           locale={locale} 
           titlePrefix={coreServicesTranslations.titlePrefix}
@@ -102,7 +100,6 @@ export default async function HomePage({ params }) {
           subtitle={coreServicesTranslations.subtitle}
         />
 
-        {/* Industries We Serve */}
         <IndustriesSection 
           locale={locale}
           titlePrefix={industriesTranslations.titlePrefix}

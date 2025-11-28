@@ -14,20 +14,17 @@ export default function CategoryArticle({ locale, blogData }) {
   const [apiPosts, setApiPosts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Fallback данные из translations
   const categories = t.raw('categories') || [];
   const fallbackItems = t.raw('latest.items') || [];
 
-  // Используем данные из API если есть, иначе fallback
   const items = blogData?.items?.length ? blogData.items : fallbackItems;
 
-  // Фильтрация постов
   const filtered = useMemo(() => {
     if (selectedCat === 'all') return items;
     return items.filter((item) => item.categoryKey === selectedCat);
   }, [selectedCat, items]);
 
-  // Загружаем отфильтрованные посты при смене категории
+
   useEffect(() => {
     if (selectedCat !== 'all') {
       const fetchFilteredPosts = async () => {
@@ -49,7 +46,6 @@ export default function CategoryArticle({ locale, blogData }) {
     }
   }, [selectedCat, locale]);
 
-  // Используем API посты если доступны и фильтр активен
   const displayPosts = (selectedCat !== 'all' && apiPosts.length) ? apiPosts : filtered;
 
   const posts = displayPosts.map((item) => ({

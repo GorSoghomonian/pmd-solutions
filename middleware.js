@@ -3,7 +3,6 @@ import intlConfig from './next-intl.config';
 
 export default createMiddleware({
   ...intlConfig,
-  // Автоматический редирект с корневого пути на локализованный
   localeDetection: true
 });
 

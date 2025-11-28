@@ -314,7 +314,6 @@ export const softwareDevelopmentBuildItems = [
   { key: 'ecommerce', icon: '🛒' }
 ];
 
-// Popular Integrations data for ServiceFooter
 export const popularIntegrations = [
   { key: 'hubspot', icon: 'ri-customer-service-2-line' },
   { key: 'salesforce', icon: 'ri-cloud-line' },
@@ -330,7 +329,6 @@ export const popularIntegrations = [
   { key: 'asana', icon: 'ri-task-line' }
 ];
 
-// Integration Benefits data
 export const integrationBenefits = [
   { key: 'streamlinedData', icon: 'ri-arrow-left-right-line' },
   { key: 'reducedManual', icon: 'ri-robot-line' },

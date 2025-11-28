@@ -6,7 +6,6 @@ export default function SafeServiceLink({ href, locale, children, className, ser
   const { Modal, showModal } = usePageNotAvailableModal();
 
   const handleClick = (e) => {
-    // Список доступных страниц
     const availablePages = [
       '/services',
       '/services/automation', 

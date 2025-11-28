@@ -5,7 +5,6 @@ import ActionButtons from "../../../components/molecules/ActionButtons";
 export default async function FeatureArticle({ locale, blogData }) {
   const t = await getTranslations({ locale, namespace: "home" });
   
-  // Используем первый пост из API как featured или fallback к переводам
   const featuredPost = blogData?.items?.[0];
   const fallbackFeatured = t.raw("blog.featured") || {};
 

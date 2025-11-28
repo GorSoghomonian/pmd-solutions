@@ -32,7 +32,6 @@ export default async function IndustriesSection({
     default: 'Specialized solutions tailored to the unique challenges and opportunities in your industry',
   });
 
-  // Источник карточек
   const itemsMap = {
     industries: industriesItems,
     whyChoose: whyChooseItems,
@@ -70,7 +69,6 @@ export default async function IndustriesSection({
     );
   });
 
-  // безопасное получение текста кнопки
   const buttonText = safeT(`${i18nSection}.button`, 'Explore →');
 
   const defaultButton = {

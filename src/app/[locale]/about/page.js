@@ -17,7 +17,7 @@ export async function generateMetadata() {
 }
 
 export default async function AboutPage({ params }) {
-  const { locale } = params;
+  const  { locale } = params;
   const t = await getTranslations({ locale, namespace: 'about' });
 
   return (
@@ -63,7 +63,6 @@ export default async function AboutPage({ params }) {
                 />
               </div>
 
-      {/* Дополнительные анимации */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute top-1/4 left-1/4 w-4 h-4 bg-white/30 rotate-45 animate-spin"
@@ -80,7 +79,6 @@ export default async function AboutPage({ params }) {
       </div>
             </>
           }
-          // Градиент как раньше
           backgroundColor="bg-gradient-to-br from-[#2A73DD] via-[#1d4ed8] to-[#1746A2]"
           overlayOpacity={14}
           showScrollIndicator={false}

@@ -14,7 +14,6 @@ export default function BlogSection({ locale = 'en' } = {}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fallback данные из messages
   const rawBlog = messages?.blog;
   const blogObj = (rawBlog && typeof rawBlog === 'object' && !Array.isArray(rawBlog) ? rawBlog : messages?.home?.blog) || {};
   const latest = blogObj?.latest || {};
@@ -28,7 +27,6 @@ export default function BlogSection({ locale = 'en' } = {}) {
         if (result.items && result.items.length > 0) {
           setBlogPosts(result.items);
         } else {
-          // Fallback к данным из messages
           const fallbackPosts = Array.isArray(latest.items) ? latest.items.slice(0, 3) : [];
           setBlogPosts(fallbackPosts);
         }
@@ -37,8 +35,6 @@ export default function BlogSection({ locale = 'en' } = {}) {
           setError(result.error);
         }
       } catch (err) {
-        console.error('Error fetching blog data:', err);
-        // Используем fallback данные
         const fallbackPosts = Array.isArray(latest.items) ? latest.items.slice(0, 3) : [];
         setBlogPosts(fallbackPosts);
         setError(err.message);

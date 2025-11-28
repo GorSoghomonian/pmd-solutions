@@ -9,7 +9,6 @@ export default async function BlogPage({ params }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'home' });
 
-    // Получаем данные блога из API
     const blogApiData = await getBlogData(locale);
 
   return (

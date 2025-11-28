@@ -1,9 +1,8 @@
-// lib/api.js
+
 const BASE_URL = process.env.HUBSPOT_BASE_URL;
 const CLIENT_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 async function fetchHubSpotData(type) {
-  // const ENDPOINT = `${BASE_URL}/pmdDataTemporary.php?type=${type}`;
   const ENDPOINT = `${BASE_URL}/api/data?type=${type}`;
 
   console.log(`🌐 [${type}] Trying to fetch from: ${ENDPOINT}`);
@@ -54,7 +53,6 @@ async function fetchHubSpotData(type) {
     return { items, error: null };
   } catch (err) {
     console.error(`❌ [${type}] Server failed, using fallback:`, err.message);
-    // Fallback to static data when API fails
     try {
       const { hubspotItems, automationItems, auditItems, industriesItems, servicesItems, whyChooseItems } = await import('../data/homeItems.js');
       const fallbackData = {
@@ -75,7 +73,7 @@ async function fetchHubSpotData(type) {
   }
 }
 
-// Новая функция, возвращает все типы данных сразу
+
 export async function getAllHubSpotData() {
   const [hubspot, automation, audit, industries, services] = await Promise.all([
     fetchHubSpotData('hubspotItems'),
@@ -99,13 +97,12 @@ export async function getAllHubSpotData() {
   };
 }
 
-// Функция для получения блогов
+
 export async function getBlogData(locale = 'en', filters = {}) {
-  // Используем CLIENT_BASE_URL для клиентских запросов, BASE_URL для серверных
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
   const BLOG_ENDPOINT = `${API_BASE}/api/blogs?lang=${locale}`;
   
-  // Добавляем параметры фильтрации
+
   const params = new URLSearchParams();
   if (filters.category) params.append('category', filters.category);
   if (filters.limit) params.append('limit', filters.limit);
@@ -138,13 +135,12 @@ export async function getBlogData(locale = 'en', filters = {}) {
       throw new Error(`Invalid JSON from blogs endpoint`);
     }
 
-    // Обработка данных из вашей БД
     let items = [];
     let totalCount = 0;
     let currentPage = 1;
     let totalPages = 1;
 
-    // Структура вашей БД: { total, page, pageCount, blogs: [...] }
+
     if (raw && typeof raw === 'object') {
       items = Array.isArray(raw.blogs) ? raw.blogs : [];
       totalCount = raw.total || items.length;
@@ -155,22 +151,31 @@ export async function getBlogData(locale = 'en', filters = {}) {
       totalCount = items.length;
     }
 
-    // Нормализация данных блога для вашей структуры БД
+
     items = items.map((blog, idx) => {
-      // Получаем контент для нужного языка
-      const content = blog.contents?.find(c => c.language?.code === locale) || blog.contents?.[0] || {};
+      // Находим контент для нужного языка
+      const localeContents = blog.contents?.filter(c => c.language?.code === locale) || blog.contents || [];
+      
+      // Извлекаем title из элемента с type: "title"
+      const titleContent = localeContents.find(c => c.type === 'title');
+      // Извлекаем body из элемента с type: "body"
+      const bodyContent = localeContents.find(c => c.type === 'body');
+      
+      // Для body текст хранится в поле subtitle, а не content
+      const bodyText = bodyContent?.subtitle || bodyContent?.content || '';
+      const titleText = titleContent?.title || titleContent?.content || '';
       
       return {
         id: blog.id ?? idx,
         slug: `blog-${blog.id}` ?? `blog-${idx}`,
-        title: content.title ?? '',
-        subtitle: content.subtitle ?? '',
-        excerpt: content.subtitle ?? content.content?.replace(/<[^>]*>/g, '').substring(0, 150) ?? '',
-        content: content.content ?? '',
+        title: titleText,
+        subtitle: titleContent?.subtitle ?? '',
+        excerpt: bodyText.replace(/<[^>]*>/g, '').substring(0, 150),
+        content: bodyText,
         categoryKey: blog.categoryKey ?? blog.category ?? '',
         categoryLabel: blog.categoryLabel ?? blog.category ?? '',
         date: blog.created_at ?? '',
-        readTime: Math.ceil((content.content?.length || 0) / 1000) + ' min read',
+        readTime: Math.ceil((bodyText?.length || 0) / 1000) + ' min read',
         author: blog.author?.name ?? blog.author ?? '',
         authorEmail: blog.author?.email ?? '',
         image: blog.image ? `${API_BASE}${blog.image}` : '/placeholder-blog.svg',
@@ -193,10 +198,8 @@ export async function getBlogData(locale = 'en', filters = {}) {
 
   } catch (err) {
     console.error(`❌ [blogs] API failed, using fallback:`, err.message);
-    
-    // Fallback к статическим данным из переводов
+
     try {
-      // Только на сервере можем импортировать next-intl
       if (typeof window === 'undefined') {
         const { getTranslations } = await import('next-intl/server');
         const t = await getTranslations({ locale, namespace: 'home' });
@@ -211,7 +214,6 @@ export async function getBlogData(locale = 'en', filters = {}) {
           totalPages: 1
         };
       } else {
-        // На клиенте просто возвращаем пустой массив
         return { 
           items: [], 
           error: err?.message ?? 'Unknown error',
@@ -234,25 +236,20 @@ export async function getBlogData(locale = 'en', filters = {}) {
     clearTimeout(timeout);
   }
 }
-
-// Функция для получения отдельного поста блога
 export async function getBlogPost(slug, locale = 'en') {
   console.log(`🌐 [blog-post] Looking for post with slug: ${slug}`);
   
   try {
-    // Сначала пытаемся получить данные из общего списка блогов
     const blogData = await getBlogData(locale);
     console.log(`📊 [blog-post] Got ${blogData.items?.length || 0} posts from getBlogData`);
     
-    // Ищем пост по slug
     const post = blogData.items.find(item => item.slug === slug);
     
     if (post) {
       console.log(`✅ [blog-post] Found post: ${post.title}`);
       return { post, error: null };
     }
-    
-    // Если не нашли по slug, пробуем найти по ID
+
     const blogId = slug.replace('blog-', '');
     const postById = blogData.items.find(item => item.id.toString() === blogId);
     
@@ -292,7 +289,6 @@ export async function getBlogPost(slug, locale = 'en') {
   }
 }
 
-// Функция для создания нового поста блога
 export async function createBlogPost(formData) {
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
   const CREATE_ENDPOINT = `${API_BASE}/api/blogs`;
@@ -300,12 +296,12 @@ export async function createBlogPost(formData) {
   console.log(`🌐 [create-blog] Trying to create post at: ${CREATE_ENDPOINT}`);
   
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000); // Увеличиваем timeout для загрузки файлов
+  const timeout = setTimeout(() => controller.abort(), 15000); 
 
   try {
     const res = await fetch(CREATE_ENDPOINT, {
       method: 'POST',
-      body: formData, // FormData с файлами
+      body: formData, 
       signal: controller.signal
     });
 
@@ -326,7 +322,6 @@ export async function createBlogPost(formData) {
   }
 }
 
-// Функция для обновления поста блога
 export async function updateBlogPost(blogId, formData) {
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
   const UPDATE_ENDPOINT = `${API_BASE}/api/blogs/${blogId}`;
@@ -360,7 +355,6 @@ export async function updateBlogPost(blogId, formData) {
   }
 }
 
-// Функция для удаления поста блога
 export async function deleteBlogPost(blogId) {
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
   const DELETE_ENDPOINT = `${API_BASE}/api/blogs/${blogId}`;
@@ -392,7 +386,6 @@ export async function deleteBlogPost(blogId) {
   }
 }
 
-// Функция для получения тегов блога по blogId
 export async function getBlogTags(blogId, lang = 'en') {
   const API_BASE = typeof window !== 'undefined' ? CLIENT_BASE_URL : BASE_URL;
   const TAGS_ENDPOINT = `${API_BASE}/api/blogs/${blogId}/tags?lang=${lang}`;
@@ -413,7 +406,6 @@ export async function getBlogTags(blogId, lang = 'en') {
     console.log(`📡 [blog-tags] Response status: ${res.status}`);
 
     if (res.status === 404) {
-      // Блог не найден — возвращаем пустой массив тегов
       return [];
     }
 
@@ -427,7 +419,6 @@ export async function getBlogTags(blogId, lang = 'en') {
       throw new Error(`Invalid JSON from blog tags endpoint`);
     }
 
-    // Ожидаем массив тегов
     const tags =
       Array.isArray(raw) ? raw
       : Array.isArray(raw?.tags) ? raw.tags

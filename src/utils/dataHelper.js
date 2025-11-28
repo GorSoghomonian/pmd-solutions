@@ -1,4 +1,3 @@
-// utils/dataHelper.js
 import { getAllHubSpotData } from '../lib/api';
 import { hubspotItems, automationItems, auditItems, industriesItems, whyChooseItems, servicesItems } from '../data/homeItems';
 
@@ -10,9 +9,9 @@ export async function getApiDataWithFallback() {
       hubspotItems: apiData.hubspotItems.length ? apiData.hubspotItems : hubspotItems,
       automationItems: apiData.automationItems.length ? apiData.automationItems : automationItems,
       auditItems: apiData.auditItems.length ? apiData.auditItems : auditItems,
-      industriesItems: industriesItems, // Статичные данные
-      whyChooseItems: whyChooseItems, // Статичные данные
-      servicesItems: servicesItems, // Статичные данные
+      industriesItems: industriesItems, 
+      whyChooseItems: whyChooseItems, 
+      servicesItems: servicesItems,
       errors: {
         hubspot: apiData.hubspotError,
         automation: apiData.automationError,

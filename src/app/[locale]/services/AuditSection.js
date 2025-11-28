@@ -2,8 +2,8 @@ import Image from 'next/image';
 import FeatureCard from '../../../components/molecules/FeatureCard';
 import ActionButtons from '../../../components/molecules/ActionButtons';
 import { getTranslations } from 'next-intl/server';
-import { getAllHubSpotData } from '../../../lib/api'; // Добавляем импорт
-import { auditItems } from '../../../data/homeItems'; // Fallback импорт
+import { getAllHubSpotData } from '../../../lib/api'; 
+import { auditItems } from '../../../data/homeItems';
 
 export default async function AuditSection({
   locale,
@@ -15,7 +15,6 @@ export default async function AuditSection({
 }) {
   const t = await getTranslations({ locale, namespace: 'home' });
 
-  // Получаем данные из API
   console.log('🔄 AuditSection: Fetching data from API...');
   const apiData = await getAllHubSpotData();
   const finalItems = apiData.auditItems?.length ? apiData.auditItems : (items.length ? items : auditItems);
@@ -28,15 +27,13 @@ export default async function AuditSection({
   const localized = finalItems.map(it => {
     let title = it.title || '';
     let description = it.description || '';
-
-    // Для данных с составными ключами (и с сервера, и из homeItems.js)
     if (it.titleKey && it.titleKey.includes('.')) {
       const [section, field] = it.titleKey.split('.');
       const translationKey = `audit.cards.${section}.${field}`;
       title = t(translationKey, { default: `Missing: ${translationKey}` });
       console.log(`🔍 Translation lookup: "${translationKey}" -> "${title}"`);
     } else if (it.titleKey) {
-      // Если ключ без точки
+      
       const translationKey = `audit.cards.${it.titleKey}`;
       title = t(translationKey, { default: `Missing: ${translationKey}` });
       console.log(`🔍 Translation lookup: "${translationKey}" -> "${title}"`);
@@ -47,12 +44,11 @@ export default async function AuditSection({
       const translationKey = `audit.cards.${section}.${field}`;
       description = t(translationKey, { default: `Missing: ${translationKey}` });
     } else if (it.descriptionKey) {
-      // Если ключ без точки
+      
       const translationKey = `audit.cards.${it.descriptionKey}`;
       description = t(translationKey, { default: `Missing: ${translationKey}` });
     }
 
-    // Временные тестовые тексты если переводы не работают
     if (!title || title.includes('Missing:')) {
       const testTitles = ['Process Analysis', 'Compliance Review', 'Efficiency Assessment', 'Recommendations'];
       title = testTitles[finalItems.indexOf(it)] || 'Test Title';
@@ -68,10 +64,8 @@ export default async function AuditSection({
       description = testDescriptions[finalItems.indexOf(it)] || 'Test Description';
     }
 
-    // Преобразуем HTML строку иконки в React компонент
     let icon = it.icon;
     if (typeof it.icon === 'string' && it.icon.includes('<i class="ri-')) {
-      // Извлекаем класс из HTML строки
       const classMatch = it.icon.match(/class="([^"]+)"/);
       if (classMatch) {
         const iconClass = classMatch[1];

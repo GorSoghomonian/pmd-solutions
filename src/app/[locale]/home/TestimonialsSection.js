@@ -58,7 +58,6 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
   const scrollPrev = () => embla?.scrollPrev();
   const scrollNext = () => embla?.scrollNext();
 
-  // Высота карточек = как у первого слайда
   const cardRefs = useRef([]);
   const [cardHeight, setCardHeight] = useState(0);
   useEffect(() => {
@@ -75,18 +74,16 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
     };
   }, [slides]);
 
-  // Фолбэк для битых URL
   const [broken, setBroken] = useState({});
   const onImgError = (i) => setBroken((p) => ({ ...p, [i]: true }));
   const getAvatarSrc = (src, i) => (broken[i] || !src ? defaultAvatar : src);
 
-  // Заголовки из messages
+
   const titlePrefix = mt.titlePrefix ?? 'What Our';
   const titleAccent = mt.titleAccent ?? 'Clients Say';
   const subtitle =
     mt.subtitle ?? 'Real results from real businesses who trust PMD Solutions with their digital transformation';
 
-  // KPI под каруселью (берём из messages, если есть)
   const defaultKpis = [
     { value: '98%',  label: 'Client Satisfaction' },
     { value: '250%', label: 'Average ROI Increase' },
@@ -109,7 +106,6 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
     <div className={`relative bg-white rounded-t-3xl shadow-[0_6px_18px_-4px_rgba(0,0,0,0.08)] -mt-10 z-10 overflow-hidden ${className}`}>
       <section id="testimonials-section" className="py-20 bg-white overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Заголовок */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {titlePrefix} <span className="text-[#2A73DD]">{titleAccent}</span>
@@ -117,7 +113,6 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
           </div>
 
-          {/* Карусель */}
           <div className="max-w-4xl mx-auto mb-16 relative">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
@@ -193,8 +188,6 @@ export default function TestimonialsSection({ locale = 'en', className = '' } = 
               </div>
             </div>
           </div>
-
-          {/* KPI блок под каруселью */}
           <div className="max-w-5xl mx-auto pt-12 border-t border-gray-100">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {kpis.map((k, i) => (

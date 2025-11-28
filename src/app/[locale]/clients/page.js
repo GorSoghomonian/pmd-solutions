@@ -23,7 +23,7 @@ function useContainerSize(ref) {
 }
 
 function getRandomPositions(n, width, height) {
-	const margin = 64; // keep away from edges
+	const margin = 64;
 	const positions = [];
 	for (let i = 0; i < n; i++) {
 		const x = Math.random() * Math.max(0, width - margin * 2) + margin;
@@ -33,7 +33,6 @@ function getRandomPositions(n, width, height) {
 	return positions;
 }
 
-// Deterministic seeded RNG to avoid SSR/CSR mismatches
 function seedFromString(str) {
 	let h = 2166136261 >>> 0; // FNV-1a
 	for (let i = 0; i < str.length; i++) {
@@ -55,8 +54,8 @@ export default function ClientsPage() {
 	const t = useTranslations('clients');
 	const locale = useLocale();
 
-	// Categories and items from translations
-	const categories = t.raw('categories'); // [{ key, label }]
+
+	const categories = t.raw('categories'); 
 	const allClients = t.raw('items');
 
 	const [selectedCategory, setSelectedCategory] = useState('all');
@@ -80,7 +79,7 @@ export default function ClientsPage() {
 		}
 	}, [width, height, filtered.length]);
 
-	// Floating animation variables per bubble (deterministic by id)
+
 	const floatVars = useMemo(
 		() =>
 			filtered.map((c) => {
@@ -110,7 +109,6 @@ export default function ClientsPage() {
 				id="clients-arena"
 				className="relative bg-white pb-24 md:pb-32"
 			>
-				{/* Filters */}
 				<div className=" flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up animate-delay-300 pt-8 md:pt-0">
 					{categories.map((c) => {
 						const active = c.key === selectedCategory;
@@ -130,8 +128,7 @@ export default function ClientsPage() {
 						);
 					})}
 				</div>
-				
-				{/* Arena */}
+
 				<div className="relative max-w-7xl mx-auto px-6">
 					<div
 						ref={arenaRef}
@@ -196,8 +193,6 @@ export default function ClientsPage() {
 					</div>
 				</div>
 
-				{/* Slide-over */}
-				{/* Overlay */}
 				{selected && (
 					<div
 						className="fixed inset-0 bg-black/30 opacity-100 transition-opacity duration-300"
@@ -206,8 +201,6 @@ export default function ClientsPage() {
 						aria-hidden="true"
 					/>
 				)}
-
-				{/* Panel */}
 				<aside
 					className={`fixed right-0 top-0 h-full w-full md:w-[420px] bg-white shadow-2xl transition-transform duration-300 ease-out z-50 ${
 						selected ? 'translate-x-0' : 'translate-x-full'
@@ -285,8 +278,6 @@ export default function ClientsPage() {
 						</div>
 					)}
 				</aside>
-
-				{/* Keyframes + helpers */}
 				<style jsx global>{`
 					@keyframes floatXY {
 						0% { transform: translate(0, 0); }

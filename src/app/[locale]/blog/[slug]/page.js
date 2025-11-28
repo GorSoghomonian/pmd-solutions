@@ -6,7 +6,6 @@ import Link from 'next/link';
 import SafeHtmlContent from '../../../../components/common/SafeHtmlContent';
 import HeroSection from "../../../../components/molecules/HeroSection";
 
-// Генерируем статические параметры для всех постов
 export async function generateStaticParams({ params }) {
   const { locale } = params;
   
@@ -28,7 +27,6 @@ export async function generateStaticParams({ params }) {
   }
 }
 
-// Генерируем метаданные для SEO
 export async function generateMetadata({ params }) {
   const awaitedParams = await params;
   const { locale, slug } = awaitedParams;
@@ -67,23 +65,20 @@ export default async function BlogPostPage({ params }) {
   
   console.log(`🔧 [BlogPostPage] Loading post with slug: ${slug}, locale: ${locale}`);
   
-  // Получаем данные поста
   const { post, error } = await getBlogPost(slug, locale);
 
-  // Получаем теги с учетом языка
   const tags = post?.id ? await getBlogTags(post.id, locale) : [];
   console.log(`📊 [BlogPostPage] Post result:`, { post: !!post, error: !!error });
-  
-  // Если пост не найден, показываем 404
+
   if (!post && !error) {
     console.log(`❌ [BlogPostPage] Post not found, redirecting to 404`);
     notFound();
   }
 
-  // Получаем переводы
+
   const t = await getTranslations({ locale, namespace: 'blog' });
 
-  // Функция для форматирования даты
+
   const formatDate = (dateString) => {
     if (!dateString) return '';
     try {
@@ -98,7 +93,6 @@ export default async function BlogPostPage({ params }) {
     }
   };
 
-  // Если есть ошибка и нет поста, показываем ошибку
   if (error && !post) {
     return (
       <div className="max-w-4xl mx-auto px-6 py-20">
@@ -122,7 +116,6 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Хлебные крошки и навигация */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <nav className="flex items-center space-x-2 text-sm text-gray-600">
@@ -141,19 +134,7 @@ export default async function BlogPostPage({ params }) {
         </div>
       </div>
 
-      {/* Кнопка "Назад" */}
-      {/* <div className="max-w-4xl mx-auto px-6 py-18">
-        <Link 
-          href={`/${locale}/blog`}
-          className="inline-flex items-center text-[#2A73DD] hover:text-[#1f5ec0] transition-colors"
-        >
-          ← Back to Blog
-        </Link>
-      </div> */}
-
-      {/* Основной контент */}
       <article className="mx-auto ">
-        {/* Заголовок поста */}
         <HeroSection
           title={
             <>
@@ -192,7 +173,6 @@ export default async function BlogPostPage({ params }) {
           className="pb-12 md:pb-0"
         />
 
-        {/* Главное изображение */}
         <article  className='max-w-4xl mx-auto'>
 
         {post?.image && (
@@ -208,7 +188,7 @@ export default async function BlogPostPage({ params }) {
           </div>
         )}
 
-        {/* Карусель изображений */}
+
         {post?.carouselImages && post.carouselImages.length > 0 && (
           <div className="mb-8">
             <h3 className="text-xl font-semibold mb-4">Gallery</h3>
@@ -228,7 +208,6 @@ export default async function BlogPostPage({ params }) {
           </div>
         )}
 
-        {/* Контент поста */}
         {post?.content && (
           <>
             <style>{`
@@ -251,8 +230,6 @@ export default async function BlogPostPage({ params }) {
             />
           </>
         )}
-
-        {/* Сообщение об ошибке, если данные получены из fallback */}
         {error && (
           <div className="mt-8 p-4 bg-orange-50 border border-orange-200 rounded-lg">
             <p className="text-orange-800 text-sm">
@@ -277,7 +254,6 @@ export default async function BlogPostPage({ params }) {
         </div>
       </article>
 
-      {/* Связанные посты или призыв к действию */}
       <div className="bg-gray-100 py-12 mt-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">

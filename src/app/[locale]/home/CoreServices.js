@@ -18,10 +18,8 @@ export default async function CoreServices({
   button,
   className = '',
 } = {}) {
-  // Получаем переводы для конкретной локали
   const t = await getTranslations({locale, namespace: 'home'});
   
-  // Создаем функцию для безопасного получения переводов
   const safeT = (key, def) => {
     try {
       return t(key, { default: def });
@@ -121,7 +119,6 @@ export default async function CoreServices({
           </div>
         )}
       </div>
-      {/* нижняя тень (длиннее и мягче) */}
       <div
   aria-hidden
   className="pointer-events-none absolute -bottom-8 left-1/2 h-12 w-[115%] -translate-x-1/2 rounded-full bg-black/10 blur-2xl"

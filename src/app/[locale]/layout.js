@@ -14,16 +14,13 @@ export function generateStaticParams() {
 export default async function LocaleLayout({children, params}) {
   const {locale} = await params;
   
-  // Проверяем валидность локали
   const validLocale = ['en', 'ru'].includes(locale) ? locale : 'en';
-  
-  // Простая загрузка сообщений с обработкой ошибок
+
   let messages;
   try {
     messages = await import(`../../../messages/${validLocale}.json`).then(m => m.default);
   } catch (error) {
     console.error(`Failed to load messages for locale ${validLocale}:`, error);
-    // Fallback на английский
     messages = await import(`../../../messages/en.json`).then(m => m.default);
   }
   

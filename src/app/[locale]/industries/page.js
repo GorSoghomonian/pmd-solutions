@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '../../../components/molecules/HeroSection';
-import ActionButtons from '../../../components/molecules/ActionButtons'; // добавлено
+import ActionButtons from '../../../components/molecules/ActionButtons'; 
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 
-// TODO: Extract industry data to external data source
-// TODO: Implement i18n for all text content
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -20,21 +18,13 @@ export default async function IndustriesPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'industries' });
 
-  // TODO: Extract industries data to separate file
-const list = t.raw('arrList') || [];  // исправил регистр
+
+const list = t.raw('arrList') || []; 
 const items = Array.isArray(list) ? list : [];
-  console.log(items)
-  // const industries = [
-  //   { key: 'realEstate', icon: 'ri-building-line' },
-  //   { key: 'logistics', icon: 'ri-truck-line' },
-  //   { key: 'retail', icon: 'ri-store-line' },
-  //   { key: 'services', icon: 'ri-customer-service-line' },
-  //   { key: 'healthcare', icon: 'ri-hospital-line' },
-  // ];
+
 
   return (
     <main>
-      {/* Hero Section */}
       <ErrorBoundary>
 
         <HeroSection
@@ -71,15 +61,12 @@ const items = Array.isArray(list) ? list : [];
           showScrollIndicator
           minHeight="h-screen"
         >
-          {/* TODO: Make these functional navigation buttons instead of static display */}
         </HeroSection>
 
-        {/* Real Estate Section */}
         <section
           className="bg-[#2A73DD] text-white h-screen flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-20"
         >
           <div className="w-full max-w-7xl mx-auto px-6 mt-10 flex flex-col lg:flex-row items-center gap-12">
-            {/* Контент секции */}
             <div className="flex-1">
               <div className='flex items-center mb-6'>
                 <div className="w-20 h-20 rounded-2xl flex items-center justify-center bg-white/20">
@@ -114,8 +101,6 @@ const items = Array.isArray(list) ? list : [];
                 />
               </div>
             </div>
-
-            {/* Картинка через next/image */}
             <div className="flex-1 md:flex items-center justify-center sm:block hidden">
               <div style={{ position: 'relative', width: '100%', maxWidth: 600, height: 384 }} className="overflow-hidden rounded-2xl shadow-lg">
                 <Image

@@ -9,12 +9,10 @@ export default function SafeHtmlContent({ html, className }) {
       const links = ref.current.querySelectorAll('a[href]');
       links.forEach(link => {
         const href = link.getAttribute('href');
-        // Открывать внешние ссылки в новой вкладке
         if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
           link.setAttribute('target', '_blank');
           link.setAttribute('rel', 'noopener noreferrer');
         }
-        // Стилизовать ссылки (если нужно)
         link.classList.add('prose-a:text-[#2A73DD]', 'prose-a:no-underline', 'hover:prose-a:underline');
       });
     }
